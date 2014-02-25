@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epoques>
+    <epoque id="1" >
+        <nom>Contemporaine</nom>
+        <siecle>XXIème</siecle>
+        <image></image>
+        <bateaux>
+            <bateau>
+                <nom>Porte-avions</nom>
+                <longueur>5</longueur>
+                <portee>5</portee>
+                <images>
+                    <image id="1"></image>
+                    <image id="2"></image>
+                    <image id="3"></image>
+                    <image id="4"></image>
+                    <image id="5"></image>
+                </images>
+            </bateau>
+        </bateaux>
+    </epoque>
+</epoques>
