@@ -6,6 +6,7 @@ package bataille_navale;
  */
 public class JoueurMachine extends Joueur {
 
+    
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
     
