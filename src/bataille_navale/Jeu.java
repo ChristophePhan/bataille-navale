@@ -1,5 +1,7 @@
 package bataille_navale;
 
+import stockage.DAOFactory;
+
 /**
  * Jeu
  * @author Chayem Samy, Neret Tristan, Phan Christophe
@@ -31,6 +33,8 @@ public class Jeu {
      * @param profil profil a sauvegarder
      */
     public void saveProfil(Profil profil) {
+        
+        DAOFactory.getInstance().getDAO_Sauvegarde().createProfil(profil);
 
     } // saveProfil(Profil profil)
     
@@ -41,6 +45,8 @@ public class Jeu {
      */
     public void updateProfil(Profil profil) {
 
+        DAOFactory.getInstance().getDAO_Sauvegarde().updateProfil(profil);
+        
     } // updateProfil(Profil profil)
     
 
@@ -49,6 +55,8 @@ public class Jeu {
      * @param id identifiant du profil a supprimer
      */
     private void removeProfil(int id) {
+        
+        DAOFactory.getInstance().getDAO_Sauvegarde().removeProfil(id);
 
     } // removeProfil(int id)
     

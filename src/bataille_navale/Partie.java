@@ -10,15 +10,23 @@ public class Partie {
     ////////////////////////////// VARIABLES //////////////////////////////////
 
     
-    private String id;
+    private String _id;
+    private Parametre _parametre;
+    private Joueur _j1;
+    private Joueur _j2;
     
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
 
 
-    public Partie() {
-
-    } // Partie()
+    public Partie(Parametre parametre, Joueur j1, Joueur j2) {
+        
+        this._id = "partie" + parametre.hashCode() + j1.hashCode() + j2.hashCode();
+        this._parametre = parametre;
+        this._j1 = j1;
+        this._j2 = j2;
+        
+    } // Partie(Partie(Parametre parametre, Joueur j1, Joueur j2))
     
     
     ////////////////////////////// FONCTIONS //////////////////////////////////
@@ -94,17 +102,40 @@ public class Partie {
     public void afficherMessage(String mess) {
 
     } // afficherMessage(String mess)
-    
 
     /**** GETTER/SETTER *****/
     
     
     public String getId() {
-        return id;
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String _id) {
+        this._id = _id;
+    }
+
+    public Parametre getParametre() {
+        return _parametre;
+    }
+
+    public void setParametre(Parametre _parametre) {
+        this._parametre = _parametre;
+    }
+
+    public Joueur getJ1() {
+        return _j1;
+    }
+
+    public void setJ1(Joueur _j1) {
+        this._j1 = _j1;
+    }
+
+    public Joueur getJ2() {
+        return _j2;
+    }
+
+    public void setJ2(Joueur _j2) {
+        this._j2 = _j2;
     }
 
     

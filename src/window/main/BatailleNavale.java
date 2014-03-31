@@ -7,6 +7,10 @@
 package window.main;
 
 import bataille_navale.Jeu;
+import bataille_navale.Profil;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import stockage.DAOFactory;
 
 /**
  * BatailleNavale
@@ -31,11 +35,43 @@ public class BatailleNavale extends javax.swing.JFrame {
         initComponents();
         
         this._jeu = new Jeu();
+        this.setLocationRelativeTo(null);
         
     } // BatailleNavale()
     
     
     /////////////////////////////// FONCTIONS /////////////////////////////////
+    
+    
+    /**
+     * Permet d'intialiser le jeu a partir des fichier de configuration
+     * et de sauvegarde
+     */
+    public void initialisation() {
+        
+        if(DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils() == null 
+                || DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().isEmpty()) {
+            
+            // Affiche le label qui signal qu'aucun profil n'est disponible
+            this.jLabel5.setVisible(true);
+            
+        } else {
+            
+            // Masque le label qui signal qu'aucun profil n'est disponible
+            this.jLabel5.setVisible(false);
+            // Affichage des profils disponibles
+            int nbProfils = DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().size();
+            this.jPanel1.setLayout(new GridLayout(nbProfils,1));
+            for(int i=0;i<nbProfils;i++) {
+                
+                this.jPanel1.add(new JButton(((Profil)DAOFactory.getInstance().getDAO_Sauvegarde()
+                        .getAllProfils().get(i)).getNom()));
+                
+            }
+            
+        }
+        
+    } // initialisation()
 
     
     /**
@@ -47,26 +83,28 @@ public class BatailleNavale extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
+        popupNouveauProfil = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        saisieNomProfil = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        erreurNomProfil = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
 
-        jDialog1.setResizable(false);
-        jDialog1.setSize(new java.awt.Dimension(400, 165));
+        popupNouveauProfil.setResizable(false);
+        popupNouveauProfil.setSize(new java.awt.Dimension(400, 165));
 
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Nouveau nom de profil");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        saisieNomProfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                saisieNomProfilActionPerformed(evt);
             }
         });
 
@@ -75,56 +113,53 @@ public class BatailleNavale extends javax.swing.JFrame {
         jLabel4.setText("Nom");
 
         jButton2.setText("Ajouter le profil");
-
-        jButton3.setText("Close");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(0, 76, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+        erreurNomProfil.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        erreurNomProfil.setForeground(new java.awt.Color(255, 102, 102));
+        erreurNomProfil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        erreurNomProfil.setText("Désolé, ce nom de profil est déjà utilisé.");
+
+        javax.swing.GroupLayout popupNouveauProfilLayout = new javax.swing.GroupLayout(popupNouveauProfil.getContentPane());
+        popupNouveauProfil.getContentPane().setLayout(popupNouveauProfilLayout);
+        popupNouveauProfilLayout.setHorizontalGroup(
+            popupNouveauProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(erreurNomProfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(popupNouveauProfilLayout.createSequentialGroup()
+                .addGroup(popupNouveauProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(popupNouveauProfilLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(saisieNomProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(popupNouveauProfilLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(jButton2)))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jLabel3))
+        popupNouveauProfilLayout.setVerticalGroup(
+            popupNouveauProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(popupNouveauProfilLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(popupNouveauProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saisieNomProfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(erreurNomProfil)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(26, 26, 26))
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 60)); // NOI18N
@@ -144,6 +179,25 @@ public class BatailleNavale extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 50)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Aucun profil disponible");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,7 +207,8 @@ public class BatailleNavale extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(293, 293, 293)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +217,9 @@ public class BatailleNavale extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(72, 72, 72))
         );
@@ -178,7 +235,9 @@ public class BatailleNavale extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        this.jDialog1.setVisible(true);
+        this.popupNouveauProfil.setLocationRelativeTo(null);
+        this.erreurNomProfil.setVisible(false);
+        this.popupNouveauProfil.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -190,21 +249,32 @@ public class BatailleNavale extends javax.swing.JFrame {
      * Zone de saisie du nouveau profil
      * @param evt 
      */
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void saisieNomProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saisieNomProfilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_saisieNomProfilActionPerformed
 
     
+    
     /**
-     * Permet de fermer la fenetre du nouveau profil
+     * Permet d'ajouter le nouveau profil
      * @param evt 
      */
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        this.jDialog1.setVisible(false);
+      if(DAOFactory.getInstance().getDAO_Sauvegarde().isExistingProfil(this.saisieNomProfil.getText())) {
+          
+          // Affichage du message d'erreur
+          this.erreurNomProfil.setVisible(true);
+          
+      } else {
+          
+          // Creation et sauvegrade du profil
+          Profil newProfil = new Profil(this.saisieNomProfil.getText());
+          DAOFactory.getInstance().getDAO_Sauvegarde().createProfil(newProfil);
+          
+      }
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     /******************************* MAIN ************************************/ 
@@ -252,15 +322,17 @@ public class BatailleNavale extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel erreurNomProfil;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JDialog popupNouveauProfil;
+    private javax.swing.JTextField saisieNomProfil;
     // End of variables declaration//GEN-END:variables
 
 

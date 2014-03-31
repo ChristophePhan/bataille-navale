@@ -30,7 +30,7 @@ public class CaseBateau extends Case {
     @Override
     public Bateau getBateau() {
 
-            return this._bateau;
+        return this._bateau;
 
     } // getBateau()
     

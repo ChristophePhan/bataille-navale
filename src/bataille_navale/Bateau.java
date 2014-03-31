@@ -1,6 +1,5 @@
 package bataille_navale;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -38,7 +37,7 @@ public class Bateau {
      */
     public boolean testBateauCoule() {
         
-            return (this.nbCasesNonTouchees <= 0);
+        return (this.nbCasesNonTouchees <= 0);
             
     } // testBateauCoule()
 

@@ -21,7 +21,7 @@ public class CaseVide extends Case {
     @Override
     public Bateau getBateau() {
         
-            return null;
+        return null;
             
     } // getBateau()
 

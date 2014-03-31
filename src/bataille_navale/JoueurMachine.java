@@ -10,7 +10,8 @@ public class JoueurMachine extends Joueur {
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
     
-    public JoueurMachine() {
+    public JoueurMachine(String nom) {
+        super(nom);
         
     } // JoueurMachine()
     

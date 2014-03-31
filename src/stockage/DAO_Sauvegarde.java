@@ -50,6 +50,9 @@ public class DAO_Sauvegarde {
         return null;
         
     } // getParties(Profil profil)
+    
+    
+    /**************************** PROFIL *************************************/
 
     
     /**
@@ -59,6 +62,28 @@ public class DAO_Sauvegarde {
     public void createProfil(Profil profil) {
 
     } // createProfil(Profil profil)
+    
+    
+    /**
+     * Permet de savoir si un profil du meme nom existe deja
+     * @param nom nom a tester
+     * @return TRUE si un profil ayant le meme nom existe deja, FALSE sinon
+     */
+    public boolean isExistingProfil(String nom) {
+        
+        for(int i=0;i<this.getAllProfils().size();i++) {
+            
+            if(((Profil)this.getAllProfils().get(i)).getNom().equals(nom)) {
+                
+                return true;
+                
+            }
+            
+        }
+        
+        return false;
+        
+    } // isExistingProfil(String nom)
 
     
     /**
@@ -77,6 +102,9 @@ public class DAO_Sauvegarde {
     public void removeProfil(int id) {
 
     } // removeProfil(int id)
+    
+    
+    /**************************** PARTIE *************************************/
 
     
     /**

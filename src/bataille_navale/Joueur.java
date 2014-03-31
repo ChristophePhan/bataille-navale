@@ -1,5 +1,7 @@
 package bataille_navale;
 
+import java.util.ArrayList;
+
 /**
  * Joueur
  * @author Chayem Samy, Neret Tristan, Phan Christophe
@@ -10,15 +12,20 @@ public abstract class Joueur {
     ////////////////////////////// VARIABLES //////////////////////////////////
     
 
-    private String nom;
-    private int nbTirsGagnant;
-    private int nbTirsPerdant;
+    private String _nom;
+    private int _nbTirsGagnant;
+    private int _nbTirsPerdant;
+    private ArrayList<Case> cases;
 
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
     
-    public Joueur() {
+    public Joueur(String nom) {
+        
+        this._nom = nom;
+        this._nbTirsGagnant = 0;
+        this._nbTirsPerdant = 0;
         
     } // Joueur()
     
@@ -64,28 +71,35 @@ public abstract class Joueur {
     
     
     public String getNom() {
-        return nom;
+        return _nom;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this._nom = nom;
     }
 
     public int getNbTirsGagnant() {
-        return nbTirsGagnant;
+        return _nbTirsGagnant;
     }
 
     public void setNbTirsGagnant(int nbTirsGagnant) {
-        this.nbTirsGagnant = nbTirsGagnant;
+        this._nbTirsGagnant = nbTirsGagnant;
     }
 
     public int getNbTirsPerdant() {
-        return nbTirsPerdant;
+        return _nbTirsPerdant;
     }
 
     public void setNbTirsPerdant(int nbTirsPerdant) {
-        this.nbTirsPerdant = nbTirsPerdant;
+        this._nbTirsPerdant = nbTirsPerdant;
     }
 
+    public ArrayList<Case> getCases() {
+        return cases;
+    }
+
+    public void setCases(ArrayList<Case> cases) {
+        this.cases = cases;
+    }
     
 } // abstract class Joueur

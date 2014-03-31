@@ -1,10 +1,14 @@
 package bataille_navale;
 
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+
 /**
  * Case
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
-public abstract class Case {
+public abstract class Case extends JButton {
     
     
     /////////////////////////////// VARIABLES /////////////////////////////////
@@ -19,6 +23,7 @@ public abstract class Case {
     public Case() {
         
         this.etat = false;
+        this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         
     } // Case()
     

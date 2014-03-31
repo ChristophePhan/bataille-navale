@@ -1,5 +1,7 @@
 package bataille_navale;
 
+import java.util.ArrayList;
+
 /**
  * Profil
  * @author Chayem Samy, Neret Tristan, Phan Christophe
@@ -10,14 +12,19 @@ public class Profil {
     ////////////////////////////// VARIABLES //////////////////////////////////
     
 
-    private String id;
-    private String nom;
+    private String _id;
+    private String _nom;
+    private ArrayList<Partie> _parties;
     
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
     
-    public Profil() {
+    public Profil(String nom) {
+        
+        this._id = nom + this.hashCode();
+        this._nom = nom;
+        this._parties = new ArrayList<>();
         
     } // Profil()
     
@@ -46,19 +53,27 @@ public class Profil {
     
     
     public String getId() {
-        return id;
+        return _id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this._id = id;
     }
 
     public String getNom() {
-        return nom;
+        return _nom;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this._nom = nom;
+    }
+
+    public ArrayList<Partie> getParties() {
+        return _parties;
+    }
+
+    public void setParties(ArrayList<Partie> _parties) {
+        this._parties = _parties;
     }
 
     
