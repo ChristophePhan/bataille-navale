@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <epoques>
     <epoque >
+        <id>666</id>
         <nom>Contemporaine</nom>
-        <siecle>XXIème</siecle>
+        <siecle>XXI</siecle>
         <image></image>
         <bateaux>
             <bateau>
@@ -10,11 +11,11 @@
                 <longueur>5</longueur>
                 <portee>5</portee>
                 <images>
-                    <image >aaaa</image>
-                    <image ></image>
-                    <image ></image>
-                    <image ></image>
-                    <image ></image>
+                    <image>"dfgdrggrger"</image>
+                    <image>rgerg</image>
+                    <image>rgrg</image>
+                    <image>rgerg</image>
+                    <image>ergerg</image>
                 </images>
             </bateau>
         </bateaux>

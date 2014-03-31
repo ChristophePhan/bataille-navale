@@ -45,37 +45,36 @@ public class DAO_Configuration {
      * @return la liste des epoques disponible
      */
     public HashMap<String, Epoque> getAllEpoques() {
-        List listeEpoquesXML = racine.getChildren("epoques");
+        List listeEpoquesXML = racine.getChildren("epoque");
         HashMap<String, Epoque> listeEpoques = new HashMap();
         Iterator i = listeEpoquesXML.iterator();
         while (i.hasNext()) {
             Epoque ep = new Epoque();
             Element courant = (Element) i.next();
-            ep.setEpoque(courant.getChildText("epoque"));
+            ep.setEpoque(courant.getChildText("siecle"));
             ep.setId(courant.getChildText("id"));
             ep.setImage(courant.getChildText("image"));
             ep.setNom(courant.getChildText("nom"));
-            
-            List bateauxXML = courant.getChildren("bateaux");
-            Iterator i2 = bateauxXML.iterator();
-            HashMap<String, Bateau> bateaux = new HashMap<>();
+            Element bateaux = courant.getChild("bateaux");
+            Iterator i2 = bateaux.getChildren().iterator();
+            HashMap<String, Bateau> bateauxHM = new HashMap<>();
             while (i2.hasNext()) {
                 Bateau b = new Bateau();
-                Element courant2 = (Element)i2.next();
+                Element courant2 = (Element) i2.next();
                 b.setNom(courant2.getChildText("nom"));
                 b.setLongueur(Integer.parseInt(courant2.getChildText("longueur")));
                 b.setPortee(Integer.parseInt(courant2.getChildText("portee")));
-                List imagesBateauXML = courant2.getChildren("images");
-                Iterator i3 = imagesBateauXML.iterator();
-                List images = new ArrayList();
-                while(i3.hasNext()){
-                    Element courant3 = (Element)i3.next();
-                    images.add(courant3.getChildText("image"));
+                Element images = courant2.getChild("images");
+                Iterator i3 = images.getChildren("image").iterator();
+                List imagesL = new ArrayList();
+                while (i3.hasNext()) {
+                    Element courant3 = (Element) i3.next();
+                    imagesL.add(courant3.getText());
                 }
-                b.setImagesBateau(images);
-                bateaux.put(courant2.getChildText("nom"), b);
+                b.setImagesBateau(imagesL);
+                bateauxHM.put(courant2.getChildText("nom"), b);
             }
-            ep.setListBateaux(bateaux);
+            ep.setListBateaux(bateauxHM);
             listeEpoques.put(courant.getChildText("nom"), ep);
         }
         return listeEpoques;

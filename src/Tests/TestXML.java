@@ -22,11 +22,9 @@ public class TestXML {
         // TODO code application logic here
         DAO_Configuration dAO_Configuration = new DAO_Configuration();
         HashMap<String, Epoque> mapEpoque = dAO_Configuration.getAllEpoques();
-        for (int i = 0; i < mapEpoque.size(); i++) {
-            System.out.println(mapEpoque.get(i).getNom());
-            System.out.println(mapEpoque.get(i).getEpoque());
-            System.out.println(mapEpoque.get(i).getId());
-        }
+        System.out.println(mapEpoque.get("Contemporaine").getNom());
+        System.out.println(mapEpoque.get("Contemporaine").getEpoque());
+        System.out.println(mapEpoque.get("Contemporaine").getId());
 
     }
 
