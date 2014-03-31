@@ -1,6 +1,7 @@
 package bataille_navale;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Bateau
@@ -16,7 +17,7 @@ public class Bateau {
     private int longueur;
     private int portee;
     private int nbCasesNonTouchees;
-    private HashMap imagesBateau;
+    private List imagesBateau;
     private int orientation;
     
     
@@ -77,11 +78,11 @@ public class Bateau {
         this.nbCasesNonTouchees = nbCasesNonTouchees;
     }
 
-    public HashMap getImagesBateau() {
+    public List getImagesBateau() {
         return imagesBateau;
     }
 
-    public void setImagesBateau(HashMap imagesBateau) {
+    public void setImagesBateau(List imagesBateau) {
         this.imagesBateau = imagesBateau;
     }
 

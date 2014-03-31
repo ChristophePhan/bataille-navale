@@ -1,5 +1,7 @@
 package bataille_navale;
 
+import java.util.HashMap;
+
 /**
  * Epoque
  * @author Chayem Samy, Neret Tristan, Phan Christophe
@@ -14,7 +16,7 @@ public class Epoque {
     private String nom;
     private String epoque;
     private String image;
-
+    private HashMap<String, Bateau> listBateaux;
 
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
@@ -61,5 +63,11 @@ public class Epoque {
         this.image = image;
     }
 
-   
+    public HashMap getListBateaux() {
+        return listBateaux;
+    }
+
+    public void setListBateaux(HashMap listBateaux) {
+        this.listBateaux = listBateaux;
+    }
 } // class Epoque
