@@ -21,7 +21,7 @@ public class Jeu {
     /**
      * Permet de creer un nouveau profil
      */
-    private void createProfil() {
+    public void createProfil() {
 
     } // createProfil()
 
@@ -30,7 +30,7 @@ public class Jeu {
      * Permet de sauvegarder un profil
      * @param profil profil a sauvegarder
      */
-    private void saveProfil(Profil profil) {
+    public void saveProfil(Profil profil) {
 
     } // saveProfil(Profil profil)
     
@@ -39,7 +39,7 @@ public class Jeu {
      * Permet de mettre a jour un profil
      * @param profil profil a mettre a jour
      */
-    private void updateProfil(Profil profil) {
+    public void updateProfil(Profil profil) {
 
     } // updateProfil(Profil profil)
     
