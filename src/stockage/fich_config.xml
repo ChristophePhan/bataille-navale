@@ -1,3 +1,6 @@
+<!--
+exemple de configuration que le fichier xml doit avoir
+-->
 <?xml version="1.0" encoding="UTF-8"?>
 <epoques>
     <epoque>

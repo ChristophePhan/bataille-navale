@@ -25,7 +25,10 @@ public class TestXML {
         System.out.println(mapEpoque.get("Contemporaine").getNom());
         System.out.println(mapEpoque.get("Contemporaine").getEpoque());
         System.out.println(mapEpoque.get("Contemporaine").getId());
-
+        
+        System.out.println(mapEpoque.get("Future").getNom());
+        System.out.println(mapEpoque.get("Future").getEpoque());
+        System.out.println(mapEpoque.get("Future").getId());
     }
 
 }
