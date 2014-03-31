@@ -31,7 +31,7 @@ public class DAO_Configuration {
         try {
             //On crée un nouveau document JDOM avec en argument le fichier XML
             //Le parsing est terminé ;)
-            document = sxb.build(new File("Exercice2.xml"));
+            document = sxb.build(new File(path));
         } catch (JDOMException | IOException e) {
         }
         racine = document.getRootElement();
