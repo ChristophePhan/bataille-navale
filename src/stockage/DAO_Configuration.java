@@ -21,9 +21,9 @@ import org.jdom2.input.SAXBuilder;
 public class DAO_Configuration {
 
     ////////////////////////////// VARIABLES //////////////////////////////////
-    private String path = "fich_config.xml";
+    private final String path = "fich_config.xml";
     private Document document;
-    private Element racine;
+    private final Element racine;
 
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     public DAO_Configuration() {
@@ -31,7 +31,7 @@ public class DAO_Configuration {
         try {
             //On crée un nouveau document JDOM avec en argument le fichier XML
             //Le parsing est terminé ;)
-            document = sxb.build(new File("Exercice2.xml"));
+            document = sxb.build(new File(path));
         } catch (JDOMException | IOException e) {
         }
         racine = document.getRootElement();
@@ -58,7 +58,7 @@ public class DAO_Configuration {
             
             List bateauxXML = courant.getChildren("bateaux");
             Iterator i2 = bateauxXML.iterator();
-            HashMap<String, Bateau> bateaux = new HashMap<String, Bateau>();
+            HashMap<String, Bateau> bateaux = new HashMap<>();
             while (i2.hasNext()) {
                 Bateau b = new Bateau();
                 Element courant2 = (Element)i2.next();
