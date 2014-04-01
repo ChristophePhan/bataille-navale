@@ -46,7 +46,7 @@ public class Jeu {
      * Permet de supprimer un profil
      * @param id identifiant du profil a supprimer
      */
-    private void removeProfil(int id) {
+    private void removeProfil(String id) {
         
         DAOFactory.getInstance().getDAO_Sauvegarde().removeProfil(id);
 

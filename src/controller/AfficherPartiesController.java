@@ -11,19 +11,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import window.main.BatailleNavale;
 
 /**
- * afficherPartiesController
+ * AfficherPartiesController
  * @author Tristan
  */
 public class AfficherPartiesController implements ActionListener  {
@@ -42,7 +38,7 @@ public class AfficherPartiesController implements ActionListener  {
 
 
     /**
-     * Constructeur de la class EcouteurDev
+     * Constructeur de la class AfficherPartiesController
      * @param profil profil contenant les parties a afficher
      * @param popup fenetre sur laquelle afficher les parties
      * @param panel scroll panel sur lequel afficher la liste des parties
@@ -83,7 +79,17 @@ public class AfficherPartiesController implements ActionListener  {
             // On affiche toutes les parties
             for(int i=0;i<this._profil.getParties().size();i++) {
                 
-                JButton partie = new JButton();
+                // Bouton permettant de supprimer la partie
+                JButton remove = new JButton("SUPR");
+                remove.addActionListener(new SuppressionPartieController(this._profil.getParties().get(i).getId()));
+                remove.setPreferredSize(new Dimension(this._panel.getWidth()/5,30));
+                this._panel.add(remove);
+                
+                // Bouton permettant d'acceder a la partie
+                JButton partie = new JButton("Partie " + i);
+                partie.addActionListener(this);
+                partie.setPreferredSize(new Dimension(this._panel.getWidth()/5,30));
+                this._panel.add(partie);
                 
             }
             
@@ -96,4 +102,4 @@ public class AfficherPartiesController implements ActionListener  {
     } // actionPerformed(ActionEvent ae)
     
     
-} // class EcouteurDev
+} // class AfficherPartiesController

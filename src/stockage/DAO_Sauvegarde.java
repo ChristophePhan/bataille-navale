@@ -109,9 +109,9 @@ public class DAO_Sauvegarde {
      * Permet de supprimer un profil
      * @param id identifiant du profil a supprimer
      */
-    public void removeProfil(int id) {
+    public void removeProfil(String id) {
 
-    } // removeProfil(int id)
+    } // removeProfil(String id)
     
     
     /**************************** PARTIE *************************************/
@@ -140,7 +140,7 @@ public class DAO_Sauvegarde {
      * Permet de supprimer une partie 
      * @param id identifiant de la partie a supprimer
      */
-    public void removePartie(int id) {
+    public void removePartie(String id) {
 
     } // removePartie(int id)
     
