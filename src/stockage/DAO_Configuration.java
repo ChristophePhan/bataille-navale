@@ -66,10 +66,12 @@ public class DAO_Configuration {
                 b.setPortee(Integer.parseInt(courant2.getChildText("portee")));
                 Element images = courant2.getChild("images");
                 Iterator i3 = images.getChildren("image").iterator();
-                List imagesL = new ArrayList();
+                HashMap<Integer,String> imagesL = new HashMap<>();
+                int position = 1;
                 while (i3.hasNext()) {
                     Element courant3 = (Element) i3.next();
-                    imagesL.add(courant3.getText());
+                    imagesL.put(position,courant3.getText());
+                    position++;
                 }
                 b.setImagesBateau(imagesL);
                 bateauxHM.put(courant2.getChildText("nom"), b);

@@ -29,8 +29,7 @@ public class Epoque {
     ////////////////////////////// FONCTIONS //////////////////////////////////
     
     
-    /***** GETTER/SETTER
-     * @return  *****/
+    /***** GETTER/SETTER *****/
     
     
     public String getId() {
@@ -72,4 +71,6 @@ public class Epoque {
     public void setListBateaux(HashMap listBateaux) {
         this.listBateaux = listBateaux;
     }
+    
+    
 } // class Epoque

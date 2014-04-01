@@ -168,4 +168,5 @@ public abstract class Joueur {
         this._cases = cases;
     }
     
+    
 } // abstract class Joueur

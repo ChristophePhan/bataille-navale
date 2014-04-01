@@ -44,6 +44,7 @@ public class JoueurHumain extends Joueur {
                     }
                     for(int i=0;i<bateau.getLongueur();i++) {
                         // On place le bateau 
+                        bateau.setOrientation(1);
                         CaseBateau caseBateau = new CaseBateau(bateau);
                         caseBateau.setImage((String) bateau.getImagesBateau().get(i+1));
                         this._cases.set(xDepart+i+yDepart*this._partie.getParametre().getNbCaseX(), caseBateau);
@@ -59,6 +60,7 @@ public class JoueurHumain extends Joueur {
                     }
                     for(int i=0;i<bateau.getLongueur();i++) {
                         // On place le bateau 
+                        bateau.setOrientation(2);
                         CaseBateau caseBateau = new CaseBateau(bateau);
                         caseBateau.setImage((String) bateau.getImagesBateau().get(i+1));
                         this._cases.set(xDepart+(yDepart+i)*this._partie.getParametre().getNbCaseX(), caseBateau);
@@ -66,7 +68,13 @@ public class JoueurHumain extends Joueur {
                     break;
                     
                 case 3:
-                    // Place le bateau a la diagonale
+                    // Place le bateau a la diagonale (bas gauche -> haut droit)
+                    bateau.setOrientation(3);
+                    break;
+                
+                case 4:
+                    // Place le bateau a la diagonale (haut gauche -> bas droit)
+                    bateau.setOrientation(4);
                     break;
                     
                 default:

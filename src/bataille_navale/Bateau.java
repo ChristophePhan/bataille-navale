@@ -1,5 +1,6 @@
 package bataille_navale;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -12,11 +13,21 @@ public class Bateau {
     /////////////////////////////// VARIABLES /////////////////////////////////
 
   
-    private String nom;
-    private int longueur;
-    private int portee;
-    private int nbCasesNonTouchees;
-    private List imagesBateau;
+    private String _nom;
+    private int _longueur;
+    private int _portee;
+    private int _nbCasesNonTouchees;
+    /*
+     * Integer : position de l'image sur le bateau (1 -> ...)
+     * String  : URL de l'image correspondante 
+     */
+    private HashMap<Integer,String> _imagesBateau;
+    /*
+     * 1 - Horizontal
+     * 2 - Verticale
+     * 3 - Diagonale (bas gauche -> haut droit)
+     * 4 - Diagonale (haut gauche -> bas droit)
+     */
     private int orientation;
     
     
@@ -37,7 +48,7 @@ public class Bateau {
      */
     public boolean testBateauCoule() {
         
-        return (this.nbCasesNonTouchees <= 0);
+        return (this._nbCasesNonTouchees <= 0);
             
     } // testBateauCoule()
 
@@ -46,43 +57,43 @@ public class Bateau {
     
     
     public String getNom() {
-        return nom;
+        return _nom;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this._nom = nom;
     }
 
     public int getLongueur() {
-        return longueur;
+        return _longueur;
     }
 
     public void setLongueur(int longueur) {
-        this.longueur = longueur;
+        this._longueur = longueur;
     }
 
     public int getPortee() {
-        return portee;
+        return _portee;
     }
 
     public void setPortee(int portee) {
-        this.portee = portee;
+        this._portee = portee;
     }
 
     public int getNbCasesNonTouchees() {
-        return nbCasesNonTouchees;
+        return _nbCasesNonTouchees;
     }
 
     public void setNbCasesNonTouchees(int nbCasesNonTouchees) {
-        this.nbCasesNonTouchees = nbCasesNonTouchees;
+        this._nbCasesNonTouchees = nbCasesNonTouchees;
     }
 
-    public List getImagesBateau() {
-        return imagesBateau;
+    public HashMap getImagesBateau() {
+        return _imagesBateau;
     }
 
-    public void setImagesBateau(List imagesBateau) {
-        this.imagesBateau = imagesBateau;
+    public void setImagesBateau(HashMap imagesBateau) {
+        this._imagesBateau = imagesBateau;
     }
 
     public int getOrientation() {
