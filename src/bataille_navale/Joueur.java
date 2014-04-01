@@ -12,21 +12,33 @@ public abstract class Joueur {
     ////////////////////////////// VARIABLES //////////////////////////////////
     
 
-    private String _nom;
-    private int _nbTirsGagnant;
-    private int _nbTirsPerdant;
-    private ArrayList<Case> cases;
+    protected Partie _partie;
+    protected String _nom;
+    protected int _nbTirsGagnant;
+    protected int _nbTirsPerdant;
+    protected ArrayList<Case> _cases;
 
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
     
-    public Joueur(String nom) {
+    public Joueur(Partie partie, String nom) {
         
+        this._partie = partie;
         this._nom = nom;
         this._nbTirsGagnant = 0;
         this._nbTirsPerdant = 0;
         
+        // Remplit la liste de Case du joueur
+        this._cases = new ArrayList<>();
+        for(int i=0;i<this._partie.getParametre().getNbCaseX();i++) {
+            for(int j=0;j<this._partie.getParametre().getNbCaseY();j++) {
+                
+                this._cases.add(new CaseVide());
+                
+            }
+        }
+
     } // Joueur()
     
     
@@ -48,6 +60,8 @@ public abstract class Joueur {
      * @param c case sur laquelle on place le bateau
      */
     public void positionnerBateau(Bateau bateau, Case c) {
+        
+        
 
     } //positionnerBateau(Bateau bateau, Case c)
     
@@ -55,9 +69,61 @@ public abstract class Joueur {
     /**
      * Permet de positionner aleatoirement les bateaux du joueur 
      */
-    public void positionnementAleatoire() {
+    public abstract void positionnementAleatoire();
+    
+    
+    /**
+     * Permet de savoir si on peut placer le bateau a l'endroit desire
+     * @param longueur taille du bateau a placer
+     * @param sens sens dans lequel on souhaite placer le bateau
+     * 1 - horizontal
+     * 2 - vertical
+     * 3 - diagonale
+     * @param x position en abscisse a tester
+     * @param y position en ordonnee a tester
+     * @return TRUE si le bateau peut etre placer, FALSE sinon
+     */
+    public boolean testPositionBateau(int longueur, int sens, int x, int y) {
+        
+        int pos = 0;
+        for(int i=0;i<longueur;i++) {
+            
+            switch(sens) {
 
-    } // positionnementAleatoire()
+                case 1:
+                    // Horizontale
+                    pos = x+i+y*this._partie.getParametre().getNbCaseX();
+                    if(this._cases.get(pos).getBateau() != null) {
+
+                        return false;
+
+                    }
+                    break;
+
+                case 2:
+                    // Verticale
+                    pos = x+(y+i)*this._partie.getParametre().getNbCaseX();
+                    if(this._cases.get(pos).getBateau() != null) {
+
+                        return false;
+
+                    }
+                    break;
+
+                case 3:
+                    // Diagonale
+                    break;
+
+                default:
+                    break;
+
+            }
+            
+        }
+        
+        return true;
+        
+    } // testPositionBateau(int longueur, int sens)
     
 
     /**
@@ -95,11 +161,11 @@ public abstract class Joueur {
     }
 
     public ArrayList<Case> getCases() {
-        return cases;
+        return _cases;
     }
 
     public void setCases(ArrayList<Case> cases) {
-        this.cases = cases;
+        this._cases = cases;
     }
     
 } // abstract class Joueur

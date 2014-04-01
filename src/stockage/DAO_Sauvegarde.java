@@ -3,6 +3,8 @@ package stockage;
 import java.util.List;
 import bataille_navale.Profil;
 import bataille_navale.Partie;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * DAO_Sauvegarde
@@ -32,9 +34,16 @@ public class DAO_Sauvegarde {
      * Permet de recuperer la liste de tous les profils disponibles
      * @return la liste des profils disponibles
      */
-    public List getAllProfils() {
+    public HashMap getAllProfils() {
         
-        return null;
+        Profil p1 = new Profil("Tristan");
+        Profil p2 = new Profil("Christophe");
+        Profil p3 = new Profil("Samy");
+        HashMap<String,Profil> liste = new HashMap<>();
+        liste.put("Tristan", p1);
+        liste.put("Christophe", p2);
+        liste.put("Samy", p3);
+        return liste;
         
     } // getAllProfils()
 
@@ -71,9 +80,10 @@ public class DAO_Sauvegarde {
      */
     public boolean isExistingProfil(String nom) {
         
-        for(int i=0;i<this.getAllProfils().size();i++) {
+        Iterator iterator = this.getAllProfils().keySet().iterator();
+        while(iterator.hasNext()) {
             
-            if(((Profil)this.getAllProfils().get(i)).getNom().equals(nom)) {
+            if(((Profil)this.getAllProfils().get(iterator.next())).getNom().equals(nom)) {
                 
                 return true;
                 

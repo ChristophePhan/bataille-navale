@@ -103,6 +103,7 @@ public class Partie {
 
     } // afficherMessage(String mess)
 
+    
     /**** GETTER/SETTER *****/
     
     

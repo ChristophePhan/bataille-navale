@@ -21,15 +21,7 @@ public class Jeu {
 
     
     /**
-     * Permet de creer un nouveau profil
-     */
-    public void createProfil() {
-
-    } // createProfil()
-
-    
-    /**
-     * Permet de sauvegarder un profil
+     * Permet de sauvegarder un nouveau profil
      * @param profil profil a sauvegarder
      */
     public void saveProfil(Profil profil) {

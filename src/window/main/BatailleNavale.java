@@ -8,7 +8,10 @@ package window.main;
 
 import bataille_navale.Jeu;
 import bataille_navale.Profil;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.Iterator;
 import javax.swing.JButton;
 import stockage.DAOFactory;
 
@@ -23,6 +26,8 @@ public class BatailleNavale extends javax.swing.JFrame {
     
     
     protected Jeu _jeu;
+    static int w = 800;
+    static int h = 600;
     
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
@@ -35,6 +40,7 @@ public class BatailleNavale extends javax.swing.JFrame {
         initComponents();
         
         this._jeu = new Jeu();
+        this.initialisation();
         this.setLocationRelativeTo(null);
         
     } // BatailleNavale()
@@ -51,8 +57,8 @@ public class BatailleNavale extends javax.swing.JFrame {
         
         if(DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils() == null 
                 || DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().isEmpty()) {
+            System.out.println(DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().size());
             
-            // Affiche le label qui signal qu'aucun profil n'est disponible
             this.jLabel5.setVisible(true);
             
         } else {
@@ -61,11 +67,18 @@ public class BatailleNavale extends javax.swing.JFrame {
             this.jLabel5.setVisible(false);
             // Affichage des profils disponibles
             int nbProfils = DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().size();
-            this.jPanel1.setLayout(new GridLayout(nbProfils,1));
-            for(int i=0;i<nbProfils;i++) {
+            FlowLayout fl = new FlowLayout();
+            this.listeProfils.setPreferredSize(new Dimension(w,h/2));
+            this.listeProfils.setLayout(fl);
+            
+            Iterator iterator = DAOFactory.getInstance().getDAO_Sauvegarde()
+                        .getAllProfils().keySet().iterator();
+            while(iterator.hasNext()) {
                 
-                this.jPanel1.add(new JButton(((Profil)DAOFactory.getInstance().getDAO_Sauvegarde()
-                        .getAllProfils().get(i)).getNom()));
+                JButton profil = new JButton(((Profil)DAOFactory.getInstance().getDAO_Sauvegarde()
+                        .getAllProfils().get(iterator.next())).getNom());
+                profil.setPreferredSize(new Dimension(w/(nbProfils+1),h/2-5));
+                this.listeProfils.add(profil);
                 
             }
             
@@ -92,7 +105,7 @@ public class BatailleNavale extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        listeProfils = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
 
         popupNouveauProfil.setResizable(false);
@@ -184,15 +197,15 @@ public class BatailleNavale extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Aucun profil disponible");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout listeProfilsLayout = new javax.swing.GroupLayout(listeProfils);
+        listeProfils.setLayout(listeProfilsLayout);
+        listeProfilsLayout.setHorizontalGroup(
+            listeProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        listeProfilsLayout.setVerticalGroup(
+            listeProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listeProfilsLayout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(122, Short.MAX_VALUE))
@@ -208,7 +221,7 @@ public class BatailleNavale extends javax.swing.JFrame {
                 .addGap(293, 293, 293)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(listeProfils, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +231,7 @@ public class BatailleNavale extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(listeProfils, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(72, 72, 72))
@@ -330,7 +343,7 @@ public class BatailleNavale extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel listeProfils;
     private javax.swing.JDialog popupNouveauProfil;
     private javax.swing.JTextField saisieNomProfil;
     // End of variables declaration//GEN-END:variables
