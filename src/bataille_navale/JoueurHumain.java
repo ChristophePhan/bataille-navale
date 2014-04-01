@@ -13,10 +13,10 @@ public class JoueurHumain extends Joueur {
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
     
-    public JoueurHumain(Partie partie, String nom) {
-        super(partie,nom);
+    public JoueurHumain(Parametre parametre, String nom) {
+        super(parametre,nom);
         
-    } // JoueurHumain()
+    } // JoueurHumain(Parametre parametre, String nom)
     
     
     ////////////////////////////// FONCTIONS //////////////////////////////////
@@ -25,29 +25,29 @@ public class JoueurHumain extends Joueur {
     @Override
     public void positionnementAleatoire() {
         
-        Iterator iterator = this._partie.getParametre().getBateaux(this._partie.getParametre().getEpoque()).keySet().iterator();
+        Iterator iterator = this._parametre.getBateaux(this._parametre.getEpoque()).keySet().iterator();
         while(iterator.hasNext()) {
             
             Random rand = new Random();
             int sens = rand.nextInt(3)+1;
             Bateau bateau = (Bateau) iterator.next();
-            int xDepart = rand.nextInt(this._partie.getParametre().getNbCaseX()-1-bateau.getLongueur());
-            int yDepart = rand.nextInt(this._partie.getParametre().getNbCaseY()-1-bateau.getLongueur());
+            int xDepart = rand.nextInt(this._parametre.getNbCaseX()-1-bateau.getLongueur());
+            int yDepart = rand.nextInt(this._parametre.getNbCaseY()-1-bateau.getLongueur());
             switch (sens) {
                 
                 case 1:
                     // Place le bateau horizontalement
                     while(!this.testPositionBateau(bateau.getLongueur(), sens, xDepart, yDepart)) {
                         // On cherche des cases libres pour le bateau
-                        xDepart = rand.nextInt(this._partie.getParametre().getNbCaseX()-1-bateau.getLongueur());
-                        yDepart = rand.nextInt(this._partie.getParametre().getNbCaseY()-1-bateau.getLongueur());
+                        xDepart = rand.nextInt(this._parametre.getNbCaseX()-1-bateau.getLongueur());
+                        yDepart = rand.nextInt(this._parametre.getNbCaseY()-1-bateau.getLongueur());
                     }
                     for(int i=0;i<bateau.getLongueur();i++) {
                         // On place le bateau 
                         bateau.setOrientation(1);
                         CaseBateau caseBateau = new CaseBateau(bateau);
                         caseBateau.setImage((String) bateau.getImagesBateau().get(i+1));
-                        this._cases.set(xDepart+i+yDepart*this._partie.getParametre().getNbCaseX(), caseBateau);
+                        this._cases.set(xDepart+i+yDepart*this._parametre.getNbCaseX(), caseBateau);
                     }
                     break;
                     
@@ -55,15 +55,15 @@ public class JoueurHumain extends Joueur {
                     // Place le bateau verticalement
                     while(!this.testPositionBateau(bateau.getLongueur(), sens, xDepart, yDepart)) {
                         // On cherche des cases libres pour le bateau
-                        xDepart = rand.nextInt(this._partie.getParametre().getNbCaseX()-1-bateau.getLongueur());
-                        yDepart = rand.nextInt(this._partie.getParametre().getNbCaseY()-1-bateau.getLongueur());
+                        xDepart = rand.nextInt(this._parametre.getNbCaseX()-1-bateau.getLongueur());
+                        yDepart = rand.nextInt(this._parametre.getNbCaseY()-1-bateau.getLongueur());
                     }
                     for(int i=0;i<bateau.getLongueur();i++) {
                         // On place le bateau 
                         bateau.setOrientation(2);
                         CaseBateau caseBateau = new CaseBateau(bateau);
                         caseBateau.setImage((String) bateau.getImagesBateau().get(i+1));
-                        this._cases.set(xDepart+(yDepart+i)*this._partie.getParametre().getNbCaseX(), caseBateau);
+                        this._cases.set(xDepart+(yDepart+i)*this._parametre.getNbCaseX(), caseBateau);
                     }
                     break;
                     
@@ -89,6 +89,7 @@ public class JoueurHumain extends Joueur {
     
     @Override
     public void jouerCase(Case c) {
+       
 
     } // jouerCase(Case c)
 
