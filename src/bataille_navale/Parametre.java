@@ -22,7 +22,9 @@ public class Parametre {
     
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    
+    public Parametre(){
+        
+    }
     
     public Parametre(int nbCaseX, int nbCaseY, int difficulte, Epoque epoque) {
         

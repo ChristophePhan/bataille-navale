@@ -20,7 +20,9 @@ public abstract class Joueur {
 
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    
+    public Joueur(){
+        
+    }
     
     public Joueur(Partie partie, String nom) {
         
@@ -167,6 +169,13 @@ public abstract class Joueur {
     public void setCases(ArrayList<Case> cases) {
         this._cases = cases;
     }
-    
+
+    public Partie getPartie() {
+        return _partie;
+    }
+
+    public void setPartie(Partie _partie) {
+        this._partie = _partie;
+    }
     
 } // abstract class Joueur

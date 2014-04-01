@@ -18,7 +18,9 @@ public class Profil {
     
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    
+    public Profil(){
+        
+    }
     
     public Profil(String nom) {
         

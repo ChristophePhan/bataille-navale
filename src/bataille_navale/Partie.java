@@ -17,7 +17,9 @@ public class Partie {
     
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-
+    public Partie(){
+        
+    }
 
     public Partie(Parametre parametre, Joueur j1, Joueur j2) {
         

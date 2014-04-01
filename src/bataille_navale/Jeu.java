@@ -26,29 +26,29 @@ public class Jeu {
      */
     public void saveProfil(Profil profil) {
         
-        DAOFactory.getInstance().getDAO_Sauvegarde().createProfil(profil);
+        DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(profil);
 
     } // saveProfil(Profil profil)
     
     
-    /**
-     * Permet de mettre a jour un profil
-     * @param profil profil a mettre a jour
-     */
-    public void updateProfil(Profil profil) {
-
-        DAOFactory.getInstance().getDAO_Sauvegarde().updateProfil(profil);
-        
-    } // updateProfil(Profil profil)
+//    /**
+//     * Permet de mettre a jour un profil
+//     * @param profil profil a mettre a jour
+//     */
+//    public void updateProfil(Profil profil) {
+//
+//        DAOFactory.getInstance().getDAO_Sauvegarde().updateProfil(profil);
+//        
+//    } // updateProfil(Profil profil)
     
 
     /**
      * Permet de supprimer un profil
-     * @param id identifiant du profil a supprimer
+     * @param profil identifiant du profil a supprimer
      */
-    private void removeProfil(int id) {
+    private void removeProfil(Profil profil) {
         
-        DAOFactory.getInstance().getDAO_Sauvegarde().removeProfil(id);
+        DAOFactory.getInstance().getDAO_Sauvegarde().removeProfil(profil);
 
     } // removeProfil(int id)
     

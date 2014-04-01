@@ -6,8 +6,12 @@
 package Tests;
 
 import bataille_navale.Epoque;
+import bataille_navale.Partie;
+import bataille_navale.Profil;
+import java.util.ArrayList;
 import java.util.HashMap;
 import stockage.DAO_Configuration;
+import stockage.DAO_Sauvegarde;
 
 /**
  *
@@ -29,6 +33,22 @@ public class TestXML {
         System.out.println(mapEpoque.get("Future").getNom());
         System.out.println(mapEpoque.get("Future").getEpoque());
         System.out.println(mapEpoque.get("Future").getId());
+        
+        DAO_Sauvegarde sauv = new DAO_Sauvegarde();
+        
+        Profil profil = new Profil();
+        profil.setId("ddd");
+        profil.setNom("zzzzz");
+        ArrayList<Partie> p = new ArrayList<>();
+        Partie pp = new Partie();
+        pp.setId("bbbbb00");
+        
+        p.add(pp);
+        profil.setParties(p);
+        sauv.saveProfil(profil);
+        Profil ppp = (Profil) sauv.getAllProfils().get("zzzzz");
+        System.out.println(ppp.getId());
+        sauv.removeProfil(profil);
     }
 
 }
