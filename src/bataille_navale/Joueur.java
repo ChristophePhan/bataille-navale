@@ -170,12 +170,13 @@ public abstract class Joueur {
         this._cases = cases;
     }
 
-    public Partie getPartie() {
-        return _partie;
+    public Parametre getPartie() {
+        return _parametre;
     }
 
-    public void setPartie(Partie _partie) {
-        this._partie = _partie;
+    public void setPartie(Parametre _parametre) {
+        this._parametre = _parametre;
     }
+    
     
 } // abstract class Joueur

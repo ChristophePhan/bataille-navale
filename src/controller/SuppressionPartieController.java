@@ -6,12 +6,10 @@
 
 package controller;
 
-import bataille_navale.Partie;
 import bataille_navale.Profil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import stockage.DAOFactory;
 
 /**
  * SuppressionPartieController
@@ -22,7 +20,8 @@ public class SuppressionPartieController implements ActionListener  {
     
     ////////////////////////////// VARIABLES /////////////////////////////////
 
-
+    
+    private Profil _profil;
     private String _idPartie;
 
     //////////////////////////// CONSTRUCTEURS ///////////////////////////////
@@ -30,14 +29,16 @@ public class SuppressionPartieController implements ActionListener  {
 
     /**
      * Constructeur de la class SuppressionPartieController
+     * @param profil profil dont on souhaite supprimer la partie
      * @param idPartie id de la partie a supprimer
      */
-    public SuppressionPartieController(String idPartie) {
+    public SuppressionPartieController(Profil profil, String idPartie) {
         
         super();
+        this._profil = profil;
         this._idPartie = idPartie;
         
-    } // SuppressionPartieController(String idPartie)
+    } // SuppressionPartieController(Profil profil, String idPartie)
 
 
     ////////////////////////////// FONCTIONS /////////////////////////////////
@@ -49,7 +50,7 @@ public class SuppressionPartieController implements ActionListener  {
         int dialogResult = JOptionPane.showConfirmDialog(null, "Voulez-vous réellement supprimer la partie ?");
         if(dialogResult == JOptionPane.YES_OPTION){
         
-            DAOFactory.getInstance().getDAO_Sauvegarde().removePartie(this._idPartie);
+            this._profil.supprimerPartie(this._idPartie);
             
         }
         

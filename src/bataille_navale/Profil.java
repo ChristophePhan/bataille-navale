@@ -1,6 +1,6 @@
 package bataille_navale;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Profil
@@ -14,7 +14,7 @@ public class Profil {
 
     private String _id;
     private String _nom;
-    private ArrayList<Partie> _parties;
+    private HashMap<String,Partie> _parties;
     
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
@@ -26,7 +26,7 @@ public class Profil {
         
         this._id = nom + this.hashCode();
         this._nom = nom;
-        this._parties = new ArrayList<>();
+        this._parties = new HashMap<>();
         
     } // Profil()
     
@@ -50,6 +50,17 @@ public class Profil {
 
     } // chargerPartie(Partie partie)
     
+    
+    /**
+     * Permet de supprimer une partie a partir de son id
+     * @param id id de la partie a supprimer
+     */
+    public void supprimerPartie(String id) {
+        
+        this._parties.remove(id);
+        
+    } // supprimerPartie(String id)
+    
 
     /***** GETTER/SETTER *****/
     
@@ -70,11 +81,11 @@ public class Profil {
         this._nom = nom;
     }
 
-    public ArrayList<Partie> getParties() {
+    public HashMap getParties() {
         return _parties;
     }
 
-    public void setParties(ArrayList<Partie> _parties) {
+    public void setParties(HashMap _parties) {
         this._parties = _parties;
     }
 

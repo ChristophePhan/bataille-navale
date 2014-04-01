@@ -19,20 +19,29 @@ import java.util.logging.Logger;
  */
 public class DAO_Sauvegarde {
 
+    
     ////////////////////////////// VARIABLES //////////////////////////////////
+    
+    
     //private final String path = "fich_sauv.xml";
     private XMLEncoder encoder;
     private XMLDecoder decoder;
 
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
+    
+    
     public DAO_Sauvegarde() {
+        
         File f = new File("users");
         if (!f.exists()) {
             f.mkdir();
         }
-    }
+        
+    } // DAO_Sauvegarde()
 
     ////////////////////////////// FONCTIONS //////////////////////////////////
+    
+    
     /**
      * Permet de recuperer la liste de tous les profils disponibles
      *
@@ -62,12 +71,12 @@ public class DAO_Sauvegarde {
 
     } // getAllProfils()
 
-    /**
-     * ************************** PROFIL ************************************
-     */
+    
+    /*************************** PROFIL ************************************/
+     
+    
     /**
      * Permet de creer un nouveau profil
-     *
      * @param profil nouveau profil a enregistrer
      */
     public void saveProfil(Profil profil) {
@@ -85,6 +94,7 @@ public class DAO_Sauvegarde {
         }
     } // createProfil(Profil profil)
     
+    
     /**
      * Permet de supprimer un profil
      * @param profil profil a supprimer
@@ -95,6 +105,7 @@ public class DAO_Sauvegarde {
         f.delete();
     } // removeProfil(int id)
 
+    
     /**
      * Permet de savoir si un profil du meme nom existe deja
      *
@@ -118,15 +129,18 @@ public class DAO_Sauvegarde {
 
     } // isExistingProfil(String nom)
 
+    
 //    /**
 //     * Permet de mettre a jour un profil
 //     * @param profil profil a mettre a jour
 //     */
 //    public void updateProfil(Profil profil) {
 //    } // updateProfil(Profil profil)
-//    /**************************** PARTIE *************************************/
+    
+    
+//    /**************************** PARTIE ***********************************/
 //
-//        /**
+//    /**
 //     * Permet de recuperer la liste de toutes les parties disponibles pour
 //     * un profil donne
 //     * @param profil profil a partir duquel on souhaite recuperer les parties
@@ -137,6 +151,8 @@ public class DAO_Sauvegarde {
 //        return null;
 //        
 //    } // getParties(Profil profil)
+    
+    
 //    /**
 //     * Permet de d'ajouter une partie a un profil
 //     * @param profil profil auquel on souhaite ajouter la partie
@@ -163,4 +179,6 @@ public class DAO_Sauvegarde {
 //    public void removePartie(int id) {
 //
 //    } // removePartie(int id)
+    
+    
 } // class DAO_Sauvegarde

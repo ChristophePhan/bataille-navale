@@ -43,12 +43,12 @@ public class TestXML {
         Partie pp = new Partie();
         pp.setId("bbbbb00");
         
-        p.add(pp);
+        /*p.add(pp);
         profil.setParties(p);
         sauv.saveProfil(profil);
         Profil ppp = (Profil) sauv.getAllProfils().get("zzzzz");
         System.out.println(ppp.getId());
-        sauv.removeProfil(profil);
+        sauv.removeProfil(profil);*/
     }
 
 }
