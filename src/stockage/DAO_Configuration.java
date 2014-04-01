@@ -4,7 +4,6 @@ import bataille_navale.Bateau;
 import bataille_navale.Epoque;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -31,8 +30,10 @@ public class DAO_Configuration {
         try {
             //On crée un nouveau document JDOM avec en argument le fichier XML
             //Le parsing est terminé ;)
-            document = sxb.build(new File(path));
+            File f = new File(path);  
+            document = sxb.build(f);
         } catch (JDOMException | IOException e) {
+            e.printStackTrace();
         }
         racine = document.getRootElement();
     } // DAO_Configuration()
@@ -66,12 +67,10 @@ public class DAO_Configuration {
                 b.setPortee(Integer.parseInt(courant2.getChildText("portee")));
                 Element images = courant2.getChild("images");
                 Iterator i3 = images.getChildren("image").iterator();
-                HashMap<Integer,String> imagesL = new HashMap<>();
-                int position = 1;
+                HashMap<Integer, String> imagesL = new HashMap<>();
                 while (i3.hasNext()) {
                     Element courant3 = (Element) i3.next();
-                    imagesL.put(position,courant3.getText());
-                    position++;
+                    imagesL.put(Integer.parseInt(courant3.getAttributeValue("id")), courant3.getText());
                 }
                 b.setImagesBateau(imagesL);
                 bateauxHM.put(courant2.getChildText("nom"), b);

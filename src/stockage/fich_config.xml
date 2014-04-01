@@ -1,7 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 exemple de configuration que le fichier xml doit avoir
 -->
-<?xml version="1.0" encoding="UTF-8"?>
 <epoques>
     <epoque>
         <id>1234</id>
@@ -14,11 +14,11 @@ exemple de configuration que le fichier xml doit avoir
                 <longueur>5</longueur>
                 <portee>5</portee>
                 <images>
-                    <image >aaaa</image>
-                    <image >bbbb</image>
-                    <image >cccc</image>
-                    <image >dddd</image>
-                    <image >eeee</image>
+                    <image id="1">aaaa</image>
+                    <image id="2">bbbb</image>
+                    <image id="3">cccc</image>
+                    <image id="4">dddd</image>
+                    <image id="5">eeee</image>
                 </images>
             </bateau>
         </bateaux>
@@ -35,11 +35,11 @@ exemple de configuration que le fichier xml doit avoir
                 <longueur>5</longueur>
                 <portee>5</portee>
                 <images>
-                    <image >a</image>
-                    <image >b</image>
-                    <image >c</image>
-                    <image >d</image>
-                    <image >e</image>
+                    <image id="6">a</image>
+                    <image id="7">b</image>
+                    <image id="8">c</image>
+                    <image id="9">d</image>
+                    <image id="10">e</image>
                 </images>
             </bateau>
         </bateaux>
