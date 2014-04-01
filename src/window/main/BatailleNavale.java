@@ -356,7 +356,7 @@ public class BatailleNavale extends javax.swing.JFrame {
           
           // Creation et sauvegrade du profil
           Profil newProfil = new Profil(this.saisieNomProfil.getText());
-          DAOFactory.getInstance().getDAO_Sauvegarde().createProfil(newProfil);
+          DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(newProfil);
           
       }
         
