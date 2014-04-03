@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Fichier XML contenant les parametres disponibles pour une partie
+-->
+<parametres>
+    <grille>
+        <x>10</x>
+        <y>10</y>
+    </grille>
+    
+    <grille>
+        <x>15</x>
+        <y>15</y>
+    </grille>
+    <difficulte>
+        <mode>Facile</mode>
+        <mode>Normal</mode>
+        <mode>Difficile</mode>
+    </difficulte>
+</parametres>

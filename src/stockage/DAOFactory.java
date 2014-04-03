@@ -56,11 +56,16 @@ public class DAOFactory {
         
     } // getDAO_Sauvegarde()
     
-    public DAO_Grille getDAO_Grille() {
+    
+    /**
+     * Permet d'avoir acces au fichier des parametres
+     * @return la classe permettant l'acces au fichier de parametre
+     */
+    public DAO_Parametre getDAO_Parametre() {
         
-        return new DAO_Grille();
+        return new DAO_Parametre();
         
-    } // getDAO_Sauvegarde()
+    } // getDAO_Parametre()
 
     
 } // class DAOFactory

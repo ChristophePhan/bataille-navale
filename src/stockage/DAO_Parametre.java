@@ -20,15 +20,20 @@ import org.jdom2.input.SAXBuilder;
  *
  * @author Christophe
  */
-public class DAO_Grille {
+public class DAO_Parametre {
 
+    
     ////////////////////////////// VARIABLES //////////////////////////////////
-    private final String path = "fich_grilles.xml";
+    
+    
+    private final String path = "fich_param.xml";
     private Document document;
     private final Element racine;
 
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    public DAO_Grille() {
+    
+    
+    public DAO_Parametre() {
         SAXBuilder sxb = new SAXBuilder();
         try {
             //On crée un nouveau document JDOM avec en argument le fichier XML
@@ -41,7 +46,12 @@ public class DAO_Grille {
         racine = document.getRootElement();
     }
 
-    public List getGrilles() {
+    
+    /**
+     * Permet de recuperer les tailles de grille disponible
+     * @return une liste des tailles de grille disonible
+     */
+    public List getTaillesGrille() {
         List grillesXML = racine.getChildren("grille");
         ArrayList<TailleGrille> listeGrilles = new ArrayList<>();
         Iterator i = grillesXML.iterator();
@@ -52,4 +62,20 @@ public class DAO_Grille {
         }
         return listeGrilles;
     }
+    
+    
+    public List getDifficultees() {
+        Element difficulteXML = racine.getChild("difficulte");
+        List modeXML = difficulteXML.getChildren("mode");
+        ArrayList<String> listeDifficulte = new ArrayList<>();
+        Iterator i = modeXML.iterator();
+        while (i.hasNext()) {
+            Element courant = (Element) i.next();
+            String diff = courant.getText();
+            listeDifficulte.add(diff);
+        }
+        return listeDifficulte;
+    }
+    
+    
 }
