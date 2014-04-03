@@ -55,6 +55,12 @@ public class DAOFactory {
         return new DAO_Sauvegarde();
         
     } // getDAO_Sauvegarde()
+    
+    public DAO_Grille getDAO_Grille() {
+        
+        return new DAO_Grille();
+        
+    } // getDAO_Sauvegarde()
 
     
 } // class DAOFactory

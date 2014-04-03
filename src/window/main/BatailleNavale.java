@@ -8,14 +8,17 @@ package window.main;
 
 import bataille_navale.Jeu;
 import bataille_navale.Profil;
+import bataille_navale.TailleGrille;
 import controller.AfficherPartiesController;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import stockage.DAOFactory;
 
@@ -32,7 +35,7 @@ public class BatailleNavale extends javax.swing.JFrame {
     protected Jeu _jeu;
     public static int w = 800;
     public static int h = 600;
-    
+    private final ArrayList<TailleGrille> TailleGrilles = (ArrayList<TailleGrille>) DAOFactory.getInstance().getDAO_Grille().getGrilles();
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
@@ -46,7 +49,7 @@ public class BatailleNavale extends javax.swing.JFrame {
         this._jeu = new Jeu();
         this.initialisation();
         this.setLocationRelativeTo(null);
-        
+           
     } // BatailleNavale()
     
     
@@ -63,12 +66,27 @@ public class BatailleNavale extends javax.swing.JFrame {
                 || DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().isEmpty()) {
             System.out.println(DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().size());
             
-            this.jLabel5.setVisible(true);
+            //this.jLabel5.setVisible(true);
+            // sale
+            this.listeProfils.removeAll();
+            javax.swing.GroupLayout listeProfilsLayout1 = new javax.swing.GroupLayout(listeProfils);;
+            listeProfils.setLayout(listeProfilsLayout1);
+            listeProfilsLayout1.setHorizontalGroup(
+                    listeProfilsLayout1.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            );
+            listeProfilsLayout1.setVerticalGroup(
+                    listeProfilsLayout1.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(listeProfilsLayout1.createSequentialGroup()
+                            .addGap(76, 76, 76)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(122, Short.MAX_VALUE))
+            );
             
         } else {
             
             // Masque le label qui signal qu'aucun profil n'est disponible
-            this.jLabel5.setVisible(false);
+            //this.jLabel5.setVisible(false);
             // Affichage des profils disponibles
             int nbProfils = DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().size();
             FlowLayout fl = new FlowLayout();
@@ -131,6 +149,18 @@ public class BatailleNavale extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        popupParametres = new javax.swing.JDialog();
+        jLabel4 = new javax.swing.JLabel();
+        jComboBoxTailleGrilles = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBoxEpoques = new javax.swing.JComboBox();
+        jComboBoxDifficultees = new javax.swing.JComboBox();
+        jRadioButtonManuel = new javax.swing.JRadioButton();
+        jRadioButtonAleatoire = new javax.swing.JRadioButton();
+        jButtonJouer = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -206,8 +236,8 @@ public class BatailleNavale extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        popupParties.setResizable(false);
         popupParties.setSize(new java.awt.Dimension(500, 350));
+        popupParties.setResizable(false);
         popupParties.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 popupPartiesWindowClosing(evt);
@@ -270,10 +300,127 @@ public class BatailleNavale extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
+        popupParametres.setSize(new java.awt.Dimension(500, 350));
+        popupParametres.setResizable(false);
+        popupParametres.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                popupParametresWindowClosing(evt);
+            }
+        });
+
+        jLabel4.setText("Paramètres de la nouvelle partie");
+
+        for(TailleGrille tg : this.TailleGrilles){
+            this.jComboBoxTailleGrilles.addItem(tg.getX()+"x"+tg.getY());
+        }
+        jComboBoxTailleGrilles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTailleGrillesActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Nombre de cases :");
+
+        jLabel8.setText("Epoque :");
+
+        jLabel9.setText("Difficultées :");
+
+        jLabel10.setText("Placement des Cases :");
+
+        jComboBoxEpoques.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxEpoquesActionPerformed(evt);
+            }
+        });
+
+        jComboBoxDifficultees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDifficulteesActionPerformed(evt);
+            }
+        });
+
+        jRadioButtonManuel.setText("Manuel");
+        jRadioButtonManuel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonManuelActionPerformed(evt);
+            }
+        });
+
+        jRadioButtonAleatoire.setText("Aleatoire");
+
+        jButtonJouer.setText("Jouer");
+        jButtonJouer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonJouerActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout popupParametresLayout = new javax.swing.GroupLayout(popupParametres.getContentPane());
+        popupParametres.getContentPane().setLayout(popupParametresLayout);
+        popupParametresLayout.setHorizontalGroup(
+            popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(popupParametresLayout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonJouer, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addGroup(popupParametresLayout.createSequentialGroup()
+                        .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(popupParametresLayout.createSequentialGroup()
+                                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9))
+                                .addGap(19, 19, 19))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(popupParametresLayout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxDifficultees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxEpoques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxTailleGrilles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(popupParametresLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButtonAleatoire)
+                                    .addComponent(jRadioButtonManuel))))))
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+        popupParametresLayout.setVerticalGroup(
+            popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(popupParametresLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel4)
+                .addGap(23, 23, 23)
+                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jComboBoxTailleGrilles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxEpoques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxDifficultees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(popupParametresLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel10))
+                    .addGroup(popupParametresLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jRadioButtonManuel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonAleatoire)))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonJouer)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
-        setSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 153, 255));
@@ -308,7 +455,7 @@ public class BatailleNavale extends javax.swing.JFrame {
             .addGroup(listeProfilsLayout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -321,7 +468,7 @@ public class BatailleNavale extends javax.swing.JFrame {
                 .addComponent(listeProfils, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(300, 300, 300)
+                .addGap(293, 293, 293)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -333,10 +480,10 @@ public class BatailleNavale extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(listeProfils, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addComponent(listeProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(47, 47, 47))
         );
 
         pack();
@@ -376,19 +523,25 @@ public class BatailleNavale extends javax.swing.JFrame {
      */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-      if(DAOFactory.getInstance().getDAO_Sauvegarde().isExistingProfil(this.saisieNomProfil.getText())) {
+        if (DAOFactory.getInstance().getDAO_Sauvegarde().isExistingProfil(this.saisieNomProfil.getText())) {
+
+            // Affichage du message d'erreur
+            this.erreurNomProfil.setText("Désolé, ce nom de profil est déjà utilisé.");
+            this.erreurNomProfil.setVisible(true);
+
+        } else if (this.saisieNomProfil.getText().equals("") || this.saisieNomProfil.getText() == null) {
+            this.erreurNomProfil.setText("Le nom de profil ne doit pas être vide.");
+            this.erreurNomProfil.setVisible(true);
+        } else {
           
-          // Affichage du message d'erreur
-          this.erreurNomProfil.setVisible(true);
-          
-      } else {
-          
-          // Creation et sauvegrade du profil
-          Profil newProfil = new Profil(this.saisieNomProfil.getText());
-          DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(newProfil);
-          this.initialisation();
-          this.popupNouveauProfil.setVisible(false);
-          
+            // Creation et sauvegrade du profil
+            Profil newProfil = new Profil(this.saisieNomProfil.getText());
+            DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(newProfil);
+            this.initialisation();
+            this.popupNouveauProfil.setVisible(false);
+            this.saisieNomProfil.setText(null);
+            this.setEnabled(true);
+            this.setVisible(true);
       }
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -402,8 +555,10 @@ public class BatailleNavale extends javax.swing.JFrame {
      * @param evt 
      */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-        
+        this.popupParametres.setLocationRelativeTo(null);
+        this.setEnabled(false);
+        this.popupParties.setVisible(false);
+        this.popupParametres.setVisible(true);
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -428,6 +583,31 @@ public class BatailleNavale extends javax.swing.JFrame {
         this.setEnabled(true);
         
     }//GEN-LAST:event_popupNouveauProfilWindowClosing
+
+    private void jComboBoxTailleGrillesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTailleGrillesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxTailleGrillesActionPerformed
+
+    private void jComboBoxEpoquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEpoquesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxEpoquesActionPerformed
+
+    private void jComboBoxDifficulteesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDifficulteesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxDifficulteesActionPerformed
+
+    private void jButtonJouerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJouerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonJouerActionPerformed
+
+    private void jRadioButtonManuelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonManuelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonManuelActionPerformed
+
+    private void popupParametresWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_popupParametresWindowClosing
+        // TODO add your handling code here:
+        this.setEnabled(true);
+    }//GEN-LAST:event_popupParametresWindowClosing
 
     
     /******************************* MAIN ************************************/ 
@@ -479,15 +659,27 @@ public class BatailleNavale extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonJouer;
+    private javax.swing.JComboBox jComboBoxDifficultees;
+    private javax.swing.JComboBox jComboBoxEpoques;
+    private javax.swing.JComboBox jComboBoxTailleGrilles;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButtonAleatoire;
+    private javax.swing.JRadioButton jRadioButtonManuel;
     private javax.swing.JPanel listeProfils;
     private javax.swing.JLabel nomProfil;
     private javax.swing.JDialog popupNouveauProfil;
+    private javax.swing.JDialog popupParametres;
     private javax.swing.JDialog popupParties;
     private javax.swing.JTextField saisieNomProfil;
     // End of variables declaration//GEN-END:variables

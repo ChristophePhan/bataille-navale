@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+exemple de configuration que le fichier xml doit avoir
+-->
+<grilles>
+    <grille>
+        <x>10</x>
+        <y>10</y>
+    </grille>
+    
+    <grille>
+        <x>15</x>
+        <y>15</y>
+    </grille>
+</grilles>
