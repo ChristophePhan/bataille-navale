@@ -6,8 +6,12 @@
 
 package window.main;
 
-import bataille_navale.Epoque;
 import bataille_navale.Jeu;
+import bataille_navale.Joueur;
+import bataille_navale.JoueurHumain;
+import bataille_navale.JoueurMachine;
+import bataille_navale.Parametre;
+import bataille_navale.Partie;
 import bataille_navale.Profil;
 import bataille_navale.TailleGrille;
 import controller.AfficherPartiesController;
@@ -17,10 +21,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import stockage.DAOFactory;
 
@@ -35,6 +37,7 @@ public class BatailleNavale extends javax.swing.JFrame {
     
     
     protected Jeu _jeu;
+    protected String nom;
     public static int w = 800;
     public static int h = 600;
     private final ArrayList<TailleGrille> TailleGrilles = (ArrayList<TailleGrille>) DAOFactory.getInstance().getDAO_Parametre().getTaillesGrille();
@@ -56,14 +59,18 @@ public class BatailleNavale extends javax.swing.JFrame {
     
     
     /////////////////////////////// FONCTIONS /////////////////////////////////
-    
-    
+
+    public void setNom(String nom) {
+        
+        this.nom = nom;
+        
+    }
+
     /**
      * Permet d'intialiser le jeu a partir des fichier de configuration
      * et de sauvegarde
      */
     public void initialisation() {
-        
         if(DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils() == null 
                 || DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().isEmpty()) {
    
@@ -82,7 +89,7 @@ public class BatailleNavale extends javax.swing.JFrame {
             this.listeProfils.setLayout(fl);
             
             Iterator iterator = DAOFactory.getInstance().getDAO_Sauvegarde()
-                        .getAllProfils().keySet().iterator();
+                    .getAllProfils().keySet().iterator();
             while(iterator.hasNext()) {
                 
                 JPanel profilPanel = new JPanel();
@@ -114,7 +121,6 @@ public class BatailleNavale extends javax.swing.JFrame {
             this.listeProfils.setVisible(true);
             
         }
-        
     } // initialisation()
 
     
@@ -589,7 +595,7 @@ public class BatailleNavale extends javax.swing.JFrame {
      * @param evt 
      */
     private void jButtonJouerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJouerActionPerformed
-        
+
         // Recuperation de la taille du tableau choisie
         String[] taille = ((String)this.jComboBoxTailleGrilles.getSelectedItem()).split("x");
         int x = Integer.parseInt(taille[0]);
@@ -602,13 +608,20 @@ public class BatailleNavale extends javax.swing.JFrame {
         String diff = (String)this.jComboBoxDifficultees.getSelectedItem();
 
         // Recuperation du mode de placement
+        
+        Parametre parametre = new Parametre(x, y, diff, DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(epoque));
+        Joueur humain = new JoueurHumain(parametre, this.nom);
+        Joueur IA = new JoueurMachine(parametre, "Skynet");
         if(this.jRadioButtonAleatoire.isSelected()) {
-            
             // Placement aleatoire
+            humain.positionnementAleatoire();
+            IA.positionnementAleatoire();
+            Partie partie = new Partie(parametre, humain, IA);
             
         } else {
-            
             // Placement manuel
+            IA.positionnementAleatoire();
+            Partie partie = new Partie(parametre, humain, IA);
             
         }
         

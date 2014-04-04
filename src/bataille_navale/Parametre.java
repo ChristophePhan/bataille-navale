@@ -1,8 +1,6 @@
 package bataille_navale;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import stockage.DAOFactory;
 
 /**
@@ -17,7 +15,7 @@ public class Parametre {
     
     private int _nbCaseX;
     private int _nbCaseY;
-    private int _difficulte;
+    private String _difficulte;
     private Epoque _epoque;
     
     
@@ -26,7 +24,7 @@ public class Parametre {
         
     }
     
-    public Parametre(int nbCaseX, int nbCaseY, int difficulte, Epoque epoque) {
+    public Parametre(int nbCaseX, int nbCaseY, String difficulte, Epoque epoque) {
         
         this._nbCaseX = nbCaseX;
         this._nbCaseY = nbCaseY;
@@ -82,11 +80,11 @@ public class Parametre {
         this._nbCaseY = nbCaseY;
     }
 
-    public int getDifficulte() {
+    public String getDifficulte() {
         return _difficulte;
     }
 
-    public void setDifficulte(int difficulte) {
+    public void setDifficulte(String difficulte) {
         this._difficulte = difficulte;
     }
 

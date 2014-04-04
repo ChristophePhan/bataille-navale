@@ -1,7 +1,9 @@
 package bataille_navale;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
+import stockage.DAOFactory;
 
 /**
  * JoueurMachine
@@ -9,13 +11,13 @@ import java.util.Random;
  */
 public class JoueurMachine extends Joueur {
 
-    
+    private final List difficultes = DAOFactory.getInstance().getDAO_Parametre().getDifficultees();
+    private String difficulte;
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
     
     public JoueurMachine(Parametre parametre, String nom) {
         super(parametre,nom);
-        
     } // JoueurMachine()
     
     
@@ -25,7 +27,7 @@ public class JoueurMachine extends Joueur {
     @Override
     public void positionnementAleatoire() {
         
-        int difficulte = this._parametre.getDifficulte();
+        this.difficulte = this._parametre.getDifficulte();
         Iterator iterator = this._parametre.getBateaux(this._parametre.getEpoque()).keySet().iterator();
         while(iterator.hasNext()) {
             
@@ -85,5 +87,12 @@ public class JoueurMachine extends Joueur {
 
     } // jouerCase(Case c)
 
-    
+    public String getDifficulte() {
+        return difficulte;
+    }
+
+    public void setDifficulte(String difficulte) {
+        this.difficulte = difficulte;
+    }
+
 } // class JoueurMachine

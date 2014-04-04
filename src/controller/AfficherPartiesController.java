@@ -20,6 +20,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import window.main.BatailleNavale;
 
 /**
  * AfficherPartiesController
@@ -32,7 +33,7 @@ public class AfficherPartiesController implements ActionListener  {
 
 
     private Profil _profil;
-    private JFrame _frame;
+    private BatailleNavale _frame;
     private JDialog _popup;
     private JPanel _panel;
     private JLabel _nom;
@@ -44,11 +45,12 @@ public class AfficherPartiesController implements ActionListener  {
     /**
      * Constructeur de la class AfficherPartiesController
      * @param profil profil contenant les parties a afficher
+     * @param frame
      * @param popup fenetre sur laquelle afficher les parties
      * @param panel scroll panel sur lequel afficher la liste des parties
      * @param nom nom du profil
      */
-    public AfficherPartiesController(Profil profil, JFrame frame, JDialog popup, JPanel panel, JLabel nom) {
+    public AfficherPartiesController(Profil profil, BatailleNavale frame, JDialog popup, JPanel panel, JLabel nom) {
         
         super();
         this._profil = profil;
@@ -56,7 +58,7 @@ public class AfficherPartiesController implements ActionListener  {
         this._popup = popup;
         this._panel = panel;
         this._nom = nom;
-      
+        
     } // AfficherPartiesController(Profil profil, JDialog popup, JScrollPane panel)
 
 
@@ -68,6 +70,7 @@ public class AfficherPartiesController implements ActionListener  {
        
         // Empeche de cliquer sur la fenetre principale
         this._frame.setEnabled(false);
+        this._frame.setNom(_profil.getNom());
         
         // Mise a jour du nom du joueur
         FlowLayout fl = new FlowLayout();
