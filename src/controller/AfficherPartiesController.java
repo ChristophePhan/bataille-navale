@@ -17,7 +17,6 @@ import java.awt.event.ActionListener;
 import java.util.Iterator;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import window.main.BatailleNavale;
@@ -32,6 +31,7 @@ public class AfficherPartiesController implements ActionListener  {
     ////////////////////////////// VARIABLES /////////////////////////////////
 
 
+    private BatailleNavale _batailleNavale;
     private Profil _profil;
     private BatailleNavale _frame;
     private JDialog _popup;
@@ -44,22 +44,26 @@ public class AfficherPartiesController implements ActionListener  {
 
     /**
      * Constructeur de la class AfficherPartiesController
+     * @param batailleNavale page d'accueil
      * @param profil profil contenant les parties a afficher
      * @param frame
      * @param popup fenetre sur laquelle afficher les parties
      * @param panel scroll panel sur lequel afficher la liste des parties
      * @param nom nom du profil
      */
-    public AfficherPartiesController(Profil profil, BatailleNavale frame, JDialog popup, JPanel panel, JLabel nom) {
+    public AfficherPartiesController(BatailleNavale batailleNavale, Profil profil, BatailleNavale frame, 
+            JDialog popup, JPanel panel, JLabel nom) {
         
         super();
+        this._batailleNavale = batailleNavale;
         this._profil = profil;
         this._frame = frame;
         this._popup = popup;
         this._panel = panel;
         this._nom = nom;
         
-    } // AfficherPartiesController(Profil profil, JDialog popup, JScrollPane panel)
+    } // AfficherPartiesController(BatailleNavale batailleNavale, Profil profil, BatailleNavale frame, 
+            //JDialog popup, JPanel panel, JLabel nom)
 
 
     ////////////////////////////// FONCTIONS /////////////////////////////////
@@ -68,9 +72,11 @@ public class AfficherPartiesController implements ActionListener  {
     @Override
     public void actionPerformed(ActionEvent ae) {
        
+        // Memorisation du profil courant
+        this._batailleNavale.setProfilCourant(this._profil);
+        
         // Empeche de cliquer sur la fenetre principale
         this._frame.setEnabled(false);
-        this._frame.setNom(_profil.getNom());
         
         // Mise a jour du nom du joueur
         FlowLayout fl = new FlowLayout();

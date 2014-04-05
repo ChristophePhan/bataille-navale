@@ -25,6 +25,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import stockage.DAOFactory;
+import window.vue.VuePartie;
 
 /**
  * BatailleNavale
@@ -37,7 +38,7 @@ public class BatailleNavale extends javax.swing.JFrame {
     
     
     protected Jeu _jeu;
-    protected String nom;
+    public Profil _profilCourant;
     public static int w = 800;
     public static int h = 600;
     private final ArrayList<TailleGrille> TailleGrilles = (ArrayList<TailleGrille>) DAOFactory.getInstance().getDAO_Parametre().getTaillesGrille();
@@ -52,6 +53,7 @@ public class BatailleNavale extends javax.swing.JFrame {
         initComponents();
         
         this._jeu = new Jeu();
+        this._profilCourant = null;
         this.initialisation();
         this.setLocationRelativeTo(null);
            
@@ -60,12 +62,18 @@ public class BatailleNavale extends javax.swing.JFrame {
     
     /////////////////////////////// FONCTIONS /////////////////////////////////
 
-    public void setNom(String nom) {
-        
-        this.nom = nom;
-        
-    }
 
+    /**
+     * Permet de modifier le profil courant
+     * @param courant profil du joueur courant
+     */
+    public void setProfilCourant(Profil courant) {
+        
+        this._profilCourant = courant;
+        
+    } // setProfilCourant(Profil courant) 
+
+    
     /**
      * Permet d'intialiser le jeu a partir des fichier de configuration
      * et de sauvegarde
@@ -99,7 +107,7 @@ public class BatailleNavale extends javax.swing.JFrame {
                 final Profil p = (Profil)DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().get(iterator.next());
                 JButton profil = new JButton(p.getNom());
                 profil.setPreferredSize(new Dimension(w/(nbProfils+1),h/2-50));
-                profil.addActionListener(new AfficherPartiesController(p,this,this.popupParties,this.jPanel1,this.nomProfil));
+                profil.addActionListener(new AfficherPartiesController(this,p,this,this.popupParties,this.jPanel1,this.nomProfil));
                 profilPanel.add(profil);
                 
                 // Bouton permettant de supprimer le profil
@@ -610,20 +618,29 @@ public class BatailleNavale extends javax.swing.JFrame {
         // Recuperation du mode de placement
         
         Parametre parametre = new Parametre(x, y, diff, DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(epoque));
-        Joueur humain = new JoueurHumain(parametre, this.nom);
+        Joueur humain = new JoueurHumain(parametre, this._profilCourant.getNom());
         Joueur IA = new JoueurMachine(parametre, "Skynet");
+        Partie partie = null;
         if(this.jRadioButtonAleatoire.isSelected()) {
+            
             // Placement aleatoire
             humain.positionnementAleatoire();
             IA.positionnementAleatoire();
-            Partie partie = new Partie(parametre, humain, IA);
+            partie = new Partie(parametre, humain, IA);
             
         } else {
+            
             // Placement manuel
             IA.positionnementAleatoire();
-            Partie partie = new Partie(parametre, humain, IA);
+            partie = new Partie(parametre, humain, IA);
             
         }
+        
+        // Affiche du plateau de jeu
+        VuePartie plateau = new VuePartie(this, this._jeu, this._profilCourant, partie);
+        plateau.setVisible(true);
+        this.popupParametres.setVisible(false);
+        this.setVisible(false);
         
     }//GEN-LAST:event_jButtonJouerActionPerformed
 

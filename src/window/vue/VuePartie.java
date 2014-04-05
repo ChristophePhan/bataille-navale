@@ -9,8 +9,11 @@ package window.vue;
 import bataille_navale.Jeu;
 import bataille_navale.Partie;
 import bataille_navale.Profil;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
+import window.main.BatailleNavale;
 
 /**
  * VuePartie
@@ -22,6 +25,7 @@ public class VuePartie extends javax.swing.JFrame {
     /////////////////////////////// VARIABLES /////////////////////////////////
     
     
+    public BatailleNavale _batailleNavale;
     public Jeu _jeu;
     public Profil _profil;
     public Partie _partie;
@@ -32,39 +36,49 @@ public class VuePartie extends javax.swing.JFrame {
     
     /**
      * Creates new form VuePartie
+     * @param batailleNavale Fenetre d'accueil
      * @param jeu main
      * @param profil profil du joueur qui joue la partie
      * @param partie partie jouee par le joueur
      */
-    public VuePartie(Jeu jeu, Profil profil, Partie partie) {
+    public VuePartie(BatailleNavale batailleNavale, Jeu jeu, Profil profil, Partie partie) {
         initComponents();
         
+        this._batailleNavale = batailleNavale;
         this._jeu = jeu;
         this._profil = profil;
         this._partie = partie;
         
-    } // Vue Partie
+        this.initialisation();
+        this.setLocationRelativeTo(null);
+        
+    } // VuePartie(BatailleNavale batailleNavale, Jeu jeu, Profil profil, Partie partie)
     
     
     /////////////////////////////// FONCTIONS /////////////////////////////////
     
     
     /**
-     * PErmet d'initialiser la partie
+     * Permet d'initialiser la partie
      */
     public void initialisation() {
         
         // Initialisation des deux grilles de jeu
         GridLayout gl = new GridLayout(this._partie.getParametre().getNbCaseX()
                 ,this._partie.getParametre().getNbCaseY());
+        //FlowLayout gl = new FlowLayout();
         this.jPanel1.setLayout(gl);
         this.jPanel2.setLayout(gl);
         
+        int numC = 0;
         for(int i=0;i<this._partie.getParametre().getNbCaseX();i++) {
             for(int j=0;j<this._partie.getParametre().getNbCaseY();j++) {
-                
-                this.jPanel1.add(this._partie.getJ1().getCases().get(i));
-                this.jPanel2.add(this._partie.getJ2().getCases().get(i));
+
+                this._partie.getJ1().getCases().get(numC).setText("O");
+                //this._partie.getJ1().getCases().get(numC).setMinimumSize(new Dimension(5,5));
+                this.jPanel1.add(this._partie.getJ1().getCases().get(numC));
+                this.jPanel2.add(this._partie.getJ2().getCases().get(numC));
+                numC++;
                 
             }
         }
@@ -81,12 +95,76 @@ public class VuePartie extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popupQuitterPartie = new javax.swing.JDialog();
+        jLabel4 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Êtes-vous sûr de vouloir quitter la partie ?");
+
+        jButton2.setText("Annuler");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Nouvelle partie");
+
+        jButton4.setText("Enregistrer et quitter");
+
+        jButton5.setText("Quitter");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout popupQuitterPartieLayout = new javax.swing.GroupLayout(popupQuitterPartie.getContentPane());
+        popupQuitterPartie.getContentPane().setLayout(popupQuitterPartieLayout);
+        popupQuitterPartieLayout.setHorizontalGroup(
+            popupQuitterPartieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(popupQuitterPartieLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(popupQuitterPartieLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(popupQuitterPartieLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jButton3)
+                .addGap(28, 28, 28)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(18, 18, 18))
+        );
+        popupQuitterPartieLayout.setVerticalGroup(
+            popupQuitterPartieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(popupQuitterPartieLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel4)
+                .addGap(31, 31, 31)
+                .addGroup(popupQuitterPartieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -191,18 +269,50 @@ public class VuePartie extends javax.swing.JFrame {
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        
+        this.setEnabled(false);
+        this.popupQuitterPartie.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
+    /**
+     * Permet de quitter definitivement la partie
+     * @param evt 
+     */
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       
+        this._batailleNavale.setVisible(true);
+        this.setVisible(false);
+        this.setEnabled(false);
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    
+    /**
+     * Permet de revenir a la partie
+     * @param evt 
+     */
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        this.setEnabled(true);
+        this.popupQuitterPartie.setVisible(false);
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JDialog popupQuitterPartie;
     // End of variables declaration//GEN-END:variables
 
 
