@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_51" class="java.beans.XMLDecoder">
+ <object class="bataille_navale.Profil">
+  <void property="id">
+   <string>Toto52340579</string>
+  </void>
+  <void property="nom">
+   <string>Toto</string>
+  </void>
+  <void property="parties">
+   <object class="java.util.HashMap"/>
+  </void>
+ </object>
+</java>

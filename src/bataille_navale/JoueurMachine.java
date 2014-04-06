@@ -32,7 +32,7 @@ public class JoueurMachine extends Joueur {
         while(iterator.hasNext()) {
             
             Random rand = new Random();
-            int sens = rand.nextInt(3)+1;
+            int sens = rand.nextInt(2)+1;
             Bateau bateau = (Bateau) this._parametre.getBateaux(this._parametre.getEpoque()).get(iterator.next());
             int xDepart = rand.nextInt(this._parametre.getNbCaseX()-1-bateau.getLongueur());
             int yDepart = rand.nextInt(this._parametre.getNbCaseY()-1-bateau.getLongueur());

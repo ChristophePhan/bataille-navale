@@ -26,7 +26,7 @@ public class DAO_Parametre {
     ////////////////////////////// VARIABLES //////////////////////////////////
     
     
-    private final String path = "fich_param.xml";
+    private final String path = getClass().getResource("fich_param.xml").getFile();
     private Document document;
     private final Element racine;
 

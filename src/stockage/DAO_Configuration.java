@@ -20,11 +20,15 @@ import org.jdom2.input.SAXBuilder;
 public class DAO_Configuration {
 
     ////////////////////////////// VARIABLES //////////////////////////////////
-    private final String path = "fich_config.xml";
+    
+    
+    private final String path = getClass().getResource("fich_config.xml").getFile();
     private Document document;
     private final Element racine;
 
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
+    
+    
     public DAO_Configuration() {
         SAXBuilder sxb = new SAXBuilder();
         try {
@@ -38,7 +42,10 @@ public class DAO_Configuration {
         racine = document.getRootElement();
     } // DAO_Configuration()
 
+    
     ////////////////////////////// FONCTIONS //////////////////////////////////
+    
+    
     /**
      * Permet de recuperer la liste des epoques disponibles dans le fichier de
      * configuration

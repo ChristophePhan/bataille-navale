@@ -1,5 +1,7 @@
 package bataille_navale;
 
+import javax.swing.ImageIcon;
+
 /**
  * CaseBateau
  * @author Chayem Samy, Neret Tristan, Phan Christophe
@@ -20,6 +22,8 @@ public class CaseBateau extends Case {
     public CaseBateau(Bateau bateau) {
         
         this._bateau = bateau;
+        ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Fond_gris.png"));
+        this.setIcon(bateauImage);
         
     } // CaseBateau(Bateau _bateau)
     

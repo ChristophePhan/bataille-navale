@@ -9,10 +9,7 @@ package window.vue;
 import bataille_navale.Jeu;
 import bataille_navale.Partie;
 import bataille_navale.Profil;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import javax.swing.JButton;
 import window.main.BatailleNavale;
 
 /**
@@ -50,6 +47,7 @@ public class VuePartie extends javax.swing.JFrame {
         this._partie = partie;
         
         this.initialisation();
+        this.popupQuitterPartie.setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
         
     } // VuePartie(BatailleNavale batailleNavale, Jeu jeu, Profil profil, Partie partie)
@@ -63,21 +61,23 @@ public class VuePartie extends javax.swing.JFrame {
      */
     public void initialisation() {
         
+        // Initialisation des instructions et des epoques
+        this.labelEpoque.setText(this._partie.getParametre().getEpoque().getNom());
+        this.labelInstructions.setText("À vous de jouer ! Cliquez sur une case de la grille adverse.");
+        
         // Initialisation des deux grilles de jeu
-        GridLayout gl = new GridLayout(this._partie.getParametre().getNbCaseX()
-                ,this._partie.getParametre().getNbCaseY());
-        //FlowLayout gl = new FlowLayout();
-        this.jPanel1.setLayout(gl);
-        this.jPanel2.setLayout(gl);
+        GridLayout gl = new GridLayout(this._partie.getParametre().getNbCaseX(),this._partie.getParametre().getNbCaseY());
+        gl.setHgap(0);
+        gl.setVgap(0);
+        this.plateauJoueurAdverse.setLayout(gl);
+        this.plateauJoueurCourant.setLayout(gl);
         
         int numC = 0;
         for(int i=0;i<this._partie.getParametre().getNbCaseX();i++) {
             for(int j=0;j<this._partie.getParametre().getNbCaseY();j++) {
-
-                this._partie.getJ1().getCases().get(numC).setText("O");
-                //this._partie.getJ1().getCases().get(numC).setMinimumSize(new Dimension(5,5));
-                this.jPanel1.add(this._partie.getJ1().getCases().get(numC));
-                this.jPanel2.add(this._partie.getJ2().getCases().get(numC));
+                
+                this.plateauJoueurCourant.add(this._partie.getJ1().getCases().get(numC));
+                this.plateauJoueurAdverse.add(this._partie.getJ2().getCases().get(numC));
                 numC++;
                 
             }
@@ -101,12 +101,16 @@ public class VuePartie extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelEpoque = new javax.swing.JLabel();
+        labelInstructions = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        plateauJoueurAdverse = new javax.swing.JPanel();
+        plateauJoueurCourant = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        popupQuitterPartie.setResizable(false);
+        popupQuitterPartie.setSize(new java.awt.Dimension(500, 180));
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -136,47 +140,49 @@ public class VuePartie extends javax.swing.JFrame {
             popupQuitterPartieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popupQuitterPartieLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(popupQuitterPartieLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(popupQuitterPartieLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jButton3)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
+            .addGroup(popupQuitterPartieLayout.createSequentialGroup()
+                .addGap(202, 202, 202)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         popupQuitterPartieLayout.setVerticalGroup(
             popupQuitterPartieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popupQuitterPartieLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel4)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(popupQuitterPartieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
                     .addComponent(jButton4)
+                    .addComponent(jButton3)
                     .addComponent(jButton5))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Epoque");
+        labelEpoque.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        labelEpoque.setForeground(new java.awt.Color(51, 102, 255));
+        labelEpoque.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelEpoque.setText("Epoque");
+        labelEpoque.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Instruction");
+        labelInstructions.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        labelInstructions.setForeground(new java.awt.Color(102, 153, 255));
+        labelInstructions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelInstructions.setText("Instruction");
 
         jButton1.setText("Quitter");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -185,36 +191,44 @@ public class VuePartie extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        plateauJoueurAdverse.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        plateauJoueurAdverse.setMaximumSize(new java.awt.Dimension(500, 500));
+        plateauJoueurAdverse.setPreferredSize(new java.awt.Dimension(500, 500));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout plateauJoueurAdverseLayout = new javax.swing.GroupLayout(plateauJoueurAdverse);
+        plateauJoueurAdverse.setLayout(plateauJoueurAdverseLayout);
+        plateauJoueurAdverseLayout.setHorizontalGroup(
+            plateauJoueurAdverseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 498, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+        plateauJoueurAdverseLayout.setVerticalGroup(
+            plateauJoueurAdverseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 498, Short.MAX_VALUE)
         );
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 48)); // NOI18N
+        plateauJoueurCourant.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        plateauJoueurCourant.setMaximumSize(new java.awt.Dimension(300, 300));
+        plateauJoueurCourant.setPreferredSize(new java.awt.Dimension(300, 300));
+
+        javax.swing.GroupLayout plateauJoueurCourantLayout = new javax.swing.GroupLayout(plateauJoueurCourant);
+        plateauJoueurCourant.setLayout(plateauJoueurCourantLayout);
+        plateauJoueurCourantLayout.setHorizontalGroup(
+            plateauJoueurCourantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 298, Short.MAX_VALUE)
+        );
+        plateauJoueurCourantLayout.setVerticalGroup(
+            plateauJoueurCourantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 298, Short.MAX_VALUE)
+        );
+
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 60)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 153, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Battleship");
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel1.setText("Époque");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -223,20 +237,24 @@ public class VuePartie extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelInstructions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(plateauJoueurAdverse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelEpoque, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))))
+                        .addGap(16, 16, 16))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(plateauJoueurCourant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,15 +262,16 @@ public class VuePartie extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelEpoque, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelInstructions, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(plateauJoueurCourant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(plateauJoueurAdverse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -281,9 +300,10 @@ public class VuePartie extends javax.swing.JFrame {
      */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
        
+        this._batailleNavale.setEnabled(true);
         this._batailleNavale.setVisible(true);
         this.setVisible(false);
-        this.setEnabled(false);
+        this.setEnabled(true);
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -307,11 +327,12 @@ public class VuePartie extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel labelEpoque;
+    private javax.swing.JLabel labelInstructions;
+    private javax.swing.JPanel plateauJoueurAdverse;
+    private javax.swing.JPanel plateauJoueurCourant;
     private javax.swing.JDialog popupQuitterPartie;
     // End of variables declaration//GEN-END:variables
 
