@@ -9,6 +9,7 @@ package window.vue;
 import bataille_navale.Jeu;
 import bataille_navale.Partie;
 import bataille_navale.Profil;
+import controller.JouerCaseController;
 import java.awt.GridLayout;
 import stockage.DAOFactory;
 import window.main.BatailleNavale;
@@ -77,7 +78,13 @@ public class VuePartie extends javax.swing.JFrame {
         for(int i=0;i<this._partie.getParametre().getNbCaseX();i++) {
             for(int j=0;j<this._partie.getParametre().getNbCaseY();j++) {
                 
+                // Grille du joueur
                 this.plateauJoueurCourant.add(this._partie.getJ1().getCases().get(numC));
+                
+                // Grille adverse
+                this._partie.getJ2().getCases().get(numC).addActionListener(new JouerCaseController(this, this.popupVictoire
+                        , this.jLabel2, this._partie, this._partie.getJ2().getCases().get(numC)
+                        , this._partie.getJ1(), this._partie.getJ2()));
                 this.plateauJoueurAdverse.add(this._partie.getJ2().getCases().get(numC));
                 numC++;
                 
@@ -102,6 +109,10 @@ public class VuePartie extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        popupVictoire = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         labelEpoque = new javax.swing.JLabel();
         labelInstructions = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -179,6 +190,53 @@ public class VuePartie extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(17, 17, 17))
+        );
+
+        popupVictoire.setResizable(false);
+        popupVictoire.setSize(new java.awt.Dimension(600, 250));
+
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Félicitations ! Vous avez gagné la partie !");
+        jLabel2.setToolTipText("");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jButton6.setText("Rejouer");
+
+        jButton7.setText("Quitter");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout popupVictoireLayout = new javax.swing.GroupLayout(popupVictoire.getContentPane());
+        popupVictoire.getContentPane().setLayout(popupVictoireLayout);
+        popupVictoireLayout.setHorizontalGroup(
+            popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(popupVictoireLayout.createSequentialGroup()
+                .addGroup(popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(popupVictoireLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(popupVictoireLayout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(jButton6)
+                        .addGap(85, 85, 85)
+                        .addComponent(jButton7)))
+                .addContainerGap())
+        );
+        popupVictoireLayout.setVerticalGroup(
+            popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(popupVictoireLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(jButton7))
+                .addGap(47, 47, 47))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -330,18 +388,49 @@ public class VuePartie extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    /***************** JDIALOG - SAUVEGARDE DE LA PARTIE *********************/
+    
+    
+    /**
+     * Permet d'enregistrer la partie et de quitter
+     * @param evt 
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-        DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(_profil);
+        this._partie.sauvegarderPartie(this._profil);
         this.setVisible(false);
         this.popupQuitterPartie.setVisible(false);
         this._batailleNavale.setVisible(true);
         this._batailleNavale.setEnabled(true);
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    
+    /**
+     * Permet de reautoriser le clique sur la fenetre principale
+     * @param evt 
+     */
     private void popupQuitterPartieWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_popupQuitterPartieWindowClosing
+       
         this.setEnabled(true);
+        
     }//GEN-LAST:event_popupQuitterPartieWindowClosing
+
+    
+    
+    /**
+     * Permet de quitter la partie une fois celle-ci terminee
+     * @param evt 
+     */
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        
+        this._batailleNavale.setEnabled(true);
+        this._batailleNavale.setVisible(true);
+        this.setVisible(false);
+        this.setEnabled(true);
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -350,7 +439,10 @@ public class VuePartie extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel labelEpoque;
@@ -358,6 +450,7 @@ public class VuePartie extends javax.swing.JFrame {
     private javax.swing.JPanel plateauJoueurAdverse;
     private javax.swing.JPanel plateauJoueurCourant;
     private javax.swing.JDialog popupQuitterPartie;
+    private javax.swing.JDialog popupVictoire;
     // End of variables declaration//GEN-END:variables
 
 

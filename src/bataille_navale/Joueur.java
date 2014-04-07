@@ -20,9 +20,12 @@ public abstract class Joueur {
 
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    public Joueur(){
+    
+    
+    public Joueur() {
         
-    }
+    } // Joueur()
+    
     
     public Joueur(Parametre parametre, String nom) {
         

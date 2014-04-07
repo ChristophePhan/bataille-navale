@@ -484,7 +484,6 @@ public class BatailleNavale extends javax.swing.JFrame {
      * @param evt 
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         
         this.popupNouveauProfil.setLocationRelativeTo(null);
         this.erreurNomProfil.setVisible(false);
@@ -547,17 +546,20 @@ public class BatailleNavale extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
         // Initialisation des tailles de grille
+        this.jComboBoxTailleGrilles.removeAllItems();
         for(TailleGrille tg : this.TailleGrilles){
             this.jComboBoxTailleGrilles.addItem(tg.getX()+"x"+tg.getY());
         }
         
         // Initialisation des epoques
+        this.jComboBoxEpoques.removeAllItems();
         Iterator i = DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().keySet().iterator();
         while (i.hasNext()) {
             this.jComboBoxEpoques.addItem(i.next());
         }
         
         // Initialisation des difficultees
+        this.jComboBoxDifficultees.removeAllItems();
         for(Object diff : DAOFactory.getInstance().getDAO_Parametre().getDifficultees()){
             this.jComboBoxDifficultees.addItem((String)diff);
         }
@@ -616,7 +618,6 @@ public class BatailleNavale extends javax.swing.JFrame {
         String diff = (String)this.jComboBoxDifficultees.getSelectedItem();
 
         // Recuperation du mode de placement
-        
         Parametre parametre = new Parametre(x, y, diff, DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(epoque));
         Joueur humain = new JoueurHumain(parametre, this._profilCourant.getNom());
         Joueur IA = new JoueurMachine(parametre, "Skynet");

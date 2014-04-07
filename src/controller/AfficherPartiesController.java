@@ -19,7 +19,9 @@ import java.util.Iterator;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import stockage.DAOFactory;
 import window.main.BatailleNavale;
 
 /**
@@ -71,7 +73,7 @@ public class AfficherPartiesController implements ActionListener  {
     
 
     @Override
-    public void actionPerformed(ActionEvent ae) {
+    public void actionPerformed(final ActionEvent ae) {
        
         // Memorisation du profil courant
         this._batailleNavale.setProfilCourant(this._profil);
@@ -80,10 +82,26 @@ public class AfficherPartiesController implements ActionListener  {
         this._frame.setEnabled(false);
         
         // Mise a jour du nom du joueur
+        this._nom.setText(this._profil.getNom());
+        
+        this.reloadPopup();
+        
+        // Affichage du popup
+        this._popup.setLocationRelativeTo(null);
+        this._popup.setVisible(true);
+        
+    } // actionPerformed(ActionEvent ae)
+    
+    
+    /**
+     * Met a jour le popup 
+     */
+    public void reloadPopup() {
+        
+        // Mise a jour du nom du joueur
         FlowLayout fl = new FlowLayout();
         this._panel.removeAll();
         this._panel.setLayout(fl);
-        this._nom.setText(this._profil.getNom());
         
         if(this._profil.getParties() == null || this._profil.getParties().isEmpty()) {
            
@@ -104,8 +122,24 @@ public class AfficherPartiesController implements ActionListener  {
                 // Bouton permettant de supprimer la partie
                 JButton remove = new JButton("SUPR");
                 
-                Partie p = (Partie) parties.get(iterator.next());
-                remove.addActionListener(new SuppressionPartieController(this._profil,p.getId()));
+                final Partie p = (Partie) parties.get(iterator.next());
+                remove.addActionListener(new ActionListener() {
+                    
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        
+                        int dialogResult = JOptionPane.showConfirmDialog(null, "Voulez-vous réellement supprimer la partie ?");
+                        if(dialogResult == JOptionPane.YES_OPTION){
+
+                            _profil.supprimerPartie(p.getId());
+                            DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(_profil);
+                            reloadPopup();
+
+                        }
+                        
+                    }
+                    
+                });
                 remove.setPreferredSize(new Dimension(this._panel.getWidth()/5,30));
                 this._panel.add(remove);
                 
@@ -123,10 +157,8 @@ public class AfficherPartiesController implements ActionListener  {
         
         // Affichage du popup
         this._panel.updateUI();
-        this._popup.setLocationRelativeTo(null);
-        this._popup.setVisible(true);
         
-    } // actionPerformed(ActionEvent ae)
+    } // reloadPopup
     
     
 } // class AfficherPartiesController

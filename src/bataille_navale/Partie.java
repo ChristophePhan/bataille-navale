@@ -1,5 +1,8 @@
 package bataille_navale;
 
+import java.util.Random;
+import stockage.DAOFactory;
+
 /**
  * Partie
  * @author Chayem Samy, Neret Tristan, Phan Christophe
@@ -43,14 +46,35 @@ public class Partie {
 
     
     /**
-     * Permet de savoir si la partie est finie ou non
-     * @return TRUE si la partie est finie, FALSE sinon
+     * Permet de savoir s'il reste des bateaux au joueur adverse ou non
+     * @param joueur joueur sur lequel on test son nombre de bateaux restants
+     * @return TRUE si le joueur ne possede plus de cases, FALSE sinon
      */
-    public boolean testFinPartie() {
+    public boolean testVictoire(Joueur joueur) {
         
-            return false;
+        for(Case c : joueur.getCases()) {
+        
+            if(c.getBateau() != null && !c.getBateau().testBateauCoule()) {
+                
+                return false;
+                
+            }
             
-    } // testFinPartie()
+        }
+        return true;
+            
+    } // testVictoire(Joueur joueur)
+    
+    
+    /**
+     * Permet de savoir s'il reste encore des cases a jouer dans la partie 
+     * @return TRUE s'il n'y a plus de cases a jouer, FALSE sinon
+     */
+    public boolean testEgalite() {
+        
+        return false;
+        
+    } // testEgalite()
 
     
     /**
@@ -62,11 +86,14 @@ public class Partie {
 
     
     /**
-     * Permet de sauvegarder la partie
+     * Permet de sauvegarder la partie d'un profil
+     * @param profil profil dont on souhaite sauvegarder la partie
      */
-    public void sauvegarderPartie() {
+    public void sauvegarderPartie(Profil profil) {
+        
+        DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(profil);
 
-    } // sauvegarderPartie()
+    } // sauvegarderPartie(Profil profil)
 
     
     /**
@@ -90,11 +117,50 @@ public class Partie {
 
     /**
      * Permet au joueur de tirer sur une case
+     * @param joueurCourant joueur ayant tire sur une case
+     * @param joueurAdverse joueur adverse du joueur ayant tire
      * @param c case sur laquelle on souhaite tirer
+     * @return TRUE si le joueur a gagne, FALSE sinon
      */
-    public void jouerCase(Case c) {
+    public boolean jouerCase(Joueur joueurCourant, Joueur joueurAdverse, Case c) {
 
-    } // jouerCase(Case c)
+        if(c != null) {
+        
+            // Le joueur physique joueur
+            joueurCourant.jouerCase(c);
+        
+        } else {
+            
+            // La machine joue
+            joueurCourant.jouerCase(this.getCaseForIA(joueurAdverse));
+            
+        }
+        
+        return this.testVictoire(joueurAdverse);
+        
+    } // jouerCase(Joueur joueurCourant, Joueur joueurAdverse, Case c)
+    
+    
+    /**
+     * Permet de recuperer une case a jouer pour l'IA
+     * @param joueurAdverse joueur physique
+     * @return la case a jouer pour l'IA
+     */
+    public Case getCaseForIA(Joueur joueurAdverse) {
+        
+        Random rand = new Random();
+        int x = rand.nextInt(this._parametre.getNbCaseX());
+        int y = rand.nextInt(this._parametre.getNbCaseY());
+        while(((Case)(joueurAdverse.getCases().get(x+y*this._parametre.getNbCaseX()))).getEtat()) {
+            
+            x = rand.nextInt(this._parametre.getNbCaseX());
+            y = rand.nextInt(this._parametre.getNbCaseY());
+            
+        }
+        
+        return ((Case)(joueurAdverse.getCases().get(x+y*this._parametre.getNbCaseX())));
+        
+    } // getCaseForIA(Joueur joueurAdverse)
     
 
     /**

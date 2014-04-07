@@ -1,8 +1,10 @@
 package bataille_navale;
 
+import java.awt.Image;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import javax.swing.ImageIcon;
 import stockage.DAOFactory;
 
 /**
@@ -11,16 +13,22 @@ import stockage.DAOFactory;
  */
 public class JoueurMachine extends Joueur {
 
+    
     private final List difficultes = DAOFactory.getInstance().getDAO_Parametre().getDifficultees();
     private String difficulte;
+    
+    
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
-    public JoueurMachine(){
+    
+    public JoueurMachine() {
         
-    }
+    } // JoueurMachine()
+    
     
     public JoueurMachine(Parametre parametre, String nom) {
         super(parametre,nom);
+        
     } // JoueurMachine()
     
     
@@ -37,6 +45,7 @@ public class JoueurMachine extends Joueur {
             Random rand = new Random();
             int sens = rand.nextInt(2)+1;
             Bateau bateau = (Bateau) this._parametre.getBateaux(this._parametre.getEpoque()).get(iterator.next());
+            bateau.setNbCasesNonTouchees(bateau.getLongueur());
             int xDepart = rand.nextInt(this._parametre.getNbCaseX()-1-bateau.getLongueur());
             int yDepart = rand.nextInt(this._parametre.getNbCaseY()-1-bateau.getLongueur());
             switch (sens) {
@@ -87,13 +96,40 @@ public class JoueurMachine extends Joueur {
 
     @Override
     public void jouerCase(Case c) {
+        
+        ImageIcon bateauImage = null;
+        if(c.getBateau() == null) {
+            
+            // Tir dans le vide
+            this._nbTirsPerdant++;
+            bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Croix.png"))
+                .getImage().getScaledInstance(c.getWidth(), c.getHeight(), Image.SCALE_DEFAULT));
+            
+        } else {
+            
+            // Batteau touche
+            this._nbTirsGagnant++;
+            bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge_gris.png"))
+                .getImage().getScaledInstance(c.getWidth(), c.getHeight(), Image.SCALE_DEFAULT));
+            c.getBateau().setNbCasesNonTouchees(c.getBateau().getNbCasesNonTouchees()-1);
+
+            
+        }
+        c.setEtat(true);
+        c.setEnabled(false);
+        c.setDisabledIcon(bateauImage);
 
     } // jouerCase(Case c)
+    
+    
+    /**** GETTER/SETTER *****/
 
+    
     public String getDifficulte() {
         return difficulte;
     }
 
+    
     public void setDifficulte(String difficulte) {
         this.difficulte = difficulte;
     }

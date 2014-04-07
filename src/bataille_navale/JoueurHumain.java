@@ -1,7 +1,11 @@
 package bataille_navale;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.util.Iterator;
 import java.util.Random;
+import javax.swing.ImageIcon;
 
 /**
  * JoueurHumain
@@ -11,9 +15,12 @@ public class JoueurHumain extends Joueur {
 
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    public JoueurHumain(){
+    
+    
+    public JoueurHumain() {
         
-    }
+    } // JoueurHumain()
+    
     
     public JoueurHumain(Parametre parametre, String nom) {
         super(parametre,nom);
@@ -33,6 +40,7 @@ public class JoueurHumain extends Joueur {
             Random rand = new Random();
             int sens = rand.nextInt(2)+1;
             Bateau bateau = (Bateau) this._parametre.getBateaux(this._parametre.getEpoque()).get(iterator.next());
+            bateau.setNbCasesNonTouchees(bateau.getLongueur());
             int xDepart = rand.nextInt(this._parametre.getNbCaseX()-1-bateau.getLongueur());
             int yDepart = rand.nextInt(this._parametre.getNbCaseY()-1-bateau.getLongueur());
             switch (sens) {
@@ -92,7 +100,28 @@ public class JoueurHumain extends Joueur {
     @Override
     public void jouerCase(Case c) {
        
+        ImageIcon bateauImage = null;
+        if(c.getBateau() == null) {
+            
+            // Tir dans le vide
+            this._nbTirsPerdant++;
+            bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Croix.png"))
+                .getImage().getScaledInstance(c.getWidth(), c.getHeight(), Image.SCALE_DEFAULT));
+            
+        } else {
+            
+            // Batteau touche
+            this._nbTirsGagnant++;
+            bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge.png"))
+                .getImage().getScaledInstance(c.getWidth(), c.getHeight(), Image.SCALE_DEFAULT));
+            c.getBateau().setNbCasesNonTouchees(c.getBateau().getNbCasesNonTouchees()-1);
 
+            
+        }
+        c.setEtat(true);
+        c.setEnabled(false);
+        c.setDisabledIcon(bateauImage);
+        
     } // jouerCase(Case c)
 
         

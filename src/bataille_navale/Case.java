@@ -41,7 +41,7 @@ public abstract class Case extends JButton {
     /***** GETTER/SETTER *****/
     
 
-    public boolean isEtat() {
+    public boolean getEtat() {
         return etat;
     }
 
