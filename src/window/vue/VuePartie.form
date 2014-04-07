@@ -5,10 +5,13 @@
     <Container class="javax.swing.JDialog" name="popupQuitterPartie">
       <Properties>
         <Property name="resizable" type="boolean" value="false"/>
-        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[500, 180]"/>
-        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="popupQuitterPartieWindowClosing"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="popupQuitterPartie.setSize(new java.awt.Dimension(500, 180));"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -79,6 +82,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Enregistrer et quitter"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>

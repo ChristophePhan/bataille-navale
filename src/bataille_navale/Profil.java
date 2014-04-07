@@ -37,8 +37,8 @@ public class Profil {
     /**
      * Permet de creer une nouvelle partie
      */
-    public void nouvellePartie() {
-
+    public void ajouterNouvellePartie(Partie p) {
+        _parties.put(p.getId(), p);
     } // nouvellePartie()
 
     

@@ -14,6 +14,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -95,13 +96,16 @@ public class AfficherPartiesController implements ActionListener  {
         } else {
             
             // On affiche toutes les parties
-            Iterator iterator = this._profil.getParties().keySet().iterator();
+            HashMap parties = this._profil.getParties();
+            Iterator iterator = parties.keySet().iterator();
             int num = 1;
             while(iterator.hasNext()) {
                 
                 // Bouton permettant de supprimer la partie
                 JButton remove = new JButton("SUPR");
-                remove.addActionListener(new SuppressionPartieController(this._profil,((Partie)iterator.next()).getId()));
+                
+                Partie p = (Partie) parties.get(iterator.next());
+                remove.addActionListener(new SuppressionPartieController(this._profil,p.getId()));
                 remove.setPreferredSize(new Dimension(this._panel.getWidth()/5,30));
                 this._panel.add(remove);
                 

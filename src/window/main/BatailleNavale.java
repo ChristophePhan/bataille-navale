@@ -635,7 +635,7 @@ public class BatailleNavale extends javax.swing.JFrame {
             partie = new Partie(parametre, humain, IA);
             
         }
-        
+        this._profilCourant.ajouterNouvellePartie(partie);
         // Affiche du plateau de jeu
         VuePartie plateau = new VuePartie(this, this._jeu, this._profilCourant, partie);
         plateau.setVisible(true);

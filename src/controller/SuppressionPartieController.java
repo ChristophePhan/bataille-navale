@@ -10,6 +10,7 @@ import bataille_navale.Profil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import stockage.DAOFactory;
 
 /**
  * SuppressionPartieController
@@ -51,6 +52,7 @@ public class SuppressionPartieController implements ActionListener  {
         if(dialogResult == JOptionPane.YES_OPTION){
         
             this._profil.supprimerPartie(this._idPartie);
+            DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(_profil);
             
         }
         

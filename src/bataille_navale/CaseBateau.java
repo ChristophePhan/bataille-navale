@@ -1,5 +1,6 @@
 package bataille_navale;
 
+import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**
@@ -17,7 +18,9 @@ public class CaseBateau extends Case {
 
 
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    
+    public CaseBateau(){
+        
+    }
     
     public CaseBateau(Bateau bateau) {
         

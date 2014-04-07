@@ -10,6 +10,7 @@ import bataille_navale.Jeu;
 import bataille_navale.Partie;
 import bataille_navale.Profil;
 import java.awt.GridLayout;
+import stockage.DAOFactory;
 import window.main.BatailleNavale;
 
 /**
@@ -109,8 +110,13 @@ public class VuePartie extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        popupQuitterPartie.setResizable(false);
         popupQuitterPartie.setSize(new java.awt.Dimension(500, 180));
+        popupQuitterPartie.setResizable(false);
+        popupQuitterPartie.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                popupQuitterPartieWindowClosing(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -126,6 +132,11 @@ public class VuePartie extends javax.swing.JFrame {
         jButton3.setText("Nouvelle partie");
 
         jButton4.setText("Enregistrer et quitter");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Quitter");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -318,6 +329,19 @@ public class VuePartie extends javax.swing.JFrame {
         this.popupQuitterPartie.setVisible(false);
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+        DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(_profil);
+        this.setVisible(false);
+        this.popupQuitterPartie.setVisible(false);
+        this._batailleNavale.setVisible(true);
+        this._batailleNavale.setEnabled(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void popupQuitterPartieWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_popupQuitterPartieWindowClosing
+        this.setEnabled(true);
+    }//GEN-LAST:event_popupQuitterPartieWindowClosing
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

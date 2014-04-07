@@ -15,6 +15,9 @@ public class JoueurMachine extends Joueur {
     private String difficulte;
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
+    public JoueurMachine(){
+        
+    }
     
     public JoueurMachine(Parametre parametre, String nom) {
         super(parametre,nom);

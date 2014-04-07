@@ -11,7 +11,9 @@ public class JoueurHumain extends Joueur {
 
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    
+    public JoueurHumain(){
+        
+    }
     
     public JoueurHumain(Parametre parametre, String nom) {
         super(parametre,nom);
