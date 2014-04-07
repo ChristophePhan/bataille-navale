@@ -14,8 +14,8 @@ import stockage.DAO_Configuration;
 import stockage.DAO_Sauvegarde;
 
 /**
- *
- * @author Samy
+ * TestXML
+ * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class TestXML {
 

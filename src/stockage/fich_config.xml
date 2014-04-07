@@ -31,6 +31,21 @@ exemple de configuration que le fichier xml doit avoir
         <image>a</image>
         <bateaux>
             <bateau>
+                <nom>Enterprise</nom>
+                <longueur>8</longueur>
+                <portee>8</portee>
+                <images>
+                    <image id="2">a</image>
+                    <image id="3">a</image>
+                    <image id="4">a</image>
+                    <image id="5">a</image>
+                    <image id="6">a</image>
+                    <image id="7">b</image>
+                    <image id="8">c</image>
+                    <image id="9">d</image>
+                </images>
+            </bateau>
+            <bateau>
                 <nom>BattlestarGalactica</nom>
                 <longueur>5</longueur>
                 <portee>10</portee>
@@ -44,19 +59,21 @@ exemple de configuration que le fichier xml doit avoir
             </bateau>
             <bateau>
                 <nom>Raptor</nom>
-                <longueur>2</longueur>
-                <portee>4</portee>
+                <longueur>3</longueur>
+                <portee>3</portee>
                 <images>
+                    <image id="5">a</image>
                     <image id="6">a</image>
                     <image id="7">b</image>
                 </images>
             </bateau>
             <bateau>
                 <nom>Viper</nom>
-                <longueur>1</longueur>
+                <longueur>2</longueur>
                 <portee>2</portee>
                 <images>
                     <image id="6">a</image>
+                    <image id="7">a</image>
                 </images>
             </bateau>
             
