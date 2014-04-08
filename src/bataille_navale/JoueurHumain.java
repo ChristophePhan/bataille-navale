@@ -39,7 +39,7 @@ public class JoueurHumain extends Joueur {
             
             Random rand = new Random();
             int sens = rand.nextInt(2)+1;
-            Bateau bateau = (Bateau) this._parametre.getBateaux(this._parametre.getEpoque()).get(iterator.next());
+            Bateau bateau = new Bateau((Bateau) this._parametre.getBateaux(this._parametre.getEpoque()).get(iterator.next()));
             bateau.setNbCasesNonTouchees(bateau.getLongueur());
             int xDepart = rand.nextInt(this._parametre.getNbCaseX()-1-bateau.getLongueur());
             int yDepart = rand.nextInt(this._parametre.getNbCaseY()-1-bateau.getLongueur());
@@ -116,7 +116,6 @@ public class JoueurHumain extends Joueur {
                 .getImage().getScaledInstance(c.getWidth(), c.getHeight(), Image.SCALE_DEFAULT));
             c.getBateau().setNbCasesNonTouchees(c.getBateau().getNbCasesNonTouchees()-1);
 
-            
         }
         c.setEtat(true);
         c.setEnabled(false);

@@ -434,15 +434,16 @@ public class VuePartie extends javax.swing.JFrame {
     }//GEN-LAST:event_popupQuitterPartieWindowClosing
 
     
-    
     /**
      * Permet de quitter la partie une fois celle-ci terminee
+     * (popupVictoire)
      * @param evt 
      */
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         
         this._batailleNavale.setEnabled(true);
         this._batailleNavale.setVisible(true);
+        this.popupVictoire.setVisible(false);
         this.setVisible(false);
         this.setEnabled(true);
         

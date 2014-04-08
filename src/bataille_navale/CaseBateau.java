@@ -1,6 +1,5 @@
 package bataille_navale;
 
-import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**

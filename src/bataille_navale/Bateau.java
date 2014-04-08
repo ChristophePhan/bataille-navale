@@ -27,7 +27,7 @@ public class Bateau {
      * 3 - Diagonale (bas gauche -> haut droit)
      * 4 - Diagonale (haut gauche -> bas droit)
      */
-    private int orientation;
+    private int _orientation;
     
     
     ////////////////////////////// CONSTRUCTEUR ///////////////////////////////
@@ -36,6 +36,18 @@ public class Bateau {
     public Bateau() {
         
     } // Bateau()
+    
+    
+    public Bateau(Bateau bateau) {
+        
+        this._imagesBateau = bateau.getImagesBateau();
+        this._longueur = bateau.getLongueur();
+        this._nbCasesNonTouchees = bateau.getNbCasesNonTouchees();
+        this._nom = bateau.getNom();
+        this._portee = bateau.getPortee();
+        this._orientation = bateau.getOrientation();
+
+    } // Bateau(Bateau bateau)
     
     
     //////////////////////////////// FONCTIONS ////////////////////////////////
@@ -88,11 +100,11 @@ public class Bateau {
     }
 
     public int getOrientation() {
-        return orientation;
+        return _orientation;
     }
 
     public void setOrientation(int orientation) {
-        this.orientation = orientation;
+        this._orientation = orientation;
     }
 
     public HashMap<Integer, String> getImagesBateau() {
