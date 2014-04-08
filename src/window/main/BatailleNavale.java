@@ -20,6 +20,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -27,11 +30,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import stockage.DAOFactory;
 import window.vue.VuePartie;
 
@@ -77,6 +83,10 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
      */
     public void initialisation() {
         
+        this.getContentPane().setBackground(Color.WHITE);
+        this.popupParties.getContentPane().setBackground(Color.WHITE);
+        this.popupNouveauProfil.getContentPane().setBackground(Color.WHITE);
+        this.popupParametres.getContentPane().setBackground(Color.WHITE);
         if(DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils() == null 
                 || DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().isEmpty()) {
    
@@ -89,7 +99,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             this.jLabel5.setVisible(false);
             // Affichage des profils disponibles
             int nbProfils = DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().size();
-            FlowLayout fl = new FlowLayout();
+            FlowLayout fl = new FlowLayout(FlowLayout.CENTER);
             this.listeProfils.removeAll();
             this.listeProfils.setPreferredSize(new Dimension(w,h/2));
             this.listeProfils.setLayout(fl);
@@ -99,18 +109,36 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             while(iterator.hasNext()) {
                 
                 JPanel profilPanel = new JPanel();
+                JPanel legendePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+                profilPanel.setBackground(Color.WHITE);
                 profilPanel.setPreferredSize(new Dimension(w/(nbProfils+1),h/2-5));
+                legendePanel.setBackground(Color.WHITE);
                 
                 // Profil
                 final Profil p = (Profil)DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().get(iterator.next());
-                JButton profil = new JButton(p.getNom());
-                profil.setPreferredSize(new Dimension(w/(nbProfils+1),h/2-50));
+                JButton profil = new JButton();
+                ImageIcon iconImageBleu = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/smiley_bleu.png"))
+                    .getImage().getScaledInstance(w/(nbProfils+1)-20, w/(nbProfils+1)-20, Image.SCALE_DEFAULT));
+                ImageIcon iconImageGris = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/smiley_gris.png"))
+                    .getImage().getScaledInstance(w/(nbProfils+1)-20, w/(nbProfils+1)-20, Image.SCALE_DEFAULT));
+                profil.setIcon(iconImageBleu);
+                profil.setSelectedIcon(iconImageGris);
+                profil.setPreferredSize(new Dimension(w/(nbProfils+1),h/2-100));
                 profil.addActionListener(new AfficherPartiesController(this._jeu,p));
+                profil.setHorizontalAlignment(SwingConstants.CENTER);
+                profil.setBorder(BorderFactory.createEmptyBorder());
+                profil.setContentAreaFilled(false);
                 profilPanel.add(profil);
                 
                 // Bouton permettant de supprimer le profil
-                JButton supr = new JButton("SUPR");
-                supr.setPreferredSize(new Dimension(w/(nbProfils+1),30));
+                JButton supr= new JButton();
+                ImageIcon suprImageNoir = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/poubelle_noir.png"))
+                    .getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+                ImageIcon suprImageGris = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/poubelle_gris.png"))
+                    .getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+                supr.setIcon(suprImageNoir);
+                supr.setSelectedIcon(suprImageGris);
+                supr.setPreferredSize(new Dimension((w/(nbProfils+1))/5,30));
                 supr.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -118,8 +146,18 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                         initialisation();
                     }
                 });
-                profilPanel.add(supr);
+                supr.setBorder(BorderFactory.createEmptyBorder());
+                supr.setContentAreaFilled(false);
+                legendePanel.add(supr);
                 
+                // Nom du profil
+                JLabel labelNom = new JLabel(p.getNom());
+                labelNom.setHorizontalAlignment(SwingConstants.CENTER);
+                labelNom.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
+                labelNom.setForeground(Color.DARK_GRAY);
+                legendePanel.add(labelNom);
+                
+                profilPanel.add(legendePanel);
                 this.listeProfils.add(profilPanel);
                 
             }
@@ -258,6 +296,8 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 jButton3ActionPerformed(evt);
             }
         });
+
+        panelParties.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelPartiesLayout = new javax.swing.GroupLayout(panelParties);
         panelParties.setLayout(panelPartiesLayout);
@@ -400,9 +440,11 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 60)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 72)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 153, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Battleship");
@@ -424,11 +466,13 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Aucun profil disponible");
 
+        listeProfils.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout listeProfilsLayout = new javax.swing.GroupLayout(listeProfils);
         listeProfils.setLayout(listeProfilsLayout);
         listeProfilsLayout.setHorizontalGroup(
             listeProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 794, Short.MAX_VALUE)
         );
         listeProfilsLayout.setVerticalGroup(
             listeProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,19 +483,27 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(listeProfils, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(293, 293, 293)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(293, 293, 293)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(listeProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
@@ -463,7 +515,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(listeProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(47, 47, 47))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

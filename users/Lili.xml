@@ -2,10 +2,10 @@
 <java version="1.7.0_51" class="java.beans.XMLDecoder">
  <object class="bataille_navale.Profil">
   <void property="id">
-   <string>Lulu1337833647</string>
+   <string>Lili672294287</string>
   </void>
   <void property="nom">
-   <string>Lulu</string>
+   <string>Lili</string>
   </void>
   <void property="parties">
    <object class="java.util.HashMap"/>

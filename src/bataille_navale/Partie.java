@@ -2,6 +2,8 @@ package bataille_navale;
 
 import java.util.Observable;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import stockage.DAOFactory;
 
 /**
@@ -134,12 +136,12 @@ public class Partie extends Observable {
             if(joueurCourant.jouerCase(c)) {
                 
                 // Le joueur a touche un bateau
-                this.afficherMessage("Vous avez touché votre adversaire !");
+                this.afficherMessage("Vous avez touché votre adversaire !",true);
                 
             } else {
                 
                 // Le joueur tire dans le vide
-                this.afficherMessage("Votre tir a échoué !");
+                this.afficherMessage("Votre tir a échoué !",true);
                 
             }
         
@@ -149,16 +151,19 @@ public class Partie extends Observable {
             if(joueurCourant.jouerCase(this.getCaseForIA(joueurAdverse))) {
                 
                 // La machine a touche un bateau
-                this.afficherMessage("Votre adversaire vous a touché !");
+                this.afficherMessage("Votre adversaire vous a touché !",false);
                 
             } else {
                 
                 
-                // La machien tire dans le vide
-                this.afficherMessage("Le tir de votre adversaire a échoué !");
+                // La machine tire dans le vide
+                this.afficherMessage("Le tir de votre adversaire a échoué !",false);
+                
             }
             
         }
+        setChanged();
+        notifyObservers("tir");
         
         return this.testVictoire(joueurAdverse);
         
@@ -190,14 +195,16 @@ public class Partie extends Observable {
     /**
      * Permet d'afficher un message au joueur
      * @param mess message a afficher
+     * @param joueur si TRUE joueur courant, si FALSE joueur adverse
      */
-    public void afficherMessage(String mess) {
+    public void afficherMessage(String mess, boolean joueur) {
 
         this._message = mess;
         setChanged();
-        notifyObservers("message");
+        String label = joueur ? "messageJ1" : "messageJ2";
+        notifyObservers(label);
         
-    } // afficherMessage(String mess)
+    } // afficherMessage(String mess, boolean joueur)
     
     
     /**

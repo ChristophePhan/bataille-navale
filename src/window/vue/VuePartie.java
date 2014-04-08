@@ -10,6 +10,7 @@ import bataille_navale.Jeu;
 import bataille_navale.Partie;
 import bataille_navale.Profil;
 import controller.JouerCaseController;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.Observable;
 import java.util.Observer;
@@ -66,8 +67,14 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
     public void initialisation() {
         
         // Initialisation des instructions et des epoques
+        this.getContentPane().setBackground(Color.WHITE);
+        this.popupQuitterPartie.getContentPane().setBackground(Color.WHITE);
+        this.popupVictoire.getContentPane().setBackground(Color.WHITE);
         this.labelEpoque.setText(this._partie.getParametre().getEpoque().getNom());
-        this.labelInstructions.setText("À vous de jouer ! Cliquez sur une case de la grille adverse.");
+        this.labelInstructionsJoueur.setText("À vous de jouer ! Cliquez sur une case de la grille adverse.");
+        this.labelInstructionsAdversaire.setText("");
+        this.labelTirsReussis.setText(this._partie.getJ1().getNbTirsGagnant() + "");
+        this.labelTirsRates.setText(this._partie.getJ1().getNbTirsPerdant() + "");
         
         // Initialisation des deux grilles de jeu
         GridLayout gl = new GridLayout(this._partie.getParametre().getNbCaseX(),this._partie.getParametre().getNbCaseY());
@@ -130,12 +137,27 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         labelEpoque = new javax.swing.JLabel();
-        labelInstructions = new javax.swing.JLabel();
+        labelInstructionsJoueur = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         plateauJoueurAdverse = new javax.swing.JPanel();
         plateauJoueurCourant = new javax.swing.JPanel();
+        labelBattleship = new javax.swing.JLabel();
+        labelTitreEpoque = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        labelFlotteJoueur = new javax.swing.JLabel();
+        labelFlotteAdverse = new javax.swing.JLabel();
+        flecheFlotteJoueur = new javax.swing.JLabel();
+        flecheFlotteAdverse = new javax.swing.JLabel();
+        labelInstructionsAdversaire = new javax.swing.JLabel();
+        panelInfosBateauxJoueur = new javax.swing.JPanel();
+        labelTitreTirsReussis = new javax.swing.JLabel();
+        labelTitreTirsRates = new javax.swing.JLabel();
+        labelTirsReussis = new javax.swing.JLabel();
+        labelTirsRates = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         popupQuitterPartie.setSize(new java.awt.Dimension(500, 180));
         popupQuitterPartie.setResizable(false);
@@ -264,10 +286,10 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         labelEpoque.setText("Epoque");
         labelEpoque.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        labelInstructions.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        labelInstructions.setForeground(new java.awt.Color(102, 153, 255));
-        labelInstructions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelInstructions.setText("Instruction");
+        labelInstructionsJoueur.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        labelInstructionsJoueur.setForeground(new java.awt.Color(102, 153, 255));
+        labelInstructionsJoueur.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelInstructionsJoueur.setText("Instructions joueur");
 
         jButton1.setText("Quitter");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -276,7 +298,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
             }
         });
 
-        plateauJoueurAdverse.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        plateauJoueurAdverse.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
         plateauJoueurAdverse.setMaximumSize(new java.awt.Dimension(500, 500));
         plateauJoueurAdverse.setPreferredSize(new java.awt.Dimension(500, 500));
 
@@ -284,14 +306,14 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         plateauJoueurAdverse.setLayout(plateauJoueurAdverseLayout);
         plateauJoueurAdverseLayout.setHorizontalGroup(
             plateauJoueurAdverseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGap(0, 496, Short.MAX_VALUE)
         );
         plateauJoueurAdverseLayout.setVerticalGroup(
             plateauJoueurAdverseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGap(0, 496, Short.MAX_VALUE)
         );
 
-        plateauJoueurCourant.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        plateauJoueurCourant.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
         plateauJoueurCourant.setMaximumSize(new java.awt.Dimension(300, 300));
         plateauJoueurCourant.setPreferredSize(new java.awt.Dimension(300, 300));
 
@@ -299,65 +321,208 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         plateauJoueurCourant.setLayout(plateauJoueurCourantLayout);
         plateauJoueurCourantLayout.setHorizontalGroup(
             plateauJoueurCourantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGap(0, 296, Short.MAX_VALUE)
         );
         plateauJoueurCourantLayout.setVerticalGroup(
             plateauJoueurCourantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGap(0, 296, Short.MAX_VALUE)
         );
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 60)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Battleship");
+        labelBattleship.setFont(new java.awt.Font("Helvetica Neue", 0, 60)); // NOI18N
+        labelBattleship.setForeground(new java.awt.Color(102, 153, 255));
+        labelBattleship.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelBattleship.setText("Battleship ");
+        labelBattleship.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        labelBattleship.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
-        jLabel1.setText("Époque");
+        labelTitreEpoque.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        labelTitreEpoque.setForeground(new java.awt.Color(51, 153, 255));
+        labelTitreEpoque.setText("Époque:");
+
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Vos bateaux");
+
+        labelFlotteJoueur.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        labelFlotteJoueur.setForeground(new java.awt.Color(102, 102, 102));
+        labelFlotteJoueur.setText("Votre flotte");
+
+        labelFlotteAdverse.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        labelFlotteAdverse.setForeground(new java.awt.Color(102, 102, 102));
+        labelFlotteAdverse.setText("Flotte adverse");
+
+        flecheFlotteJoueur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stockage/images/Fleche_haut.png"))); // NOI18N
+        flecheFlotteJoueur.setMaximumSize(new java.awt.Dimension(20, 20));
+        flecheFlotteJoueur.setMinimumSize(new java.awt.Dimension(20, 20));
+        flecheFlotteJoueur.setPreferredSize(new java.awt.Dimension(20, 20));
+        flecheFlotteJoueur.setSize(new java.awt.Dimension(20, 20));
+
+        flecheFlotteAdverse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stockage/images/Fleche_haut.png"))); // NOI18N
+
+        labelInstructionsAdversaire.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        labelInstructionsAdversaire.setForeground(new java.awt.Color(102, 102, 102));
+        labelInstructionsAdversaire.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelInstructionsAdversaire.setText("Instructions adversaire");
+
+        panelInfosBateauxJoueur.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout panelInfosBateauxJoueurLayout = new javax.swing.GroupLayout(panelInfosBateauxJoueur);
+        panelInfosBateauxJoueur.setLayout(panelInfosBateauxJoueurLayout);
+        panelInfosBateauxJoueurLayout.setHorizontalGroup(
+            panelInfosBateauxJoueurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+        panelInfosBateauxJoueurLayout.setVerticalGroup(
+            panelInfosBateauxJoueurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+
+        labelTitreTirsReussis.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        labelTitreTirsReussis.setForeground(new java.awt.Color(51, 153, 255));
+        labelTitreTirsReussis.setText("Tirs réussis");
+
+        labelTitreTirsRates.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        labelTitreTirsRates.setForeground(new java.awt.Color(51, 153, 255));
+        labelTitreTirsRates.setText("Tirs ratés");
+
+        labelTirsReussis.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        labelTirsReussis.setForeground(new java.awt.Color(51, 102, 255));
+        labelTirsReussis.setText("10");
+
+        labelTirsRates.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        labelTirsRates.setForeground(new java.awt.Color(51, 102, 255));
+        labelTirsRates.setText("10");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stockage/images/Case_a_portee.png"))); // NOI18N
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stockage/images/Fond_blanc.png"))); // NOI18N
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setText("Case à portée de tir");
+        jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("Case hors de portée de tir");
+        jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelInstructions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(plateauJoueurAdverse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(labelFlotteAdverse)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(flecheFlotteAdverse))
+                        .addComponent(plateauJoueurAdverse, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelInstructionsJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelInstructionsAdversaire, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelTitreEpoque, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelEpoque, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(26, 26, 26)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))
+                        .addGap(20, 20, 20))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(plateauJoueurCourant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelTitreTirsReussis)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(labelTirsReussis, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelTitreTirsRates)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(labelTirsRates, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(plateauJoueurCourant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(flecheFlotteJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(labelFlotteJoueur))
+                                .addComponent(panelInfosBateauxJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelBattleship, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelEpoque, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelInstructions, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addComponent(labelInstructionsJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(labelInstructionsAdversaire))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelTitreEpoque, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelEpoque, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelBattleship, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(plateauJoueurCourant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(flecheFlotteJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(labelFlotteJoueur))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(plateauJoueurCourant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(plateauJoueurAdverse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelInfosBateauxJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(plateauJoueurAdverse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelFlotteAdverse)
+                            .addComponent(flecheFlotteAdverse, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(labelTitreTirsReussis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(labelTitreTirsRates, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(labelTirsReussis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(labelTirsRates, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(1, 1, 1)))
+                        .addGap(14, 14, 14))))
         );
 
         pack();
@@ -451,6 +616,8 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel flecheFlotteAdverse;
+    private javax.swing.JLabel flecheFlotteJoueur;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -458,11 +625,24 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel labelBattleship;
     private javax.swing.JLabel labelEpoque;
-    private javax.swing.JLabel labelInstructions;
+    private javax.swing.JLabel labelFlotteAdverse;
+    private javax.swing.JLabel labelFlotteJoueur;
+    private javax.swing.JLabel labelInstructionsAdversaire;
+    private javax.swing.JLabel labelInstructionsJoueur;
+    private javax.swing.JLabel labelTirsRates;
+    private javax.swing.JLabel labelTirsReussis;
+    private javax.swing.JLabel labelTitreEpoque;
+    private javax.swing.JLabel labelTitreTirsRates;
+    private javax.swing.JLabel labelTitreTirsReussis;
+    private javax.swing.JPanel panelInfosBateauxJoueur;
     private javax.swing.JPanel plateauJoueurAdverse;
     private javax.swing.JPanel plateauJoueurCourant;
     private javax.swing.JDialog popupQuitterPartie;
@@ -479,16 +659,21 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         
         switch (arg.toString()) {
             
-            case "message":
-                this.labelInstructions.removeAll();
-                this.labelInstructions.setText(this._partie.getMessage());
-                this.labelInstructions.updateUI();
+            case "messageJ1":
+                this.labelInstructionsJoueur.setText(this._partie.getMessage());
+                break;
+                
+            case "messageJ2":
+                this.labelInstructionsAdversaire.setText(this._partie.getMessage());
+                break;
+               
+            case "tir":
+                this.labelTirsReussis.setText(this._partie.getJ1().getNbTirsGagnant() + "");
+                this.labelTirsRates.setText(this._partie.getJ1().getNbTirsPerdant() + "");
                 break;
                 
             case "resultat":
-                this.titrePopupVictoire.removeAll();
                 this.titrePopupVictoire.setText(this._partie.getMessageFinPartie());
-                this.titrePopupVictoire.updateUI();
                 this.popupVictoire.setLocationRelativeTo(null);
                 this.popupVictoire.setVisible(true);
                 this.setEnabled(false);
