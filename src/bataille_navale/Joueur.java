@@ -134,8 +134,9 @@ public abstract class Joueur {
     /**
      * Permet au joueur de tirer sur une case
      * @param c case sur laquelle le joueur souhaite tirer
+     * @return TRUE si ub bateau a ete touche, FALSE sinon
      */
-    public abstract void jouerCase(Case c);
+    public abstract boolean jouerCase(Case c);
 
     
     /***** GETTER/SETTER *****/

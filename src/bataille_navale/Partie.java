@@ -131,12 +131,32 @@ public class Partie extends Observable {
         if(c != null) {
         
             // Le joueur physique joueur
-            joueurCourant.jouerCase(c);
+            if(joueurCourant.jouerCase(c)) {
+                
+                // Le joueur a touche un bateau
+                this.afficherMessage("Vous avez touché votre adversaire !");
+                
+            } else {
+                
+                // Le joueur tire dans le vide
+                this.afficherMessage("Votre tir a échoué !");
+                
+            }
         
         } else {
             
             // La machine joue
-            joueurCourant.jouerCase(this.getCaseForIA(joueurAdverse));
+            if(joueurCourant.jouerCase(this.getCaseForIA(joueurAdverse))) {
+                
+                // La machine a touche un bateau
+                this.afficherMessage("Votre adversaire vous a touché !");
+                
+            } else {
+                
+                
+                // La machien tire dans le vide
+                this.afficherMessage("Le tir de votre adversaire a échoué !");
+            }
             
         }
         
@@ -175,7 +195,7 @@ public class Partie extends Observable {
 
         this._message = mess;
         setChanged();
-        notifyObservers("resultat");
+        notifyObservers("message");
         
     } // afficherMessage(String mess)
     

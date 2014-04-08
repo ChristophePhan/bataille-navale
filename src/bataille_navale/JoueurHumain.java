@@ -98,9 +98,10 @@ public class JoueurHumain extends Joueur {
 
     
     @Override
-    public void jouerCase(Case c) {
+    public boolean jouerCase(Case c) {
        
         ImageIcon bateauImage = null;
+        boolean res = false;
         if(c.getBateau() == null) {
             
             // Tir dans le vide
@@ -112,6 +113,7 @@ public class JoueurHumain extends Joueur {
             
             // Batteau touche
             this._nbTirsGagnant++;
+            res = true;
             bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge.png"))
                 .getImage().getScaledInstance(c.getWidth(), c.getHeight(), Image.SCALE_DEFAULT));
             c.getBateau().setNbCasesNonTouchees(c.getBateau().getNbCasesNonTouchees()-1);
@@ -120,6 +122,8 @@ public class JoueurHumain extends Joueur {
         c.setEtat(true);
         c.setEnabled(false);
         c.setDisabledIcon(bateauImage);
+        
+        return res;
         
     } // jouerCase(Case c)
 

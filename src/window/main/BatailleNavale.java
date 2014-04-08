@@ -548,9 +548,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         this.setEnabled(false);
         
         // Mise a jour du nom du joueur
-        this.nomProfil.removeAll();
         this.nomProfil.setText(profil.getNom());
-        this.nomProfil.updateUI();
         
         FlowLayout fl = new FlowLayout();
         this.panelParties.removeAll();
@@ -601,7 +599,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 partie.addActionListener(new AfficherPartiesController(this._jeu,profil));
                 partie.setPreferredSize(new Dimension(this.panelParties.getWidth()/5,30));
                 this.panelParties.add(partie);
-                
+
                 num++;
                 
             }
@@ -846,6 +844,8 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         switch (arg.toString()) {
             
             case "parties":
+                this.popupParties.setLocationRelativeTo(null);
+                this.popupParties.setVisible(true);
                 this.afficherPopupParties(this._jeu.getProfilCourant());
                 break;
             
