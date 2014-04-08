@@ -11,6 +11,7 @@ import bataille_navale.Partie;
 import bataille_navale.Profil;
 import controller.JouerCaseController;
 import java.awt.GridLayout;
+import javax.swing.ImageIcon;
 import stockage.DAOFactory;
 import window.main.BatailleNavale;
 
@@ -85,6 +86,21 @@ public class VuePartie extends javax.swing.JFrame {
                 this._partie.getJ2().getCases().get(numC).addActionListener(new JouerCaseController(this, this.popupVictoire
                         , this.jLabel2, this._partie, this._partie.getJ2().getCases().get(numC)
                         , this._partie.getJ1(), this._partie.getJ2()));
+                // On signal que la case est a portee de tir si c'est le cas,
+                // sinon on ne peut pas cliquer sur la case
+                if(this._partie.getJ2().getCases().get(numC).isAPortee()) {
+                    
+                    ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Case_a_portee.png"));
+                    this._partie.getJ2().getCases().get(numC).setIcon(bateauImage);
+                    this._partie.getJ2().getCases().get(numC).setDisabledIcon(bateauImage);
+                    
+                } else {
+                    
+                    this._partie.getJ2().getCases().get(numC).setEnabled(false);
+                    ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Fond_blanc.png"));
+                    this._partie.getJ2().getCases().get(numC).setDisabledIcon(bateauImage);
+                    
+                }
                 this.plateauJoueurAdverse.add(this._partie.getJ2().getCases().get(numC));
                 numC++;
                 

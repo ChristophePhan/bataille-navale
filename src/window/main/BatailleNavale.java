@@ -6,6 +6,7 @@
 
 package window.main;
 
+import bataille_navale.Case;
 import bataille_navale.Jeu;
 import bataille_navale.Joueur;
 import bataille_navale.JoueurHumain;
@@ -637,6 +638,32 @@ public class BatailleNavale extends javax.swing.JFrame {
             
         }
         this._profilCourant.ajouterNouvellePartie(partie);
+        
+        // Permet d'afficher les cases a portee de tir
+        for(int i=0;i<x;i++) {
+            for(int j=0;j<y;j++) {
+            
+                if(humain.getCases().get(i+j*x).getBateau() != null) {
+           
+                    // On parcours les cases autour du bateau pour les activer
+                    int portee = humain.getCases().get(i+j*x).getBateau().getPortee();
+                    for(int W=i-portee;W<(i-portee+2*portee)+1;W++) {
+                        for(int H=j-portee;H<(j-portee+2*portee)+1;H++) {
+                            
+                            if(W >= 0 && W < x && H >= 0 && H < y) {
+                
+                                ((Case)(IA.getCases().get(W+H*x))).setPortee(true);
+                                
+                            }
+                            
+                        }
+                    }
+
+                }
+            
+            }
+        }
+        
         // Affiche du plateau de jeu
         VuePartie plateau = new VuePartie(this, this._jeu, this._profilCourant, partie);
         plateau.setVisible(true);

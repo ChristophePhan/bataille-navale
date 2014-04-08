@@ -103,4 +103,5 @@ public class Bateau {
         this._imagesBateau = _imagesBateau;
     }
 
+    
 } // class Bateau

@@ -151,7 +151,7 @@ public class Partie {
         Random rand = new Random();
         int x = rand.nextInt(this._parametre.getNbCaseX());
         int y = rand.nextInt(this._parametre.getNbCaseY());
-        while(((Case)(joueurAdverse.getCases().get(x+y*this._parametre.getNbCaseX()))).getEtat()) {
+        while(((Case)(joueurAdverse.getCases().get(x+y*this._parametre.getNbCaseX()))).isEtat()) {
             
             x = rand.nextInt(this._parametre.getNbCaseX());
             y = rand.nextInt(this._parametre.getNbCaseY());

@@ -16,6 +16,7 @@ public class CaseVide extends Case {
         
         ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Fond_blanc.png"));
         this.setIcon(bateauImage);
+        this.setDisabledIcon(bateauImage);
         
     } // CaseVide()
 

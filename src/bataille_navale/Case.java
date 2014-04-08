@@ -14,7 +14,8 @@ public abstract class Case extends JButton {
     /////////////////////////////// VARIABLES /////////////////////////////////
 
     
-    private boolean etat;
+    private boolean _etat;
+    private boolean _aPortee;
     
     
     ////////////////////////////// CONSTRUCTEUR ///////////////////////////////
@@ -22,7 +23,8 @@ public abstract class Case extends JButton {
     
     public Case() {
         
-        this.etat = false;
+        this._etat = false;
+        this._aPortee = false;
         this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         
     } // Case()
@@ -41,12 +43,20 @@ public abstract class Case extends JButton {
     /***** GETTER/SETTER *****/
     
 
-    public boolean getEtat() {
-        return etat;
+    public boolean isEtat() {
+        return _etat;
     }
 
     public void setEtat(boolean etat) {
-        this.etat = etat;
+        this._etat = etat;
+    }
+
+    public boolean isAPortee() {
+        return _aPortee;
+    }
+
+    public void setPortee(boolean _aPortee) {
+        this._aPortee = _aPortee;
     }
     
     
