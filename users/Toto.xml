@@ -2,13 +2,1750 @@
 <java version="1.7.0_51" class="java.beans.XMLDecoder">
  <object class="bataille_navale.Profil">
   <void property="id">
-   <string>Toto52340579</string>
+   <string>Toto1404764360</string>
   </void>
   <void property="nom">
    <string>Toto</string>
   </void>
   <void property="parties">
-   <object class="java.util.HashMap"/>
+   <object class="java.util.HashMap">
+    <void method="put">
+     <string>partie196679257610939666943650155</string>
+     <object class="bataille_navale.Partie">
+      <void property="id">
+       <string>partie196679257610939666943650155</string>
+      </void>
+      <void property="j1">
+       <object class="bataille_navale.JoueurHumain">
+        <void property="cases">
+         <object class="java.util.ArrayList">
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_blanc.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_blanc.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+            <void property="image">
+             <string>a</string>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_blanc.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_blanc.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+            <void property="image">
+             <string>a</string>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_blanc.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+            <void property="image">
+             <string>a</string>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="icon">
+             <object class="javax.swing.ImageIcon">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_gris.png</string>
+             </object>
+            </void>
+            <void property="image">
+             <string>a</string>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_blanc.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Fond_blanc.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide"/>
+          </void>
+         </object>
+        </void>
+        <void property="nbTirsPerdant">
+         <int>7</int>
+        </void>
+        <void property="nom">
+         <string>Toto</string>
+        </void>
+        <void property="partie">
+         <object class="bataille_navale.Parametre" id="Parametre0">
+          <void property="difficulte">
+           <string>Facile</string>
+          </void>
+          <void property="epoque">
+           <object class="bataille_navale.Epoque">
+            <void property="epoque">
+             <string>inconnu</string>
+            </void>
+            <void property="id">
+             <string>5678</string>
+            </void>
+            <void property="image">
+             <string>a</string>
+            </void>
+            <void property="listBateaux">
+             <object class="java.util.HashMap">
+              <void method="put">
+               <string>Viper</string>
+               <object class="bataille_navale.Bateau">
+                <void property="imagesBateau">
+                 <object class="java.util.HashMap">
+                  <void method="put">
+                   <int>6</int>
+                   <string>a</string>
+                  </void>
+                  <void method="put">
+                   <int>7</int>
+                   <string>a</string>
+                  </void>
+                 </object>
+                </void>
+                <void property="longueur">
+                 <int>2</int>
+                </void>
+                <void property="nom">
+                 <string>Viper</string>
+                </void>
+                <void property="portee">
+                 <int>2</int>
+                </void>
+               </object>
+              </void>
+              <void method="put">
+               <string>Enterprise</string>
+               <object class="bataille_navale.Bateau">
+                <void property="imagesBateau">
+                 <object class="java.util.HashMap">
+                  <void method="put">
+                   <int>2</int>
+                   <string>a</string>
+                  </void>
+                  <void method="put">
+                   <int>3</int>
+                   <string>a</string>
+                  </void>
+                  <void method="put">
+                   <int>4</int>
+                   <string>a</string>
+                  </void>
+                  <void method="put">
+                   <int>5</int>
+                   <string>a</string>
+                  </void>
+                  <void method="put">
+                   <int>6</int>
+                   <string>a</string>
+                  </void>
+                 </object>
+                </void>
+                <void property="longueur">
+                 <int>5</int>
+                </void>
+                <void property="nom">
+                 <string>Enterprise</string>
+                </void>
+                <void property="portee">
+                 <int>5</int>
+                </void>
+               </object>
+              </void>
+              <void method="put">
+               <string>BattlestarGalactica</string>
+               <object class="bataille_navale.Bateau">
+                <void property="imagesBateau">
+                 <object class="java.util.HashMap">
+                  <void method="put">
+                   <int>6</int>
+                   <string>a</string>
+                  </void>
+                  <void method="put">
+                   <int>7</int>
+                   <string>b</string>
+                  </void>
+                  <void method="put">
+                   <int>8</int>
+                   <string>c</string>
+                  </void>
+                  <void method="put">
+                   <int>9</int>
+                   <string>d</string>
+                  </void>
+                 </object>
+                </void>
+                <void property="longueur">
+                 <int>4</int>
+                </void>
+                <void property="nom">
+                 <string>BattlestarGalactica</string>
+                </void>
+                <void property="portee">
+                 <int>4</int>
+                </void>
+               </object>
+              </void>
+              <void method="put">
+               <string>Raptor</string>
+               <object class="bataille_navale.Bateau">
+                <void property="imagesBateau">
+                 <object class="java.util.HashMap">
+                  <void method="put">
+                   <int>5</int>
+                   <string>a</string>
+                  </void>
+                  <void method="put">
+                   <int>6</int>
+                   <string>a</string>
+                  </void>
+                  <void method="put">
+                   <int>7</int>
+                   <string>b</string>
+                  </void>
+                 </object>
+                </void>
+                <void property="longueur">
+                 <int>3</int>
+                </void>
+                <void property="nom">
+                 <string>Raptor</string>
+                </void>
+                <void property="portee">
+                 <int>3</int>
+                </void>
+               </object>
+              </void>
+             </object>
+            </void>
+            <void property="nom">
+             <string>Future</string>
+            </void>
+           </object>
+          </void>
+          <void property="nbCaseX">
+           <int>10</int>
+          </void>
+          <void property="nbCaseY">
+           <int>10</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="j2">
+       <object class="bataille_navale.JoueurMachine">
+        <void property="cases">
+         <object class="java.util.ArrayList">
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon0">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon0"/>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon1">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon1"/>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon2">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon2"/>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon3">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon3"/>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon4">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon4"/>
+            </void>
+            <void property="image">
+             <string>a</string>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon5">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon5"/>
+            </void>
+            <void property="image">
+             <string>a</string>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon6">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon6"/>
+            </void>
+            <void property="image">
+             <string>a</string>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon7">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon7"/>
+            </void>
+            <void property="image">
+             <string>a</string>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon8">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon8"/>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon9">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon9"/>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon10">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon10"/>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon11">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon11"/>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon12">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon12"/>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseBateau">
+            <void property="disabledSelectedIcon">
+             <object class="javax.swing.ImageIcon" id="ImageIcon13">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </object>
+            </void>
+            <void property="icon">
+             <object idref="ImageIcon13"/>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <null/>
+             </void>
+            </void>
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+            <void property="etat">
+             <boolean>true</boolean>
+            </void>
+            <void property="icon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="disabledSelectedIcon">
+             <void property="description">
+              <string>file:/Users/Tristan/Documents/Programmes/NetBeansProjects/Battleship/build/classes/stockage/images/Case_a_portee.png</string>
+             </void>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="bataille_navale.CaseVide">
+            <void property="enabled">
+             <boolean>false</boolean>
+            </void>
+           </object>
+          </void>
+         </object>
+        </void>
+        <void property="difficulte">
+         <string>Facile</string>
+        </void>
+        <void property="nbTirsPerdant">
+         <int>7</int>
+        </void>
+        <void property="nom">
+         <string>Skynet</string>
+        </void>
+        <void property="partie">
+         <object idref="Parametre0"/>
+        </void>
+       </object>
+      </void>
+      <void property="parametre">
+       <object idref="Parametre0"/>
+      </void>
+     </object>
+    </void>
+   </object>
   </void>
  </object>
 </java>

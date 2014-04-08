@@ -16,14 +16,21 @@ import bataille_navale.Partie;
 import bataille_navale.Profil;
 import bataille_navale.TailleGrille;
 import controller.AfficherPartiesController;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import stockage.DAOFactory;
 import window.vue.VuePartie;
@@ -32,17 +39,17 @@ import window.vue.VuePartie;
  * BatailleNavale
  * @author Tristan
  */
-public class BatailleNavale extends javax.swing.JFrame {
+public class BatailleNavale extends javax.swing.JFrame implements Observer {
     
     
     /////////////////////////////// VARIABLES /////////////////////////////////
     
     
     protected Jeu _jeu;
-    public Profil _profilCourant;
     public static int w = 800;
     public static int h = 600;
     private final ArrayList<TailleGrille> TailleGrilles = (ArrayList<TailleGrille>) DAOFactory.getInstance().getDAO_Parametre().getTaillesGrille();
+    
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
@@ -54,7 +61,7 @@ public class BatailleNavale extends javax.swing.JFrame {
         initComponents();
         
         this._jeu = new Jeu();
-        this._profilCourant = null;
+        this._jeu.addObserver(this);
         this.initialisation();
         this.setLocationRelativeTo(null);
            
@@ -63,23 +70,13 @@ public class BatailleNavale extends javax.swing.JFrame {
     
     /////////////////////////////// FONCTIONS /////////////////////////////////
 
-
-    /**
-     * Permet de modifier le profil courant
-     * @param courant profil du joueur courant
-     */
-    public void setProfilCourant(Profil courant) {
-        
-        this._profilCourant = courant;
-        
-    } // setProfilCourant(Profil courant) 
-
     
     /**
      * Permet d'intialiser le jeu a partir des fichier de configuration
      * et de sauvegarde
      */
     public void initialisation() {
+        
         if(DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils() == null 
                 || DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().isEmpty()) {
    
@@ -108,7 +105,7 @@ public class BatailleNavale extends javax.swing.JFrame {
                 final Profil p = (Profil)DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().get(iterator.next());
                 JButton profil = new JButton(p.getNom());
                 profil.setPreferredSize(new Dimension(w/(nbProfils+1),h/2-50));
-                profil.addActionListener(new AfficherPartiesController(this,p,this,this.popupParties,this.jPanel1,this.nomProfil));
+                profil.addActionListener(new AfficherPartiesController(this._jeu,p));
                 profilPanel.add(profil);
                 
                 // Bouton permettant de supprimer le profil
@@ -151,7 +148,7 @@ public class BatailleNavale extends javax.swing.JFrame {
         nomProfil = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        panelParties = new javax.swing.JPanel();
         popupParametres = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
         jComboBoxTailleGrilles = new javax.swing.JComboBox();
@@ -262,14 +259,14 @@ public class BatailleNavale extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelPartiesLayout = new javax.swing.GroupLayout(panelParties);
+        panelParties.setLayout(panelPartiesLayout);
+        panelPartiesLayout.setHorizontalGroup(
+            panelPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelPartiesLayout.setVerticalGroup(
+            panelPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 174, Short.MAX_VALUE)
         );
 
@@ -281,7 +278,7 @@ public class BatailleNavale extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(popupPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nomProfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelParties, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupPartiesLayout.createSequentialGroup()
@@ -297,7 +294,7 @@ public class BatailleNavale extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelParties, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
@@ -541,6 +538,85 @@ public class BatailleNavale extends javax.swing.JFrame {
     
     
     /**
+     * Permet d'afficher le popup des parties avec les informations du
+     * profil
+     * @param profil profil dont on souhaite afficher les parties
+     */
+    public void afficherPopupParties(final Profil profil) {
+        
+        // Empeche de cliquer sur la fenetre principale
+        this.setEnabled(false);
+        
+        // Mise a jour du nom du joueur
+        this.nomProfil.removeAll();
+        this.nomProfil.setText(profil.getNom());
+        this.nomProfil.updateUI();
+        
+        FlowLayout fl = new FlowLayout();
+        this.panelParties.removeAll();
+        this.panelParties.setLayout(fl);
+        
+        if(profil.getParties() == null || profil.getParties().isEmpty()) {
+           
+            // Affichage d'un message signalant qu'aucune partie n'est disponible
+            JLabel none = new JLabel("Aucune partie disponible");
+            none.setFont(new Font("Helvetica Neue", Font.PLAIN, 36));
+            none.setForeground(Color.GRAY);
+            this.panelParties.add(none);
+            
+        } else {
+            
+            // On affiche toutes les parties
+            HashMap parties = profil.getParties();
+            Iterator iterator = parties.keySet().iterator();
+            int num = 1;
+            while(iterator.hasNext()) {
+                
+                // Bouton permettant de supprimer la partie
+                JButton remove = new JButton("SUPR");
+                
+                final Partie p = (Partie) parties.get(iterator.next());
+                remove.addActionListener(new ActionListener() {
+                    
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        
+                        int dialogResult = JOptionPane.showConfirmDialog(null, "Voulez-vous réellement supprimer la partie ?");
+                        if(dialogResult == JOptionPane.YES_OPTION){
+
+                            profil.supprimerPartie(p.getId());
+                            DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(profil);
+                            afficherPopupParties(profil);
+
+                        }
+                        
+                    }
+                    
+                });
+                remove.setPreferredSize(new Dimension(this.panelParties.getWidth()/5,30));
+                this.panelParties.add(remove);
+                
+                // Bouton permettant d'acceder a la partie
+                JButton partie = new JButton("Partie " + num);
+                partie.addActionListener(new AfficherPartiesController(this._jeu,profil));
+                partie.setPreferredSize(new Dimension(this.panelParties.getWidth()/5,30));
+                this.panelParties.add(partie);
+                
+                num++;
+                
+            }
+            
+        }
+        
+        // Affichage du popup
+        this.panelParties.updateUI();
+        this.popupParties.setLocationRelativeTo(null);
+        this.popupParties.setVisible(true);
+        
+    } // afficherPopupParties(final Profil profil)
+    
+    
+    /**
      * Permet de choisir les parametres de la nouvelle partie
      * @param evt 
      */
@@ -620,7 +696,7 @@ public class BatailleNavale extends javax.swing.JFrame {
 
         // Recuperation du mode de placement
         Parametre parametre = new Parametre(x, y, diff, DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(epoque));
-        Joueur humain = new JoueurHumain(parametre, this._profilCourant.getNom());
+        Joueur humain = new JoueurHumain(parametre, this._jeu.getProfilCourant().getNom());
         Joueur IA = new JoueurMachine(parametre, "Skynet");
         Partie partie = null;
         if(this.jRadioButtonAleatoire.isSelected()) {
@@ -637,7 +713,7 @@ public class BatailleNavale extends javax.swing.JFrame {
             partie = new Partie(parametre, humain, IA);
             
         }
-        this._profilCourant.ajouterNouvellePartie(partie);
+        this._jeu.getProfilCourant().ajouterNouvellePartie(partie);
         
         // Permet d'afficher les cases a portee de tir
         for(int i=0;i<x;i++) {
@@ -665,7 +741,8 @@ public class BatailleNavale extends javax.swing.JFrame {
         }
         
         // Affiche du plateau de jeu
-        VuePartie plateau = new VuePartie(this, this._jeu, this._profilCourant, partie);
+        VuePartie plateau = new VuePartie(this, this._jeu, this._jeu.getProfilCourant(), partie);
+        partie.addObserver(plateau);
         plateau.setVisible(true);
         this.popupParametres.setVisible(false);
         this.setVisible(false);
@@ -717,6 +794,7 @@ public class BatailleNavale extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new BatailleNavale().setVisible(true);
             }
@@ -747,16 +825,33 @@ public class BatailleNavale extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButtonAleatoire;
     private javax.swing.JRadioButton jRadioButtonManuel;
     private javax.swing.JPanel listeProfils;
     private javax.swing.JLabel nomProfil;
+    private javax.swing.JPanel panelParties;
     private javax.swing.JDialog popupNouveauProfil;
     private javax.swing.JDialog popupParametres;
     private javax.swing.JDialog popupParties;
     private javax.swing.JTextField saisieNomProfil;
     // End of variables declaration//GEN-END:variables
+
+    
+    /************** GESTION DE LA MISE A JOUR DE LA FENETRE ******************/
+    
+    
+    @Override
+    public void update(Observable o, Object arg) {
+      
+        switch (arg.toString()) {
+            
+            case "parties":
+                this.afficherPopupParties(this._jeu.getProfilCourant());
+                break;
+            
+        }
+        
+    } // update(Observable o, Object arg)
 
 
 } // class BatailleNavale

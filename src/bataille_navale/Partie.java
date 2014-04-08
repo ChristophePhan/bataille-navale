@@ -1,5 +1,6 @@
 package bataille_navale;
 
+import java.util.Observable;
 import java.util.Random;
 import stockage.DAOFactory;
 
@@ -7,7 +8,7 @@ import stockage.DAOFactory;
  * Partie
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
-public class Partie {
+public class Partie extends Observable {
     
     
     ////////////////////////////// VARIABLES //////////////////////////////////
@@ -17,6 +18,9 @@ public class Partie {
     private Parametre _parametre;
     private Joueur _j1;
     private Joueur _j2;
+    
+    private String _message;
+    private String _messageFinPartie;
     
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
@@ -169,7 +173,24 @@ public class Partie {
      */
     public void afficherMessage(String mess) {
 
+        this._message = mess;
+        setChanged();
+        notifyObservers("resultat");
+        
     } // afficherMessage(String mess)
+    
+    
+    /**
+     * Permet d'afficher un message au joueur a la fin de la partie
+     * @param mess message a afficher
+     */
+    public void afficherMessageFinPartie(String mess) {
+
+        this._messageFinPartie = mess;
+        setChanged();
+        notifyObservers("resultat");
+        
+    } // afficherMessageFinPartie(String mess)
 
     
     /**** GETTER/SETTER *****/
@@ -205,6 +226,22 @@ public class Partie {
 
     public void setJ2(Joueur _j2) {
         this._j2 = _j2;
+    }
+
+    public String getMessage() {
+        return _message;
+    }
+
+    public void setMessage(String _message) {
+        this._message = _message;
+    }
+
+    public String getMessageFinPartie() {
+        return _messageFinPartie;
+    }
+
+    public void setMessageFinPartie(String _messageFinPartie) {
+        this._messageFinPartie = _messageFinPartie;
     }
 
     

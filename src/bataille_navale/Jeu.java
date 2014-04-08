@@ -1,12 +1,19 @@
 package bataille_navale;
 
+import java.util.Observable;
 import stockage.DAOFactory;
 
 /**
  * Jeu
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
-public class Jeu {
+public class Jeu extends Observable {
+    
+    
+    ////////////////////////////// FONCTIONS //////////////////////////////////
+    
+    
+    private Profil _profilCourant;
 
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
@@ -52,5 +59,30 @@ public class Jeu {
 
     } // removeProfil(int id)
     
+    
+    /**
+     * Permet d'afficher les parties d'un profil
+     * @param profil profil dont on souhaite afficher les parties
+     */
+    public void afficherParties(Profil profil) {
+        
+        this._profilCourant = profil;
+        setChanged();
+        notifyObservers("parties");
+        
+    } // afficherParties(Profil profil)
 
+    
+    /***** GETTER/SETTER *****/
+    
+    
+    public Profil getProfilCourant() {
+        return _profilCourant;
+    }
+    
+    public void setProfilCourant(Profil _profilCourant) {
+        this._profilCourant = _profilCourant;
+    }
+
+ 
 } // class Jeu

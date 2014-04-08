@@ -11,15 +11,16 @@ import bataille_navale.Partie;
 import bataille_navale.Profil;
 import controller.JouerCaseController;
 import java.awt.GridLayout;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.ImageIcon;
-import stockage.DAOFactory;
 import window.main.BatailleNavale;
 
 /**
  * VuePartie
  * @author Tristan
  */
-public class VuePartie extends javax.swing.JFrame {
+public class VuePartie extends javax.swing.JFrame implements Observer {
     
     
     /////////////////////////////// VARIABLES /////////////////////////////////
@@ -83,9 +84,8 @@ public class VuePartie extends javax.swing.JFrame {
                 this.plateauJoueurCourant.add(this._partie.getJ1().getCases().get(numC));
                 
                 // Grille adverse
-                this._partie.getJ2().getCases().get(numC).addActionListener(new JouerCaseController(this, this.popupVictoire
-                        , this.jLabel2, this._partie, this._partie.getJ2().getCases().get(numC)
-                        , this._partie.getJ1(), this._partie.getJ2()));
+                this._partie.getJ2().getCases().get(numC).addActionListener(new JouerCaseController(this._partie, 
+                        this._partie.getJ2().getCases().get(numC), this._partie.getJ1(), this._partie.getJ2()));
                 // On signal que la case est a portee de tir si c'est le cas,
                 // sinon on ne peut pas cliquer sur la case
                 if(this._partie.getJ2().getCases().get(numC).isAPortee()) {
@@ -126,7 +126,7 @@ public class VuePartie extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         popupVictoire = new javax.swing.JDialog();
-        jLabel2 = new javax.swing.JLabel();
+        titrePopupVictoire = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         labelEpoque = new javax.swing.JLabel();
@@ -211,12 +211,12 @@ public class VuePartie extends javax.swing.JFrame {
         popupVictoire.setResizable(false);
         popupVictoire.setSize(new java.awt.Dimension(600, 250));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 30)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Félicitations ! Vous avez gagné la partie !");
-        jLabel2.setToolTipText("");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        titrePopupVictoire.setFont(new java.awt.Font("Helvetica Neue", 0, 30)); // NOI18N
+        titrePopupVictoire.setForeground(new java.awt.Color(51, 153, 255));
+        titrePopupVictoire.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titrePopupVictoire.setText("Félicitations ! Vous avez gagné la partie !");
+        titrePopupVictoire.setToolTipText("");
+        titrePopupVictoire.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jButton6.setText("Rejouer");
 
@@ -235,7 +235,7 @@ public class VuePartie extends javax.swing.JFrame {
                 .addGroup(popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(popupVictoireLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(titrePopupVictoire, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(popupVictoireLayout.createSequentialGroup()
                         .addGap(162, 162, 162)
                         .addComponent(jButton6)
@@ -247,7 +247,7 @@ public class VuePartie extends javax.swing.JFrame {
             popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popupVictoireLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titrePopupVictoire, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
@@ -459,7 +459,6 @@ public class VuePartie extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel labelEpoque;
@@ -468,7 +467,36 @@ public class VuePartie extends javax.swing.JFrame {
     private javax.swing.JPanel plateauJoueurCourant;
     private javax.swing.JDialog popupQuitterPartie;
     private javax.swing.JDialog popupVictoire;
+    private javax.swing.JLabel titrePopupVictoire;
     // End of variables declaration//GEN-END:variables
 
+    
+     /************** GESTION DE LA MISE A JOUR DE LA FENETRE ******************/
+    
+    
+    @Override
+    public void update(Observable o, Object arg) {
+        
+        switch (arg.toString()) {
+            
+            case "message":
+                this.labelInstructions.removeAll();
+                this.labelInstructions.setText(this._partie.getMessage());
+                this.labelInstructions.updateUI();
+                break;
+                
+            case "resultat":
+                this.titrePopupVictoire.removeAll();
+                this.titrePopupVictoire.setText(this._partie.getMessageFinPartie());
+                this.titrePopupVictoire.updateUI();
+                this.popupVictoire.setLocationRelativeTo(null);
+                this.popupVictoire.setVisible(true);
+                this.setEnabled(false);
+                break;
+                
+        }
+        
+    } // update(Observable o, Object arg)
 
+    
 } // class VuePartie
