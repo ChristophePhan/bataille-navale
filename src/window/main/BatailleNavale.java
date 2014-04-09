@@ -6,7 +6,6 @@
 
 package window.main;
 
-import bataille_navale.Case;
 import bataille_navale.Jeu;
 import bataille_navale.Joueur;
 import bataille_navale.JoueurHumain;
@@ -17,11 +16,10 @@ import bataille_navale.Profil;
 import bataille_navale.TailleGrille;
 import controller.AfficherPartiesController;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -303,7 +301,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         panelParties.setLayout(panelPartiesLayout);
         panelPartiesLayout.setHorizontalGroup(
             panelPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 327, Short.MAX_VALUE)
         );
         panelPartiesLayout.setVerticalGroup(
             panelPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,13 +316,16 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 .addContainerGap()
                 .addGroup(popupPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nomProfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelParties, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupPartiesLayout.createSequentialGroup()
                 .addGap(0, 179, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(171, 171, 171))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupPartiesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelParties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
         );
         popupPartiesLayout.setVerticalGroup(
             popupPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -440,8 +441,6 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 72)); // NOI18N
@@ -623,7 +622,15 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             while(iterator.hasNext()) {
                 
                 // Bouton permettant de supprimer la partie
-                JButton remove = new JButton("SUPR");
+                JButton remove = new JButton();
+                ImageIcon suprImageNoir = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/poubelle_noir.png"))
+                    .getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+                ImageIcon suprImageGris = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/poubelle_gris.png"))
+                    .getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+                remove.setIcon(suprImageNoir);
+                remove.setSelectedIcon(suprImageGris);
+                remove.setBorder(BorderFactory.createEmptyBorder());
+                remove.setContentAreaFilled(false);
                 
                 final Partie p = (Partie) parties.get(iterator.next());
                 remove.addActionListener(new ActionListener() {
@@ -648,8 +655,12 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 
                 // Bouton permettant d'acceder a la partie
                 JButton partie = new JButton("Partie " + num);
-                partie.addActionListener(new AfficherPartiesController(this._jeu,profil));
-                partie.setPreferredSize(new Dimension(this.panelParties.getWidth()/5,30));
+                partie.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
+                //partie.addActionListener(new AfficherPartiesController(this._jeu,profil));
+                partie.setPreferredSize(new Dimension((this.panelParties.getWidth()/5)*4-10,30));
+                partie.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));//.createEmptyBorder());
+                partie.setContentAreaFilled(false);
+                partie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 this.panelParties.add(partie);
 
                 num++;

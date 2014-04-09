@@ -54,6 +54,9 @@ public class Partie extends Observable {
     ////////////////////////////// FONCTIONS //////////////////////////////////
     
     
+    /*************************** INITIALISATION ******************************/
+    
+    
     /**
      * Permet de lancer la partie
      */
@@ -99,48 +102,6 @@ public class Partie extends Observable {
         }
         
     } // initialisationPorteeCases()
-
-    
-    /**
-     * Permet de savoir s'il reste des bateaux au joueur adverse ou non
-     * @param joueur joueur sur lequel on test son nombre de bateaux restants
-     * @return TRUE si le joueur ne possede plus de cases, FALSE sinon
-     */
-    public boolean testVictoire(Joueur joueur) {
-        
-        for(Case c : joueur.getCases()) {
-        
-            if(c.getBateau() != null && !c.getBateau().testBateauCoule()) {
-                
-                return false;
-                
-            }
-            
-        }
-        return true;
-            
-    } // testVictoire(Joueur joueur)
-    
-    
-    /**
-     * Permet de savoir s'il reste encore des cases a jouer dans la partie 
-     * @return TRUE s'il n'y a plus de cases a jouer, FALSE sinon
-     */
-    public boolean testEgalite() {
-        
-        for(Case c : this._j2.getCases()) {
-            
-            if(c.isAPortee() && !c.isEtat()) {
-                
-                return false;
-                
-            }
-            
-        }
-        
-        return true;
-        
-    } // testEgalite()
 
     
     /**
@@ -371,6 +332,9 @@ public class Partie extends Observable {
         
     } // addMouseEvent(Case c)
     
+    
+    /*********************** GESTION DE LA PARTIE ****************************/
+    
 
     /**
      * Permet au joueur de tirer sur une case
@@ -445,6 +409,54 @@ public class Partie extends Observable {
         return intelligenceArtificielle.getCaseForIA(joueurAdverse);
         
     } // getCaseForIA(Joueur joueurAdverse)
+    
+    
+    /************************* TEST DE FIN DE PARTIE *************************/
+    
+    
+    /**
+     * Permet de savoir s'il reste des bateaux au joueur adverse ou non
+     * @param joueur joueur sur lequel on test son nombre de bateaux restants
+     * @return TRUE si le joueur ne possede plus de cases, FALSE sinon
+     */
+    public boolean testVictoire(Joueur joueur) {
+        
+        for(Case c : joueur.getCases()) {
+        
+            if(c.getBateau() != null && !c.getBateau().testBateauCoule()) {
+                
+                return false;
+                
+            }
+            
+        }
+        return true;
+            
+    } // testVictoire(Joueur joueur)
+    
+    
+    /**
+     * Permet de savoir s'il reste encore des cases a jouer dans la partie 
+     * @return TRUE s'il n'y a plus de cases a jouer, FALSE sinon
+     */
+    public boolean testEgalite() {
+        
+        for(Case c : this._j2.getCases()) {
+            
+            if(c.isAPortee() && !c.isEtat()) {
+                
+                return false;
+                
+            }
+            
+        }
+        
+        return true;
+        
+    } // testEgalite()
+    
+    
+    /***************************** MESSAGE ***********************************/
     
 
     /**
