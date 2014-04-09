@@ -1,6 +1,8 @@
 package bataille_navale;
 
 import java.awt.Color;
+import java.awt.dnd.DropTargetDropEvent;
+import java.awt.dnd.DropTargetListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
@@ -8,7 +10,7 @@ import javax.swing.JButton;
  * Case
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
-public abstract class Case extends JButton {
+public abstract class Case extends JButton implements DropTargetListener {
     
     
     /////////////////////////////// VARIABLES /////////////////////////////////
@@ -38,7 +40,7 @@ public abstract class Case extends JButton {
      * @return le Bateau associe a la case pour une case Bateau, null sinon
      */
     public abstract Bateau getBateau();
-    
+  
     
     /***** GETTER/SETTER *****/
     

@@ -1,9 +1,13 @@
 package bataille_navale;
 
+import java.awt.dnd.DropTarget;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.TransferHandler;
 import stockage.DAOFactory;
 
 /**
@@ -20,35 +24,79 @@ public class Partie extends Observable {
     private Parametre _parametre;
     private Joueur _j1;
     private Joueur _j2;
+    private boolean _automatique;
     
     private String _message;
     private String _messageFinPartie;
     
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    public Partie(){
+    
+    
+    public Partie() {
 
-    }
+    } // Partie()
+    
 
-    public Partie(Parametre parametre, Joueur j1, Joueur j2) {
+    public Partie(Parametre parametre, Joueur j1, Joueur j2, boolean automatique) {
         
         this._id = "partie" + parametre.hashCode() + j1.hashCode() + j2.hashCode();
         this._parametre = parametre;
         this._j1 = j1;
         this._j2 = j2;
+        this._automatique = automatique;
         
-    } // Partie(Partie(Parametre parametre, Joueur j1, Joueur j2))
+    } // Partie(Parametre parametre, Joueur j1, Joueur j2, boolean automatique)
     
     
     ////////////////////////////// FONCTIONS //////////////////////////////////
     
-
+    
     /**
      * Permet de lancer la partie
      */
     public void jouerPartie() {
-
+        
+        setChanged();
+        notifyObservers("start");
+        
     } // jouerPartie()
+    
+    
+    /**
+     * Permet d'initialiser la portee des cases
+     */
+    public void initialisationPorteeCases() {
+        
+        int x = this._parametre.getNbCaseX();
+        int y = this._parametre.getNbCaseY();
+        
+        // Permet d'afficher les cases a portee de tir
+        for(int i=0;i<x;i++) {
+            for(int j=0;j<y;j++) {
+            
+                if(this._j1.getCases().get(i+j*x).getBateau() != null) {
+           
+                    // On parcours les cases autour du bateau pour les activer
+                    int portee = this._j1.getCases().get(i+j*x).getBateau().getPortee();
+                    for(int W=i-portee;W<(i-portee+2*portee)+1;W++) {
+                        for(int H=j-portee;H<(j-portee+2*portee)+1;H++) {
+                            
+                            if(W >= 0 && W < x && H >= 0 && H < y) {
+                
+                                ((Case)(this._j2.getCases().get(W+H*x))).setPortee(true);
+                                
+                            }
+                            
+                        }
+                    }
+
+                }
+            
+            }
+        }
+        
+    } // initialisationPorteeCases()
 
     
     /**
@@ -100,6 +148,57 @@ public class Partie extends Observable {
         DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(profil);
 
     } // sauvegarderPartie(Profil profil)
+    
+    
+    /**
+     * Permet d'autoriser ou non le Drag & Drop sur les cases su joueur
+     * @param autorisation TRUE si on autorise, FALSE sinon
+     */
+    public void autoriserDragDropJoueur(boolean autorisation) {
+        
+        for(Case c : this._j1.getCases()) {
+            
+            //if(c.getBateau() != null && autorisation) {
+                
+                // On autorise le Drag & Drop
+                /*TransferHandler transfer = new TransferHandler("text");
+                c.setTransferHandler(transfer);
+                c.addMouseListener(new MouseAdapter(){
+                    @Override
+                    public void mousePressed(MouseEvent e){
+
+                        Case c = (Case)e.getSource();
+                        TransferHandler handle = c.getTransferHandler();
+                        handle.exportAsDrag(c, e, TransferHandler.COPY);
+                        
+                    }
+                });*/
+                new DropTarget(c,c);
+                c.setTransferHandler(new TransferHandler("text"));
+                final MouseListener listener = new MouseAdapter() {
+                    @Override
+                    public void mousePressed(final MouseEvent me) {
+                        final Case cDD = (Case) me.getSource();
+                        System.out.println(cDD);
+
+                        final TransferHandler handler = cDD.getTransferHandler();
+                        handler.exportAsDrag(cDD, me, TransferHandler.COPY);
+                    }
+                };
+                c.addMouseListener(listener);
+                
+            /*} else if(c.getBateau() != null && !autorisation) {
+                
+                // On desactive le Drag & Drop
+                for (MouseListener mouseListener : c.getMouseListeners()) {
+                    c.removeMouseListener(mouseListener);
+                }
+                
+            } */
+            
+        }
+        
+    } // autoriserDragDropJoueur(boolean autorisation)
 
     
     /**
@@ -269,6 +368,14 @@ public class Partie extends Observable {
 
     public void setMessageFinPartie(String _messageFinPartie) {
         this._messageFinPartie = _messageFinPartie;
+    }
+
+    public boolean isAutomatique() {
+        return _automatique;
+    }
+
+    public void setAutomatique(boolean _automatique) {
+        this._automatique = _automatique;
     }
 
     

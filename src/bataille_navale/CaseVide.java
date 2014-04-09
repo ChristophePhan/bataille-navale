@@ -1,5 +1,8 @@
 package bataille_navale;
 
+import java.awt.dnd.DropTargetDragEvent;
+import java.awt.dnd.DropTargetDropEvent;
+import java.awt.dnd.DropTargetEvent;
 import javax.swing.ImageIcon;
 
 /**
@@ -30,6 +33,32 @@ public class CaseVide extends Case {
         return null;
             
     } // getBateau()
+
+    
+    @Override
+    public void dragEnter(DropTargetDragEvent dtde) {
+        System.out.println("ENTER");
+    }
+
+    @Override
+    public void dragOver(DropTargetDragEvent dtde) {
+        System.out.println("OVER");
+    }
+
+    @Override
+    public void dropActionChanged(DropTargetDragEvent dtde) {
+        System.out.println("CHANGED");
+    }
+
+    @Override
+    public void dragExit(DropTargetEvent dte) {
+        System.out.println("EXIT");
+    }
+
+    @Override
+    public void drop(DropTargetDropEvent dtde) {
+        System.out.println("DROP");
+    }
 
         
 } // clsse CaseVide

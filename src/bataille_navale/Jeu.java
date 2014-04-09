@@ -14,6 +14,7 @@ public class Jeu extends Observable {
     
     
     private Profil _profilCourant;
+    private Partie _partieCourante;
 
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
@@ -82,6 +83,14 @@ public class Jeu extends Observable {
     
     public void setProfilCourant(Profil _profilCourant) {
         this._profilCourant = _profilCourant;
+    }
+
+    public Partie getPartieCourante() {
+        return _partieCourante;
+    }
+
+    public void setPartieCourante(Partie _partieCourante) {
+        this._partieCourante = _partieCourante;
     }
 
  

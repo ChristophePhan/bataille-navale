@@ -749,53 +749,26 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         Joueur humain = new JoueurHumain(parametre, this._jeu.getProfilCourant().getNom());
         Joueur IA = new JoueurMachine(parametre, "Skynet");
         Partie partie = null;
+        humain.positionnementAleatoire();
+        IA.positionnementAleatoire();
         if(this.jRadioButtonAleatoire.isSelected()) {
             
             // Placement aleatoire
-            humain.positionnementAleatoire();
-            IA.positionnementAleatoire();
-            partie = new Partie(parametre, humain, IA);
+            partie = new Partie(parametre, humain, IA, true);
+            partie.initialisationPorteeCases();
             
         } else {
             
             // Placement manuel
-            IA.positionnementAleatoire();
-            partie = new Partie(parametre, humain, IA);
+            partie = new Partie(parametre, humain, IA, false);
             
         }
         this._jeu.getProfilCourant().ajouterNouvellePartie(partie);
+        partie.addObserver(this);
+        this._jeu.setPartieCourante(partie);
         
-        // Permet d'afficher les cases a portee de tir
-        for(int i=0;i<x;i++) {
-            for(int j=0;j<y;j++) {
-            
-                if(humain.getCases().get(i+j*x).getBateau() != null) {
-           
-                    // On parcours les cases autour du bateau pour les activer
-                    int portee = humain.getCases().get(i+j*x).getBateau().getPortee();
-                    for(int W=i-portee;W<(i-portee+2*portee)+1;W++) {
-                        for(int H=j-portee;H<(j-portee+2*portee)+1;H++) {
-                            
-                            if(W >= 0 && W < x && H >= 0 && H < y) {
-                
-                                ((Case)(IA.getCases().get(W+H*x))).setPortee(true);
-                                
-                            }
-                            
-                        }
-                    }
-
-                }
-            
-            }
-        }
-        
-        // Affiche du plateau de jeu
-        VuePartie plateau = new VuePartie(this, this._jeu, this._jeu.getProfilCourant(), partie);
-        partie.addObserver(plateau);
-        plateau.setVisible(true);
-        this.popupParametres.setVisible(false);
-        this.setVisible(false);
+        // Permet d'afficher les cases a portee de tir et de lancer la partie
+        partie.jouerPartie();
         
     }//GEN-LAST:event_jButtonJouerActionPerformed
 
@@ -899,6 +872,15 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 this.popupParties.setLocationRelativeTo(null);
                 this.popupParties.setVisible(true);
                 this.afficherPopupParties(this._jeu.getProfilCourant());
+                break;
+                
+            case "start": 
+                VuePartie plateau = new VuePartie(this, this._jeu, this._jeu.getProfilCourant(), this._jeu.getPartieCourante());
+                this._jeu.getPartieCourante().addObserver(plateau);
+                // Affiche le plateau de jeu
+                plateau.setVisible(true);
+                this.popupParametres.setVisible(false);
+                this.setVisible(false);
                 break;
             
         }

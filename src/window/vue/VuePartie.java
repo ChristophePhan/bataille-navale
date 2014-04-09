@@ -12,9 +12,12 @@ import bataille_navale.Profil;
 import controller.JouerCaseController;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import window.main.BatailleNavale;
 
 /**
@@ -43,7 +46,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
      * @param profil profil du joueur qui joue la partie
      * @param partie partie jouee par le joueur
      */
-    public VuePartie(BatailleNavale batailleNavale, Jeu jeu, Profil profil, Partie partie) {
+    public VuePartie(BatailleNavale batailleNavale, Jeu jeu, Profil profil, final Partie partie) {
         initComponents();
         
         this._batailleNavale = batailleNavale;
@@ -51,7 +54,40 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         this._profil = profil;
         this._partie = partie;
         
-        this.initialisation();
+        // Initialisation des epoques
+        this.getContentPane().setBackground(Color.WHITE);
+        this.popupQuitterPartie.getContentPane().setBackground(Color.WHITE);
+        this.popupVictoire.getContentPane().setBackground(Color.WHITE);
+        this.labelEpoque.setText(this._partie.getParametre().getEpoque().getNom());
+        this.labelTirsReussis.setText(this._partie.getJ1().getNbTirsGagnant() + "");
+        this.labelTirsRates.setText(this._partie.getJ1().getNbTirsPerdant() + "");
+        
+        if(partie.isAutomatique()) { 
+            
+            // Le positionnement est aleatoire, on lance la partie
+            this.buttonJouer.setEnabled(false);
+            this.buttonJouer.setVisible(false);
+            this.initialisation(); 
+            
+        } else {
+            
+            // Le positionnement est manuel, on laisse le joueur placer ses bateaux
+            this.initialisation();
+            this.labelInstructionsJoueur.setText("Vous pouvez déplacer vos bateaux sur la grille de droite.");
+            this.labelInstructionsAdversaire.setText("Cliquez sur 'Jouer !' pour commencer la partie.");
+            partie.autoriserDragDropJoueur(true);
+            this.buttonJouer.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    partie.initialisationPorteeCases();
+                    initialisation();
+                    buttonJouer.setEnabled(false);
+                    buttonJouer.setVisible(false);
+                }
+            });
+            
+        }
+        
         this.popupQuitterPartie.setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
         
@@ -66,15 +102,9 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
      */
     public void initialisation() {
         
-        // Initialisation des instructions et des epoques
-        this.getContentPane().setBackground(Color.WHITE);
-        this.popupQuitterPartie.getContentPane().setBackground(Color.WHITE);
-        this.popupVictoire.getContentPane().setBackground(Color.WHITE);
-        this.labelEpoque.setText(this._partie.getParametre().getEpoque().getNom());
+        // Initialisation des instructions 
         this.labelInstructionsJoueur.setText("À vous de jouer ! Cliquez sur une case de la grille adverse.");
         this.labelInstructionsAdversaire.setText("");
-        this.labelTirsReussis.setText(this._partie.getJ1().getNbTirsGagnant() + "");
-        this.labelTirsRates.setText(this._partie.getJ1().getNbTirsPerdant() + "");
         
         // Initialisation des deux grilles de jeu
         GridLayout gl = new GridLayout(this._partie.getParametre().getNbCaseX(),this._partie.getParametre().getNbCaseY());
@@ -150,6 +180,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         flecheFlotteAdverse = new javax.swing.JLabel();
         labelInstructionsAdversaire = new javax.swing.JLabel();
         panelInfosBateauxJoueur = new javax.swing.JPanel();
+        buttonJouer = new javax.swing.JButton();
         labelTitreTirsReussis = new javax.swing.JLabel();
         labelTitreTirsRates = new javax.swing.JLabel();
         labelTirsReussis = new javax.swing.JLabel();
@@ -367,15 +398,23 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
 
         panelInfosBateauxJoueur.setBackground(new java.awt.Color(255, 255, 255));
 
+        buttonJouer.setText("Jouer !");
+
         javax.swing.GroupLayout panelInfosBateauxJoueurLayout = new javax.swing.GroupLayout(panelInfosBateauxJoueur);
         panelInfosBateauxJoueur.setLayout(panelInfosBateauxJoueurLayout);
         panelInfosBateauxJoueurLayout.setHorizontalGroup(
             panelInfosBateauxJoueurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfosBateauxJoueurLayout.createSequentialGroup()
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addComponent(buttonJouer)
+                .addGap(91, 91, 91))
         );
         panelInfosBateauxJoueurLayout.setVerticalGroup(
             panelInfosBateauxJoueurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfosBateauxJoueurLayout.createSequentialGroup()
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addComponent(buttonJouer)
+                .addGap(38, 38, 38))
         );
 
         labelTitreTirsReussis.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -434,38 +473,43 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(labelTitreEpoque, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelEpoque, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelTitreTirsReussis)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelTirsReussis, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelTitreEpoque, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelTitreTirsRates)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelTirsRates, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(plateauJoueurCourant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(flecheFlotteJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(labelFlotteJoueur))
-                                .addComponent(panelInfosBateauxJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(19, 19, 19))
+                                .addComponent(labelEpoque, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelTitreTirsReussis)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelTirsReussis, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(labelTitreTirsRates)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelTirsRates, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(plateauJoueurCourant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(flecheFlotteJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(labelFlotteJoueur))
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(19, 19, 19))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelBattleship, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelBattleship, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGap(23, 23, 23)
+                        .addComponent(panelInfosBateauxJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -496,11 +540,14 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelInfosBateauxJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelTitreTirsRates, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelTirsRates)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(plateauJoueurAdverse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelFlotteAdverse)
                             .addComponent(flecheFlotteAdverse, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -511,18 +558,20 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(labelTitreTirsReussis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(labelTitreTirsRates, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(labelTirsReussis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(labelTirsRates, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(labelTirsReussis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(1, 1, 1)))
-                        .addGap(14, 14, 14))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelTitreTirsReussis)
+                                        .addGap(1, 1, 1)))))))
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -616,6 +665,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonJouer;
     private javax.swing.JLabel flecheFlotteAdverse;
     private javax.swing.JLabel flecheFlotteJoueur;
     private javax.swing.JButton jButton1;
