@@ -2,6 +2,10 @@ package bataille_navale;
 
 import intelligenceArtificielle.IntelligenceArtificielle;
 import intelligenceArtificielle.IntelligenceArtificielleFacile;
+import java.awt.dnd.DropTarget;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Random;
 import javax.swing.JButton;

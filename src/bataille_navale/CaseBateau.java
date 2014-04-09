@@ -20,9 +20,12 @@ public class CaseBateau extends Case {
 
 
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    public CaseBateau(){
+    
+    
+    public CaseBateau() {
         
-    }
+    } // CaseBateau()
+    
     
     public CaseBateau(Bateau bateau) {
         
