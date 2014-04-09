@@ -1,9 +1,7 @@
 package bataille_navale;
 
-import java.awt.dnd.DropTarget;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import intelligenceArtificielle.IntelligenceArtificielle;
+import intelligenceArtificielle.IntelligenceArtificielleFacile;
 import java.util.Observable;
 import java.util.Random;
 import javax.swing.JButton;
@@ -276,17 +274,19 @@ public class Partie extends Observable {
      */
     public Case getCaseForIA(Joueur joueurAdverse) {
         
-        Random rand = new Random();
-        int x = rand.nextInt(this._parametre.getNbCaseX());
-        int y = rand.nextInt(this._parametre.getNbCaseY());
-        while(((Case)(joueurAdverse.getCases().get(x+y*this._parametre.getNbCaseX()))).isEtat()) {
-            
-            x = rand.nextInt(this._parametre.getNbCaseX());
-            y = rand.nextInt(this._parametre.getNbCaseY());
-            
-        }
-        
-        return ((Case)(joueurAdverse.getCases().get(x+y*this._parametre.getNbCaseX())));
+//        Random rand = new Random();
+//        int x = rand.nextInt(this._parametre.getNbCaseX());
+//        int y = rand.nextInt(this._parametre.getNbCaseY());
+//        while(((Case)(joueurAdverse.getCases().get(x+y*this._parametre.getNbCaseX()))).isEtat()) {
+//            
+//            x = rand.nextInt(this._parametre.getNbCaseX());
+//            y = rand.nextInt(this._parametre.getNbCaseY());
+//            
+//        }
+//        
+//        return ((Case)(joueurAdverse.getCases().get(x+y*this._parametre.getNbCaseX())));
+        IntelligenceArtificielle intelligenceArtificielle = new IntelligenceArtificielleFacile(_parametre);
+        return intelligenceArtificielle.getCaseForIA(joueurAdverse);
         
     } // getCaseForIA(Joueur joueurAdverse)
     
