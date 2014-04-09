@@ -3,6 +3,7 @@ package bataille_navale;
 import intelligenceArtificielle.IntelligenceArtificielle;
 import intelligenceArtificielle.IntelligenceArtificielleFacile;
 import java.awt.dnd.DropTarget;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -126,7 +127,17 @@ public class Partie extends Observable {
      */
     public boolean testEgalite() {
         
-        return false;
+        for(Case c : this._j2.getCases()) {
+            
+            if(c.isAPortee() && !c.isEtat()) {
+                
+                return false;
+                
+            }
+            
+        }
+        
+        return true;
         
     } // testEgalite()
 
@@ -156,33 +167,44 @@ public class Partie extends Observable {
      */
     public void autoriserDragDropJoueur(boolean autorisation) {
         
-        for(Case c : this._j1.getCases()) {
-            
-            //if(c.getBateau() != null && autorisation) {
-                
-                new DropTarget(c,c);
-                c.setTransferHandler(new TransferHandler("text"));
-                final MouseListener listener = new MouseAdapter() {
-                    @Override
-                    public void mousePressed(final MouseEvent me) {
-                        final Case cDD = (Case) me.getSource();
-                        //System.out.println(cDD);
-                        cDD.setText(cDD.getAbs()+"x"+cDD.getOrd());
-                        final TransferHandler handler = cDD.getTransferHandler();
-                        handler.exportAsDrag(cDD, me, TransferHandler.COPY);
-                    }
-                };
-                c.addMouseListener(listener);
-                
-            /*} else if(c.getBateau() != null && !autorisation) {
-                
-                // On desactive le Drag & Drop
-                for (MouseListener mouseListener : c.getMouseListeners()) {
-                    c.removeMouseListener(mouseListener);
+        if(autorisation) {
+        
+            // Activation du Drag & Drop
+            for(Case c : this._j1.getCases()) {
+
+                if(c.getBateau() != null) {
+                    
+                    this.addMouseEvent(c,true);
+                    
+                } else {
+                    
+                    this.addMouseEvent(c,false);
+                    
                 }
-                
-            } */
             
+            }
+        
+        } else {
+
+            // Desactivation du Drag & Drop
+            for(Case c : this._j1.getCases()) {
+                for(MouseListener ml : c.getMouseListeners()) {
+             
+                    c.removeMouseListener(ml);
+                    
+                }
+              
+            }
+            
+        }
+        
+        // On desactive les actions sur les cases aadverses
+        for(Case c : this._j2.getCases()) {
+            for(ActionListener ac : c.getActionListeners()) {
+                    
+                c.removeActionListener(ac);
+
+            }
         }
         
     } // autoriserDragDropJoueur(boolean autorisation)
@@ -206,64 +228,147 @@ public class Partie extends Observable {
     public void positionnerBateau(int abs, int ord, Case cArrive) {
 
         Bateau bateau = this._j1.getCases().get(abs+ord*this._parametre.getNbCaseX()).getBateau();
-        System.out.println(bateau + " | " + abs + "x" + ord);
         List<Case> liste = new ArrayList<>();
-        liste.add(this._j1.getCases().get(abs+ord*this._parametre.getNbCaseX()));
-        int x = abs;
-        int y = ord;
+
+        // Recuperation de toutes les cases du bateau
+        for(Case c : this.getJ1().getCases()) {
+            if(c.getBateau() != null && c.getBateau().getNom().equals(bateau.getNom())) {
+                liste.add(c);
+            }
+        }
+        
+        boolean test = this.testDeplacementBateau(bateau.getOrientation(), bateau.getLongueur(), cArrive);
         switch(bateau.getOrientation()) {
             
             case 1:
-                // Horizontal
-                while(x >= 0 && y >= 0 && this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau() != null 
-                        && this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau().equals(bateau)) {
-                    
-                    if(!liste.contains(this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau())) {
-                        
-                        liste.add(this._j1.getCases().get(x+y*this._parametre.getNbCaseX()));
-                        
+                // Horizontal (on change les cases de place si possible)
+                if(test) {
+                    for(int i=cArrive.getAbs();i<(cArrive.getAbs()+bateau.getLongueur());i++) {
+
+                        Case b = new CaseBateau(bateau,this);
+                        b = this.addMouseEvent(b,true);
+                        this._j1.getCases().set(i+cArrive.getOrd()*this.getParametre().getNbCaseX(), b);
+
                     }
-                    x--;
-                    y--;
-                    
                 }
-                x = abs;
-                y = ord;
-                while(x < this._parametre.getNbCaseX() && y < this._parametre.getNbCaseY() && this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau() != null 
-                        && this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau().equals(bateau)) {
-                    
-                    if(!liste.contains(this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau())) {
+                break;
+                
+            case 2:
+                // Vertical (on change les cases de place si possible)
+                if(test) {
+                    for(int i=cArrive.getOrd();i<(cArrive.getOrd()+bateau.getLongueur());i++) {
+
+                        Case b = new CaseBateau(bateau,this);
+                        b = this.addMouseEvent(b,true);
+                        this._j1.getCases().set(cArrive.getAbs()+i*this.getParametre().getNbCaseX(), b);
+
+                    }
+                }
+                break;
+            
+        }
+        
+        // On met des cases vides a la place des cases bateaux si on a pu faire
+        // le deplacement et on previent la fenetre
+        if(test) {
+            
+            for(Case c : liste) {
+
+                Case b = new CaseVide(this);
+                b = this.addMouseEvent(b,false);
+                this._j1.getCases().set(c.getAbs()+c.getOrd()*this.getParametre().getNbCaseX(), b);
+
+            }
+            this.autoriserDragDropJoueur(true);
+
+            setChanged();
+            notifyObservers("reinitialiser");
+            
+        }
+        
+    } // positionnerBateau(int x, int y, Case cArrive)
+    
+    
+    /**
+     * Permet de savoir si le bateau peut etre deplace ou non 
+     * @param sens orientation du bateau
+     * 1 - Horizontal
+     * 2 - Vertical
+     * @param taille longueur du bateau a placer
+     * @param cArrive premiere case de la nouvelle position du bateau
+     * @return TRUE si le bateau peut etre deplace, FALSE sinon
+     */
+    public boolean testDeplacementBateau(int sens, int taille, Case cArrive) {
+        
+        switch(sens) {
+            
+            case 1:
+                // Horizontal
+                for(int i=cArrive.getAbs();i<(cArrive.getAbs()+taille);i++) {
+                    if(i >= this._parametre.getNbCaseX() || this.getJ1().getCases().get(i+cArrive.getOrd()*this.getParametre().getNbCaseX()).getBateau() != null) {
                         
-                        liste.add(this._j1.getCases().get(x+y*this._parametre.getNbCaseX()));
+                        return false;
                         
                     }
-                    x++;
-                    y++;
-                    
                 }
                 break;
                 
             case 2:
                 // Vertical
+                for(int i=cArrive.getOrd();i<(cArrive.getOrd()+taille);i++) {
+                    if(i >= this._parametre.getNbCaseY() || this.getJ1().getCases().get(cArrive.getAbs()+i*this.getParametre().getNbCaseX()).getBateau() != null) {
+                        
+                        return false;
+                        
+                    }
+                }
                 break;
             
         }
         
-        // On change les cases de place si possible
-        for(int i=abs;i<bateau.getPortee();i++) {
-            
-            this._j1.getCases().set(i+ord*this.getParametre().getNbCaseX(), new CaseBateau(bateau,this));
-            
-        }
-        for(int i=abs;i<bateau.getPortee();i++) {
-            
-            this._j1.getCases().set(i+ord*this.getParametre().getNbCaseX(), new CaseVide(this));
-            
-        }
-        setChanged();
-        notifyObservers("reinitialiser");
+        return true;
         
-    } // positionnerBateau(int x, int y, Case cArrive)
+    } // testDeplacementBateau(int sens, Case cArrive)
+    
+    
+    /**
+     * Permet d'ajouter l'evenement de souris sur la case pour le Drag & Drop
+     * @param c case sur laquelle on souhaite autoriser l'evenement de souris
+     * @param typeCase si CaseBateau on ajoute un evenement au clic
+     * @return la case avec l'evenement de souris autorise
+     */
+    public Case addMouseEvent(Case c, boolean typeCase) {
+        
+        new DropTarget(c,c);
+        c.setTransferHandler(new TransferHandler("text"));
+        MouseListener listener = null;
+        if(typeCase) { 
+            
+            listener = new MouseAdapter() {
+                @Override
+                public void mousePressed(final MouseEvent me) {
+
+                    final Case cDD = (Case) me.getSource();
+                    cDD.setText(cDD.getAbs()+"x"+cDD.getOrd());
+                    final TransferHandler handler = cDD.getTransferHandler();
+                    handler.exportAsDrag(cDD, me, TransferHandler.COPY);
+
+                }
+            };
+            
+        } else {
+            
+            listener = new MouseAdapter() {
+                @Override
+                public void mousePressed(final MouseEvent me) {}
+            };
+            
+        }
+        c.addMouseListener(listener);
+        
+        return c;
+        
+    } // addMouseEvent(Case c)
     
 
     /**

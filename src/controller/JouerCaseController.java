@@ -54,7 +54,7 @@ public class JouerCaseController implements ActionListener  {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-       
+     
         if(this._partie.jouerCase(this._joueurCourant, this._joueurAdverse, this._caseTouche)) {
             
             // Le joueur a gagne
@@ -71,6 +71,14 @@ public class JouerCaseController implements ActionListener  {
             }
 
         }
+        
+        // On test l'egalite
+        if(this._partie.testEgalite()) {
+            
+            // Egalite, fin de la partie
+            this._partie.afficherMessageFinPartie("Égalité ! Votre adversaire est hors de portée ");
+            
+        } 
         
     } // actionPerformed(ActionEvent ae)
     

@@ -17,7 +17,6 @@ import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import window.main.BatailleNavale;
 
 /**
@@ -79,10 +78,13 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
             this.buttonJouer.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    
+                    partie.autoriserDragDropJoueur(false);
                     partie.initialisationPorteeCases();
                     initialisation();
                     buttonJouer.setEnabled(false);
                     buttonJouer.setVisible(false);
+                    
                 }
             });
             
@@ -110,6 +112,8 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         GridLayout gl = new GridLayout(this._partie.getParametre().getNbCaseX(),this._partie.getParametre().getNbCaseY());
         gl.setHgap(0);
         gl.setVgap(0);
+        this.plateauJoueurAdverse.removeAll();
+        this.plateauJoueurCourant.removeAll();
         this.plateauJoueurAdverse.setLayout(gl);
         this.plateauJoueurCourant.setLayout(gl);
         
@@ -117,15 +121,16 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         for(int i=0;i<this._partie.getParametre().getNbCaseX();i++) {
             for(int j=0;j<this._partie.getParametre().getNbCaseY();j++) {
                 
-                
                 // Grille du joueur
                 this.plateauJoueurCourant.add(this._partie.getJ1().getCases().get(numC));
                 this._partie.getJ1().getCases().get(numC).setCoordonnees(j, i);
+                this._partie.getJ1().getCases().get(numC).setEnabled(true);
                 
                 // Grille adverse
                 this._partie.getJ2().getCases().get(numC).addActionListener(new JouerCaseController(this._partie, 
                         this._partie.getJ2().getCases().get(numC), this._partie.getJ1(), this._partie.getJ2()));
                 this._partie.getJ2().getCases().get(numC).setCoordonnees(j, i);
+                this._partie.getJ2().getCases().get(numC).setEnabled(true);
                 // On signal que la case est a portee de tir si c'est le cas,
                 // sinon on ne peut pas cliquer sur la case
                 if(this._partie.getJ2().getCases().get(numC).isAPortee()) {
@@ -146,6 +151,8 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                 
             }
         }
+        this.plateauJoueurAdverse.updateUI();
+        this.plateauJoueurCourant.updateUI();
         
     } // initialisation()
     
@@ -599,6 +606,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
        
         this._batailleNavale.setEnabled(true);
         this._batailleNavale.setVisible(true);
+        this.popupQuitterPartie.setVisible(false);
         this.setVisible(false);
         this.setEnabled(true);
         
