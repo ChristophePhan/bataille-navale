@@ -24,7 +24,7 @@ public class TestPlacementBateaux {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        DAO_Configuration dAO_Configuration = new DAO_Configuration();
+        /*DAO_Configuration dAO_Configuration = new DAO_Configuration();
         HashMap<String, Epoque> mapEpoque = dAO_Configuration.getAllEpoques();
         Parametre parametre = new Parametre(10, 10, "Facile", mapEpoque.get("Future"));
         Joueur joueurHumain = new JoueurHumain(parametre, "Stan");
@@ -37,7 +37,7 @@ public class TestPlacementBateaux {
                 s += " | Nom : " + joueurHumain.getCases().get(i).getBateau().getNom();
             }
             System.out.println(s);
-        }
+        }*/
     }
     
     // Problème avec des bateaux de taille superieur a 5, pour la grille 10x10

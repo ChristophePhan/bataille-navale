@@ -7,6 +7,8 @@ import java.awt.dnd.DropTarget;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import javax.swing.TransferHandler;
 import stockage.DAOFactory;
@@ -39,15 +41,13 @@ public class Partie extends Observable {
     } // Partie()
     
 
-    public Partie(Parametre parametre, Joueur j1, Joueur j2, boolean automatique) {
+    public Partie(Parametre parametre, boolean automatique) {
         
-        this._id = "partie" + parametre.hashCode() + j1.hashCode() + j2.hashCode();
+        this._id = "partie" + parametre.hashCode();
         this._parametre = parametre;
-        this._j1 = j1;
-        this._j2 = j2;
         this._automatique = automatique;
         
-    } // Partie(Parametre parametre, Joueur j1, Joueur j2, boolean automatique)
+    } // Partie(Parametre parametre, boolean automatique)
     
     
     ////////////////////////////// FONCTIONS //////////////////////////////////
@@ -161,27 +161,14 @@ public class Partie extends Observable {
             
             //if(c.getBateau() != null && autorisation) {
                 
-                // On autorise le Drag & Drop
-                /*TransferHandler transfer = new TransferHandler("text");
-                c.setTransferHandler(transfer);
-                c.addMouseListener(new MouseAdapter(){
-                    @Override
-                    public void mousePressed(MouseEvent e){
-
-                        Case c = (Case)e.getSource();
-                        TransferHandler handle = c.getTransferHandler();
-                        handle.exportAsDrag(c, e, TransferHandler.COPY);
-                        
-                    }
-                });*/
                 new DropTarget(c,c);
                 c.setTransferHandler(new TransferHandler("text"));
                 final MouseListener listener = new MouseAdapter() {
                     @Override
                     public void mousePressed(final MouseEvent me) {
                         final Case cDD = (Case) me.getSource();
-                        System.out.println(cDD);
-
+                        //System.out.println(cDD);
+                        cDD.setText(cDD.getAbs()+"x"+cDD.getOrd());
                         final TransferHandler handler = cDD.getTransferHandler();
                         handler.exportAsDrag(cDD, me, TransferHandler.COPY);
                     }
@@ -213,12 +200,71 @@ public class Partie extends Observable {
     
     /**
      * Permet au joueur de positionner un de ses bateaux sur la grille
-     * @param bateau bateau a positioner sur la grille
-     * @param c case sur laquelle on positionne le bateau
+     * @param abs coordonnees en abscisse de la case de depart
+     * @param ord coordonnees en ordonnee de la case de depart
+     * @param cArrive case d'arrivee
      */
-    public void positionnerBateau(Bateau bateau, Case c) {
+    public void positionnerBateau(int abs, int ord, Case cArrive) {
 
-    } // positionnerBateau(Bateau bateau, Case c)
+        Bateau bateau = this._j1.getCases().get(abs+ord*this._parametre.getNbCaseX()).getBateau();
+        System.out.println(bateau + " | " + abs + "x" + ord);
+        List<Case> liste = new ArrayList<>();
+        liste.add(this._j1.getCases().get(abs+ord*this._parametre.getNbCaseX()));
+        int x = abs;
+        int y = ord;
+        switch(bateau.getOrientation()) {
+            
+            case 1:
+                // Horizontal
+                while(x >= 0 && y >= 0 && this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau() != null 
+                        && this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau().equals(bateau)) {
+                    
+                    if(!liste.contains(this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau())) {
+                        
+                        liste.add(this._j1.getCases().get(x+y*this._parametre.getNbCaseX()));
+                        
+                    }
+                    x--;
+                    y--;
+                    
+                }
+                x = abs;
+                y = ord;
+                while(x < this._parametre.getNbCaseX() && y < this._parametre.getNbCaseY() && this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau() != null 
+                        && this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau().equals(bateau)) {
+                    
+                    if(!liste.contains(this._j1.getCases().get(x+y*this._parametre.getNbCaseX()).getBateau())) {
+                        
+                        liste.add(this._j1.getCases().get(x+y*this._parametre.getNbCaseX()));
+                        
+                    }
+                    x++;
+                    y++;
+                    
+                }
+                break;
+                
+            case 2:
+                // Vertical
+                break;
+            
+        }
+        
+        // On change les cases de place si possible
+        for(int i=abs;i<bateau.getPortee();i++) {
+            
+            this._j1.getCases().set(i+ord*this.getParametre().getNbCaseX(), new CaseBateau(bateau,this));
+            
+        }
+        for(int i=abs;i<bateau.getPortee();i++) {
+            
+            this._j1.getCases().set(i+ord*this.getParametre().getNbCaseX(), new CaseVide(this));
+            
+        }
+        setChanged();
+        notifyObservers("reinitialiser");
+        
+    } // positionnerBateau(int x, int y, Case cArrive)
     
 
     /**

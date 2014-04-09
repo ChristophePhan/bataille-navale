@@ -27,13 +27,14 @@ public class CaseBateau extends Case {
     } // CaseBateau()
     
     
-    public CaseBateau(Bateau bateau) {
+    public CaseBateau(Bateau bateau, Partie partie) {
+        super(partie);
         
         this._bateau = bateau;
         ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Fond_gris.png"));
         this.setIcon(bateauImage);
         
-    } // CaseBateau(Bateau _bateau)
+    } // CaseBateau(Bateau bateau, Partie partie)
     
     
     ////////////////////////////// FONCTIONS //////////////////////////////////
@@ -49,28 +50,30 @@ public class CaseBateau extends Case {
     
     @Override
     public void dragEnter(DropTargetDragEvent dtde) {
-        System.out.println("ENTER");
-    }
+       
+    } // dragEnter(DropTargetDragEvent dtde)
 
     @Override
     public void dragOver(DropTargetDragEvent dtde) {
-        System.out.println("OVER");
-    }
+      
+    } // dragOver(DropTargetDragEvent dtde)
 
     @Override
     public void dropActionChanged(DropTargetDragEvent dtde) {
-        System.out.println("CHANGED");
-    }
+        
+    } // dropActionChanged(DropTargetDragEvent dtde)
 
     @Override
     public void dragExit(DropTargetEvent dte) {
-        System.out.println("EXIT");
-    }
+
+    } // dragExit(DropTargetEvent dte)
 
     @Override
     public void drop(DropTargetDropEvent dtde) {
-        System.out.println("DROP");
-    }
+        
+        // On ne peut pas deplacer un bateau sur un autre bateau
+        
+    } // drop(DropTargetDropEvent dtde)
     
     
     /***** GETTER/SETTER *****/
