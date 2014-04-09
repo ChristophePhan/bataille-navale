@@ -120,12 +120,12 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                 
                 // Grille du joueur
                 this.plateauJoueurCourant.add(this._partie.getJ1().getCases().get(numC));
-                this._partie.getJ1().getCases().get(numC).setCoordonnees(i, j);
+                this._partie.getJ1().getCases().get(numC).setCoordonnees(j, i);
                 
                 // Grille adverse
                 this._partie.getJ2().getCases().get(numC).addActionListener(new JouerCaseController(this._partie, 
                         this._partie.getJ2().getCases().get(numC), this._partie.getJ1(), this._partie.getJ2()));
-                this._partie.getJ2().getCases().get(numC).setCoordonnees(i, j);
+                this._partie.getJ2().getCases().get(numC).setCoordonnees(j, i);
                 // On signal que la case est a portee de tir si c'est le cas,
                 // sinon on ne peut pas cliquer sur la case
                 if(this._partie.getJ2().getCases().get(numC).isAPortee()) {
@@ -706,6 +706,10 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
     public void update(Observable o, Object arg) {
         
         switch (arg.toString()) {
+            
+            case "reinitialiser":
+                this.initialisation();
+                break;
             
             case "messageJ1":
                 this.labelInstructionsJoueur.setText(this._partie.getMessage());

@@ -19,6 +19,7 @@ public abstract class Case extends JButton implements DropTargetListener {
     private boolean _aPortee;
     private int _abs;
     private int _ord;
+    protected Partie _partie;
     
     
     ////////////////////////////// CONSTRUCTEUR ///////////////////////////////
@@ -31,6 +32,16 @@ public abstract class Case extends JButton implements DropTargetListener {
         this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         
     } // Case()
+    
+    
+    public Case(Partie partie) {
+        
+        this._partie = partie;
+        this._etat = false;
+        this._aPortee = false;
+        this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+        
+    } // Case(Partie partie)
     
     
     /////////////////////////////// FONCTIONS /////////////////////////////////

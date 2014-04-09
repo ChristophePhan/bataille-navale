@@ -746,23 +746,37 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
 
         // Recuperation du mode de placement
         Parametre parametre = new Parametre(x, y, diff, DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(epoque));
-        Joueur humain = new JoueurHumain(parametre, this._jeu.getProfilCourant().getNom());
-        Joueur IA = new JoueurMachine(parametre, "Skynet");
+        //Joueur humain = new JoueurHumain(parametre, this._jeu.getProfilCourant().getNom());
+        //Joueur IA = new JoueurMachine(parametre, "Skynet");
         Partie partie = null;
-        humain.positionnementAleatoire();
-        IA.positionnementAleatoire();
+        //humain.positionnementAleatoire();
+        //IA.positionnementAleatoire();
         if(this.jRadioButtonAleatoire.isSelected()) {
             
             // Placement aleatoire
-            partie = new Partie(parametre, humain, IA, true);
+            //partie = new Partie(parametre, humain, IA, true);
+            partie = new Partie(parametre, true);
+            Joueur humain = new JoueurHumain(partie, this._jeu.getProfilCourant().getNom());
+            Joueur IA = new JoueurMachine(partie, "Skynet");
+            partie.setJ1(humain);
+            partie.setJ2(IA);
+            humain.positionnementAleatoire();
+            IA.positionnementAleatoire();
             partie.initialisationPorteeCases();
             
         } else {
             
             // Placement manuel
-            partie = new Partie(parametre, humain, IA, false);
+            partie = new Partie(parametre, false);
+            Joueur humain = new JoueurHumain(partie, this._jeu.getProfilCourant().getNom());
+            Joueur IA = new JoueurMachine(partie, "Skynet");
+            partie.setJ1(humain);
+            partie.setJ2(IA);
+            humain.positionnementAleatoire();
+            IA.positionnementAleatoire();
             
         }
+        
         this._jeu.getProfilCourant().ajouterNouvellePartie(partie);
         partie.addObserver(this);
         this._jeu.setPartieCourante(partie);

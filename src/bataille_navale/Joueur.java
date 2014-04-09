@@ -12,7 +12,7 @@ public abstract class Joueur {
     ////////////////////////////// VARIABLES //////////////////////////////////
     
 
-    protected Parametre _parametre;
+    protected Partie _partie;
     protected String _nom;
     protected int _nbTirsGagnant;
     protected int _nbTirsPerdant;
@@ -27,19 +27,19 @@ public abstract class Joueur {
     } // Joueur()
     
     
-    public Joueur(Parametre parametre, String nom) {
+    public Joueur(Partie partie, String nom) {
         
-        this._parametre = parametre;
+        this._partie = partie;
         this._nom = nom;
         this._nbTirsGagnant = 0;
         this._nbTirsPerdant = 0;
         
         // Remplit la liste de Case du joueur
         this._cases = new ArrayList<>();
-        for(int i=0;i<this._parametre.getNbCaseX();i++) {
-            for(int j=0;j<this._parametre.getNbCaseY();j++) {
+        for(int i=0;i<partie.getParametre().getNbCaseX();i++) {
+            for(int j=0;j<partie.getParametre().getNbCaseY();j++) {
                 
-                this._cases.add(new CaseVide());
+                this._cases.add(new CaseVide(partie));
                 
             }
         }
@@ -97,7 +97,7 @@ public abstract class Joueur {
 
                 case 1:
                     // Horizontale
-                    pos = x+i+y*this._parametre.getNbCaseX();
+                    pos = x+i+y*this._partie.getParametre().getNbCaseX();
                     if(this._cases.get(pos).getBateau() != null) {
 
                         return false;
@@ -107,7 +107,7 @@ public abstract class Joueur {
 
                 case 2:
                     // Verticale
-                    pos = x+(y+i)*this._parametre.getNbCaseX();
+                    pos = x+(y+i)*this._partie.getParametre().getNbCaseX();
                     if(this._cases.get(pos).getBateau() != null) {
 
                         return false;
@@ -174,12 +174,12 @@ public abstract class Joueur {
         this._cases = cases;
     }
 
-    public Parametre getPartie() {
-        return _parametre;
+    public Partie getPartie() {
+        return this._partie;
     }
 
-    public void setPartie(Parametre _parametre) {
-        this._parametre = _parametre;
+    public void setPartie(Partie partie) {
+        this._partie = partie;
     }
     
     
