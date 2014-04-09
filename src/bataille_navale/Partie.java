@@ -1,7 +1,8 @@
 package bataille_navale;
 
 import intelligenceArtificielle.IntelligenceArtificielle;
-import intelligenceArtificielle.IntelligenceArtificielleFacile;
+import intelligenceArtificielle.IntelligenceArtificielleDifficile;
+import intelligenceArtificielle.IntelligenceArtificielleMoyen;
 import java.awt.dnd.DropTarget;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -438,7 +439,9 @@ public class Partie extends Observable {
 //        }
 //        
 //        return ((Case)(joueurAdverse.getCases().get(x+y*this._parametre.getNbCaseX())));
-        IntelligenceArtificielle intelligenceArtificielle = new IntelligenceArtificielleFacile(_parametre);
+//        IntelligenceArtificielle intelligenceArtificielle = new IntelligenceArtificielleFacile(_parametre);
+//        IntelligenceArtificielle intelligenceArtificielle = new IntelligenceArtificielleMoyen(_parametre);
+        IntelligenceArtificielle intelligenceArtificielle = new IntelligenceArtificielleDifficile(_parametre);
         return intelligenceArtificielle.getCaseForIA(joueurAdverse);
         
     } // getCaseForIA(Joueur joueurAdverse)
