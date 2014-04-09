@@ -39,6 +39,7 @@ public class IntelligenceArtificielleMoyen extends IntelligenceArtificielle{
                 testerCase(joueurAdverse, caseTouchee);
             }
         }
-        return caseTouchee;    }
+        return caseTouchee;  
+    }
     
 }
