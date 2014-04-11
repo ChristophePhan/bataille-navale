@@ -3,6 +3,7 @@ package bataille_navale;
 import java.awt.Color;
 import java.awt.dnd.DropTargetListener;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -15,10 +16,10 @@ public abstract class Case extends JButton implements DropTargetListener {
     /////////////////////////////// VARIABLES /////////////////////////////////
 
     
-    private boolean _etat;
-    private boolean _aPortee;
-    private int _abs;
-    private int _ord;
+    protected boolean _etat;
+    protected boolean _aPortee;
+    protected int _abs;
+    protected int _ord;
     protected Partie _partie;
     
     
@@ -76,6 +77,9 @@ public abstract class Case extends JButton implements DropTargetListener {
 
     public void setEtat(boolean etat) {
         this._etat = etat;
+//        if(this.isEtat()){
+//            this.setIcon(new ImageIcon(getClass().getResource("/stockage/images/Croix.png")));
+//        } 
     }
 
     public boolean isAPortee() {

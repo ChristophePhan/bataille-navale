@@ -327,13 +327,13 @@ public class DAO_Sauvegarde {
         File[] listOfFiles = folder.listFiles();
         
         for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile() && listOfFiles[i].getName().replaceAll(".*", "").equals(profil.getNom())) {
+            if (listOfFiles[i].isFile() && listOfFiles[i].getName().replaceAll("\\..*", "").equals(profil.getNom())) {
                 try {
                     
                     SAXBuilder builder = new SAXBuilder();
                     Document document = (Document) builder.build(listOfFiles[i]);
                     Element rootNode = document.getRootElement();
-                    Profil p = new Profil();
+                    //Profil p = new Profil();
                     
                     List list = rootNode.getChildren("partie");
                     for (int j = 0; j < list.size(); j++) {
@@ -361,10 +361,11 @@ public class DAO_Sauvegarde {
                         joueur1.setNom(j1.getChildText("nom"));
                         joueur1.setNbTirsGagnant(Integer.parseInt(j1.getChildText("nbTirsGagnant")));
                         joueur1.setNbTirsPerdant(Integer.parseInt(j1.getChildText("nbTirsPerdant")));
-                        List listCases = j1.getChildren("case");
-                        for (int k = 0; k < listCases.size(); k++) {
+                        List listCasesXML = j1.getChildren("case");
+                        ArrayList<Case> cases = new ArrayList<>();
+                        for (int k = 0; k < listCasesXML.size(); k++) {
                             
-                            Element caseElt = (Element) listCases.get(k);
+                            Element caseElt = (Element) listCasesXML.get(k);
                             Case c = null;
                             if(caseElt.getChildText("bateau").equals("null")) {
                                 
@@ -382,24 +383,25 @@ public class DAO_Sauvegarde {
                             c.setOrd(Integer.parseInt(caseElt.getChildText("ord")));
                             boolean aPorte = ("1".equals(caseElt.getChildText("aPorte")));
                             c.setPortee(aPorte);
-                            listCases.add(c);
+                            cases.add(c);
                             
                         }
-                        joueur1.setCases((ArrayList<Case>) listCases);
+                        joueur1.setCases((ArrayList<Case>) cases);
                         partie.setJ1(joueur1);
                         
                         // J2
                         Element j2 = (Element) partieElt.getChild("joueur2");
                         Joueur joueur2 = new JoueurMachine();
-                        joueur1.setPartie(partie);
-                        joueur1.setNom(j2.getChildText("nom"));
-                        joueur1.setNbTirsGagnant(Integer.parseInt(j2.getChildText("nbTirsGagnant")));
-                        joueur1.setNbTirsPerdant(Integer.parseInt(j2.getChildText("nbTirsPerdant")));
+                        joueur2.setPartie(partie);
+                        joueur2.setNom(j2.getChildText("nom"));
+                        joueur2.setNbTirsGagnant(Integer.parseInt(j2.getChildText("nbTirsGagnant")));
+                        joueur2.setNbTirsPerdant(Integer.parseInt(j2.getChildText("nbTirsPerdant")));
                         ((JoueurMachine)joueur2).setDifficulte(j2.getChildText("difficulte"));
-                        List listCasesBis = j2.getChildren("case");
-                        for (int k = 0; k < listCasesBis.size(); k++) {
+                        List listCasesBisXML = j2.getChildren("case");
+                        ArrayList<Case> casesBis = new ArrayList<>();
+                        for (int k = 0; k < listCasesBisXML.size(); k++) {
                             
-                            Element caseElt = (Element) listCases.get(k);
+                            Element caseElt = (Element) listCasesXML.get(k);
                             Case c = null;
                             if(caseElt.getChildText("bateau").equals("null")) {
                                 
@@ -417,10 +419,10 @@ public class DAO_Sauvegarde {
                             c.setOrd(Integer.parseInt(caseElt.getChildText("ord")));
                             boolean aPorte = ("1".equals(caseElt.getChildText("aPorte")));
                             c.setPortee(aPorte);
-                            listCases.add(c);
+                            casesBis.add(c);
                             
                         }
-                        joueur2.setCases((ArrayList<Case>) listCasesBis);
+                        joueur2.setCases((ArrayList<Case>) casesBis);
                         partie.setJ2(joueur2);
                         
                     }
@@ -432,7 +434,7 @@ public class DAO_Sauvegarde {
                 } 
             }
         }
-        
+        partie.initialisationPorteeCases();
         return partie;
         
     } // getPartie(String id, Profil profil)

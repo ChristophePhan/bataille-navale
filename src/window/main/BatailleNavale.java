@@ -15,6 +15,7 @@ import bataille_navale.Partie;
 import bataille_navale.Profil;
 import bataille_navale.TailleGrille;
 import controller.AfficherPartiesController;
+import controller.ChargerPartieController;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -203,7 +204,6 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         labelAucunProfil = new javax.swing.JLabel();
         listeProfils = new javax.swing.JPanel();
 
-        popupNouveauProfil.setMaximumSize(new java.awt.Dimension(500, 265));
         popupNouveauProfil.setMinimumSize(new java.awt.Dimension(500, 265));
         popupNouveauProfil.setResizable(false);
         popupNouveauProfil.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -281,7 +281,6 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
 
         popupParties.setSize(new java.awt.Dimension(500, 350));
         popupParties.setFocusTraversalPolicyProvider(true);
-        popupParties.setMaximumSize(new java.awt.Dimension(500, 350));
         popupParties.setMinimumSize(new java.awt.Dimension(500, 350));
         popupParties.setResizable(false);
         popupParties.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -705,6 +704,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 partie.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));
                 partie.setContentAreaFilled(false);
                 partie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                partie.addActionListener(new ChargerPartieController(profil, p, this, _jeu));
                 panelPartie.add(partie);
 
                 this.panelParties.add(panelPartie);
@@ -831,7 +831,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         this._jeu.getProfilCourant().ajouterNouvellePartie(partie);
         partie.addObserver(this);
         this._jeu.setPartieCourante(partie);
-        
+        DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(this._jeu.getProfilCourant());
         // Permet d'afficher les cases a portee de tir et de lancer la partie
         partie.jouerPartie();
         
@@ -924,6 +924,10 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
     private javax.swing.JTextField saisieNomProfil;
     // End of variables declaration//GEN-END:variables
 
+    
+    public javax.swing.JDialog getPopupPartie(){
+        return this.popupParties;
+    }
     
     /************** GESTION DE LA MISE A JOUR DE LA FENETRE ******************/
     

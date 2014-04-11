@@ -47,7 +47,6 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
      */
     public VuePartie(BatailleNavale batailleNavale, Jeu jeu, Profil profil, final Partie partie) {
         initComponents();
-        
         this._batailleNavale = batailleNavale;
         this._jeu = jeu;
         this._profil = profil;
@@ -234,6 +233,11 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         jButton3.setContentAreaFilled(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(102, 102, 102));
@@ -295,7 +299,6 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                 .addGap(17, 17, 17))
         );
 
-        popupVictoire.setMaximumSize(new java.awt.Dimension(600, 205));
         popupVictoire.setMinimumSize(new java.awt.Dimension(600, 205));
         popupVictoire.setResizable(false);
         popupVictoire.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -451,7 +454,6 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         flecheFlotteJoueur.setMaximumSize(new java.awt.Dimension(20, 20));
         flecheFlotteJoueur.setMinimumSize(new java.awt.Dimension(20, 20));
         flecheFlotteJoueur.setPreferredSize(new java.awt.Dimension(20, 20));
-        flecheFlotteJoueur.setSize(new java.awt.Dimension(20, 20));
 
         flecheFlotteAdverse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stockage/images/Fleche_haut.png"))); // NOI18N
 
@@ -660,8 +662,9 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         this._batailleNavale.setEnabled(true);
         this._batailleNavale.setVisible(true);
         this.popupQuitterPartie.setVisible(false);
-        this.setVisible(false);
-        this.setEnabled(true);
+        this.dispose();
+//        this.setVisible(false);
+//        this.setEnabled(true);
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -736,6 +739,13 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         this.setEnabled(true);
         
     }//GEN-LAST:event_popupVictoireWindowClosing
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.popupQuitterPartie.setVisible(false);
+        this.dispose();
+        this._batailleNavale.setVisible(true);
+        this._batailleNavale.getPopupPartie().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

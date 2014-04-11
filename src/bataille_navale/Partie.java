@@ -11,6 +11,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
+import javax.swing.ImageIcon;
 import javax.swing.TransferHandler;
 import stockage.DAOFactory;
 
@@ -88,9 +89,11 @@ public class Partie extends Observable {
                         for(int H=j-portee;H<(j-portee+2*portee)+1;H++) {
                             
                             if(W >= 0 && W < x && H >= 0 && H < y) {
-                
-                                ((Case)(this._j2.getCases().get(W+H*x))).setPortee(true);
-                                
+                                Case c = (Case)(this._j2.getCases().get(W+H*x));
+                                c.setPortee(true);
+//                                if(c.isEtat()){
+//                                    c.setIcon(new ImageIcon(getClass().getResource("/stockage/images/Croix.png")));
+//                                }    
                             }
                             
                         }
