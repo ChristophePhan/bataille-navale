@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package intelligenceArtificielle;
 
 import bataille_navale.Case;
 import bataille_navale.Joueur;
 import bataille_navale.Parametre;
+import java.util.List;
 import java.util.Random;
 
 /**
  * IntelligenceArtificielleDifficile
+ *
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
-public class IntelligenceArtificielleDifficile extends IntelligenceArtificielle{
+public class IntelligenceArtificielleDifficile extends IntelligenceArtificielle {
+
+    private List listeCaseATester;
 
     public IntelligenceArtificielleDifficile(Parametre parametre) {
         super(parametre);
@@ -26,7 +29,7 @@ public class IntelligenceArtificielleDifficile extends IntelligenceArtificielle{
         Random rand = new Random();
         int x;
         int y;
-        Case caseTouchee;
+        Case caseTouchee = null;
         if (listeCaseATester.isEmpty()) {
             do {
                 x = rand.nextInt(this._parametre.getNbCaseX());
@@ -42,12 +45,14 @@ public class IntelligenceArtificielleDifficile extends IntelligenceArtificielle{
                 }
                 caseTouchee = (Case) (joueurAdverse.getCases().get(x + y * this._parametre.getNbCaseX()));
             } while (((Case) (joueurAdverse.getCases().get(x + y * this._parametre.getNbCaseX()))).isEtat());
-        } else {
-            caseTouchee = (Case) listeCaseATester.pop();
-            if (caseTouchee.isEtat()) {
-                testerCase(joueurAdverse, caseTouchee);
-            }
-        }
-        return caseTouchee;    }
-    
+        } /*else {
+         caseTouchee = (Case) listeCaseATester.pop();
+         if (caseTouchee.isEtat()) {
+         //                testerCase(joueurAdverse, caseTouchee);
+         }
+         }*/
+
+        return caseTouchee;
+    }
+
 }
