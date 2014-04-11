@@ -1,5 +1,6 @@
 package bataille_navale;
 
+import intelligenceArtificielle.FactoryIA;
 import intelligenceArtificielle.IntelligenceArtificielle;
 import intelligenceArtificielle.IntelligenceArtificielleDifficile;
 import intelligenceArtificielle.IntelligenceArtificielleFacile;
@@ -43,17 +44,7 @@ public class Partie extends Observable {
         this._id = "partie" + parametre.hashCode();
         this._parametre = parametre;
         this._automatique = automatique;
-        switch (this._parametre.getDifficulte()) {
-            case "Facile":
-                this.intelligenceArtificielle = new IntelligenceArtificielleFacile(_parametre);
-                break;
-            case "Normal":
-                this.intelligenceArtificielle = new IntelligenceArtificielleMoyen(_parametre);
-                break;
-            case "Difficile":
-                this.intelligenceArtificielle = new IntelligenceArtificielleDifficile(_parametre);
-                break;
-        }
+        this.intelligenceArtificielle = FactoryIA.getInstance().getIntelligenceArtificielle(this._parametre, this._parametre.getDifficulte());
 
     } // Partie(Parametre parametre, boolean automatique)
 
