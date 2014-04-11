@@ -53,7 +53,6 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         this._profil = profil;
         this._partie = partie;
         
-        // Initialisation des epoques
         this.getContentPane().setBackground(Color.WHITE);
         this.popupQuitterPartie.getContentPane().setBackground(Color.WHITE);
         this.popupVictoire.getContentPane().setBackground(Color.WHITE);
@@ -176,6 +175,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         titrePopupVictoire = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        sousTitrePopupVictoire = new javax.swing.JLabel();
         labelEpoque = new javax.swing.JLabel();
         labelInstructionsJoueur = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -201,6 +201,8 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         jLabel7 = new javax.swing.JLabel();
 
         popupQuitterPartie.setSize(new java.awt.Dimension(500, 180));
+        popupQuitterPartie.setMaximumSize(new java.awt.Dimension(500, 180));
+        popupQuitterPartie.setMinimumSize(new java.awt.Dimension(500, 180));
         popupQuitterPartie.setResizable(false);
         popupQuitterPartie.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -209,26 +211,48 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         });
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 153, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Êtes-vous sûr de vouloir quitter la partie ?");
 
+        jButton2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(102, 153, 255));
         jButton2.setText("Annuler");
+        jButton2.setAlignmentX(0.5F);
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(102, 102, 102));
         jButton3.setText("Nouvelle partie");
+        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jButton4.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(102, 102, 102));
         jButton4.setText("Enregistrer et quitter");
+        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
+        jButton5.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(102, 102, 102));
         jButton5.setText("Quitter");
+        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        jButton5.setContentAreaFilled(false);
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -245,77 +269,102 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                 .addContainerGap())
             .addGroup(popupQuitterPartieLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
-            .addGroup(popupQuitterPartieLayout.createSequentialGroup()
-                .addGap(202, 202, 202)
-                .addComponent(jButton2)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupQuitterPartieLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(198, 198, 198))
         );
         popupQuitterPartieLayout.setVerticalGroup(
             popupQuitterPartieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popupQuitterPartieLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(popupQuitterPartieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5))
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
 
+        popupVictoire.setMaximumSize(new java.awt.Dimension(600, 205));
+        popupVictoire.setMinimumSize(new java.awt.Dimension(600, 205));
         popupVictoire.setResizable(false);
-        popupVictoire.setSize(new java.awt.Dimension(600, 250));
+        popupVictoire.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                popupVictoireWindowClosing(evt);
+            }
+        });
 
-        titrePopupVictoire.setFont(new java.awt.Font("Helvetica Neue", 0, 30)); // NOI18N
+        titrePopupVictoire.setFont(new java.awt.Font("Helvetica Neue", 1, 30)); // NOI18N
         titrePopupVictoire.setForeground(new java.awt.Color(51, 153, 255));
         titrePopupVictoire.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titrePopupVictoire.setText("Félicitations ! Vous avez gagné la partie !");
+        titrePopupVictoire.setText("Félicitations !");
         titrePopupVictoire.setToolTipText("");
         titrePopupVictoire.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jButton6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(102, 102, 102));
         jButton6.setText("Rejouer");
+        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        jButton6.setContentAreaFilled(false);
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jButton7.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(102, 102, 102));
         jButton7.setText("Quitter");
+        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
 
+        sousTitrePopupVictoire.setFont(new java.awt.Font("Helvetica Neue", 0, 30)); // NOI18N
+        sousTitrePopupVictoire.setForeground(new java.awt.Color(102, 153, 255));
+        sousTitrePopupVictoire.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sousTitrePopupVictoire.setText("Vous avez gagné la partie !");
+        sousTitrePopupVictoire.setAlignmentX(0.5F);
+
         javax.swing.GroupLayout popupVictoireLayout = new javax.swing.GroupLayout(popupVictoire.getContentPane());
         popupVictoire.getContentPane().setLayout(popupVictoireLayout);
         popupVictoireLayout.setHorizontalGroup(
             popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popupVictoireLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(popupVictoireLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(titrePopupVictoire, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(popupVictoireLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jButton6)
-                        .addGap(85, 85, 85)
-                        .addComponent(jButton7)))
+                    .addComponent(titrePopupVictoire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sousTitrePopupVictoire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupVictoireLayout.createSequentialGroup()
+                .addContainerGap(180, Short.MAX_VALUE)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(177, 177, 177))
         );
         popupVictoireLayout.setVerticalGroup(
             popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popupVictoireLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(titrePopupVictoire, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(titrePopupVictoire, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sousTitrePopupVictoire)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7))
-                .addGap(47, 47, 47))
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -332,7 +381,12 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         labelInstructionsJoueur.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelInstructionsJoueur.setText("Instructions joueur");
 
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(102, 153, 255));
         jButton1.setText("Quitter");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -574,8 +628,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)))))
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(14, 14, 14))
         );
 
@@ -670,6 +723,21 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     
+    /**
+     * Quitte definitivement la partie si on ferme le popup de victoire
+     * @param evt 
+     */
+    private void popupVictoireWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_popupVictoireWindowClosing
+        
+        this._batailleNavale.setEnabled(true);
+        this._batailleNavale.setVisible(true);
+        this.popupVictoire.setVisible(false);
+        this.setVisible(false);
+        this.setEnabled(true);
+        
+    }//GEN-LAST:event_popupVictoireWindowClosing
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonJouer;
     private javax.swing.JLabel flecheFlotteAdverse;
@@ -703,6 +771,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
     private javax.swing.JPanel plateauJoueurCourant;
     private javax.swing.JDialog popupQuitterPartie;
     private javax.swing.JDialog popupVictoire;
+    private javax.swing.JLabel sousTitrePopupVictoire;
     private javax.swing.JLabel titrePopupVictoire;
     // End of variables declaration//GEN-END:variables
 
@@ -733,7 +802,8 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                 break;
                 
             case "resultat":
-                this.titrePopupVictoire.setText(this._partie.getMessageFinPartie());
+                this.titrePopupVictoire.setText("Résultats");
+                this.sousTitrePopupVictoire.setText(this._partie.getMessageFinPartie());
                 this.popupVictoire.setLocationRelativeTo(null);
                 this.popupVictoire.setVisible(true);
                 this.setEnabled(false);

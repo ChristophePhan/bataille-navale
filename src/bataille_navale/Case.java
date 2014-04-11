@@ -101,6 +101,14 @@ public abstract class Case extends JButton implements DropTargetListener {
     public void setOrd(int _ord) {
         this._ord = _ord;
     }
+
+    public Partie getPartie() {
+        return _partie;
+    }
+
+    public void setPartie(Partie _partie) {
+        this._partie = _partie;
+    }
     
     
 } // abstract class Case 

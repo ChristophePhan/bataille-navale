@@ -58,7 +58,7 @@ public class JouerCaseController implements ActionListener  {
         if(this._partie.jouerCase(this._joueurCourant, this._joueurAdverse, this._caseTouche)) {
             
             // Le joueur a gagne
-            this._partie.afficherMessageFinPartie("Félicitations ! Vous avez gagné la partie !");
+            this._partie.afficherMessageFinPartie("Vous avez gagné la partie !");
             
         } else {
             
@@ -66,7 +66,7 @@ public class JouerCaseController implements ActionListener  {
             if(this._partie.jouerCase(this._joueurAdverse, this._joueurCourant, null)) {
                 
                 // Le joueur adverse a gagne
-                this._partie.afficherMessageFinPartie("Oups... Vous avez perdu !");
+                this._partie.afficherMessageFinPartie("Oups... Votre flotte est coulée !");
                 
             }
 
@@ -76,7 +76,7 @@ public class JouerCaseController implements ActionListener  {
         if(this._partie.testEgalite()) {
             
             // Egalite, fin de la partie
-            this._partie.afficherMessageFinPartie("Égalité ! Votre adversaire est hors de portée ");
+            this._partie.afficherMessageFinPartie("Flotte adverse hors de portée !");
             
         } 
         

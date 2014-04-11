@@ -89,12 +89,12 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 || DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().isEmpty()) {
    
             this.listeProfils.setVisible(false);
-            this.jLabel5.setVisible(true);
+            this.labelAucunProfil.setVisible(true);
         
         } else {
             
             // Masque le label qui signal qu'aucun profil n'est disponible
-            this.jLabel5.setVisible(false);
+            this.labelAucunProfil.setVisible(false);
             // Affichage des profils disponibles
             int nbProfils = DAOFactory.getInstance().getDAO_Sauvegarde().getAllProfils().size();
             FlowLayout fl = new FlowLayout(FlowLayout.CENTER);
@@ -200,10 +200,11 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        labelAucunProfil = new javax.swing.JLabel();
         listeProfils = new javax.swing.JPanel();
 
-        popupNouveauProfil.setMinimumSize(new java.awt.Dimension(400, 220));
+        popupNouveauProfil.setMaximumSize(new java.awt.Dimension(500, 265));
+        popupNouveauProfil.setMinimumSize(new java.awt.Dimension(500, 265));
         popupNouveauProfil.setResizable(false);
         popupNouveauProfil.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -211,7 +212,8 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 153, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Nom du nouveau profil");
 
@@ -224,8 +226,13 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(102, 153, 255));
         jButton2.setText("Ajouter le profil");
+        jButton2.setAlignmentX(0.5F);
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -242,21 +249,21 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         popupNouveauProfilLayout.setHorizontalGroup(
             popupNouveauProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popupNouveauProfilLayout.createSequentialGroup()
-                .addGroup(popupNouveauProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(popupNouveauProfilLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(saisieNomProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 62, Short.MAX_VALUE))
-                    .addGroup(popupNouveauProfilLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(popupNouveauProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(erreurNomProfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(popupNouveauProfilLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(saisieNomProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupNouveauProfilLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(125, 125, 125))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(170, 170, 170))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupNouveauProfilLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(erreurNomProfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         popupNouveauProfilLayout.setVerticalGroup(
             popupNouveauProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,15 +271,18 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(saisieNomProfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(saisieNomProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(erreurNomProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         popupParties.setSize(new java.awt.Dimension(500, 350));
+        popupParties.setFocusTraversalPolicyProvider(true);
+        popupParties.setMaximumSize(new java.awt.Dimension(500, 350));
+        popupParties.setMinimumSize(new java.awt.Dimension(500, 350));
         popupParties.setResizable(false);
         popupParties.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -280,15 +290,23 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             }
         });
 
-        nomProfil.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
+        nomProfil.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
+        nomProfil.setForeground(new java.awt.Color(102, 153, 255));
         nomProfil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nomProfil.setText("NOM");
 
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 153, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Mes parties en cours");
 
+        jButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(102, 153, 255));
         jButton3.setText("Nouvelle partie");
+        jButton3.setAlignmentX(0.5F);
+        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -301,7 +319,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         panelParties.setLayout(panelPartiesLayout);
         panelPartiesLayout.setHorizontalGroup(
             panelPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 327, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         panelPartiesLayout.setVerticalGroup(
             panelPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,20 +330,17 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         popupParties.getContentPane().setLayout(popupPartiesLayout);
         popupPartiesLayout.setHorizontalGroup(
             popupPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(popupPartiesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(popupPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nomProfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupPartiesLayout.createSequentialGroup()
                 .addGap(0, 179, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(171, 171, 171))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupPartiesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelParties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
+            .addGroup(popupPartiesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(popupPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nomProfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelParties, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         popupPartiesLayout.setVerticalGroup(
             popupPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,9 +351,9 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(panelParties, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addGap(21, 21, 21))
         );
 
         popupParametres.setSize(new java.awt.Dimension(500, 350));
@@ -349,27 +364,46 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 28)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 153, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Paramètres de la nouvelle partie");
 
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Nombre de cases");
 
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Époque");
 
+        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Difficultée");
 
+        jLabel10.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Placement des cases");
 
+        jRadioButtonManuel.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jRadioButtonManuel.setForeground(new java.awt.Color(51, 51, 51));
         jRadioButtonManuel.setText("Manuel");
 
+        jRadioButtonAleatoire.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jRadioButtonAleatoire.setForeground(new java.awt.Color(51, 51, 51));
         jRadioButtonAleatoire.setText("Aleatoire");
 
+        jButtonJouer.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jButtonJouer.setForeground(new java.awt.Color(102, 153, 255));
         jButtonJouer.setText("Jouer");
+        jButtonJouer.setAlignmentX(0.5F);
+        jButtonJouer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        jButtonJouer.setContentAreaFilled(false);
+        jButtonJouer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonJouer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonJouerActionPerformed(evt);
@@ -383,60 +417,63 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             .addGroup(popupParametresLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(popupParametresLayout.createSequentialGroup()
                         .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(popupParametresLayout.createSequentialGroup()
+                                .addGap(177, 177, 177)
+                                .addComponent(jButtonJouer, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(popupParametresLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBoxTailleGrilles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(131, 131, 131))
+                                .addComponent(jComboBoxTailleGrilles, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(popupParametresLayout.createSequentialGroup()
-                                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBoxDifficultees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxEpoques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(popupParametresLayout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButtonManuel)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButtonAleatoire))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupParametresLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonJouer, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(129, 129, 129)))
-                        .addGap(0, 21, Short.MAX_VALUE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupParametresLayout.createSequentialGroup()
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(15, 15, 15))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupParametresLayout.createSequentialGroup()
+                                        .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)))
+                                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxEpoques, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxDifficultees, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(popupParametresLayout.createSequentialGroup()
+                                        .addComponent(jRadioButtonManuel)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jRadioButtonAleatoire, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 46, Short.MAX_VALUE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         popupParametresLayout.setVerticalGroup(
             popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popupParametresLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel4)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxTailleGrilles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(26, 26, 26)
                 .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jComboBoxEpoques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addGap(23, 23, 23)
                 .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jComboBoxDifficultees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(20, 20, 20)
                 .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jRadioButtonManuel)
                     .addComponent(jRadioButtonAleatoire))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonJouer)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jButtonJouer, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -446,24 +483,30 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 72)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 153, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Battleship");
+        jLabel1.setText("BATTLESHIP");
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 153, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Devenez le maître des océans !");
 
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(102, 153, 255));
         jButton1.setText("Ajouter un profil");
+        jButton1.setAlignmentX(0.5F);
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 50)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Aucun profil disponible");
+        labelAucunProfil.setFont(new java.awt.Font("Helvetica Neue", 0, 50)); // NOI18N
+        labelAucunProfil.setForeground(new java.awt.Color(204, 204, 204));
+        labelAucunProfil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelAucunProfil.setText("Aucun profil disponible");
 
         listeProfils.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -483,26 +526,22 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(293, 293, 293)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(listeProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(listeProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(300, 300, 300)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+                    .addComponent(labelAucunProfil, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
@@ -514,14 +553,14 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(listeProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(47, 47, 47))
+                .addGap(38, 38, 38)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(217, 217, 217)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(218, Short.MAX_VALUE)))
+                    .addComponent(labelAucunProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(226, Short.MAX_VALUE)))
         );
 
         pack();
@@ -535,7 +574,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         this.popupNouveauProfil.setLocationRelativeTo(null);
-        this.erreurNomProfil.setVisible(false);
+        this.erreurNomProfil.setText("\n");
         this.setEnabled(false);
         this.popupNouveauProfil.setVisible(true);
         this.saisieNomProfil.requestFocus();
@@ -568,8 +607,11 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             this.erreurNomProfil.setVisible(true);
 
         } else if (this.saisieNomProfil.getText().equals("") || this.saisieNomProfil.getText() == null) {
-            this.erreurNomProfil.setText("Le nom de profil ne doit pas être vide.");
+            
+            // Affichage du message d'erreur
+            this.erreurNomProfil.setText("Le nom de profil ne peut être vide.");
             this.erreurNomProfil.setVisible(true);
+            
         } else {
           
             // Creation et sauvegrade du profil
@@ -621,6 +663,9 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             int num = 1;
             while(iterator.hasNext()) {
                 
+                JPanel panelPartie = new JPanel();
+                panelPartie.setBackground(Color.WHITE);
+                
                 // Bouton permettant de supprimer la partie
                 JButton remove = new JButton();
                 ImageIcon suprImageNoir = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/poubelle_noir.png"))
@@ -651,18 +696,18 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                     
                 });
                 remove.setPreferredSize(new Dimension(this.panelParties.getWidth()/5,30));
-                this.panelParties.add(remove);
+                panelPartie.add(remove);
                 
                 // Bouton permettant d'acceder a la partie
                 JButton partie = new JButton("Partie " + num);
                 partie.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
-                //partie.addActionListener(new AfficherPartiesController(this._jeu,profil));
-                partie.setPreferredSize(new Dimension((this.panelParties.getWidth()/5)*4-10,30));
-                partie.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));//.createEmptyBorder());
+                partie.setPreferredSize(new Dimension((this.panelParties.getWidth()/5)*3-10,30));
+                partie.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));
                 partie.setContentAreaFilled(false);
                 partie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                this.panelParties.add(partie);
+                panelPartie.add(partie);
 
+                this.panelParties.add(panelPartie);
                 num++;
                 
             }
@@ -757,15 +802,10 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
 
         // Recuperation du mode de placement
         Parametre parametre = new Parametre(x, y, diff, DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(epoque));
-        //Joueur humain = new JoueurHumain(parametre, this._jeu.getProfilCourant().getNom());
-        //Joueur IA = new JoueurMachine(parametre, "Skynet");
         Partie partie = null;
-        //humain.positionnementAleatoire();
-        //IA.positionnementAleatoire();
         if(this.jRadioButtonAleatoire.isSelected()) {
             
             // Placement aleatoire
-            //partie = new Partie(parametre, humain, IA, true);
             partie = new Partie(parametre, true);
             Joueur humain = new JoueurHumain(partie, this._jeu.getProfilCourant().getNom());
             Joueur IA = new JoueurMachine(partie, "Skynet");
@@ -868,13 +908,13 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton jRadioButtonAleatoire;
     private javax.swing.JRadioButton jRadioButtonManuel;
+    private javax.swing.JLabel labelAucunProfil;
     private javax.swing.JPanel listeProfils;
     private javax.swing.JLabel nomProfil;
     private javax.swing.JPanel panelParties;
