@@ -61,7 +61,19 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         this.labelTirsReussis.setText(this._partie.getJ1().getNbTirsGagnant() + "");
         this.labelTirsRates.setText(this._partie.getJ1().getNbTirsPerdant() + "");
         
-        if(partie.isAutomatique()) { 
+        // On test si la partie a deja commence ou non
+        int num = 0;
+        boolean test = false;
+        while(num < partie.getJ2().getCases().size() && !test) {
+            
+            if(partie.getJ2().getCases().get(num).isEtat()) {
+                test = true;
+            }
+            num++;
+            
+        }
+        
+        if(partie.isAutomatique() || test) { 
             
             // Le positionnement est aleatoire, on lance la partie
             this.buttonJouer.setEnabled(false);
