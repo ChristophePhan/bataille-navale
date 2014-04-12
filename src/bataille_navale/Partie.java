@@ -193,7 +193,7 @@ public class Partie extends Observable {
      * Permet au joueur de faire tourner un de ses bateaux
      */
     public void rotationBateau() {
-        System.out.println(this._selectedBateau);
+
         // On recupere toutes les cases du bateau courant 
         if(this._selectedBateau != null) {
             
