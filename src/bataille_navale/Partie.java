@@ -58,7 +58,7 @@ public class Partie extends Observable {
         this._date = dateFormat.format(cal.getTime());
         this._parametre = parametre;
         this._automatique = automatique;
-        this.intelligenceArtificielle = FactoryIA.getInstance().getIntelligenceArtificielle(this._parametre, this._parametre.getDifficulte());
+        this.intelligenceArtificielle = FactoryIA.getInstance().getIntelligenceArtificielle(this._parametre);
 
     } // Partie(Parametre parametre, boolean automatique)
 
@@ -402,7 +402,6 @@ public class Partie extends Observable {
     
     /**
      * Permet de recuperer une case a jouer pour l'IA
-     *
      * @param joueurAdverse joueur physique
      * @return la case a jouer pour l'IA
      */
@@ -554,6 +553,14 @@ public class Partie extends Observable {
 
     public void setAutomatique(boolean _automatique) {
         this._automatique = _automatique;
+    }
+
+    public IntelligenceArtificielle getIntelligenceArtificielle() {
+        return intelligenceArtificielle;
+    }
+
+    public void setIntelligenceArtificielle(IntelligenceArtificielle intelligenceArtificielle) {
+        this.intelligenceArtificielle = intelligenceArtificielle;
     }
 
     

@@ -717,8 +717,6 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         this._batailleNavale.setVisible(true);
         this.popupQuitterPartie.setVisible(false);
         this.dispose();
-//        this.setVisible(false);
-//        this.setEnabled(true);
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -794,11 +792,14 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         
     }//GEN-LAST:event_popupVictoireWindowClosing
 
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
         this.popupQuitterPartie.setVisible(false);
         this.dispose();
         this._batailleNavale.setVisible(true);
         this._batailleNavale.getPopupPartie().setVisible(true);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     

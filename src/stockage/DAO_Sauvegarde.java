@@ -11,6 +11,7 @@ import bataille_navale.JoueurMachine;
 import bataille_navale.Parametre;
 import bataille_navale.Partie;
 import bataille_navale.Profil;
+import intelligenceArtificielle.FactoryIA;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.File;
@@ -115,7 +116,7 @@ public class DAO_Sauvegarde {
                     List list = rootNode.getChildren("partie");
                     HashMap<String,Partie> parties = new HashMap<>();
                     for (int j = 0; j < list.size(); j++) {
- 
+                        
                         Element partie = (Element) list.get(j);
                         String idPartie = partie.getAttributeValue("id");
                         Partie laPartie = this.getPartie(idPartie, p);
@@ -214,7 +215,21 @@ public class DAO_Sauvegarde {
                     caseJ.addContent(new Element("ord").setText(c.getOrd()+""));
                     caseJ.addContent(new Element("idPartie").setText(c.getPartie().getId()));
                     String bateau = (c.getBateau() == null) ? "null" : c.getBateau().getNom();
-                    caseJ.addContent(new Element("bateau").setText(bateau));
+                    if(c.getBateau() == null) {
+                        
+                        // Case vide
+                        caseJ.addContent(new Element("bateau").setText("null"));
+                        caseJ.addContent(new Element("nbCasesNonTouchees").setText("0"));
+                        caseJ.addContent(new Element("orientation").setText("0"));
+                    
+                    } else {
+                        
+                        // Case bateau
+                        caseJ.addContent(new Element("bateau").setText(c.getBateau().getNom()));
+                        caseJ.addContent(new Element("nbCasesNonTouchees").setText(c.getBateau().getNbCasesNonTouchees()+""));
+                        caseJ.addContent(new Element("orientation").setText(c.getBateau().getOrientation()+""));
+                        
+                    }
                     joueur1.addContent(caseJ);
                     
                 }
@@ -338,94 +353,103 @@ public class DAO_Sauvegarde {
                     
                     List list = rootNode.getChildren("partie");
                     for (int j = 0; j < list.size(); j++) {
- 
+                        
                         Element partieElt = (Element) list.get(j);
                         String idPartie = partieElt.getAttributeValue("id");
-                        boolean auto = ("1".equals(partieElt.getChildText("automatique")));
-                        partie.setId(idPartie);
-                        partie.setAutomatique(auto);
-                        partie.setDate(partieElt.getChildText("date"));
                         
-                        // Parametre
-                        Element param = (Element) partieElt.getChild("parametre");
-                        Parametre parametre = new Parametre();
-                        parametre.setNbCaseX(Integer.parseInt(param.getChildText("nbCaseX")));
-                        parametre.setNbCaseY(Integer.parseInt(param.getChildText("nbCaseY")));
-                        parametre.setDifficulte(param.getChildText("difficulte"));
-                        Epoque epoque = DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(param.getChildText("nomEpoque"));
-                        parametre.setEpoque(epoque);
-                        partie.setParametre(parametre);
+                        // On en recupere que la bonne partie
+                        if(idPartie.equals(id)) {
                         
-                        // J1
-                        Element j1 = (Element) partieElt.getChild("joueur1");
-                        Joueur joueur1 = new JoueurHumain();
-                        joueur1.setPartie(partie);
-                        joueur1.setNom(j1.getChildText("nom"));
-                        joueur1.setNbTirsGagnant(Integer.parseInt(j1.getChildText("nbTirsGagnant")));
-                        joueur1.setNbTirsPerdant(Integer.parseInt(j1.getChildText("nbTirsPerdant")));
-                        List listCasesXML = j1.getChildren("case");
-                        ArrayList<Case> cases = new ArrayList<>();
-                        for (int k = 0; k < listCasesXML.size(); k++) {
-                            
-                            Element caseElt = (Element) listCasesXML.get(k);
-                            Case c = null;
-                            if(caseElt.getChildText("bateau").equals("null")) {
-                                
-                                c = new CaseVide();
-                                c.setPartie(partie);
-                                
-                            } else {
-                                
-                                c = new CaseBateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))),partie);
-                                
+                            boolean auto = ("1".equals(partieElt.getChildText("automatique")));
+                            partie.setId(idPartie);
+                            partie.setAutomatique(auto);
+                            partie.setDate(partieElt.getChildText("date"));
+
+                            // Parametre
+                            Element param = (Element) partieElt.getChild("parametre");
+                            Parametre parametre = new Parametre();
+                            parametre.setNbCaseX(Integer.parseInt(param.getChildText("nbCaseX")));
+                            parametre.setNbCaseY(Integer.parseInt(param.getChildText("nbCaseY")));
+                            parametre.setDifficulte(param.getChildText("difficulte"));
+                            Epoque epoque = DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(param.getChildText("nomEpoque"));
+                            parametre.setEpoque(epoque);
+                            partie.setParametre(parametre);
+                            partie.setIntelligenceArtificielle(FactoryIA.getInstance().getIntelligenceArtificielle(parametre));
+
+                            // J1
+                            Element j1 = (Element) partieElt.getChild("joueur1");
+                            Joueur joueur1 = new JoueurHumain();
+                            joueur1.setPartie(partie);
+                            joueur1.setNom(j1.getChildText("nom"));
+                            joueur1.setNbTirsGagnant(Integer.parseInt(j1.getChildText("nbTirsGagnant")));
+                            joueur1.setNbTirsPerdant(Integer.parseInt(j1.getChildText("nbTirsPerdant")));
+                            List listCasesXML = j1.getChildren("case");
+                            ArrayList<Case> cases = new ArrayList<>();
+                            for (int k = 0; k < listCasesXML.size(); k++) {
+
+                                Element caseElt = (Element) listCasesXML.get(k);
+                                Case c = null;
+                                if(caseElt.getChildText("bateau").equals("null")) {
+
+                                    c = new CaseVide();
+                                    c.setPartie(partie);
+
+                                } else {
+
+                                    c = new CaseBateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))),partie);
+                                    c.getBateau().setOrientation(Integer.parseInt(caseElt.getChildText("orientation")));
+                                    c.getBateau().setNbCasesNonTouchees(Integer.parseInt(caseElt.getChildText("nbCasesNonTouchees")));
+                                    
+                                }
+                                boolean etat = ("1".equals(caseElt.getChildText("etat")));
+                                c.setEtat(etat);
+                                c.setAbs(Integer.parseInt(caseElt.getChildText("abs")));
+                                c.setOrd(Integer.parseInt(caseElt.getChildText("ord")));
+                                boolean aPorte = ("1".equals(caseElt.getChildText("aPorte")));
+                                c.setPortee(aPorte);
+                                cases.add(c);
+
                             }
-                            boolean etat = ("1".equals(caseElt.getChildText("etat")));
-                            c.setEtat(etat);
-                            c.setAbs(Integer.parseInt(caseElt.getChildText("abs")));
-                            c.setOrd(Integer.parseInt(caseElt.getChildText("ord")));
-                            boolean aPorte = ("1".equals(caseElt.getChildText("aPorte")));
-                            c.setPortee(aPorte);
-                            cases.add(c);
-                            
-                        }
-                        joueur1.setCases((ArrayList<Case>) cases);
-                        partie.setJ1(joueur1);
-                        
-                        // J2
-                        Element j2 = (Element) partieElt.getChild("joueur2");
-                        Joueur joueur2 = new JoueurMachine();
-                        joueur2.setPartie(partie);
-                        joueur2.setNom(j2.getChildText("nom"));
-                        joueur2.setNbTirsGagnant(Integer.parseInt(j2.getChildText("nbTirsGagnant")));
-                        joueur2.setNbTirsPerdant(Integer.parseInt(j2.getChildText("nbTirsPerdant")));
-                        ((JoueurMachine)joueur2).setDifficulte(j2.getChildText("difficulte"));
-                        List listCasesBisXML = j2.getChildren("case");
-                        ArrayList<Case> casesBis = new ArrayList<>();
-                        for (int k = 0; k < listCasesBisXML.size(); k++) {
-                            
-                            Element caseElt = (Element) listCasesBisXML.get(k);
-                            Case c = null;
-                            if(caseElt.getChildText("bateau").equals("null")) {
-                                
-                                c = new CaseVide();
-                                c.setPartie(partie);
-                                
-                            } else {
-                                
-                                c = new CaseBateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))),partie);
-                                
+                            joueur1.setCases((ArrayList<Case>) cases);
+                            partie.setJ1(joueur1);
+
+                            // J2
+                            Element j2 = (Element) partieElt.getChild("joueur2");
+                            Joueur joueur2 = new JoueurMachine();
+                            joueur2.setPartie(partie);
+                            joueur2.setNom(j2.getChildText("nom"));
+                            joueur2.setNbTirsGagnant(Integer.parseInt(j2.getChildText("nbTirsGagnant")));
+                            joueur2.setNbTirsPerdant(Integer.parseInt(j2.getChildText("nbTirsPerdant")));
+                            ((JoueurMachine)joueur2).setDifficulte(j2.getChildText("difficulte"));
+                            List listCasesBisXML = j2.getChildren("case");
+                            ArrayList<Case> casesBis = new ArrayList<>();
+                            for (int k = 0; k < listCasesBisXML.size(); k++) {
+
+                                Element caseElt = (Element) listCasesBisXML.get(k);
+                                Case c = null;
+                                if(caseElt.getChildText("bateau").equals("null")) {
+
+                                    c = new CaseVide();
+                                    c.setPartie(partie);
+
+                                } else {
+
+                                    c = new CaseBateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))),partie);
+
+                                }
+                                boolean etat = ("1".equals(caseElt.getChildText("etat")));
+                                c.setEtat(etat);
+                                c.setAbs(Integer.parseInt(caseElt.getChildText("abs")));
+                                c.setOrd(Integer.parseInt(caseElt.getChildText("ord")));
+                                boolean aPorte = ("1".equals(caseElt.getChildText("aPorte")));
+                                c.setPortee(aPorte);
+                                casesBis.add(c);
+
                             }
-                            boolean etat = ("1".equals(caseElt.getChildText("etat")));
-                            c.setEtat(etat);
-                            c.setAbs(Integer.parseInt(caseElt.getChildText("abs")));
-                            c.setOrd(Integer.parseInt(caseElt.getChildText("ord")));
-                            boolean aPorte = ("1".equals(caseElt.getChildText("aPorte")));
-                            c.setPortee(aPorte);
-                            casesBis.add(c);
-                            
+                            joueur2.setCases((ArrayList<Case>) casesBis);
+                            partie.setJ2(joueur2);
+
                         }
-                        joueur2.setCases((ArrayList<Case>) casesBis);
-                        partie.setJ2(joueur2);
                         
                     }
                     

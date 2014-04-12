@@ -33,9 +33,9 @@ public class FactoryIA {
     } // getInstance()
 
     /////////////////////////// FONCTIONS //////////////////////////////////
-    public IntelligenceArtificielle getIntelligenceArtificielle(Parametre parametre, String difficulte) {
+    public IntelligenceArtificielle getIntelligenceArtificielle(Parametre parametre) {
         IntelligenceArtificielle intelligenceArtificielle = null;
-        switch (difficulte) {
+        switch (parametre.getDifficulte()) {
             case "Facile":
                 intelligenceArtificielle = new IntelligenceArtificielleFacile(parametre);
                 break;
