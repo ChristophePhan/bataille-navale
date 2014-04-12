@@ -10,7 +10,6 @@ import bataille_navale.Joueur;
 import bataille_navale.Parametre;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * IntelligenceArtificielle
@@ -20,32 +19,28 @@ import java.util.Stack;
 public abstract class IntelligenceArtificielle {
 
     protected Parametre _parametre;
-
+    protected final List<Case> listeCaseATester;
 
     public IntelligenceArtificielle(Parametre parametre) {
         this._parametre = parametre;
+        this.listeCaseATester = new ArrayList<>();
     }
 
     public abstract Case getCaseForIA(Joueur joueurAdverse);
 
-//    public void testerCase(Joueur joueurAdverse, Case caseTouchee) {
-//        Case case1 = joueurAdverse.getCases().get(caseTouchee.getAbs() - 1 + this._parametre.getNbCaseX()*caseTouchee.getOrd());
-//        Case case2 = joueurAdverse.getCases().get(caseTouchee.getAbs() + 1 + this._parametre.getNbCaseX()*caseTouchee.getOrd());
-//        Case case3 = joueurAdverse.getCases().get(caseTouchee.getAbs() + this._parametre.getNbCaseX()*(caseTouchee.getOrd() - 1));
-//        Case case4 = joueurAdverse.getCases().get(caseTouchee.getAbs() + this._parametre.getNbCaseX()*(caseTouchee.getOrd() + 1));
-//        
-//        Case[] caseTestees = {case1, case2, case3, case4};
-//        
-//        Case caseTemp;
-//        for (Case caseTestee : caseTestees) {
-//            caseTemp = caseTestee;
-//            if(caseTemp.getAbs() >= 0 && caseTemp.getAbs() < this._parametre.getNbCaseX() && caseTemp.getOrd()>= 0 && caseTemp.getOrd()< this._parametre.getNbCaseY()){
-//                boolean etat;
-//                etat = caseTemp.isEtat();
-//                if(etat){
-//                    this.listeCaseATester.push(caseTemp);
-//                }
-//            }
+    public void display() {
+        System.out.println("*******Debut List*******");
+        for (int i = 0; i < listeCaseATester.size(); i++) {
+            System.out.println("Case " + i + " : " + listeCaseATester.get(i).getAbs() + ", " + listeCaseATester.get(i).getOrd());
+        }
+//        Set<Case> setCase = new HashSet<>(listeCaseATester);
+//        Iterator iterator = setCase.iterator();
+//        int i = 0;
+//        while (iterator.hasNext()) {
+//            System.out.println(i + " " + iterator.next());
+//            i++;
 //        }
-//    }
+        System.out.println("*******Fin List*******");
+
+    }
 }

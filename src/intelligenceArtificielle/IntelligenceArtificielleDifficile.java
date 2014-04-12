@@ -8,7 +8,6 @@ package intelligenceArtificielle;
 import bataille_navale.Case;
 import bataille_navale.Joueur;
 import bataille_navale.Parametre;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -17,8 +16,6 @@ import java.util.Random;
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class IntelligenceArtificielleDifficile extends IntelligenceArtificielle {
-
-    private List listeCaseATester;
 
     public IntelligenceArtificielleDifficile(Parametre parametre) {
         super(parametre);

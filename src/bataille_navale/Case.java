@@ -8,69 +8,60 @@ import javax.swing.JButton;
 
 /**
  * Case
+ *
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public abstract class Case extends JButton implements DropTargetListener {
-    
-    
-    /////////////////////////////// VARIABLES /////////////////////////////////
 
-    
+    /////////////////////////////// VARIABLES /////////////////////////////////
     protected boolean _etat;
     protected boolean _aPortee;
     protected int _abs;
     protected int _ord;
     protected Partie _partie;
-    
-    
+
     ////////////////////////////// CONSTRUCTEUR ///////////////////////////////
-    
-    
     public Case() {
-        
+
         this._etat = false;
         this._aPortee = false;
         this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
-        
+
     } // Case()
-    
-    
+
     public Case(Partie partie) {
-        
+
         this._partie = partie;
         this._etat = false;
         this._aPortee = false;
         this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
-        
-    } // Case(Partie partie)
-    
-    
-    /////////////////////////////// FONCTIONS /////////////////////////////////
-    
 
+    } // Case(Partie partie)
+
+    /////////////////////////////// FONCTIONS /////////////////////////////////
     /**
      * Permet de retourner le bateau associe a la case pour une case Bateau
+     *
      * @return le Bateau associe a la case pour une case Bateau, null sinon
      */
     public abstract Bateau getBateau();
-    
-    
+
     /**
      * Met a jour les coordonnees de la case dans la grille de jeu
+     *
      * @param abs coordonnee en abscisse de la case
      * @param ord coordonnee en ordonnee de la case
      */
     public void setCoordonnees(int abs, int ord) {
-        
+
         this._abs = abs;
         this._ord = ord;
-        
-    } // setCoordonnees(int abs, int ord)
-  
-    
-    /***** GETTER/SETTER *****/
-    
 
+    } // setCoordonnees(int abs, int ord)
+
+    /**
+     * *** GETTER/SETTER ****
+     */
     public boolean isEtat() {
         return _etat;
     }
@@ -113,6 +104,10 @@ public abstract class Case extends JButton implements DropTargetListener {
     public void setPartie(Partie _partie) {
         this._partie = _partie;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Case : " + _abs + ", " + _ord;
+    }
+
 } // abstract class Case 
