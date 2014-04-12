@@ -10,6 +10,7 @@ import bataille_navale.Partie;
 import bataille_navale.Profil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import stockage.DAOFactory;
 
 /**
  * ChargerPartieController

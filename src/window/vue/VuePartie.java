@@ -16,17 +16,20 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
+import stockage.DAOFactory;
 import window.main.BatailleNavale;
 
 /**
  * VuePartie
  * @author Tristan
  */
-public class VuePartie extends javax.swing.JFrame implements Observer {
+public class VuePartie extends javax.swing.JFrame implements Observer, KeyListener {
     
     
     /////////////////////////////// VARIABLES /////////////////////////////////
@@ -49,6 +52,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
      * @param partie partie jouee par le joueur
      */
     public VuePartie(BatailleNavale batailleNavale, Jeu jeu, Profil profil, final Partie partie) {
+        
         initComponents();
         this._batailleNavale = batailleNavale;
         this._jeu = jeu;
@@ -92,6 +96,9 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     
+                    for(KeyListener kl : getKeyListeners()) {
+                        removeKeyListener(kl);
+                    }
                     partie.autoriserDragDropJoueur(false);
                     partie.initialisationPorteeCases();
                     initialisation();
@@ -100,6 +107,9 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                     
                 }
             });
+            // Activation du listener du clavier
+            this.addKeyListener(this);
+            this.setFocusable(true);
             
         }
         
@@ -745,6 +755,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
      */
     private void buttonEnregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEnregistrerActionPerformed
 
+        this._jeu.getProfilCourant().ajouterNouvellePartie(this._partie);
         this._partie.sauvegarderPartie(this._profil);
         this._batailleNavale.setVisible(true);
         this._batailleNavale.setEnabled(true);
@@ -848,7 +859,31 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
     // End of variables declaration//GEN-END:variables
 
     
-     /************** GESTION DE LA MISE A JOUR DE LA FENETRE ******************/
+    /************************** LISTENER DE CLAVIER **************************/
+    
+    
+    @Override
+    public void keyTyped(KeyEvent e) {}
+    
+    
+    @Override
+    public void keyReleased(KeyEvent e) {}
+    
+    
+    @Override
+    public void keyPressed(KeyEvent e) {
+       
+        // On fais tourner le bateau selectionner si c'est possible
+        if(e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_LEFT) {
+            
+            this._partie.rotationBateau();
+            
+        }
+        
+    } // keyPressed(KeyEvent e)
+    
+    
+    /************** GESTION DE LA MISE A JOUR DE LA FENETRE ******************/
     
     
     @Override

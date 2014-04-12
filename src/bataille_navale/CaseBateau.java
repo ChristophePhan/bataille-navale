@@ -50,6 +50,8 @@ public class CaseBateau extends Case {
     
     @Override
     public void dragEnter(DropTargetDragEvent dtde) {
+    
+        this._partie.setSelectedBateau(this._bateau);
        
     } // dragEnter(DropTargetDragEvent dtde)
 

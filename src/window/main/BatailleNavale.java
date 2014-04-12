@@ -697,7 +697,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 remove.setBorder(BorderFactory.createEmptyBorder());
                 remove.setContentAreaFilled(false);
                 
-                final Partie p = (Partie) parties.get(iterator.next());
+                final Partie p = DAOFactory.getInstance().getDAO_Sauvegarde().getPartie(((Partie)parties.get(iterator.next())).getId(),profil);
                 p.addObserver(this);
                 remove.addActionListener(new ActionListener() {
                     
@@ -877,7 +877,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             
         }
         
-        this._jeu.getProfilCourant().ajouterNouvellePartie(partie);
+        //this._jeu.getProfilCourant().ajouterNouvellePartie(partie);
         partie.addObserver(this);
         this._jeu.setPartieCourante(partie);
         DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(this._jeu.getProfilCourant());

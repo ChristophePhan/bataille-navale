@@ -34,6 +34,7 @@ public class Partie extends Observable {
     private Joueur _j1;
     private Joueur _j2;
     private boolean _automatique;
+    private Bateau _selectedBateau;
     private IntelligenceArtificielle intelligenceArtificielle;
 
     private String _message;
@@ -56,6 +57,7 @@ public class Partie extends Observable {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
         Calendar cal = Calendar.getInstance();
         
+        this._selectedBateau = null;
         this._date = dateFormat.format(cal.getTime());
         this._parametre = parametre;
         this._automatique = automatique;
@@ -189,12 +191,99 @@ public class Partie extends Observable {
     
     /**
      * Permet au joueur de faire tourner un de ses bateaux
-     *
-     * @param bateau bateau a faire tourner
      */
-    public void rotationBateau(Bateau bateau) {
+    public void rotationBateau() {
+        System.out.println(this._selectedBateau);
+        // On recupere toutes les cases du bateau courant 
+        if(this._selectedBateau != null) {
+            
+            ArrayList<Case> cases = new ArrayList<>();
+            for(Case c : this._j1.getCases()) {
+                
+                if(c.getBateau() != null && c.getBateau().getNom().equals(this._selectedBateau.getNom())) {
+                    
+                    cases.add(c);
+                    
+                }
+                
+            }
+            
+            // On effectue la rotation si possible
+            if(cases.get(0).getBateau().getOrientation() == 1) {
+                
+                // On passe a la verticale
+                if(cases.get(0).getOrd()+cases.get(0).getBateau().getLongueur()-1 < this.getParametre().getNbCaseY()) {
+                    
+                    boolean test = true;
+                    for(int i=1;i<cases.size();i++) {
+                        
+                        if(this.getJ1().getCases().get(cases.get(0).getAbs()+(cases.get(0).getOrd()+i)*this.getParametre().getNbCaseX()).getBateau() != null) {
+                            test = false;
+                        }
+                        
+                    }
+                    
+                    // On peut faire tourner le bateau
+                    if(test) {
+                        
+                        for(int i=1;i<cases.size();i++) {
 
-    } // rotationBateau(Bateau bateau)
+                            this.getJ1().getCases().set(cases.get(i).getAbs()+cases.get(i).getOrd()*this.getParametre().getNbCaseX(), new CaseVide(this));
+                            cases.get(i).setAbs(cases.get(0).getAbs());
+                            cases.get(i).setOrd(cases.get(0).getOrd()+i);
+                            cases.get(i).getBateau().setOrientation(2);
+                            this.getJ1().getCases().set(cases.get(0).getAbs()+(cases.get(0).getOrd()+i)*this.getParametre().getNbCaseX(), cases.get(i));
+
+                        }
+                        this.autoriserDragDropJoueur(true);
+
+                        setChanged();
+                        notifyObservers("reinitialiser");
+                        
+                    }
+                    
+                }
+                
+            } else if(cases.get(0).getBateau().getOrientation() == 2) {
+                
+                // On passe a l'horizontale
+                if(cases.get(0).getAbs()+cases.get(0).getBateau().getLongueur()-1 < this.getParametre().getNbCaseX()) {
+                    
+                    boolean test = true;
+                    for(int i=1;i<cases.size();i++) {
+                        
+                        if(this.getJ1().getCases().get((cases.get(0).getAbs()+i)+cases.get(0).getOrd()*this.getParametre().getNbCaseX()).getBateau() != null) {
+                            test = false;
+                        }
+                        
+                    }
+                    
+                    // On peut faire tourner le bateau
+                    if(test) {
+                        
+                        for(int i=1;i<cases.size();i++) {
+
+                            this.getJ1().getCases().set(cases.get(i).getAbs()+cases.get(i).getOrd()*this.getParametre().getNbCaseX(), new CaseVide(this));
+                            cases.get(i).setAbs(cases.get(0).getAbs()+i);
+                            cases.get(i).setOrd(cases.get(0).getOrd());
+                            cases.get(i).getBateau().setOrientation(1);
+                            this.getJ1().getCases().set((cases.get(0).getAbs()+i)+cases.get(0).getOrd()*this.getParametre().getNbCaseX(), cases.get(i));
+
+                        }
+                        this.autoriserDragDropJoueur(true);
+
+                        setChanged();
+                        notifyObservers("reinitialiser");
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+
+    } // rotationBateau()
 
     
     /**
@@ -315,7 +404,7 @@ public class Partie extends Observable {
      * @param typeCase si CaseBateau on ajoute un evenement au clic
      * @return la case avec l'evenement de souris autorise
      */
-    public Case addMouseEvent(Case c, boolean typeCase) {
+    public Case addMouseEvent(final Case c, boolean typeCase) {
 
         new DropTarget(c, c);
         c.setTransferHandler(new TransferHandler("text"));
@@ -331,7 +420,9 @@ public class Partie extends Observable {
                     cDD.setText(cDD.getAbs() + "x" + cDD.getOrd());
                     final TransferHandler handler = cDD.getTransferHandler();
                     handler.exportAsDrag(cDD, me, TransferHandler.COPY);
-
+                    // On memorise le bateau selectionne
+                    _selectedBateau = c.getBateau();
+                    
                 }
             };
 
@@ -489,7 +580,7 @@ public class Partie extends Observable {
         notifyObservers("resultat");
 
     } // afficherMessageFinPartie(String mess)
-
+    
     
     /***** GETTER/SETTER *****/
     
@@ -558,6 +649,14 @@ public class Partie extends Observable {
         this._automatique = _automatique;
     }
 
+    public Bateau getSelectedBateau() {
+        return _selectedBateau;
+    }
+
+    public void setSelectedBateau(Bateau _selectedBateau) {
+        this._selectedBateau = _selectedBateau;
+    }
+    
     public IntelligenceArtificielle getIntelligenceArtificielle() {
         return intelligenceArtificielle;
     }
