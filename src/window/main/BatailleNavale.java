@@ -168,8 +168,8 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             if(nbProfil >= 5) {
                 
                 this.buttonAjouterProfil.setEnabled(false);
-                this.buttonAjouterProfil.setBorder(new LineBorder(Color.GRAY, 1));
-                this.buttonAjouterProfil.setForeground(Color.GRAY);
+                this.buttonAjouterProfil.setBorder(new LineBorder(Color.LIGHT_GRAY, 1));
+                this.buttonAjouterProfil.setForeground(Color.LIGHT_GRAY);
                 
             } else {
                 
@@ -636,7 +636,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             Profil newProfil = new Profil(this.saisieNomProfil.getText());
             DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(newProfil);
             this.initialisation();
-            this.popupNouveauProfil.setVisible(false);
+            this.popupNouveauProfil.dispose();
             this.saisieNomProfil.setText(null);
             this.setEnabled(true);
             this.setVisible(true);
@@ -698,6 +698,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 remove.setContentAreaFilled(false);
                 
                 final Partie p = (Partie) parties.get(iterator.next());
+                p.addObserver(this);
                 remove.addActionListener(new ActionListener() {
                     
                     @Override
@@ -719,14 +720,13 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 panelPartie.add(remove);
                 
                 // Bouton permettant d'acceder a la partie
-                //JButton partie = new JButton("Partie " + num);
                 JButton partie = new JButton("Partie " + num + " - " + p.getDate());
                 partie.setFont(new Font("Helvetica Neue", Font.PLAIN, 16));
                 partie.setPreferredSize(new Dimension((this.panelParties.getWidth()/5)*3-10,30));
                 partie.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));
                 partie.setContentAreaFilled(false);
                 partie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                partie.addActionListener(new ChargerPartieController(profil, p, this, _jeu));
+                partie.addActionListener(new ChargerPartieController(profil, p, _jeu));
                 panelPartie.add(partie);
 
                 this.panelParties.add(panelPartie);
@@ -738,10 +738,14 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             if(parties.size() >= 3) {
                 
                 this.buttonAjouterPartie.setEnabled(false);
+                this.buttonAjouterPartie.setBorder(new LineBorder(Color.LIGHT_GRAY,1));
+                this.buttonAjouterPartie.setForeground(Color.LIGHT_GRAY);
                 
             } else {
                 
                 this.buttonAjouterPartie.setEnabled(true);
+                this.buttonAjouterPartie.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonAjouterPartie.setForeground(new Color(102,153,255));
                 
             }
             
@@ -756,11 +760,21 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
     
     
     /**
-     * Permet de choisir les parametres de la nouvelle partie
+     * Permet d'acceder au choix des parametres de la nouvelle partie
      * @param evt 
      */
     private void buttonAjouterPartieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAjouterPartieActionPerformed
 
+       this.choisirParametres();
+        
+    }//GEN-LAST:event_buttonAjouterPartieActionPerformed
+
+    
+    /**
+     * Permet de choisir les parametres de la nouvelle partie
+     */
+    public void choisirParametres() {
+        
         // Initialisation des tailles de grille
         this.jComboBoxTailleGrilles.removeAllItems();
         for(TailleGrille tg : this.TailleGrilles){
@@ -789,10 +803,10 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         this.popupParametres.setLocationRelativeTo(null);
         this.setEnabled(false);
         this.popupParametres.setVisible(true);
-        this.popupParties.setVisible(false);
+        this.popupParties.dispose();
         
-    }//GEN-LAST:event_buttonAjouterPartieActionPerformed
-
+    } // choisirParametres()
+    
     
     /**
      * Permet de reautoriser les actions sur la fenetre principale
@@ -800,6 +814,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
      */
     private void popupPartiesWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_popupPartiesWindowClosing
         
+        this.popupParties.dispose();
         this.setEnabled(true);
         
     }//GEN-LAST:event_popupPartiesWindowClosing
@@ -811,6 +826,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
      */
     private void popupNouveauProfilWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_popupNouveauProfilWindowClosing
        
+        this.popupNouveauProfil.dispose();
         this.setEnabled(true);
         
     }//GEN-LAST:event_popupNouveauProfilWindowClosing
@@ -877,6 +893,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
      */
     private void popupParametresWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_popupParametresWindowClosing
        
+        this.popupParametres.dispose();
         this.setEnabled(true);
         
     }//GEN-LAST:event_popupParametresWindowClosing
@@ -958,10 +975,6 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
     // End of variables declaration//GEN-END:variables
 
     
-    public javax.swing.JDialog getPopupPartie(){
-        return this.popupParties;
-    }
-    
     /************** GESTION DE LA MISE A JOUR DE LA FENETRE ******************/
     
     
@@ -981,8 +994,9 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 this._jeu.getPartieCourante().addObserver(plateau);
                 // Affiche le plateau de jeu
                 plateau.setVisible(true);
-                this.popupParametres.setVisible(false);
-                this.setVisible(false);
+                this.popupParties.dispose();
+                this.popupParametres.dispose();
+                this.dispose();
                 break;
             
         }

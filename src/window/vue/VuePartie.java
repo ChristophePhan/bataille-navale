@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
 import window.main.BatailleNavale;
 
 /**
@@ -220,14 +221,14 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
 
         popupQuitterPartie = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        buttonAnnuler = new javax.swing.JButton();
+        buttonNouvellePartie = new javax.swing.JButton();
+        buttonEnregistrer = new javax.swing.JButton();
+        buttonQuitter = new javax.swing.JButton();
         popupVictoire = new javax.swing.JDialog();
         titrePopupVictoire = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        buttonRejouer = new javax.swing.JButton();
+        buttonFinQuitter = new javax.swing.JButton();
         sousTitrePopupVictoire = new javax.swing.JLabel();
         labelEpoque = new javax.swing.JLabel();
         labelInstructionsJoueur = new javax.swing.JLabel();
@@ -254,7 +255,6 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         jLabel7 = new javax.swing.JLabel();
 
         popupQuitterPartie.setSize(new java.awt.Dimension(500, 180));
-        popupQuitterPartie.setMaximumSize(new java.awt.Dimension(500, 180));
         popupQuitterPartie.setMinimumSize(new java.awt.Dimension(500, 180));
         popupQuitterPartie.setResizable(false);
         popupQuitterPartie.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -268,52 +268,52 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Êtes-vous sûr de vouloir quitter la partie ?");
 
-        jButton2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(102, 153, 255));
-        jButton2.setText("Annuler");
-        jButton2.setAlignmentX(0.5F);
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonAnnuler.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        buttonAnnuler.setForeground(new java.awt.Color(102, 153, 255));
+        buttonAnnuler.setText("Annuler");
+        buttonAnnuler.setAlignmentX(0.5F);
+        buttonAnnuler.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        buttonAnnuler.setContentAreaFilled(false);
+        buttonAnnuler.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonAnnuler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonAnnulerActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(102, 102, 102));
-        jButton3.setText("Nouvelle partie");
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonNouvellePartie.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        buttonNouvellePartie.setForeground(new java.awt.Color(102, 102, 102));
+        buttonNouvellePartie.setText("Nouvelle partie");
+        buttonNouvellePartie.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        buttonNouvellePartie.setContentAreaFilled(false);
+        buttonNouvellePartie.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNouvellePartie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                buttonNouvellePartieActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(102, 102, 102));
-        jButton4.setText("Enregistrer et quitter");
-        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonEnregistrer.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        buttonEnregistrer.setForeground(new java.awt.Color(102, 102, 102));
+        buttonEnregistrer.setText("Enregistrer et quitter");
+        buttonEnregistrer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        buttonEnregistrer.setContentAreaFilled(false);
+        buttonEnregistrer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonEnregistrer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                buttonEnregistrerActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(102, 102, 102));
-        jButton5.setText("Quitter");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        jButton5.setContentAreaFilled(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        buttonQuitter.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        buttonQuitter.setForeground(new java.awt.Color(102, 102, 102));
+        buttonQuitter.setText("Quitter");
+        buttonQuitter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        buttonQuitter.setContentAreaFilled(false);
+        buttonQuitter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonQuitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                buttonQuitterActionPerformed(evt);
             }
         });
 
@@ -327,15 +327,15 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                 .addContainerGap())
             .addGroup(popupQuitterPartieLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonNouvellePartie, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEnregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupQuitterPartieLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(198, 198, 198))
         );
         popupQuitterPartieLayout.setVerticalGroup(
@@ -345,11 +345,11 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(popupQuitterPartieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonEnregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonNouvellePartie, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
 
@@ -368,22 +368,22 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         titrePopupVictoire.setToolTipText("");
         titrePopupVictoire.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(102, 102, 102));
-        jButton6.setText("Rejouer");
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        jButton6.setContentAreaFilled(false);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonRejouer.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        buttonRejouer.setForeground(new java.awt.Color(102, 102, 102));
+        buttonRejouer.setText("Rejouer");
+        buttonRejouer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        buttonRejouer.setContentAreaFilled(false);
+        buttonRejouer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jButton7.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(102, 102, 102));
-        jButton7.setText("Quitter");
-        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        buttonFinQuitter.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        buttonFinQuitter.setForeground(new java.awt.Color(102, 102, 102));
+        buttonFinQuitter.setText("Quitter");
+        buttonFinQuitter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        buttonFinQuitter.setContentAreaFilled(false);
+        buttonFinQuitter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonFinQuitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                buttonFinQuitterActionPerformed(evt);
             }
         });
 
@@ -405,9 +405,9 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupVictoireLayout.createSequentialGroup()
                 .addContainerGap(180, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonRejouer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonFinQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(177, 177, 177))
         );
         popupVictoireLayout.setVerticalGroup(
@@ -419,8 +419,8 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
                 .addComponent(sousTitrePopupVictoire)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(popupVictoireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonFinQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonRejouer, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
 
@@ -702,6 +702,20 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         this.setEnabled(false);
+        // On limite le nombre de parties a 3
+        if(this._profil.getParties().size() >= 3) {
+            
+            this.buttonNouvellePartie.setEnabled(false);
+            this.buttonNouvellePartie.setForeground(Color.LIGHT_GRAY);
+            this.buttonNouvellePartie.setBorder(new LineBorder(Color.LIGHT_GRAY,1));
+            
+        } else {
+            
+            this.buttonNouvellePartie.setEnabled(true);
+            this.buttonNouvellePartie.setForeground(Color.DARK_GRAY);
+            this.buttonNouvellePartie.setBorder(new LineBorder(Color.DARK_GRAY,1));
+            
+        }
         this.popupQuitterPartie.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -711,26 +725,26 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
      * Permet de quitter definitivement la partie
      * @param evt 
      */
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void buttonQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonQuitterActionPerformed
        
         this._batailleNavale.setEnabled(true);
         this._batailleNavale.setVisible(true);
-        this.popupQuitterPartie.setVisible(false);
+        this.popupQuitterPartie.dispose();
         this.dispose();
         
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_buttonQuitterActionPerformed
 
     
     /**
      * Permet de revenir a la partie
      * @param evt 
      */
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonAnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnnulerActionPerformed
         
         this.setEnabled(true);
-        this.popupQuitterPartie.setVisible(false);
+        this.popupQuitterPartie.dispose();
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonAnnulerActionPerformed
 
     
     /***************** JDIALOG - SAUVEGARDE DE LA PARTIE *********************/
@@ -740,15 +754,15 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
      * Permet d'enregistrer la partie et de quitter
      * @param evt 
      */
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void buttonEnregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEnregistrerActionPerformed
 
         this._partie.sauvegarderPartie(this._profil);
-        this.setVisible(false);
-        this.popupQuitterPartie.setVisible(false);
+        this.dispose();
+        this.popupQuitterPartie.dispose();
         this._batailleNavale.setVisible(true);
         this._batailleNavale.setEnabled(true);
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_buttonEnregistrerActionPerformed
 
     
     /**
@@ -767,15 +781,15 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
      * (popupVictoire)
      * @param evt 
      */
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void buttonFinQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFinQuitterActionPerformed
         
         this._batailleNavale.setEnabled(true);
         this._batailleNavale.setVisible(true);
-        this.popupVictoire.setVisible(false);
-        this.setVisible(false);
+        this.popupVictoire.dispose();
+        this.dispose();
         this.setEnabled(true);
         
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_buttonFinQuitterActionPerformed
 
     
     /**
@@ -786,34 +800,39 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         
         this._batailleNavale.setEnabled(true);
         this._batailleNavale.setVisible(true);
-        this.popupVictoire.setVisible(false);
-        this.setVisible(false);
+        this.popupVictoire.dispose();
+        this._profil.supprimerPartie(this._partie.getId());
+        this.dispose();
         this.setEnabled(true);
         
     }//GEN-LAST:event_popupVictoireWindowClosing
 
     
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    /**
+     * Permet de creer une nouvelle partie en cours de jeu
+     * @param evt 
+     */
+    private void buttonNouvellePartieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNouvellePartieActionPerformed
         
-        this.popupQuitterPartie.setVisible(false);
+        this.popupQuitterPartie.dispose();
         this.dispose();
         this._batailleNavale.setVisible(true);
-        this._batailleNavale.getPopupPartie().setVisible(true);
+        this._batailleNavale.choisirParametres();
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_buttonNouvellePartieActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAnnuler;
+    private javax.swing.JButton buttonEnregistrer;
+    private javax.swing.JButton buttonFinQuitter;
     private javax.swing.JButton buttonJouer;
+    private javax.swing.JButton buttonNouvellePartie;
+    private javax.swing.JButton buttonQuitter;
+    private javax.swing.JButton buttonRejouer;
     private javax.swing.JLabel flecheFlotteAdverse;
     private javax.swing.JLabel flecheFlotteJoueur;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

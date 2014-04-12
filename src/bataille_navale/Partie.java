@@ -2,6 +2,7 @@ package bataille_navale;
 
 import intelligenceArtificielle.FactoryIA;
 import intelligenceArtificielle.IntelligenceArtificielle;
+import java.awt.Cursor;
 import java.awt.dnd.DropTarget;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -321,6 +322,7 @@ public class Partie extends Observable {
         MouseListener listener = null;
         if (typeCase) {
 
+            c.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             listener = new MouseAdapter() {
                 @Override
                 public void mousePressed(final MouseEvent me) {
@@ -335,6 +337,7 @@ public class Partie extends Observable {
 
         } else {
 
+            c.setCursor(Cursor.getDefaultCursor());
             listener = new MouseAdapter() {
                 @Override
                 public void mousePressed(final MouseEvent me) {
