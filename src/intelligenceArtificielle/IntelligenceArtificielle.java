@@ -19,7 +19,7 @@ import java.util.List;
 public abstract class IntelligenceArtificielle {
 
     protected Parametre _parametre;
-    protected final List<Case> listeCaseATester;
+    protected List<Case> listeCaseATester;
 
     public IntelligenceArtificielle(Parametre parametre) {
         this._parametre = parametre;
@@ -43,4 +43,18 @@ public abstract class IntelligenceArtificielle {
         System.out.println("*******Fin List*******");
 
     }
+
+    
+    /***** GETTER/SETTER *****/
+    
+    
+    public List<Case> getListeCaseATester() {
+        return listeCaseATester;
+    }
+
+    public void setListeCaseATester(List<Case> listeCaseATester) {
+        this.listeCaseATester = listeCaseATester;
+    }
+ 
+    
 }

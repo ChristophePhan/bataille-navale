@@ -1,1849 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <profil>
-  <id id="Lili177931183" />
+  <id id="Lili825672154" />
   <nom nom="Lili" />
-  <partie id="partie1514322597">
-    <date>2014/04/12 16:13</date>
-    <automatique>0</automatique>
-    <parametre>
-      <nbCaseX>10</nbCaseX>
-      <nbCaseY>10</nbCaseY>
-      <difficulte>Normal</difficulte>
-      <nomEpoque>Future</nomEpoque>
-    </parametre>
-    <joueur1 num="1">
-      <nom>Lili</nom>
-      <nbTirsGagnant>3</nbTirsGagnant>
-      <nbTirsPerdant>4</nbTirsPerdant>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>4</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>6</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>7</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>4</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Raptor</bateau>
-        <nbCasesNonTouchees>3</nbCasesNonTouchees>
-        <orientation>2</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>6</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>7</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Enterprise</bateau>
-        <nbCasesNonTouchees>2</nbCasesNonTouchees>
-        <orientation>2</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>4</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Raptor</bateau>
-        <nbCasesNonTouchees>3</nbCasesNonTouchees>
-        <orientation>2</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>6</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>7</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Enterprise</bateau>
-        <nbCasesNonTouchees>2</nbCasesNonTouchees>
-        <orientation>2</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>4</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Raptor</bateau>
-        <nbCasesNonTouchees>3</nbCasesNonTouchees>
-        <orientation>2</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>6</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>7</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Enterprise</bateau>
-        <nbCasesNonTouchees>2</nbCasesNonTouchees>
-        <orientation>2</orientation>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>4</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>6</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>7</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Viper</bateau>
-        <nbCasesNonTouchees>2</nbCasesNonTouchees>
-        <orientation>2</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Enterprise</bateau>
-        <nbCasesNonTouchees>2</nbCasesNonTouchees>
-        <orientation>2</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>4</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>6</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>7</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Viper</bateau>
-        <nbCasesNonTouchees>2</nbCasesNonTouchees>
-        <orientation>2</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Enterprise</bateau>
-        <nbCasesNonTouchees>2</nbCasesNonTouchees>
-        <orientation>2</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>4</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-        <nbCasesNonTouchees>4</nbCasesNonTouchees>
-        <orientation>1</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>6</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-        <nbCasesNonTouchees>4</nbCasesNonTouchees>
-        <orientation>1</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>7</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-        <nbCasesNonTouchees>4</nbCasesNonTouchees>
-        <orientation>1</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-        <nbCasesNonTouchees>4</nbCasesNonTouchees>
-        <orientation>1</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>4</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>0</aPortee>
-        <abs>6</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>7</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>4</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>6</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>7</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>4</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>6</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>7</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-    </joueur1>
-    <joueur2 num="2">
-      <nom>Skynet</nom>
-      <nbTirsGagnant>3</nbTirsGagnant>
-      <nbTirsPerdant>4</nbTirsPerdant>
-      <difficulte>Normal</difficulte>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Raptor</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>0</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Raptor</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>1</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Enterprise</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Raptor</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>2</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Enterprise</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>3</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Enterprise</bateau>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Viper</bateau>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>4</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Enterprise</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Viper</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>5</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>Enterprise</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>6</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>7</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>8</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>9</ord>
-        <idPartie>partie1514322597</idPartie>
-        <bateau>null</bateau>
-      </case>
-    </joueur2>
-  </partie>
-  <partie id="partie899392206">
-    <date>2014/04/12 16:05</date>
+  <partie id="partie1903419694">
+    <date>2014/04/12 18:22</date>
     <automatique>1</automatique>
+    <IA>
+      <caseIA>
+        <abs>4</abs>
+        <ord>3</ord>
+      </caseIA>
+      <caseIA>
+        <abs>2</abs>
+        <ord>4</ord>
+      </caseIA>
+      <caseIA>
+        <abs>3</abs>
+        <ord>5</ord>
+      </caseIA>
+      <caseIA>
+        <abs>4</abs>
+        <ord>5</ord>
+      </caseIA>
+    </IA>
     <parametre>
       <nbCaseX>10</nbCaseX>
       <nbCaseY>10</nbCaseY>
-      <difficulte>Facile</difficulte>
+      <difficulte>Normal</difficulte>
       <nomEpoque>Future</nomEpoque>
     </parametre>
     <joueur1 num="1">
       <nom>Lili</nom>
-      <nbTirsGagnant>2</nbTirsGagnant>
-      <nbTirsPerdant>13</nbTirsPerdant>
+      <nbTirsGagnant>7</nbTirsGagnant>
+      <nbTirsPerdant>10</nbTirsPerdant>
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>0</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>Enterprise</bateau>
-        <nbCasesNonTouchees>5</nbCasesNonTouchees>
+        <nbCasesNonTouchees>2</nbCasesNonTouchees>
         <orientation>2</orientation>
       </case>
       <case>
@@ -1851,17 +48,7 @@
         <aPortee>0</aPortee>
         <abs>1</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -1869,9 +56,19 @@
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
+        <abs>2</abs>
+        <ord>0</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>0</aPortee>
         <abs>3</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -1881,7 +78,7 @@
         <aPortee>0</aPortee>
         <abs>4</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -1891,7 +88,7 @@
         <aPortee>0</aPortee>
         <abs>5</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -1901,17 +98,17 @@
         <aPortee>0</aPortee>
         <abs>6</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
       </case>
       <case>
-        <etat>1</etat>
+        <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>7</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -1921,7 +118,7 @@
         <aPortee>0</aPortee>
         <abs>8</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -1931,7 +128,7 @@
         <aPortee>0</aPortee>
         <abs>9</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -1941,27 +138,27 @@
         <aPortee>0</aPortee>
         <abs>0</abs>
         <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>Enterprise</bateau>
-        <nbCasesNonTouchees>5</nbCasesNonTouchees>
+        <nbCasesNonTouchees>2</nbCasesNonTouchees>
         <orientation>2</orientation>
       </case>
       <case>
-        <etat>1</etat>
+        <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>1</abs>
         <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
       </case>
       <case>
-        <etat>1</etat>
+        <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>2</abs>
         <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -1971,47 +168,47 @@
         <aPortee>0</aPortee>
         <abs>3</abs>
         <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-        <nbCasesNonTouchees>3</nbCasesNonTouchees>
-        <orientation>1</orientation>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>4</abs>
         <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>BattlestarGalactica</bateau>
-        <nbCasesNonTouchees>3</nbCasesNonTouchees>
-        <orientation>1</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-        <nbCasesNonTouchees>3</nbCasesNonTouchees>
-        <orientation>1</orientation>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>2</orientation>
       </case>
       <case>
         <etat>1</etat>
         <aPortee>0</aPortee>
+        <abs>5</abs>
+        <ord>1</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
         <abs>6</abs>
         <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-        <nbCasesNonTouchees>3</nbCasesNonTouchees>
-        <orientation>1</orientation>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
       </case>
       <case>
         <etat>1</etat>
         <aPortee>0</aPortee>
         <abs>7</abs>
         <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2021,7 +218,7 @@
         <aPortee>0</aPortee>
         <abs>8</abs>
         <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2031,7 +228,7 @@
         <aPortee>0</aPortee>
         <abs>9</abs>
         <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2041,9 +238,9 @@
         <aPortee>0</aPortee>
         <abs>0</abs>
         <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>Enterprise</bateau>
-        <nbCasesNonTouchees>5</nbCasesNonTouchees>
+        <nbCasesNonTouchees>2</nbCasesNonTouchees>
         <orientation>2</orientation>
       </case>
       <case>
@@ -2051,7 +248,7 @@
         <aPortee>0</aPortee>
         <abs>1</abs>
         <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2061,17 +258,7 @@
         <aPortee>0</aPortee>
         <abs>2</abs>
         <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2079,119 +266,129 @@
       <case>
         <etat>1</etat>
         <aPortee>0</aPortee>
-        <abs>4</abs>
+        <abs>3</abs>
         <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>4</abs>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>BattlestarGalactica</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>2</orientation>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>5</abs>
         <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Raptor</bateau>
-        <nbCasesNonTouchees>3</nbCasesNonTouchees>
-        <orientation>1</orientation>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>6</abs>
         <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Raptor</bateau>
-        <nbCasesNonTouchees>3</nbCasesNonTouchees>
-        <orientation>1</orientation>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>7</abs>
         <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Raptor</bateau>
-        <nbCasesNonTouchees>3</nbCasesNonTouchees>
-        <orientation>1</orientation>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>8</abs>
         <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
       </case>
       <case>
         <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>9</abs>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>1</etat>
         <aPortee>0</aPortee>
         <abs>0</abs>
         <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>Enterprise</bateau>
-        <nbCasesNonTouchees>5</nbCasesNonTouchees>
+        <nbCasesNonTouchees>2</nbCasesNonTouchees>
         <orientation>2</orientation>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>1</abs>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
       </case>
       <case>
         <etat>1</etat>
         <aPortee>0</aPortee>
-        <abs>1</abs>
+        <abs>2</abs>
         <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Viper</bateau>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>0</aPortee>
+        <abs>3</abs>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Raptor</bateau>
         <nbCasesNonTouchees>1</nbCasesNonTouchees>
         <orientation>2</orientation>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
         <abs>4</abs>
         <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>BattlestarGalactica</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
+        <orientation>2</orientation>
       </case>
       <case>
-        <etat>0</etat>
+        <etat>1</etat>
         <aPortee>0</aPortee>
         <abs>5</abs>
         <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2201,7 +398,7 @@
         <aPortee>0</aPortee>
         <abs>6</abs>
         <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2211,7 +408,7 @@
         <aPortee>0</aPortee>
         <abs>7</abs>
         <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2221,7 +418,107 @@
         <aPortee>0</aPortee>
         <abs>8</abs>
         <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>0</aPortee>
+        <abs>9</abs>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>0</aPortee>
+        <abs>0</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Enterprise</bateau>
+        <nbCasesNonTouchees>2</nbCasesNonTouchees>
+        <orientation>2</orientation>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>1</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>2</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>0</aPortee>
+        <abs>3</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Raptor</bateau>
+        <nbCasesNonTouchees>1</nbCasesNonTouchees>
+        <orientation>2</orientation>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>0</aPortee>
+        <abs>4</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>BattlestarGalactica</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>2</orientation>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>0</aPortee>
+        <abs>5</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>6</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>7</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>8</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2230,8 +527,18 @@
         <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>9</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>0</aPortee>
+        <abs>0</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2239,149 +546,39 @@
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Enterprise</bateau>
-        <nbCasesNonTouchees>5</nbCasesNonTouchees>
+        <abs>1</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Viper</bateau>
+        <nbCasesNonTouchees>2</nbCasesNonTouchees>
         <orientation>2</orientation>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Viper</bateau>
+        <abs>2</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>3</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Raptor</bateau>
         <nbCasesNonTouchees>1</nbCasesNonTouchees>
         <orientation>2</orientation>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>0</aPortee>
-        <abs>4</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>5</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>6</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>7</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>9</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>0</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>2</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>3</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
         <abs>4</abs>
         <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2391,7 +588,7 @@
         <aPortee>0</aPortee>
         <abs>5</abs>
         <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2401,7 +598,7 @@
         <aPortee>0</aPortee>
         <abs>6</abs>
         <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2411,7 +608,7 @@
         <aPortee>0</aPortee>
         <abs>7</abs>
         <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2421,7 +618,7 @@
         <aPortee>0</aPortee>
         <abs>8</abs>
         <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2431,7 +628,7 @@
         <aPortee>0</aPortee>
         <abs>9</abs>
         <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2441,17 +638,7 @@
         <aPortee>0</aPortee>
         <abs>0</abs>
         <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>0</aPortee>
-        <abs>1</abs>
-        <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2459,9 +646,19 @@
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
+        <abs>1</abs>
+        <ord>6</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Viper</bateau>
+        <nbCasesNonTouchees>2</nbCasesNonTouchees>
+        <orientation>2</orientation>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
         <abs>2</abs>
         <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2471,7 +668,7 @@
         <aPortee>0</aPortee>
         <abs>3</abs>
         <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2481,7 +678,7 @@
         <aPortee>0</aPortee>
         <abs>4</abs>
         <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2491,7 +688,7 @@
         <aPortee>0</aPortee>
         <abs>5</abs>
         <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2501,7 +698,7 @@
         <aPortee>0</aPortee>
         <abs>6</abs>
         <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2511,7 +708,7 @@
         <aPortee>0</aPortee>
         <abs>7</abs>
         <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2521,7 +718,7 @@
         <aPortee>0</aPortee>
         <abs>8</abs>
         <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2531,7 +728,7 @@
         <aPortee>0</aPortee>
         <abs>9</abs>
         <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2541,7 +738,7 @@
         <aPortee>0</aPortee>
         <abs>0</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2551,7 +748,7 @@
         <aPortee>0</aPortee>
         <abs>1</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2561,7 +758,7 @@
         <aPortee>0</aPortee>
         <abs>2</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2571,7 +768,7 @@
         <aPortee>0</aPortee>
         <abs>3</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2581,7 +778,7 @@
         <aPortee>0</aPortee>
         <abs>4</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2591,7 +788,7 @@
         <aPortee>0</aPortee>
         <abs>5</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2601,27 +798,27 @@
         <aPortee>0</aPortee>
         <abs>6</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
       </case>
       <case>
-        <etat>1</etat>
+        <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>7</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
       </case>
       <case>
-        <etat>1</etat>
+        <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>8</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2631,7 +828,7 @@
         <aPortee>0</aPortee>
         <abs>9</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2641,7 +838,7 @@
         <aPortee>0</aPortee>
         <abs>0</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2651,7 +848,7 @@
         <aPortee>0</aPortee>
         <abs>1</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2661,7 +858,7 @@
         <aPortee>0</aPortee>
         <abs>2</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2671,17 +868,17 @@
         <aPortee>0</aPortee>
         <abs>3</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
       </case>
       <case>
-        <etat>0</etat>
+        <etat>1</etat>
         <aPortee>0</aPortee>
         <abs>4</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2691,7 +888,7 @@
         <aPortee>0</aPortee>
         <abs>5</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2701,7 +898,7 @@
         <aPortee>0</aPortee>
         <abs>6</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2711,7 +908,7 @@
         <aPortee>0</aPortee>
         <abs>7</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2721,7 +918,7 @@
         <aPortee>0</aPortee>
         <abs>8</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2731,7 +928,7 @@
         <aPortee>0</aPortee>
         <abs>9</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2741,17 +938,17 @@
         <aPortee>0</aPortee>
         <abs>0</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
       </case>
       <case>
-        <etat>1</etat>
+        <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>1</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2761,7 +958,7 @@
         <aPortee>0</aPortee>
         <abs>2</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2771,7 +968,7 @@
         <aPortee>0</aPortee>
         <abs>3</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2781,7 +978,7 @@
         <aPortee>0</aPortee>
         <abs>4</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2791,17 +988,17 @@
         <aPortee>0</aPortee>
         <abs>5</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
       </case>
       <case>
-        <etat>0</etat>
+        <etat>1</etat>
         <aPortee>0</aPortee>
         <abs>6</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2811,17 +1008,7 @@
         <aPortee>0</aPortee>
         <abs>7</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-        <nbCasesNonTouchees>0</nbCasesNonTouchees>
-        <orientation>0</orientation>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
-        <abs>8</abs>
-        <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2829,9 +1016,19 @@
       <case>
         <etat>1</etat>
         <aPortee>0</aPortee>
+        <abs>8</abs>
+        <ord>9</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+        <nbCasesNonTouchees>0</nbCasesNonTouchees>
+        <orientation>0</orientation>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
         <abs>9</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
         <nbCasesNonTouchees>0</nbCasesNonTouchees>
         <orientation>0</orientation>
@@ -2839,15 +1036,15 @@
     </joueur1>
     <joueur2 num="2">
       <nom>Skynet</nom>
-      <nbTirsGagnant>2</nbTirsGagnant>
-      <nbTirsPerdant>13</nbTirsPerdant>
-      <difficulte>Facile</difficulte>
+      <nbTirsGagnant>5</nbTirsGagnant>
+      <nbTirsPerdant>12</nbTirsPerdant>
+      <difficulte>Normal</difficulte>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>0</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -2855,7 +1052,7 @@
         <aPortee>1</aPortee>
         <abs>1</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -2863,575 +1060,575 @@
         <aPortee>1</aPortee>
         <abs>2</abs>
         <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>0</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>1</etat>
         <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
         <abs>3</abs>
-        <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>1</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>BattlestarGalactica</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>0</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>Enterprise</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
         <abs>4</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>0</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>5</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Raptor</bateau>
+        <ord>0</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>6</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>0</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>7</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>0</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>8</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>0</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
-        <aPortee>1</aPortee>
+        <aPortee>0</aPortee>
         <abs>9</abs>
-        <ord>2</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>0</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>0</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>BattlestarGalactica</bateau>
+        <ord>1</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>1</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Enterprise</bateau>
+        <ord>1</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>2</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>1</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
-        <etat>1</etat>
+        <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>3</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
+        <ord>1</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Enterprise</bateau>
       </case>
       <case>
         <etat>1</etat>
         <aPortee>1</aPortee>
         <abs>4</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Raptor</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>1</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>1</etat>
         <aPortee>1</aPortee>
+        <abs>5</abs>
+        <ord>1</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>6</abs>
+        <ord>1</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
         <abs>7</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>1</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>8</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>1</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
-        <aPortee>1</aPortee>
+        <aPortee>0</aPortee>
         <abs>9</abs>
-        <ord>3</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>1</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>0</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>BattlestarGalactica</bateau>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>1</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Enterprise</bateau>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
-        <etat>1</etat>
+        <etat>0</etat>
         <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
+        <abs>2</abs>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>Viper</bateau>
       </case>
       <case>
         <etat>1</etat>
         <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
+        <abs>3</abs>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Enterprise</bateau>
       </case>
       <case>
-        <etat>0</etat>
+        <etat>1</etat>
+        <aPortee>1</aPortee>
+        <abs>4</abs>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>BattlestarGalactica</bateau>
+      </case>
+      <case>
+        <etat>1</etat>
         <aPortee>1</aPortee>
         <abs>5</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Raptor</bateau>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>BattlestarGalactica</bateau>
       </case>
       <case>
-        <etat>0</etat>
+        <etat>1</etat>
         <aPortee>1</aPortee>
         <abs>6</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>BattlestarGalactica</bateau>
       </case>
       <case>
-        <etat>0</etat>
+        <etat>1</etat>
         <aPortee>1</aPortee>
         <abs>7</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>4</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>BattlestarGalactica</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>Enterprise</bateau>
+        <abs>8</abs>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
       </case>
       <case>
-        <etat>1</etat>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>9</abs>
+        <ord>2</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
         <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
+        <abs>0</abs>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>1</abs>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>1</etat>
         <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
+        <abs>2</abs>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>Viper</bateau>
       </case>
       <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>1</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
-        <abs>6</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>7</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>8</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>9</abs>
-        <ord>5</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>0</abs>
-        <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>1</abs>
-        <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <abs>3</abs>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>Enterprise</bateau>
       </case>
       <case>
+        <etat>1</etat>
+        <aPortee>1</aPortee>
+        <abs>4</abs>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <abs>5</abs>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>1</etat>
         <aPortee>1</aPortee>
-        <abs>3</abs>
-        <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>4</abs>
-        <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>5</abs>
-        <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>0</aPortee>
         <abs>6</abs>
-        <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
-        <aPortee>0</aPortee>
+        <aPortee>1</aPortee>
         <abs>7</abs>
-        <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
-        <aPortee>0</aPortee>
+        <aPortee>1</aPortee>
         <abs>8</abs>
-        <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>0</aPortee>
         <abs>9</abs>
-        <ord>6</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>3</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>0</abs>
-        <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
         <aPortee>1</aPortee>
         <abs>1</abs>
-        <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
-        <bateau>null</bateau>
-      </case>
-      <case>
-        <etat>0</etat>
-        <aPortee>1</aPortee>
-        <abs>2</abs>
-        <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>1</etat>
         <aPortee>1</aPortee>
+        <abs>2</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>3</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Enterprise</bateau>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>1</aPortee>
+        <abs>4</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>1</aPortee>
+        <abs>5</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>6</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>7</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>1</aPortee>
+        <abs>8</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>9</abs>
+        <ord>4</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>0</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Raptor</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>1</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Raptor</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>2</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>Raptor</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>3</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>4</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>5</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>1</aPortee>
+        <abs>6</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>7</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>8</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>9</abs>
+        <ord>5</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>0</abs>
+        <ord>6</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>1</abs>
+        <ord>6</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>2</abs>
+        <ord>6</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>3</abs>
+        <ord>6</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>4</abs>
+        <ord>6</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>5</abs>
+        <ord>6</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>1</etat>
+        <aPortee>1</aPortee>
+        <abs>6</abs>
+        <ord>6</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>7</abs>
+        <ord>6</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>8</abs>
+        <ord>6</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>0</aPortee>
+        <abs>9</abs>
+        <ord>6</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>0</abs>
+        <ord>7</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>1</abs>
+        <ord>7</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
+        <abs>2</abs>
+        <ord>7</ord>
+        <idPartie>partie1903419694</idPartie>
+        <bateau>null</bateau>
+      </case>
+      <case>
+        <etat>0</etat>
+        <aPortee>1</aPortee>
         <abs>3</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3439,7 +1636,7 @@
         <aPortee>1</aPortee>
         <abs>4</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3447,31 +1644,31 @@
         <aPortee>1</aPortee>
         <abs>5</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
-        <aPortee>0</aPortee>
+        <aPortee>1</aPortee>
         <abs>6</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
-        <aPortee>0</aPortee>
+        <aPortee>1</aPortee>
         <abs>7</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
-        <aPortee>0</aPortee>
+        <aPortee>1</aPortee>
         <abs>8</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3479,7 +1676,7 @@
         <aPortee>0</aPortee>
         <abs>9</abs>
         <ord>7</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3487,7 +1684,7 @@
         <aPortee>1</aPortee>
         <abs>0</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3495,7 +1692,7 @@
         <aPortee>1</aPortee>
         <abs>1</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3503,7 +1700,7 @@
         <aPortee>1</aPortee>
         <abs>2</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3511,7 +1708,7 @@
         <aPortee>1</aPortee>
         <abs>3</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3519,7 +1716,7 @@
         <aPortee>1</aPortee>
         <abs>4</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3527,31 +1724,31 @@
         <aPortee>1</aPortee>
         <abs>5</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
-        <aPortee>0</aPortee>
+        <aPortee>1</aPortee>
         <abs>6</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
-        <aPortee>0</aPortee>
+        <aPortee>1</aPortee>
         <abs>7</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
         <etat>0</etat>
-        <aPortee>0</aPortee>
+        <aPortee>1</aPortee>
         <abs>8</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3559,7 +1756,7 @@
         <aPortee>0</aPortee>
         <abs>9</abs>
         <ord>8</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3567,7 +1764,7 @@
         <aPortee>1</aPortee>
         <abs>0</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3575,7 +1772,7 @@
         <aPortee>1</aPortee>
         <abs>1</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3583,7 +1780,7 @@
         <aPortee>1</aPortee>
         <abs>2</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3591,7 +1788,7 @@
         <aPortee>1</aPortee>
         <abs>3</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3599,7 +1796,7 @@
         <aPortee>1</aPortee>
         <abs>4</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3607,7 +1804,7 @@
         <aPortee>1</aPortee>
         <abs>5</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3615,7 +1812,7 @@
         <aPortee>0</aPortee>
         <abs>6</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3623,7 +1820,7 @@
         <aPortee>0</aPortee>
         <abs>7</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3631,7 +1828,7 @@
         <aPortee>0</aPortee>
         <abs>8</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
       <case>
@@ -3639,7 +1836,7 @@
         <aPortee>0</aPortee>
         <abs>9</abs>
         <ord>9</ord>
-        <idPartie>partie899392206</idPartie>
+        <idPartie>partie1903419694</idPartie>
         <bateau>null</bateau>
       </case>
     </joueur2>

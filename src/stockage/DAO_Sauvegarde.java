@@ -12,6 +12,7 @@ import bataille_navale.Parametre;
 import bataille_navale.Partie;
 import bataille_navale.Profil;
 import intelligenceArtificielle.FactoryIA;
+import intelligenceArtificielle.IntelligenceArtificielle;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.File;
@@ -189,6 +190,18 @@ public class DAO_Sauvegarde {
                 String auto = partie.isAutomatique() ? "1" : "0";
                 p.addContent(new Element("automatique").setText(auto));
                 
+                // IA
+                Element ia = new Element("IA");
+                for(Case c : partie.getIntelligenceArtificielle().getListeCaseATester()) {
+               
+                    Element caseIA = new Element("caseIA");
+                    caseIA.addContent(new Element("abs").setText(c.getAbs()+""));
+                    caseIA.addContent(new Element("ord").setText(c.getOrd()+""));
+                    ia.addContent(caseIA);
+                    
+                }
+                p.addContent(ia);
+                
                 // Parametre
                 Element parametre = new Element("parametre");
                
@@ -214,7 +227,6 @@ public class DAO_Sauvegarde {
                     caseJ.addContent(new Element("abs").setText(c.getAbs()+""));
                     caseJ.addContent(new Element("ord").setText(c.getOrd()+""));
                     caseJ.addContent(new Element("idPartie").setText(c.getPartie().getId()));
-                    String bateau = (c.getBateau() == null) ? "null" : c.getBateau().getNom();
                     if(c.getBateau() == null) {
                         
                         // Case vide
@@ -374,7 +386,6 @@ public class DAO_Sauvegarde {
                             Epoque epoque = DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(param.getChildText("nomEpoque"));
                             parametre.setEpoque(epoque);
                             partie.setParametre(parametre);
-                            partie.setIntelligenceArtificielle(FactoryIA.getInstance().getIntelligenceArtificielle(parametre));
 
                             // J1
                             Element j1 = (Element) partieElt.getChild("joueur1");
@@ -412,6 +423,27 @@ public class DAO_Sauvegarde {
                             }
                             joueur1.setCases((ArrayList<Case>) cases);
                             partie.setJ1(joueur1);
+                            
+                            // IA
+                            IntelligenceArtificielle ia = FactoryIA.getInstance().getIntelligenceArtificielle(parametre);
+                            Element IA = partieElt.getChild("IA");
+                            List<Case> casesIA = new ArrayList<>();
+                            List casesIAXML = IA.getChildren("caseIA");
+                            for (int k = 0; k < casesIAXML.size(); k++) {
+
+                                Element caseIAElt = (Element) casesIAXML.get(k);
+                                System.out.println(caseIAElt.getName());
+                                int abs = Integer.parseInt(caseIAElt.getChildText("abs"));
+                                int ord = Integer.parseInt(caseIAElt.getChildText("ord"));
+                                int test = 0;
+                                while(cases.get(test).getAbs() != abs || cases.get(test).getOrd() != ord) {
+                                    test++;
+                                }
+                                casesIA.add(cases.get(test));
+                                System.out.println("CASE IAIA");
+                            }
+                            ia.setListeCaseATester(casesIA);
+                            partie.setIntelligenceArtificielle(ia);
 
                             // J2
                             Element j2 = (Element) partieElt.getChild("joueur2");
