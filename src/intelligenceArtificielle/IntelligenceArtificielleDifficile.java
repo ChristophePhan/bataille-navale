@@ -20,35 +20,27 @@ public class IntelligenceArtificielleDifficile extends IntelligenceArtificielle 
     public IntelligenceArtificielleDifficile(Parametre parametre) {
         super(parametre);
     }
-
-    @Override
+    
+     @Override
     public Case getCaseForIA(Joueur joueurAdverse) {
         Random rand = new Random();
-        int x;
-        int y;
         Case caseTouchee = null;
-        if (listeCaseATester.isEmpty()) {
-            do {
+        if (this.listeCaseATester.isEmpty()) {
+            int x = rand.nextInt(this._parametre.getNbCaseX());
+            int y = rand.nextInt(this._parametre.getNbCaseY());
+            while (((Case) (joueurAdverse.getCases().get(x + y * this._parametre.getNbCaseX()))).isEtat() || !joueurAdverse.getCases().get(x + y * this._parametre.getNbCaseX()).getClass().getSimpleName().equalsIgnoreCase("CaseBateau")) {
                 x = rand.nextInt(this._parametre.getNbCaseX());
                 y = rand.nextInt(this._parametre.getNbCaseY());
-                while (((Case) (joueurAdverse.getCases().get(x + y * this._parametre.getNbCaseX()))).isEtat()) {
-                    x = rand.nextInt(this._parametre.getNbCaseX());
-                    y = rand.nextInt(this._parametre.getNbCaseY());
-                }
-                if (x % 2 != 0) {
-                    y++;
-                } else if (y == -1) {
-                    y = 1;
-                }
-                caseTouchee = (Case) (joueurAdverse.getCases().get(x + y * this._parametre.getNbCaseX()));
-            } while (((Case) (joueurAdverse.getCases().get(x + y * this._parametre.getNbCaseX()))).isEtat());
-        } /*else {
-         caseTouchee = (Case) listeCaseATester.pop();
-         if (caseTouchee.isEtat()) {
-         //                testerCase(joueurAdverse, caseTouchee);
-         }
-         }*/
-
+            }
+            caseTouchee = (Case) (joueurAdverse.getCases().get(x + y * this._parametre.getNbCaseX()));
+            if (caseTouchee.getClass().getSimpleName().equalsIgnoreCase("CaseBateau")) {
+                casesATester(joueurAdverse, caseTouchee);
+            }
+        } else {
+            caseTouchee = tester(joueurAdverse);
+        }
+        System.out.println("Case touchée " + caseTouchee.getClass().getSimpleName() + " : " + caseTouchee.getAbs() + ", " + caseTouchee.getOrd());
+        display("Difficile");
         return caseTouchee;
     }
 
