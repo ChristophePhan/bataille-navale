@@ -11,7 +11,9 @@ import bataille_navale.Partie;
 import bataille_navale.Profil;
 import controller.JouerCaseController;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
@@ -119,29 +121,69 @@ public class VuePartie extends javax.swing.JFrame implements Observer {
         for(int i=0;i<this._partie.getParametre().getNbCaseX();i++) {
             for(int j=0;j<this._partie.getParametre().getNbCaseY();j++) {
                 
-                // Grille du joueur
-                this.plateauJoueurCourant.add(this._partie.getJ1().getCases().get(numC));
+                ////////// Grille du joueur
+                if(this._partie.getJ1().getCases().get(numC).isEtat() && this._partie.getJ1().getCases().get(numC).getBateau() != null) {
+                    
+                    // Case bateau touche
+                    ImageIcon bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge_gris.png"))
+                        .getImage().getScaledInstance(this.plateauJoueurCourant.getWidth()/this._partie.getParametre().getNbCaseX()+1
+                                , this.plateauJoueurCourant.getHeight()/this._partie.getParametre().getNbCaseY()+1, Image.SCALE_DEFAULT));
+                    this._partie.getJ1().getCases().get(numC).setIcon(bateauImage);
+                    
+                } else if(this._partie.getJ1().getCases().get(numC).isEtat()) {
+                    
+                    // Case vide non touchee
+                    ImageIcon bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Croix.png"))
+                        .getImage().getScaledInstance(this.plateauJoueurCourant.getWidth()/this._partie.getParametre().getNbCaseX()+1
+                                , this.plateauJoueurCourant.getHeight()/this._partie.getParametre().getNbCaseY()+1, Image.SCALE_DEFAULT));
+                    this._partie.getJ1().getCases().get(numC).setIcon(bateauImage);
+                    
+                }
                 this._partie.getJ1().getCases().get(numC).setCoordonnees(j, i);
-                this._partie.getJ1().getCases().get(numC).setEnabled(true);
+                this.plateauJoueurCourant.add(this._partie.getJ1().getCases().get(numC));
                 
-                // Grille adverse
+                ////////// Grille adverse
+                for(ActionListener ac : this._partie.getJ2().getCases().get(numC).getActionListeners()) {
+                    this._partie.getJ2().getCases().get(numC).removeActionListener(ac);
+                }
                 this._partie.getJ2().getCases().get(numC).addActionListener(new JouerCaseController(this._partie, 
                         this._partie.getJ2().getCases().get(numC), this._partie.getJ1(), this._partie.getJ2()));
                 this._partie.getJ2().getCases().get(numC).setCoordonnees(j, i);
-                this._partie.getJ2().getCases().get(numC).setEnabled(true);
+                
                 // On signal que la case est a portee de tir si c'est le cas,
                 // sinon on ne peut pas cliquer sur la case
-                if(this._partie.getJ2().getCases().get(numC).isAPortee()) {
+                if(this._partie.getJ2().getCases().get(numC).isAPortee() && !this._partie.getJ2().getCases().get(numC).isEtat()) {
                     
+                    // Case a porte
                     ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Case_a_portee.png"));
                     this._partie.getJ2().getCases().get(numC).setIcon(bateauImage);
                     this._partie.getJ2().getCases().get(numC).setDisabledIcon(bateauImage);
+                    this._partie.getJ2().getCases().get(numC).setEnabled(true);
+                    this._partie.getJ2().getCases().get(numC).setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                     
-                } else {
+                } else if(!this._partie.getJ2().getCases().get(numC).isAPortee()) {
                     
+                    // Case hors de porte
                     this._partie.getJ2().getCases().get(numC).setEnabled(false);
                     ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Fond_blanc.png"));
                     this._partie.getJ2().getCases().get(numC).setDisabledIcon(bateauImage);
+                    
+                } else if(this._partie.getJ2().getCases().get(numC).isAPortee() && this._partie.getJ2().getCases().get(numC).isEtat()
+                        && this._partie.getJ2().getCases().get(numC).getBateau() != null) {
+                    
+                    // Case bateau touche
+                    ImageIcon bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge.png"))
+                        .getImage().getScaledInstance(this.plateauJoueurAdverse.getWidth()/this._partie.getParametre().getNbCaseX()+1
+                                , this.plateauJoueurAdverse.getHeight()/this._partie.getParametre().getNbCaseY()+1, Image.SCALE_DEFAULT));
+                    this._partie.getJ2().getCases().get(numC).setIcon(bateauImage);
+                    
+                } else {
+                    
+                    // Case vide touche
+                    ImageIcon bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Croix.png"))
+                        .getImage().getScaledInstance(this.plateauJoueurAdverse.getWidth()/this._partie.getParametre().getNbCaseX()+1
+                                , this.plateauJoueurAdverse.getHeight()/this._partie.getParametre().getNbCaseY()+1, Image.SCALE_DEFAULT));
+                    this._partie.getJ2().getCases().get(numC).setIcon(bateauImage);
                     
                 }
                 this.plateauJoueurAdverse.add(this._partie.getJ2().getCases().get(numC));

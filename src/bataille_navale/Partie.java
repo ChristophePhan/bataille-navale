@@ -2,15 +2,15 @@ package bataille_navale;
 
 import intelligenceArtificielle.FactoryIA;
 import intelligenceArtificielle.IntelligenceArtificielle;
-import intelligenceArtificielle.IntelligenceArtificielleDifficile;
-import intelligenceArtificielle.IntelligenceArtificielleFacile;
-import intelligenceArtificielle.IntelligenceArtificielleMoyen;
 import java.awt.dnd.DropTarget;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Observable;
 import javax.swing.TransferHandler;
@@ -23,8 +23,12 @@ import stockage.DAOFactory;
  */
 public class Partie extends Observable {
 
+    
     ////////////////////////////// VARIABLES //////////////////////////////////
+    
+    
     private String _id;
+    private String _date;
     private Parametre _parametre;
     private Joueur _j1;
     private Joueur _j2;
@@ -34,24 +38,37 @@ public class Partie extends Observable {
     private String _message;
     private String _messageFinPartie;
 
+    
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
+    
+    
     public Partie() {
 
     } // Partie()
 
+    
     public Partie(Parametre parametre, boolean automatique) {
 
         this._id = "partie" + parametre.hashCode();
+        
+        // Recuperation de la date
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+        Calendar cal = Calendar.getInstance();
+        
+        this._date = dateFormat.format(cal.getTime());
         this._parametre = parametre;
         this._automatique = automatique;
         this.intelligenceArtificielle = FactoryIA.getInstance().getIntelligenceArtificielle(this._parametre, this._parametre.getDifficulte());
 
     } // Partie(Parametre parametre, boolean automatique)
 
+    
     ////////////////////////////// FONCTIONS //////////////////////////////////
-    /**
-     * ************************* INITIALISATION *****************************
-     */
+    
+    
+    /************************** INITIALISATION ******************************/
+    
+    
     /**
      * Permet de lancer la partie
      */
@@ -62,6 +79,7 @@ public class Partie extends Observable {
 
     } // jouerPartie()
 
+    
     /**
      * Permet d'initialiser la portee des cases
      */
@@ -97,6 +115,7 @@ public class Partie extends Observable {
 
     } // initialisationPorteeCases()
 
+    
     /**
      * Permet de cloturer la partie
      */
@@ -104,6 +123,7 @@ public class Partie extends Observable {
 
     } // clorePartie()
 
+    
     /**
      * Permet de sauvegarder la partie d'un profil
      *
@@ -115,6 +135,7 @@ public class Partie extends Observable {
 
     } // sauvegarderPartie(Profil profil)
 
+    
     /**
      * Permet d'autoriser ou non le Drag & Drop sur les cases su joueur
      *
@@ -164,6 +185,7 @@ public class Partie extends Observable {
 
     } // autoriserDragDropJoueur(boolean autorisation)
 
+    
     /**
      * Permet au joueur de faire tourner un de ses bateaux
      *
@@ -173,6 +195,7 @@ public class Partie extends Observable {
 
     } // rotationBateau(Bateau bateau)
 
+    
     /**
      * Permet au joueur de positionner un de ses bateaux sur la grille
      *
@@ -243,9 +266,9 @@ public class Partie extends Observable {
 
     } // positionnerBateau(int x, int y, Case cArrive)
 
+    
     /**
      * Permet de savoir si le bateau peut etre deplace ou non
-     *
      * @param sens orientation du bateau 1 - Horizontal 2 - Vertical
      * @param taille longueur du bateau a placer
      * @param cArrive premiere case de la nouvelle position du bateau
@@ -283,6 +306,7 @@ public class Partie extends Observable {
 
     } // testDeplacementBateau(int sens, Case cArrive)
 
+    
     /**
      * Permet d'ajouter l'evenement de souris sur la case pour le Drag & Drop
      *
@@ -324,12 +348,12 @@ public class Partie extends Observable {
 
     } // addMouseEvent(Case c)
 
-    /**
-     * ********************* GESTION DE LA PARTIE ***************************
-     */
+    
+    /********************** GESTION DE LA PARTIE ****************************/
+    
+    
     /**
      * Permet au joueur de tirer sur une case
-     *
      * @param joueurCourant joueur ayant tire sur une case
      * @param joueurAdverse joueur adverse du joueur ayant tire
      * @param c case sur laquelle on souhaite tirer
@@ -375,6 +399,7 @@ public class Partie extends Observable {
 
     } // jouerCase(Joueur joueurCourant, Joueur joueurAdverse, Case c)
 
+    
     /**
      * Permet de recuperer une case a jouer pour l'IA
      *
@@ -387,12 +412,12 @@ public class Partie extends Observable {
 
     } // getCaseForIA(Joueur joueurAdverse)
 
-    /**
-     * *********************** TEST DE FIN DE PARTIE ************************
-     */
+    
+    /************************* TEST DE FIN DE PARTIE *************************/
+    
+    
     /**
      * Permet de savoir s'il reste des bateaux au joueur adverse ou non
-     *
      * @param joueur joueur sur lequel on test son nombre de bateaux restants
      * @return TRUE si le joueur ne possede plus de cases, FALSE sinon
      */
@@ -411,9 +436,9 @@ public class Partie extends Observable {
 
     } // testVictoire(Joueur joueur)
 
+    
     /**
      * Permet de savoir s'il reste encore des cases a jouer dans la partie
-     *
      * @return TRUE s'il n'y a plus de cases a jouer, FALSE sinon
      */
     public boolean testEgalite() {
@@ -432,12 +457,12 @@ public class Partie extends Observable {
 
     } // testEgalite()
 
-    /**
-     * *************************** MESSAGE **********************************
-     */
+    
+    /**************************** MESSAGE ***********************************/
+    
+    
     /**
      * Permet d'afficher un message au joueur
-     *
      * @param mess message a afficher
      * @param joueur si TRUE joueur courant, si FALSE joueur adverse
      */
@@ -450,9 +475,9 @@ public class Partie extends Observable {
 
     } // afficherMessage(String mess, boolean joueur)
 
+    
     /**
      * Permet d'afficher un message au joueur a la fin de la partie
-     *
      * @param mess message a afficher
      */
     public void afficherMessageFinPartie(String mess) {
@@ -463,15 +488,24 @@ public class Partie extends Observable {
 
     } // afficherMessageFinPartie(String mess)
 
-    /**
-     * ** GETTER/SETTER ****
-     */
+    
+    /***** GETTER/SETTER *****/
+    
+    
     public String getId() {
         return _id;
     }
 
     public void setId(String _id) {
         this._id = _id;
+    }
+
+    public String getDate() {
+        return _date;
+    }
+
+    public void setDate(String _date) {
+        this._date = _date;
     }
 
     public Parametre getParametre() {
@@ -522,4 +556,5 @@ public class Partie extends Observable {
         this._automatique = _automatique;
     }
 
+    
 } // class Partie

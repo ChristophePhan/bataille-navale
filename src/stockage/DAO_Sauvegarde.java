@@ -184,6 +184,7 @@ public class DAO_Sauvegarde {
                 
                 Element p = new Element("partie");
                 p.setAttribute(new Attribute("id", partie.getId()));
+                p.addContent(new Element("date").setText(partie.getDate()));
                 String auto = partie.isAutomatique() ? "1" : "0";
                 p.addContent(new Element("automatique").setText(auto));
                 
@@ -252,7 +253,7 @@ public class DAO_Sauvegarde {
 
             // Enregistre le fichier
             String file = "users" + File.separator + profil.getNom() + ".xml";
-            //xmlOutput.setFormat(Format.getPrettyFormat());
+            xmlOutput.setFormat(Format.getPrettyFormat());
             xmlOutput.output(doc, new FileWriter(file));
  
         } catch (IOException io) {
@@ -343,6 +344,7 @@ public class DAO_Sauvegarde {
                         boolean auto = ("1".equals(partieElt.getChildText("automatique")));
                         partie.setId(idPartie);
                         partie.setAutomatique(auto);
+                        partie.setDate(partieElt.getChildText("date"));
                         
                         // Parametre
                         Element param = (Element) partieElt.getChild("parametre");
@@ -401,7 +403,7 @@ public class DAO_Sauvegarde {
                         ArrayList<Case> casesBis = new ArrayList<>();
                         for (int k = 0; k < listCasesBisXML.size(); k++) {
                             
-                            Element caseElt = (Element) listCasesXML.get(k);
+                            Element caseElt = (Element) listCasesBisXML.get(k);
                             Case c = null;
                             if(caseElt.getChildText("bateau").equals("null")) {
                                 

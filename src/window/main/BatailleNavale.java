@@ -37,6 +37,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import stockage.DAOFactory;
 import window.vue.VuePartie;
 
@@ -103,10 +104,12 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             this.listeProfils.setPreferredSize(new Dimension(w,h/2));
             this.listeProfils.setLayout(fl);
             
+            int nbProfil = 0;
             Iterator iterator = DAOFactory.getInstance().getDAO_Sauvegarde()
                     .getAllProfils().keySet().iterator();
             while(iterator.hasNext()) {
                 
+                nbProfil++;
                 JPanel profilPanel = new JPanel();
                 JPanel legendePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
                 profilPanel.setBackground(Color.WHITE);
@@ -160,6 +163,22 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 this.listeProfils.add(profilPanel);
                 
             }
+            
+            // On limite le nombre de profils a 5
+            if(nbProfil >= 5) {
+                
+                this.buttonAjouterProfil.setEnabled(false);
+                this.buttonAjouterProfil.setBorder(new LineBorder(Color.GRAY, 1));
+                this.buttonAjouterProfil.setForeground(Color.GRAY);
+                
+            } else {
+                
+                this.buttonAjouterProfil.setEnabled(true);
+                this.buttonAjouterProfil.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonAjouterProfil.setForeground(new Color(102,153,255));
+                
+            }
+            
             this.listeProfils.updateUI();
             this.listeProfils.setVisible(true);
             
@@ -184,7 +203,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         popupParties = new javax.swing.JDialog();
         nomProfil = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        buttonAjouterPartie = new javax.swing.JButton();
         panelParties = new javax.swing.JPanel();
         popupParametres = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
@@ -200,7 +219,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         jButtonJouer = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        buttonAjouterProfil = new javax.swing.JButton();
         labelAucunProfil = new javax.swing.JLabel();
         listeProfils = new javax.swing.JPanel();
 
@@ -299,16 +318,16 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Mes parties en cours");
 
-        jButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(102, 153, 255));
-        jButton3.setText("Nouvelle partie");
-        jButton3.setAlignmentX(0.5F);
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonAjouterPartie.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        buttonAjouterPartie.setForeground(new java.awt.Color(102, 153, 255));
+        buttonAjouterPartie.setText("Nouvelle partie");
+        buttonAjouterPartie.setAlignmentX(0.5F);
+        buttonAjouterPartie.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        buttonAjouterPartie.setContentAreaFilled(false);
+        buttonAjouterPartie.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonAjouterPartie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                buttonAjouterPartieActionPerformed(evt);
             }
         });
 
@@ -331,7 +350,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             popupPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupPartiesLayout.createSequentialGroup()
                 .addGap(0, 179, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAjouterPartie, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(171, 171, 171))
             .addGroup(popupPartiesLayout.createSequentialGroup()
                 .addContainerGap()
@@ -351,7 +370,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 .addGap(18, 18, 18)
                 .addComponent(panelParties, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAjouterPartie, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
 
@@ -489,16 +508,16 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Devenez le maître des océans !");
 
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 153, 255));
-        jButton1.setText("Ajouter un profil");
-        jButton1.setAlignmentX(0.5F);
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonAjouterProfil.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        buttonAjouterProfil.setForeground(new java.awt.Color(102, 153, 255));
+        buttonAjouterProfil.setText("Ajouter un profil");
+        buttonAjouterProfil.setAlignmentX(0.5F);
+        buttonAjouterProfil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        buttonAjouterProfil.setContentAreaFilled(false);
+        buttonAjouterProfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonAjouterProfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonAjouterProfilActionPerformed(evt);
             }
         });
 
@@ -535,7 +554,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(300, 300, 300)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAjouterProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -553,7 +572,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 .addGap(18, 18, 18)
                 .addComponent(listeProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAjouterProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -570,7 +589,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
      * Permet d'afficher la fenetre permettant de creer un nouveau profil
      * @param evt 
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonAjouterProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAjouterProfilActionPerformed
         
         this.popupNouveauProfil.setLocationRelativeTo(null);
         this.erreurNomProfil.setText("\n");
@@ -578,7 +597,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         this.popupNouveauProfil.setVisible(true);
         this.saisieNomProfil.requestFocus();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonAjouterProfilActionPerformed
 
     
     /********************* JDIALOG - NOUVEAU PROFIL **************************/
@@ -645,6 +664,8 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         FlowLayout fl = new FlowLayout();
         this.panelParties.removeAll();
         this.panelParties.setLayout(fl);
+        this.panelParties.setMinimumSize(new Dimension(this.popupParties.getWidth(),this.popupParties.getHeight()/2-50));
+        this.panelParties.setMaximumSize(new Dimension(this.popupParties.getWidth(),this.popupParties.getHeight()/2-50));
         
         if(profil.getParties() == null || profil.getParties().isEmpty()) {
            
@@ -698,8 +719,9 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 panelPartie.add(remove);
                 
                 // Bouton permettant d'acceder a la partie
-                JButton partie = new JButton("Partie " + num);
-                partie.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
+                //JButton partie = new JButton("Partie " + num);
+                JButton partie = new JButton("Partie " + num + " - " + p.getDate());
+                partie.setFont(new Font("Helvetica Neue", Font.PLAIN, 16));
                 partie.setPreferredSize(new Dimension((this.panelParties.getWidth()/5)*3-10,30));
                 partie.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));
                 partie.setContentAreaFilled(false);
@@ -709,6 +731,17 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
 
                 this.panelParties.add(panelPartie);
                 num++;
+                
+            }
+         
+            // On limite a 3 le nombre de parties
+            if(parties.size() >= 3) {
+                
+                this.buttonAjouterPartie.setEnabled(false);
+                
+            } else {
+                
+                this.buttonAjouterPartie.setEnabled(true);
                 
             }
             
@@ -726,7 +759,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
      * Permet de choisir les parametres de la nouvelle partie
      * @param evt 
      */
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void buttonAjouterPartieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAjouterPartieActionPerformed
 
         // Initialisation des tailles de grille
         this.jComboBoxTailleGrilles.removeAllItems();
@@ -758,7 +791,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         this.popupParametres.setVisible(true);
         this.popupParties.setVisible(false);
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_buttonAjouterPartieActionPerformed
 
     
     /**
@@ -895,10 +928,10 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAjouterPartie;
+    private javax.swing.JButton buttonAjouterProfil;
     private javax.swing.JLabel erreurNomProfil;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonJouer;
     private javax.swing.JComboBox jComboBoxDifficultees;
     private javax.swing.JComboBox jComboBoxEpoques;
