@@ -50,31 +50,15 @@ public class IntelligenceArtificielleMoyen extends IntelligenceArtificielle {
 
         Case case2 = caseTouchee.getAbs() != (this._parametre.getNbCaseX() - 1) ? joueurAdverse.getCases().get((caseTouchee.getAbs() + 1) + this._parametre.getNbCaseX() * caseTouchee.getOrd()) : caseTouchee;
         Case case4 = caseTouchee.getOrd() != (this._parametre.getNbCaseY() - 1) ? joueurAdverse.getCases().get(caseTouchee.getAbs() + this._parametre.getNbCaseX() * (caseTouchee.getOrd() + 1)) : caseTouchee;
-        
-//        if (!case1.isEtat() && !case1.equals(caseTouchee)) {
-//            this.listeCaseATester.add(case1);
-//        }
-//        if (!case2.isEtat() && !case2.equals(caseTouchee)) {
-//            this.listeCaseATester.add(case2);
-//        }
-//        if (!case3.isEtat() && !case3.equals(caseTouchee)) {
-//            this.listeCaseATester.add(case3);
-//        }
-//        if (!case4.isEtat() && !case4.equals(caseTouchee)) {
-//            this.listeCaseATester.add(case4);
-//        }
-        if (!case1.isEtat()) {
-            this.listeCaseATester.add(case1);
+
+        Case[] tableau = {case1, case2, case3, case4};
+
+        for (Case caseTableau : tableau) {
+            if (!caseTableau.isEtat() && !this.listeCaseATester.contains(caseTableau) && !caseTableau.equals(caseTouchee)) {
+                this.listeCaseATester.add(caseTableau);
+            }
         }
-        if (!case2.isEtat()) {
-            this.listeCaseATester.add(case2);
-        }
-        if (!case3.isEtat()) {
-            this.listeCaseATester.add(case3);
-        }
-        if (!case4.isEtat()) {
-            this.listeCaseATester.add(case4);
-        }
+
     }
 
     private Case tester(Joueur joueurAdverse) {
@@ -83,10 +67,9 @@ public class IntelligenceArtificielleMoyen extends IntelligenceArtificielle {
         Case caseTestee = this.listeCaseATester.get(n);
         if (caseTestee.getClass().getSimpleName().equalsIgnoreCase("CaseBateau")) {
             casesATester(joueurAdverse, caseTestee);
-            this.listeCaseATester.remove(caseTestee);
-        } else {
-            this.listeCaseATester.remove(caseTestee);
         }
+        this.listeCaseATester.remove(caseTestee);
+
         return caseTestee;
     }
 
