@@ -432,7 +432,6 @@ public class DAO_Sauvegarde {
                             for (int k = 0; k < casesIAXML.size(); k++) {
 
                                 Element caseIAElt = (Element) casesIAXML.get(k);
-                                System.out.println(caseIAElt.getName());
                                 int abs = Integer.parseInt(caseIAElt.getChildText("abs"));
                                 int ord = Integer.parseInt(caseIAElt.getChildText("ord"));
                                 int test = 0;
@@ -440,7 +439,7 @@ public class DAO_Sauvegarde {
                                     test++;
                                 }
                                 casesIA.add(cases.get(test));
-                                System.out.println("CASE IAIA");
+                             
                             }
                             ia.setListeCaseATester(casesIA);
                             partie.setIntelligenceArtificielle(ia);
