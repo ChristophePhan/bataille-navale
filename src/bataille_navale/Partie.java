@@ -193,7 +193,7 @@ public class Partie extends Observable {
      * Permet au joueur de faire tourner un de ses bateaux
      */
     public void rotationBateau() {
-
+      
         // On recupere toutes les cases du bateau courant 
         if(this._selectedBateau != null) {
             
@@ -422,6 +422,8 @@ public class Partie extends Observable {
                     handler.exportAsDrag(cDD, me, TransferHandler.COPY);
                     // On memorise le bateau selectionne
                     _selectedBateau = c.getBateau();
+                    setChanged();
+                    notifyObservers("focus");
                     
                 }
             };
