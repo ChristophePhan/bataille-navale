@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
  */
 public class JoueurHumain extends Joueur {
 
-    
+
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
     
@@ -22,7 +22,7 @@ public class JoueurHumain extends Joueur {
     
     public JoueurHumain(Partie partie, String nom) {
         super(partie,nom);
-        
+    
     } // JoueurHumain(Partie partie, String nom)
     
     

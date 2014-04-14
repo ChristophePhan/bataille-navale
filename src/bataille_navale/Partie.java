@@ -12,6 +12,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
 import javax.swing.TransferHandler;
@@ -34,6 +36,7 @@ public class Partie extends Observable {
     private Bateau _selectedBateau;
     private IntelligenceArtificielle intelligenceArtificielle;
     private List<Case> listeCaseATester;
+    private HashMap<String,Case> casesBateaux;
 
     private String _message;
     private String _messageFinPartie;
@@ -56,6 +59,7 @@ public class Partie extends Observable {
         this._parametre = parametre;
         this._automatique = automatique;
         this.intelligenceArtificielle = FactoryIA.getInstance().getIntelligenceArtificielle(this._parametre);
+        this.casesBateaux = new HashMap();
 
     } // Partie(Parametre parametre, boolean automatique)
 
@@ -105,7 +109,11 @@ public class Partie extends Observable {
 
             }
         }
-
+        for(Case c : this._j1.getCases()) {         
+            if(c.getBateau() != null) {
+                casesBateaux.put(c.getBateau().getNom(),c);
+            }
+        }
     } // initialisationPorteeCases()
 
     /**
@@ -486,7 +494,16 @@ public class Partie extends Observable {
 
                 // La machine a touche un bateau
                 this.afficherMessage("Votre adversaire vous a touché !", false);
-
+                Iterator iterator = casesBateaux.keySet().iterator();
+                while(iterator.hasNext()){
+                    Case cb = casesBateaux.get((String)iterator.next());
+                    if(c!=null){
+                        if(cb.getBateau().getNom().equals(c.getBateau().getNom())){
+                            cb.setBateau(c.getBateau());
+                            casesBateaux.put(cb.getBateau().getNom(), cb);
+                        }
+                    }
+                }
             } else {
 
                 // La machine tire dans le vide
@@ -609,6 +626,14 @@ public class Partie extends Observable {
     /**
      * *** GETTER/SETTER ****
      */
+    public HashMap<String, Case> getCasesBateaux() {
+        return casesBateaux;
+    }
+
+    public void setCasesBateaux(HashMap<String, Case> casesBateaux) {
+        this.casesBateaux = casesBateaux;
+    }
+    
     public String getId() {
         return _id;
     }

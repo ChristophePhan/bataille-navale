@@ -47,7 +47,11 @@ public class CaseBateau extends Case {
 
     } // getBateau()
     
-    
+    @Override
+    public void setBateau(Bateau b){
+        this._bateau = b;
+    }
+     
     @Override
     public void dragEnter(DropTargetDragEvent dtde) {
     

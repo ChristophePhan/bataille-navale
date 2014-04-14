@@ -31,7 +31,7 @@ exemple de configuration que le fichier xml doit avoir
         <image>a</image>
         <bateaux>
             <bateau>
-                <nom>Prometheus</nom>
+                <nom>Enterprise</nom>
                 <longueur>5</longueur>
                 <portee>5</portee>
                 <images>

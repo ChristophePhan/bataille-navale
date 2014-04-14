@@ -88,5 +88,9 @@ public class CaseVide extends Case {
         
     } // drop(DropTargetDropEvent dtde)
 
+    @Override
+    public void setBateau(Bateau b) {
         
+    }
+      
 } // clsse CaseVide

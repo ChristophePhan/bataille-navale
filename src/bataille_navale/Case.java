@@ -3,7 +3,6 @@ package bataille_navale;
 import java.awt.Color;
 import java.awt.dnd.DropTargetListener;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -45,6 +44,7 @@ public abstract class Case extends JButton implements DropTargetListener {
      * @return le Bateau associe a la case pour une case Bateau, null sinon
      */
     public abstract Bateau getBateau();
+    public abstract void setBateau(Bateau b);
 
     /**
      * Met a jour les coordonnees de la case dans la grille de jeu
