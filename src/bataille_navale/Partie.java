@@ -2,9 +2,6 @@ package bataille_navale;
 
 import intelligenceArtificielle.FactoryIA;
 import intelligenceArtificielle.IntelligenceArtificielle;
-import intelligenceArtificielle.IntelligenceArtificielleDifficile;
-import intelligenceArtificielle.IntelligenceArtificielleFacile;
-import intelligenceArtificielle.IntelligenceArtificielleMoyen;
 import java.awt.Cursor;
 import java.awt.dnd.DropTarget;
 import java.awt.event.ActionListener;
@@ -27,10 +24,7 @@ import stockage.DAOFactory;
  */
 public class Partie extends Observable {
 
-    
     ////////////////////////////// VARIABLES //////////////////////////////////
-    
-    
     private String _id;
     private String _date;
     private Parametre _parametre;
@@ -39,27 +33,24 @@ public class Partie extends Observable {
     private boolean _automatique;
     private Bateau _selectedBateau;
     private IntelligenceArtificielle intelligenceArtificielle;
+    private List<Case> listeCaseATester;
 
     private String _message;
     private String _messageFinPartie;
 
-    
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    
-    
     public Partie() {
 
     } // Partie()
 
-    
     public Partie(Parametre parametre, boolean automatique) {
 
         this._id = "partie" + parametre.hashCode();
-        
+
         // Recuperation de la date
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
         Calendar cal = Calendar.getInstance();
-        
+
         this._selectedBateau = null;
         this._date = dateFormat.format(cal.getTime());
         this._parametre = parametre;
@@ -68,13 +59,10 @@ public class Partie extends Observable {
 
     } // Partie(Parametre parametre, boolean automatique)
 
-    
     ////////////////////////////// FONCTIONS //////////////////////////////////
-    
-    
-    /************************** INITIALISATION ******************************/
-    
-    
+    /**
+     * ************************ INITIALISATION *****************************
+     */
     /**
      * Permet de lancer la partie
      */
@@ -85,7 +73,6 @@ public class Partie extends Observable {
 
     } // jouerPartie()
 
-    
     /**
      * Permet d'initialiser la portee des cases
      */
@@ -121,7 +108,6 @@ public class Partie extends Observable {
 
     } // initialisationPorteeCases()
 
-    
     /**
      * Permet de cloturer la partie
      */
@@ -129,7 +115,6 @@ public class Partie extends Observable {
 
     } // clorePartie()
 
-    
     /**
      * Permet de sauvegarder la partie d'un profil
      *
@@ -141,7 +126,6 @@ public class Partie extends Observable {
 
     } // sauvegarderPartie(Profil profil)
 
-    
     /**
      * Permet d'autoriser ou non le Drag & Drop sur les cases su joueur
      *
@@ -191,104 +175,102 @@ public class Partie extends Observable {
 
     } // autoriserDragDropJoueur(boolean autorisation)
 
-    
     /**
      * Permet au joueur de faire tourner un de ses bateaux
      */
     public void rotationBateau() {
-      
+
         // On recupere toutes les cases du bateau courant 
-        if(this._selectedBateau != null) {
-            
+        if (this._selectedBateau != null) {
+
             ArrayList<Case> cases = new ArrayList<>();
-            for(Case c : this._j1.getCases()) {
-                
-                if(c.getBateau() != null && c.getBateau().getNom().equals(this._selectedBateau.getNom())) {
-                    
+            for (Case c : this._j1.getCases()) {
+
+                if (c.getBateau() != null && c.getBateau().getNom().equals(this._selectedBateau.getNom())) {
+
                     cases.add(c);
-                    
+
                 }
-                
+
             }
-            
+
             // On effectue la rotation si possible
-            if(cases.get(0).getBateau().getOrientation() == 1) {
-                
+            if (cases.get(0).getBateau().getOrientation() == 1) {
+
                 // On passe a la verticale
-                if(cases.get(0).getOrd()+cases.get(0).getBateau().getLongueur()-1 < this.getParametre().getNbCaseY()) {
-                    
+                if (cases.get(0).getOrd() + cases.get(0).getBateau().getLongueur() - 1 < this.getParametre().getNbCaseY()) {
+
                     boolean test = true;
-                    for(int i=1;i<cases.size();i++) {
-                        
-                        if(this.getJ1().getCases().get(cases.get(0).getAbs()+(cases.get(0).getOrd()+i)*this.getParametre().getNbCaseX()).getBateau() != null) {
+                    for (int i = 1; i < cases.size(); i++) {
+
+                        if (this.getJ1().getCases().get(cases.get(0).getAbs() + (cases.get(0).getOrd() + i) * this.getParametre().getNbCaseX()).getBateau() != null) {
                             test = false;
                         }
-                        
-                    }
-                    
-                    // On peut faire tourner le bateau
-                    if(test) {
-                        
-                        for(int i=1;i<cases.size();i++) {
 
-                            this.getJ1().getCases().set(cases.get(i).getAbs()+cases.get(i).getOrd()*this.getParametre().getNbCaseX(), new CaseVide(this));
+                    }
+
+                    // On peut faire tourner le bateau
+                    if (test) {
+
+                        for (int i = 1; i < cases.size(); i++) {
+
+                            this.getJ1().getCases().set(cases.get(i).getAbs() + cases.get(i).getOrd() * this.getParametre().getNbCaseX(), new CaseVide(this));
                             cases.get(i).setAbs(cases.get(0).getAbs());
-                            cases.get(i).setOrd(cases.get(0).getOrd()+i);
+                            cases.get(i).setOrd(cases.get(0).getOrd() + i);
                             cases.get(i).getBateau().setOrientation(2);
-                            this.getJ1().getCases().set(cases.get(0).getAbs()+(cases.get(0).getOrd()+i)*this.getParametre().getNbCaseX(), cases.get(i));
+                            this.getJ1().getCases().set(cases.get(0).getAbs() + (cases.get(0).getOrd() + i) * this.getParametre().getNbCaseX(), cases.get(i));
 
                         }
                         this.autoriserDragDropJoueur(true);
 
                         setChanged();
                         notifyObservers("reinitialiser");
-                        
+
                     }
-                    
+
                 }
-                
-            } else if(cases.get(0).getBateau().getOrientation() == 2) {
-                
+
+            } else if (cases.get(0).getBateau().getOrientation() == 2) {
+
                 // On passe a l'horizontale
-                if(cases.get(0).getAbs()+cases.get(0).getBateau().getLongueur()-1 < this.getParametre().getNbCaseX()) {
-                    
+                if (cases.get(0).getAbs() + cases.get(0).getBateau().getLongueur() - 1 < this.getParametre().getNbCaseX()) {
+
                     boolean test = true;
-                    for(int i=1;i<cases.size();i++) {
-                        
-                        if(this.getJ1().getCases().get((cases.get(0).getAbs()+i)+cases.get(0).getOrd()*this.getParametre().getNbCaseX()).getBateau() != null) {
+                    for (int i = 1; i < cases.size(); i++) {
+
+                        if (this.getJ1().getCases().get((cases.get(0).getAbs() + i) + cases.get(0).getOrd() * this.getParametre().getNbCaseX()).getBateau() != null) {
                             test = false;
                         }
-                        
-                    }
-                    
-                    // On peut faire tourner le bateau
-                    if(test) {
-                        
-                        for(int i=1;i<cases.size();i++) {
 
-                            this.getJ1().getCases().set(cases.get(i).getAbs()+cases.get(i).getOrd()*this.getParametre().getNbCaseX(), new CaseVide(this));
-                            cases.get(i).setAbs(cases.get(0).getAbs()+i);
+                    }
+
+                    // On peut faire tourner le bateau
+                    if (test) {
+
+                        for (int i = 1; i < cases.size(); i++) {
+
+                            this.getJ1().getCases().set(cases.get(i).getAbs() + cases.get(i).getOrd() * this.getParametre().getNbCaseX(), new CaseVide(this));
+                            cases.get(i).setAbs(cases.get(0).getAbs() + i);
                             cases.get(i).setOrd(cases.get(0).getOrd());
                             cases.get(i).getBateau().setOrientation(1);
-                            this.getJ1().getCases().set((cases.get(0).getAbs()+i)+cases.get(0).getOrd()*this.getParametre().getNbCaseX(), cases.get(i));
+                            this.getJ1().getCases().set((cases.get(0).getAbs() + i) + cases.get(0).getOrd() * this.getParametre().getNbCaseX(), cases.get(i));
 
                         }
                         this.autoriserDragDropJoueur(true);
 
                         setChanged();
                         notifyObservers("reinitialiser");
-                        
+
                     }
-                    
+
                 }
-                
+
             }
-            
+
         }
 
     } // rotationBateau()
 
-    
     /**
      * Permet au joueur de positionner un de ses bateaux sur la grille
      *
@@ -355,18 +337,18 @@ public class Partie extends Observable {
                 // On place une case vide si on ne tombe pas sur un case du
                 // bateau deplace
                 boolean testReset = true;
-                for(Case cBateau : newListe) {
-                    if(cBateau.getAbs() == c.getAbs() && cBateau.getOrd() == c.getOrd()) {
+                for (Case cBateau : newListe) {
+                    if (cBateau.getAbs() == c.getAbs() && cBateau.getOrd() == c.getOrd()) {
                         testReset = false;
                     }
                 }
-                
-                if(testReset) {
-                    
+
+                if (testReset) {
+
                     Case b = new CaseVide(this);
                     b = this.addMouseEvent(b, false);
                     this._j1.getCases().set(c.getAbs() + c.getOrd() * this.getParametre().getNbCaseX(), b);
-                
+
                 }
 
             }
@@ -379,9 +361,9 @@ public class Partie extends Observable {
 
     } // positionnerBateau(int x, int y, Case cArrive)
 
-    
     /**
      * Permet de savoir si le bateau peut etre deplace ou non
+     *
      * @param sens orientation du bateau 1 - Horizontal 2 - Vertical
      * @param taille longueur du bateau a placer
      * @param cArrive premiere case de la nouvelle position du bateau
@@ -395,7 +377,7 @@ public class Partie extends Observable {
             case 1:
                 // Horizontal
                 for (int i = cArrive.getAbs(); i < (cArrive.getAbs() + taille); i++) {
-                    if (i >= this._parametre.getNbCaseX() || (this.getJ1().getCases().get(i + cArrive.getOrd() * this.getParametre().getNbCaseX()).getBateau() != null 
+                    if (i >= this._parametre.getNbCaseX() || (this.getJ1().getCases().get(i + cArrive.getOrd() * this.getParametre().getNbCaseX()).getBateau() != null
                             && !this.getJ1().getCases().get(i + cArrive.getOrd() * this.getParametre().getNbCaseX()).getBateau().getNom().equals(nomBateau))) {
 
                         return false;
@@ -407,7 +389,7 @@ public class Partie extends Observable {
             case 2:
                 // Vertical
                 for (int i = cArrive.getOrd(); i < (cArrive.getOrd() + taille); i++) {
-                    if (i >= this._parametre.getNbCaseY() || (this.getJ1().getCases().get(cArrive.getAbs() + i * this.getParametre().getNbCaseX()).getBateau() != null 
+                    if (i >= this._parametre.getNbCaseY() || (this.getJ1().getCases().get(cArrive.getAbs() + i * this.getParametre().getNbCaseX()).getBateau() != null
                             && !this.getJ1().getCases().get(cArrive.getAbs() + i * this.getParametre().getNbCaseX()).getBateau().getNom().equals(nomBateau))) {
 
                         return false;
@@ -422,7 +404,6 @@ public class Partie extends Observable {
 
     } // testDeplacementBateau(int sens, Case cArrive)
 
-    
     /**
      * Permet d'ajouter l'evenement de souris sur la case pour le Drag & Drop
      *
@@ -450,7 +431,7 @@ public class Partie extends Observable {
                     _selectedBateau = c.getBateau();
                     setChanged();
                     notifyObservers("focus");
-                    
+
                 }
             };
 
@@ -470,12 +451,12 @@ public class Partie extends Observable {
 
     } // addMouseEvent(Case c)
 
-    
-    /********************** GESTION DE LA PARTIE ****************************/
-    
-    
+    /**
+     * ******************** GESTION DE LA PARTIE ***************************
+     */
     /**
      * Permet au joueur de tirer sur une case
+     *
      * @param joueurCourant joueur ayant tire sur une case
      * @param joueurAdverse joueur adverse du joueur ayant tire
      * @param c case sur laquelle on souhaite tirer
@@ -521,9 +502,9 @@ public class Partie extends Observable {
 
     } // jouerCase(Joueur joueurCourant, Joueur joueurAdverse, Case c)
 
-    
     /**
      * Permet de recuperer une case a jouer pour l'IA
+     *
      * @param joueurAdverse joueur physique
      * @return la case a jouer pour l'IA
      */
@@ -532,42 +513,29 @@ public class Partie extends Observable {
         return this.intelligenceArtificielle.getCaseForIA(joueurAdverse);
 
     } // getCaseForIA(Joueur joueurAdverse)
-    
-    
+
     /**
      * Permet de changer la difficultee en cours de partie
-     * @param diff nouvelle difficultee pour la partie
-     * - "Facile"
-     * - "Normal"
-     * - "Difficile"
+     *
+     * @param diff nouvelle difficultee pour la partie - "Facile" - "Normal" -
+     * "Difficile"
      */
     public void changerDifficultee(String diff) {
-        
+        this.listeCaseATester = this.getIntelligenceArtificielle().getListeCaseATester();
         this.getParametre().setDifficulte(diff);
-        switch(diff) {
-            
-            case "Facile":
-                this.intelligenceArtificielle = new IntelligenceArtificielleFacile(this._parametre);
-                break;
-                
-            case "Normale":
-                this.intelligenceArtificielle = new IntelligenceArtificielleMoyen(this._parametre);
-                break;
-                
-            case "Difficile":
-                this.intelligenceArtificielle = new IntelligenceArtificielleDifficile(this._parametre);
-                break;
-            
-        }
-        
+        this.intelligenceArtificielle = FactoryIA.getInstance().getIntelligenceArtificielle(this._parametre);
+        this.intelligenceArtificielle.setListeCaseATester(this.listeCaseATester);
+//        System.out.println(this.intelligenceArtificielle.getClass().getSimpleName());
+//        System.out.println(this.intelligenceArtificielle.getListeCaseATester());
+
     } // changerDifficultee(String diff)
 
-    
-    /************************* TEST DE FIN DE PARTIE *************************/
-    
-    
+    /**
+     * *********************** TEST DE FIN DE PARTIE ************************
+     */
     /**
      * Permet de savoir s'il reste des bateaux au joueur adverse ou non
+     *
      * @param joueur joueur sur lequel on test son nombre de bateaux restants
      * @return TRUE si le joueur ne possede plus de cases, FALSE sinon
      */
@@ -586,9 +554,9 @@ public class Partie extends Observable {
 
     } // testVictoire(Joueur joueur)
 
-    
     /**
      * Permet de savoir s'il reste encore des cases a jouer dans la partie
+     *
      * @return TRUE s'il n'y a plus de cases a jouer, FALSE sinon
      */
     public boolean testEgalite() {
@@ -607,12 +575,12 @@ public class Partie extends Observable {
 
     } // testEgalite()
 
-    
-    /**************************** MESSAGE ***********************************/
-    
-    
+    /**
+     * ************************** MESSAGE **********************************
+     */
     /**
      * Permet d'afficher un message au joueur
+     *
      * @param mess message a afficher
      * @param joueur si TRUE joueur courant, si FALSE joueur adverse
      */
@@ -625,9 +593,9 @@ public class Partie extends Observable {
 
     } // afficherMessage(String mess, boolean joueur)
 
-    
     /**
      * Permet d'afficher un message au joueur a la fin de la partie
+     *
      * @param mess message a afficher
      */
     public void afficherMessageFinPartie(String mess) {
@@ -637,11 +605,10 @@ public class Partie extends Observable {
         notifyObservers("resultat");
 
     } // afficherMessageFinPartie(String mess)
-    
-    
-    /***** GETTER/SETTER *****/
-    
-    
+
+    /**
+     * *** GETTER/SETTER ****
+     */
     public String getId() {
         return _id;
     }
@@ -713,7 +680,7 @@ public class Partie extends Observable {
     public void setSelectedBateau(Bateau _selectedBateau) {
         this._selectedBateau = _selectedBateau;
     }
-    
+
     public IntelligenceArtificielle getIntelligenceArtificielle() {
         return intelligenceArtificielle;
     }
@@ -722,5 +689,4 @@ public class Partie extends Observable {
         this.intelligenceArtificielle = intelligenceArtificielle;
     }
 
-    
 } // class Partie
