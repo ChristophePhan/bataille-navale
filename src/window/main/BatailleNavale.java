@@ -527,6 +527,8 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         labelAucunProfil.setText("Aucun profil disponible");
 
         listeProfils.setBackground(new java.awt.Color(255, 255, 255));
+        listeProfils.setMaximumSize(new java.awt.Dimension(794, 315));
+        listeProfils.setMinimumSize(new java.awt.Dimension(794, 315));
 
         javax.swing.GroupLayout listeProfilsLayout = new javax.swing.GroupLayout(listeProfils);
         listeProfils.setLayout(listeProfilsLayout);
@@ -576,9 +578,9 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(217, 217, 217)
-                    .addComponent(labelAucunProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(226, Short.MAX_VALUE)))
+                    .addGap(177, 177, 177)
+                    .addComponent(labelAucunProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(128, Short.MAX_VALUE)))
         );
 
         pack();

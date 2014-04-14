@@ -2,6 +2,9 @@ package bataille_navale;
 
 import intelligenceArtificielle.FactoryIA;
 import intelligenceArtificielle.IntelligenceArtificielle;
+import intelligenceArtificielle.IntelligenceArtificielleDifficile;
+import intelligenceArtificielle.IntelligenceArtificielleFacile;
+import intelligenceArtificielle.IntelligenceArtificielleMoyen;
 import java.awt.Cursor;
 import java.awt.dnd.DropTarget;
 import java.awt.event.ActionListener;
@@ -529,6 +532,35 @@ public class Partie extends Observable {
         return this.intelligenceArtificielle.getCaseForIA(joueurAdverse);
 
     } // getCaseForIA(Joueur joueurAdverse)
+    
+    
+    /**
+     * Permet de changer la difficultee en cours de partie
+     * @param diff nouvelle difficultee pour la partie
+     * - "Facile"
+     * - "Normal"
+     * - "Difficile"
+     */
+    public void changerDifficultee(String diff) {
+        
+        this.getParametre().setDifficulte(diff);
+        switch(diff) {
+            
+            case "Facile":
+                this.intelligenceArtificielle = new IntelligenceArtificielleFacile(this._parametre);
+                break;
+                
+            case "Normale":
+                this.intelligenceArtificielle = new IntelligenceArtificielleMoyen(this._parametre);
+                break;
+                
+            case "Difficile":
+                this.intelligenceArtificielle = new IntelligenceArtificielleDifficile(this._parametre);
+                break;
+            
+        }
+        
+    } // changerDifficultee(String diff)
 
     
     /************************* TEST DE FIN DE PARTIE *************************/

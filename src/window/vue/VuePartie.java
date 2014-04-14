@@ -11,7 +11,6 @@ import bataille_navale.Partie;
 import bataille_navale.Profil;
 import controller.JouerCaseController;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -58,6 +57,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         this._jeu = jeu;
         this._profil = profil;
         this._partie = partie;
+        this.updateBoutonsDifficultee(partie.getParametre().getDifficulte());
         
         this.getContentPane().setBackground(Color.WHITE);
         this.popupQuitterPartie.getContentPane().setBackground(Color.WHITE);
@@ -90,7 +90,6 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         } else {
             
             // Le positionnement est manuel, on laisse le joueur placer ses bateaux
-       
             this.initialisation();
             this.labelInstructionsJoueur.setText("Vous pouvez déplacer vos bateaux sur la grille de droite.");
             this.labelInstructionsAdversaire.setText("Cliquez sur 'Jouer !' pour commencer la partie.");
@@ -269,6 +268,9 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        buttonFacile = new javax.swing.JButton();
+        buttonNormal = new javax.swing.JButton();
+        buttonDifficile = new javax.swing.JButton();
 
         popupQuitterPartie.setSize(new java.awt.Dimension(500, 180));
         popupQuitterPartie.setMinimumSize(new java.awt.Dimension(500, 180));
@@ -602,6 +604,42 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         jLabel7.setText("Case hors de portée de tir");
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
+        buttonFacile.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        buttonFacile.setForeground(new java.awt.Color(102, 153, 255));
+        buttonFacile.setText("Facile");
+        buttonFacile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        buttonFacile.setContentAreaFilled(false);
+        buttonFacile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonFacile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changerDifficultee(evt);
+            }
+        });
+
+        buttonNormal.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        buttonNormal.setForeground(new java.awt.Color(102, 153, 255));
+        buttonNormal.setText("Normal");
+        buttonNormal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        buttonNormal.setContentAreaFilled(false);
+        buttonNormal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNormal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changerDifficultee(evt);
+            }
+        });
+
+        buttonDifficile.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        buttonDifficile.setForeground(new java.awt.Color(102, 153, 255));
+        buttonDifficile.setText("Difficile");
+        buttonDifficile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        buttonDifficile.setContentAreaFilled(false);
+        buttonDifficile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonDifficile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changerDifficultee(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -609,23 +647,28 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(labelFlotteAdverse)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(flecheFlotteAdverse))
-                        .addComponent(plateauJoueurAdverse, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addGap(240, 240, 240)
+                        .addComponent(labelFlotteAdverse)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(flecheFlotteAdverse))
+                    .addComponent(plateauJoueurAdverse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(labelInstructionsJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(labelInstructionsAdversaire, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonFacile, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonDifficile, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -677,9 +720,9 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelBattleship, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)
+                        .addGap(18, 18, 18)
                         .addComponent(plateauJoueurCourant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
+                        .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(flecheFlotteJoueur, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(labelFlotteJoueur))
@@ -690,29 +733,39 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(plateauJoueurAdverse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelFlotteAdverse)
-                            .addComponent(flecheFlotteAdverse, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(0, 3, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(labelTitreTirsReussis)
+                                        .addComponent(labelTirsReussis, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelTitreTirsRates, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(labelTirsRates))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(buttonFacile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(1, 1, 1))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(0, 1, Short.MAX_VALUE))))))
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelTitreTirsReussis)
-                                    .addComponent(labelTirsReussis, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelTitreTirsRates, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labelTirsRates))))))
-                .addGap(13, 13, 13))
+                                .addGap(4, 4, 4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(flecheFlotteAdverse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelFlotteAdverse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(buttonNormal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(buttonDifficile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addGap(8, 8, 8))
         );
 
         pack();
@@ -814,6 +867,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         this._batailleNavale.setEnabled(true);
         this._batailleNavale.setVisible(true);
         this.popupVictoire.dispose();
+        this._profil.supprimerPartie(this._partie.getId());
         this.dispose();
         this.setEnabled(true);
         
@@ -850,11 +904,78 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
     }//GEN-LAST:event_buttonNouvellePartieActionPerformed
 
     
+    /**
+     * Permet de modifier la difficultee de la partie en cours
+     * @param evt 
+     */
+    private void changerDifficultee(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changerDifficultee
+        
+        this.updateBoutonsDifficultee(evt.getActionCommand());
+        this._partie.changerDifficultee(evt.getActionCommand());
+        
+    }//GEN-LAST:event_changerDifficultee
+
+    
+    /**
+     * Met a jour la vue des boutons de difficultee
+     * @param diff 
+     */
+    public void updateBoutonsDifficultee(String diff) {
+        
+        switch(diff) {
+         
+            case "Facile":
+                // On change la partie en facile
+                this.buttonFacile.setEnabled(false);
+                this.buttonFacile.setForeground(Color.LIGHT_GRAY);
+                this.buttonFacile.setBorder(new LineBorder(Color.LIGHT_GRAY,1));
+                this.buttonNormal.setEnabled(true);
+                this.buttonNormal.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonNormal.setForeground(new Color(102,153,255));
+                this.buttonDifficile.setEnabled(true);
+                this.buttonDifficile.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonDifficile.setForeground(new Color(102,153,255));
+                break;
+                
+            case "Normal":
+                // On change la partie en facile
+                this.buttonFacile.setEnabled(true);
+                this.buttonFacile.setForeground(new Color(102,153,255));
+                this.buttonFacile.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonNormal.setEnabled(false);
+                this.buttonNormal.setBorder(new LineBorder(Color.LIGHT_GRAY,1));
+                this.buttonNormal.setForeground(Color.LIGHT_GRAY);
+                this.buttonDifficile.setEnabled(true);
+                this.buttonDifficile.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonDifficile.setForeground(new Color(102,153,255));
+                break;
+                
+            case "Difficile":
+                // On change la partie en facile
+                this.buttonFacile.setEnabled(true);
+                this.buttonFacile.setForeground(new Color(102,153,255));
+                this.buttonFacile.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonNormal.setEnabled(true);
+                this.buttonNormal.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonNormal.setForeground(new Color(102,153,255));
+                this.buttonDifficile.setEnabled(false);
+                this.buttonDifficile.setBorder(new LineBorder(Color.LIGHT_GRAY,1));
+                this.buttonDifficile.setForeground(Color.LIGHT_GRAY);
+                break;
+            
+        }
+        
+    } // updateBoutonsDifficultee(String diff)
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAnnuler;
+    private javax.swing.JButton buttonDifficile;
     private javax.swing.JButton buttonEnregistrer;
+    private javax.swing.JButton buttonFacile;
     private javax.swing.JButton buttonFinQuitter;
     private javax.swing.JButton buttonJouer;
+    private javax.swing.JButton buttonNormal;
     private javax.swing.JButton buttonNouvellePartie;
     private javax.swing.JButton buttonQuitter;
     private javax.swing.JLabel flecheFlotteAdverse;
