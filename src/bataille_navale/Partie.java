@@ -297,6 +297,7 @@ public class Partie extends Observable {
 
         Bateau bateau = this._j1.getCases().get(abs + ord * this._parametre.getNbCaseX()).getBateau();
         List<Case> liste = new ArrayList<>();
+        List<Case> newListe = new ArrayList<>();
 
         // Recuperation de toutes les cases du bateau
         for (Case c : this.getJ1().getCases()) {
@@ -305,7 +306,7 @@ public class Partie extends Observable {
             }
         }
 
-        boolean test = this.testDeplacementBateau(bateau.getOrientation(), bateau.getLongueur(), cArrive);
+        boolean test = this.testDeplacementBateau(bateau.getOrientation(), bateau.getLongueur(), cArrive, bateau.getNom());
         switch (bateau.getOrientation()) {
 
             case 1:
@@ -315,6 +316,9 @@ public class Partie extends Observable {
 
                         Case b = new CaseBateau(bateau, this);
                         b = this.addMouseEvent(b, true);
+                        b.setAbs(i);
+                        b.setOrd(cArrive.getOrd());
+                        newListe.add(b);
                         this._j1.getCases().set(i + cArrive.getOrd() * this.getParametre().getNbCaseX(), b);
 
                     }
@@ -328,6 +332,9 @@ public class Partie extends Observable {
 
                         Case b = new CaseBateau(bateau, this);
                         b = this.addMouseEvent(b, true);
+                        b.setAbs(cArrive.getAbs());
+                        b.setOrd(i);
+                        newListe.add(b);
                         this._j1.getCases().set(cArrive.getAbs() + i * this.getParametre().getNbCaseX(), b);
 
                     }
@@ -342,9 +349,22 @@ public class Partie extends Observable {
 
             for (Case c : liste) {
 
-                Case b = new CaseVide(this);
-                b = this.addMouseEvent(b, false);
-                this._j1.getCases().set(c.getAbs() + c.getOrd() * this.getParametre().getNbCaseX(), b);
+                // On place une case vide si on ne tombe pas sur un case du
+                // bateau deplace
+                boolean testReset = true;
+                for(Case cBateau : newListe) {
+                    if(cBateau.getAbs() == c.getAbs() && cBateau.getOrd() == c.getOrd()) {
+                        testReset = false;
+                    }
+                }
+                
+                if(testReset) {
+                    
+                    Case b = new CaseVide(this);
+                    b = this.addMouseEvent(b, false);
+                    this._j1.getCases().set(c.getAbs() + c.getOrd() * this.getParametre().getNbCaseX(), b);
+                
+                }
 
             }
             this.autoriserDragDropJoueur(true);
@@ -362,16 +382,18 @@ public class Partie extends Observable {
      * @param sens orientation du bateau 1 - Horizontal 2 - Vertical
      * @param taille longueur du bateau a placer
      * @param cArrive premiere case de la nouvelle position du bateau
+     * @param nomBateau nom unique du bateau a deplacer
      * @return TRUE si le bateau peut etre deplace, FALSE sinon
      */
-    public boolean testDeplacementBateau(int sens, int taille, Case cArrive) {
+    public boolean testDeplacementBateau(int sens, int taille, Case cArrive, String nomBateau) {
 
         switch (sens) {
 
             case 1:
                 // Horizontal
                 for (int i = cArrive.getAbs(); i < (cArrive.getAbs() + taille); i++) {
-                    if (i >= this._parametre.getNbCaseX() || this.getJ1().getCases().get(i + cArrive.getOrd() * this.getParametre().getNbCaseX()).getBateau() != null) {
+                    if (i >= this._parametre.getNbCaseX() || (this.getJ1().getCases().get(i + cArrive.getOrd() * this.getParametre().getNbCaseX()).getBateau() != null 
+                            && !this.getJ1().getCases().get(i + cArrive.getOrd() * this.getParametre().getNbCaseX()).getBateau().getNom().equals(nomBateau))) {
 
                         return false;
 
@@ -382,7 +404,8 @@ public class Partie extends Observable {
             case 2:
                 // Vertical
                 for (int i = cArrive.getOrd(); i < (cArrive.getOrd() + taille); i++) {
-                    if (i >= this._parametre.getNbCaseY() || this.getJ1().getCases().get(cArrive.getAbs() + i * this.getParametre().getNbCaseX()).getBateau() != null) {
+                    if (i >= this._parametre.getNbCaseY() || (this.getJ1().getCases().get(cArrive.getAbs() + i * this.getParametre().getNbCaseX()).getBateau() != null 
+                            && !this.getJ1().getCases().get(cArrive.getAbs() + i * this.getParametre().getNbCaseX()).getBateau().getNom().equals(nomBateau))) {
 
                         return false;
 
