@@ -298,6 +298,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         buttonDifficile = new javax.swing.JButton();
 
         popupQuitterPartie.setSize(new java.awt.Dimension(500, 180));
+        popupQuitterPartie.setAlwaysOnTop(true);
         popupQuitterPartie.setMinimumSize(new java.awt.Dimension(500, 180));
         popupQuitterPartie.setResizable(false);
         popupQuitterPartie.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -396,6 +397,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
                 .addGap(17, 17, 17))
         );
 
+        popupVictoire.setAlwaysOnTop(true);
         popupVictoire.setMinimumSize(new java.awt.Dimension(600, 205));
         popupVictoire.setResizable(false);
         popupVictoire.addWindowListener(new java.awt.event.WindowAdapter() {
