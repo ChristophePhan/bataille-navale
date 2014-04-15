@@ -47,6 +47,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
     public Profil _profil;
     public Partie _partie;
     public JPanel etatBateaux;
+    public JPanel bateaux;
     public boolean manuel;
     
     
@@ -70,6 +71,8 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         
         this.etatBateaux = new JPanel();
         this.etatBateaux.setLayout(new BoxLayout(this.etatBateaux, BoxLayout.Y_AXIS));
+        this.bateaux = new JPanel();
+        this.bateaux.setLayout(new BoxLayout(this.bateaux, BoxLayout.Y_AXIS));
         
         initComponents();
         this._batailleNavale = batailleNavale;
@@ -100,6 +103,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         if(partie.isAutomatique() || test) { 
             
             // Le positionnement est aleatoire, on lance la partie
+            this.panelInfosBateauxJoueur.setLayout(new BoxLayout(this.panelInfosBateauxJoueur, BoxLayout.X_AXIS));
             this.buttonJouer.setEnabled(false);
             this.buttonJouer.setVisible(false);
             this.labelRotation1.setVisible(false);
@@ -110,13 +114,14 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
             
             // Le positionnement est manuel, on laisse le joueur placer ses bateaux
             this.initialisation();
+            //this.panelInfosBateauxJoueur.setLayout(new BoxLayout(this.panelInfosBateauxJoueur, BoxLayout.Y_AXIS));
             this.labelInstructionsJoueur.setText("Vous pouvez déplacer vos bateaux sur la grille de droite.");
             this.labelInstructionsAdversaire.setText("Cliquez sur 'Jouer !' pour commencer la partie.");
             partie.autoriserDragDropJoueur(true);
             this.buttonJouer.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    
+                    panelInfosBateauxJoueur.setLayout(new BoxLayout(panelInfosBateauxJoueur, BoxLayout.X_AXIS));
                     for(KeyListener kl : getKeyListeners()) {
                         removeKeyListener(kl);
                     }
@@ -137,7 +142,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
             
         }
         
-        this.panelInfosBateauxJoueur.setLayout(new BoxLayout(this.panelInfosBateauxJoueur, BoxLayout.Y_AXIS));
+        this.panelInfosBateauxJoueur.add(this.bateaux);
         this.panelInfosBateauxJoueur.add(this.etatBateaux);
         
         this.popupQuitterPartie.setLocationRelativeTo(null);
@@ -995,21 +1000,27 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
     public void miseAJourEtatsBateaux(){
         this.etatBateaux.setVisible(manuel || this._partie.isAutomatique());
         this.etatBateaux.removeAll();
+        this.bateaux.setVisible(manuel || this._partie.isAutomatique());
+        this.bateaux.removeAll();
         Iterator ite = this._partie.getCasesBateaux().keySet().iterator();
         while(ite.hasNext()){
             Case c = this._partie.getCasesBateaux().get((String)ite.next());
             int nbCasesTouche = c.getBateau().getLongueur()-c.getBateau().getNbCasesNonTouchees();
             int nbCasesNonTouche = c.getBateau().getLongueur() - nbCasesTouche;
-            JPanel panel = new JPanel();
-            panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-            panel.add(new JLabel(c.getBateau().getNom()+" : "));
-            for(int i = 0; i < nbCasesTouche;i++){
-                panel.add(new JLabel("x"));
-            }
+            JPanel panelEtat = new JPanel();
+            panelEtat.setLayout(new BoxLayout(panelEtat, BoxLayout.X_AXIS));
+            this.bateaux.add(new JLabel(c.getBateau().getNom()+" : "));
             for(int i = 0; i < nbCasesNonTouche;i++){
-                panel.add(new JLabel("0"));
+                JLabel nonTouche = new JLabel();
+                nonTouche.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_plein.png")).getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT)));
+                panelEtat.add(nonTouche);
             }
-            this.etatBateaux.add(panel);
+            for(int i = 0; i < nbCasesTouche;i++){
+                JLabel touche = new JLabel();
+                touche.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_vide.png")).getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT)));
+                panelEtat.add(touche);
+            }
+            this.etatBateaux.add(panelEtat);
         }
     }
     
