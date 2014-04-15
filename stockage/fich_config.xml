@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+exemple de configuration que le fichier xml doit avoir
+-->
+<epoques>
+    <epoque>
+        <id>1234</id>
+        <nom>Contemporaine</nom>
+        <siecle>XXIeme</siecle>
+        <image>nnnn</image>
+        <bateaux>
+            <bateau>
+                <nom>Porte-avions</nom>
+                <longueur>5</longueur>
+                <portee>5</portee>
+                <images>
+                    <image id="1">aaaa</image>
+                    <image id="2">bbbb</image>
+                    <image id="3">cccc</image>
+                    <image id="4">dddd</image>
+                    <image id="5">eeee</image>
+                </images>
+            </bateau>
+        </bateaux>
+    </epoque>
+    
+    <epoque>
+        <id>5678</id>
+        <nom>Future</nom>
+        <siecle>inconnu</siecle>
+        <image>a</image>
+        <bateaux>
+            <bateau>
+                <nom>Prometheus</nom>
+                <longueur>5</longueur>
+                <portee>5</portee>
+                <images>
+                    <image id="2">a</image>
+                    <image id="3">a</image>
+                    <image id="4">a</image>
+                    <image id="5">a</image>
+                    <image id="6">a</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>BattlestarGalactica</nom>
+                <longueur>4</longueur>
+                <portee>4</portee>
+                <images>
+                    <image id="6">a</image>
+                    <image id="7">b</image>
+                    <image id="8">c</image>
+                    <image id="9">d</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>Raptor</nom>
+                <longueur>3</longueur>
+                <portee>3</portee>
+                <images>
+                    <image id="5">a</image>
+                    <image id="6">a</image>
+                    <image id="7">b</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>Viper</nom>
+                <longueur>2</longueur>
+                <portee>2</portee>
+                <images>
+                    <image id="6">a</image>
+                    <image id="7">a</image>
+                </images>
+            </bateau>
+            
+        </bateaux>
+    </epoque>
+</epoques>
