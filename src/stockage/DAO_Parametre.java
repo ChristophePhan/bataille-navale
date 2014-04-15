@@ -6,11 +6,15 @@
 package stockage;
 
 import bataille_navale.TailleGrille;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -26,7 +30,7 @@ public class DAO_Parametre {
     ////////////////////////////// VARIABLES //////////////////////////////////
     
     
-    private final String path = getClass().getResource("fich_param.xml").getFile();
+    private final String path = "fich_config/fich_param.xml";
     private Document document;
     private final Element racine;
 
@@ -39,6 +43,13 @@ public class DAO_Parametre {
             //On crée un nouveau document JDOM avec en argument le fichier XML
             //Le parsing est terminé ;)
             File f = new File(path);
+            File dossier = new File("fich_config");
+            if(!dossier.exists()){
+                dossier.mkdir();
+            }
+            if(!f.exists()){
+                this.ecrireFichParam();
+            }
             document = sxb.build(f);
         } catch (JDOMException | IOException e) {
             e.printStackTrace();
@@ -77,5 +88,36 @@ public class DAO_Parametre {
         return listeDifficulte;
     }
     
+    private void ecrireFichParam(){
+        File f = new File(path);
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(f));
+            String param = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                                "<!--\n" +
+                                "Fichier XML contenant les parametres disponibles pour une partie\n" +
+                                "-->\n" +
+                                "<parametres>\n" +
+                                "    <grille>\n" +
+                                "        <x>10</x>\n" +
+                                "        <y>10</y>\n" +
+                                "    </grille>\n" +
+                                "    \n" +
+                                "    <grille>\n" +
+                                "        <x>15</x>\n" +
+                                "        <y>15</y>\n" +
+                                "    </grille>\n" +
+                                "    <difficulte>\n" +
+                                "        <mode>Facile</mode>\n" +
+                                "        <mode>Normal</mode>\n" +
+                                "        <mode>Difficile</mode>\n" +
+                                "    </difficulte>\n" +
+                                "</parametres>";
+            bw.write(param);
+            bw.flush();
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(DAO_Parametre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

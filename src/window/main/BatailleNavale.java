@@ -808,6 +808,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         this.popupParametres.setLocationRelativeTo(null);
         this.setEnabled(false);
         this.popupParametres.setVisible(true);
+        this.popupParametres.pack();
         this.popupParties.dispose();
         
     } // choisirParametres()

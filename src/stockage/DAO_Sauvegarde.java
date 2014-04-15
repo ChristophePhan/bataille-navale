@@ -16,9 +16,7 @@ import intelligenceArtificielle.IntelligenceArtificielle;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -97,7 +95,7 @@ public class DAO_Sauvegarde {
         File[] listOfFiles = folder.listFiles();
         
         for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile() && !listOfFiles[i].getName().equals(".DS_Store")) {
+            if (listOfFiles[i].isFile() && listOfFiles[i].getName().endsWith(".xml")) {
                 try {
 
                     SAXBuilder builder = new SAXBuilder();
