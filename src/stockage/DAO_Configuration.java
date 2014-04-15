@@ -39,6 +39,10 @@ public class DAO_Configuration {
             //On crée un nouveau document JDOM avec en argument le fichier XML
             //Le parsing est terminé ;)
             File f = new File(path);  
+            File dossier = new File("fich_config");
+            if(!dossier.exists()){
+                dossier.mkdir();
+            }
             if(!f.exists()){
                 this.ecrireFichConfig();
             }
