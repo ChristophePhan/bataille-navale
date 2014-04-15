@@ -2,10 +2,14 @@ package stockage;
 
 import bataille_navale.Bateau;
 import bataille_navale.Epoque;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -26,7 +30,7 @@ public class DAO_Configuration {
     ////////////////////////////// VARIABLES //////////////////////////////////
     
     
-    private final String path = "fich_config/fich_config.xml";
+    private final String path = "stockage/fich_config.xml";
     private Document document;
     private final Element racine;
 
@@ -39,7 +43,7 @@ public class DAO_Configuration {
             //On crée un nouveau document JDOM avec en argument le fichier XML
             //Le parsing est terminé ;)
             File f = new File(path);  
-            File dossier = new File("fich_config");
+            File dossier = new File("stockage");
             if(!dossier.exists()){
                 dossier.mkdir();
             }
@@ -112,92 +116,23 @@ public class DAO_Configuration {
     } // getAllBateaux(Epoque epoque)
     
     private void ecrireFichConfig(){
-        File f = new File(path);
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(f));
-            String param = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-                                "<!--\n" +
-                                "exemple de configuration que le fichier xml doit avoir\n" +
-                                "-->\n" +
-                                "<epoques>\n" +
-                                "    <epoque>\n" +
-                                "        <id>1234</id>\n" +
-                                "        <nom>Contemporaine</nom>\n" +
-                                "        <siecle>XXIeme</siecle>\n" +
-                                "        <image>nnnn</image>\n" +
-                                "        <bateaux>\n" +
-                                "            <bateau>\n" +
-                                "                <nom>Porte-avions</nom>\n" +
-                                "                <longueur>5</longueur>\n" +
-                                "                <portee>5</portee>\n" +
-                                "                <images>\n" +
-                                "                    <image id=\"1\">aaaa</image>\n" +
-                                "                    <image id=\"2\">bbbb</image>\n" +
-                                "                    <image id=\"3\">cccc</image>\n" +
-                                "                    <image id=\"4\">dddd</image>\n" +
-                                "                    <image id=\"5\">eeee</image>\n" +
-                                "                </images>\n" +
-                                "            </bateau>\n" +
-                                "        </bateaux>\n" +
-                                "    </epoque>\n" +
-                                "    \n" +
-                                "    <epoque>\n" +
-                                "        <id>5678</id>\n" +
-                                "        <nom>Future</nom>\n" +
-                                "        <siecle>inconnu</siecle>\n" +
-                                "        <image>a</image>\n" +
-                                "        <bateaux>\n" +
-                                "            <bateau>\n" +
-                                "                <nom>Enterprise</nom>\n" +
-                                "                <longueur>5</longueur>\n" +
-                                "                <portee>5</portee>\n" +
-                                "                <images>\n" +
-                                "                    <image id=\"2\">a</image>\n" +
-                                "                    <image id=\"3\">a</image>\n" +
-                                "                    <image id=\"4\">a</image>\n" +
-                                "                    <image id=\"5\">a</image>\n" +
-                                "                    <image id=\"6\">a</image>\n" +
-                                "                </images>\n" +
-                                "            </bateau>\n" +
-                                "            <bateau>\n" +
-                                "                <nom>BattlestarGalactica</nom>\n" +
-                                "                <longueur>4</longueur>\n" +
-                                "                <portee>4</portee>\n" +
-                                "                <images>\n" +
-                                "                    <image id=\"6\">a</image>\n" +
-                                "                    <image id=\"7\">b</image>\n" +
-                                "                    <image id=\"8\">c</image>\n" +
-                                "                    <image id=\"9\">d</image>\n" +
-                                "                </images>\n" +
-                                "            </bateau>\n" +
-                                "            <bateau>\n" +
-                                "                <nom>Raptor</nom>\n" +
-                                "                <longueur>3</longueur>\n" +
-                                "                <portee>3</portee>\n" +
-                                "                <images>\n" +
-                                "                    <image id=\"5\">a</image>\n" +
-                                "                    <image id=\"6\">a</image>\n" +
-                                "                    <image id=\"7\">b</image>\n" +
-                                "                </images>\n" +
-                                "            </bateau>\n" +
-                                "            <bateau>\n" +
-                                "                <nom>Viper</nom>\n" +
-                                "                <longueur>2</longueur>\n" +
-                                "                <portee>2</portee>\n" +
-                                "                <images>\n" +
-                                "                    <image id=\"6\">a</image>\n" +
-                                "                    <image id=\"7\">a</image>\n" +
-                                "                </images>\n" +
-                                "            </bateau>\n" +
-                                "            \n" +
-                                "        </bateaux>\n" +
-                                "    </epoque>\n" +
-                                "</epoques>";
-            bw.write(param);
+            URL s = getClass().getClassLoader().getResource("stockage/fich_config.xml");
+            System.out.println(s);
+            File f = new File(s.toURI());
+            BufferedReader br = new BufferedReader(new FileReader(f));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(new File(path)));
+            String line;
+            while(( line = br.readLine()) != null){
+                bw.append(line);
+                bw.newLine();
+            }
             bw.flush();
             bw.close();
         } catch (IOException ex) {
             Logger.getLogger(DAO_Parametre.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(DAO_Configuration.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

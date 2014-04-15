@@ -6,10 +6,14 @@
 package stockage;
 
 import bataille_navale.TailleGrille;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -30,7 +34,7 @@ public class DAO_Parametre {
     ////////////////////////////// VARIABLES //////////////////////////////////
     
     
-    private final String path = "fich_config/fich_param.xml";
+    private final String path = "stockage/fich_param.xml";
     private Document document;
     private final Element racine;
 
@@ -43,7 +47,7 @@ public class DAO_Parametre {
             //On crée un nouveau document JDOM avec en argument le fichier XML
             //Le parsing est terminé ;)
             File f = new File(path);
-            File dossier = new File("fich_config");
+            File dossier = new File("stockage");
             if(!dossier.exists()){
                 dossier.mkdir();
             }
@@ -89,34 +93,23 @@ public class DAO_Parametre {
     }
     
     private void ecrireFichParam(){
-        File f = new File(path);
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(f));
-            String param = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-                                "<!--\n" +
-                                "Fichier XML contenant les parametres disponibles pour une partie\n" +
-                                "-->\n" +
-                                "<parametres>\n" +
-                                "    <grille>\n" +
-                                "        <x>10</x>\n" +
-                                "        <y>10</y>\n" +
-                                "    </grille>\n" +
-                                "    \n" +
-                                "    <grille>\n" +
-                                "        <x>15</x>\n" +
-                                "        <y>15</y>\n" +
-                                "    </grille>\n" +
-                                "    <difficulte>\n" +
-                                "        <mode>Facile</mode>\n" +
-                                "        <mode>Normal</mode>\n" +
-                                "        <mode>Difficile</mode>\n" +
-                                "    </difficulte>\n" +
-                                "</parametres>";
-            bw.write(param);
+            URL s = getClass().getClassLoader().getResource("stockage/fich_param.xml");
+            System.out.println(s);
+            File f = new File(s.toURI());
+            BufferedReader br = new BufferedReader(new FileReader(f));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(new File(path)));
+            String line;
+            while(( line = br.readLine()) != null){
+                bw.append(line);
+                bw.newLine();
+            }
             bw.flush();
             bw.close();
         } catch (IOException ex) {
             Logger.getLogger(DAO_Parametre.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(DAO_Configuration.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
