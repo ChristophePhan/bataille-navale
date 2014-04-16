@@ -1,15 +1,15 @@
 package bataille_navale;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.RenderingHints;
-import java.awt.Transparency;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
-import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -82,7 +82,16 @@ public class CaseBateau extends Case {
     @Override
     public void drop(DropTargetDropEvent dtde) {
         
-        // On ne peut pas deplacer un bateau sur un autre bateau
+        try {
+            // Recuperation des coordonnees de la case d'origin
+            final String coord = (String) dtde.getTransferable().getTransferData(
+                    new DataFlavor("application/x-java-jvm-local-objectref; class=java.lang.String"));
+            int x = Integer.parseInt(coord.split("x")[0]);
+            int y = Integer.parseInt(coord.split("x")[1]);
+            this._partie.positionnerBateau(x, y, this);       
+        } catch (UnsupportedFlavorException | IOException | ClassNotFoundException ex) {
+            Logger.getLogger(CaseVide.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     } // drop(DropTargetDropEvent dtde)
     
