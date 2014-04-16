@@ -302,6 +302,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         popupParties.setSize(new java.awt.Dimension(500, 350));
         popupParties.setAlwaysOnTop(true);
         popupParties.setFocusTraversalPolicyProvider(true);
+        popupParties.setMaximumSize(new java.awt.Dimension(500, 350));
         popupParties.setMinimumSize(new java.awt.Dimension(500, 350));
         popupParties.setResizable(false);
         popupParties.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -378,6 +379,8 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
 
         popupParametres.setSize(new java.awt.Dimension(500, 350));
         popupParametres.setAlwaysOnTop(true);
+        popupParametres.setMaximumSize(new java.awt.Dimension(500, 350));
+        popupParametres.setMinimumSize(new java.awt.Dimension(500, 350));
         popupParametres.setResizable(false);
         popupParametres.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {

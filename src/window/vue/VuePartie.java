@@ -13,6 +13,8 @@ import bataille_navale.Profil;
 import controller.JouerCaseController;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -50,6 +52,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
     public JPanel bateaux;
     public boolean manuel;
     
+    
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
 
     
@@ -68,17 +71,19 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
             System.err.println("image de fond pas trouvée");
         }
         
-        this.etatBateaux = new JPanel();
-        this.etatBateaux.setLayout(new BoxLayout(this.etatBateaux, BoxLayout.Y_AXIS));
-        this.bateaux = new JPanel();
-        this.bateaux.setLayout(new BoxLayout(this.bateaux, BoxLayout.Y_AXIS));
-        
         initComponents();
         this._batailleNavale = batailleNavale;
         this._jeu = jeu;
         this._profil = profil;
         this._partie = partie;
         this.updateBoutonsDifficultee(partie.getParametre().getDifficulte());
+        
+        this.etatBateaux = new JPanel();
+        this.etatBateaux.setOpaque(false);
+        this.etatBateaux.setLayout(new BoxLayout(this.etatBateaux, BoxLayout.Y_AXIS));
+        this.bateaux = new JPanel();
+        this.bateaux.setOpaque(false);
+        this.bateaux.setLayout(new GridLayout(this._partie.getParametre().getBateaux(this._partie.getParametre().getEpoque()).size(),1));
         
         this.getContentPane().setBackground(Color.WHITE);
         this.popupQuitterPartie.getContentPane().setBackground(Color.WHITE);
@@ -466,7 +471,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         setResizable(false);
 
         labelEpoque.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        labelEpoque.setForeground(new java.awt.Color(51, 102, 255));
+        labelEpoque.setForeground(new java.awt.Color(255, 255, 255));
         labelEpoque.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelEpoque.setText("Epoque");
         labelEpoque.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -476,12 +481,14 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         labelInstructionsJoueur.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelInstructionsJoueur.setText("Instructions joueur");
 
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 153, 255));
+        jButton1.setBackground(new java.awt.Color(102, 153, 255));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Quitter");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setOpaque(true);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -536,11 +543,11 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         jLabel2.setText("Vos bateaux");
 
         labelFlotteJoueur.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        labelFlotteJoueur.setForeground(new java.awt.Color(51, 102, 255));
+        labelFlotteJoueur.setForeground(new java.awt.Color(255, 255, 255));
         labelFlotteJoueur.setText("Votre flotte");
 
         labelFlotteAdverse.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        labelFlotteAdverse.setForeground(new java.awt.Color(51, 102, 255));
+        labelFlotteAdverse.setForeground(new java.awt.Color(255, 255, 255));
         labelFlotteAdverse.setText("Flotte adverse");
 
         flecheFlotteJoueur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stockage/images/Fleche_haut.png"))); // NOI18N
@@ -551,28 +558,31 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         flecheFlotteAdverse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stockage/images/Fleche_haut.png"))); // NOI18N
 
         labelInstructionsAdversaire.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        labelInstructionsAdversaire.setForeground(new java.awt.Color(51, 102, 255));
+        labelInstructionsAdversaire.setForeground(new java.awt.Color(255, 255, 255));
         labelInstructionsAdversaire.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelInstructionsAdversaire.setText("Instructions adversaire");
 
         panelInfosBateauxJoueur.setBackground(new java.awt.Color(255, 255, 255));
         panelInfosBateauxJoueur.setMaximumSize(new java.awt.Dimension(300, 115));
         panelInfosBateauxJoueur.setMinimumSize(new java.awt.Dimension(300, 115));
+        panelInfosBateauxJoueur.setOpaque(false);
 
+        buttonJouer.setBackground(new java.awt.Color(102, 153, 255));
         buttonJouer.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
-        buttonJouer.setForeground(new java.awt.Color(102, 153, 255));
+        buttonJouer.setForeground(new java.awt.Color(255, 255, 255));
         buttonJouer.setText("Jouer !");
-        buttonJouer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        buttonJouer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         buttonJouer.setContentAreaFilled(false);
         buttonJouer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonJouer.setOpaque(true);
 
         labelRotation1.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        labelRotation1.setForeground(new java.awt.Color(102, 102, 102));
+        labelRotation1.setForeground(new java.awt.Color(255, 255, 255));
         labelRotation1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelRotation1.setText("Sélectionnez un bateau puis cliquez sur les flèches");
 
         labelRotation2.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        labelRotation2.setForeground(new java.awt.Color(102, 102, 102));
+        labelRotation2.setForeground(new java.awt.Color(255, 255, 255));
         labelRotation2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelRotation2.setText("droite/gauche de votre clavier pour le faire tourner.");
 
@@ -583,7 +593,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
             .addGroup(panelInfosBateauxJoueurLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelInfosBateauxJoueurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelRotation1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                    .addComponent(labelRotation1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                     .addComponent(labelRotation2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfosBateauxJoueurLayout.createSequentialGroup()
@@ -626,45 +636,51 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Case à portée de tir");
         jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Case hors de portée de tir");
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        buttonFacile.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        buttonFacile.setForeground(new java.awt.Color(102, 153, 255));
+        buttonFacile.setBackground(new java.awt.Color(102, 153, 255));
+        buttonFacile.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        buttonFacile.setForeground(new java.awt.Color(255, 255, 255));
         buttonFacile.setText("Facile");
-        buttonFacile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        buttonFacile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         buttonFacile.setContentAreaFilled(false);
         buttonFacile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonFacile.setOpaque(true);
         buttonFacile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changerDifficultee(evt);
             }
         });
 
-        buttonNormal.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        buttonNormal.setForeground(new java.awt.Color(102, 153, 255));
+        buttonNormal.setBackground(new java.awt.Color(102, 153, 255));
+        buttonNormal.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        buttonNormal.setForeground(new java.awt.Color(255, 255, 255));
         buttonNormal.setText("Normal");
-        buttonNormal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        buttonNormal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         buttonNormal.setContentAreaFilled(false);
         buttonNormal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNormal.setOpaque(true);
         buttonNormal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changerDifficultee(evt);
             }
         });
 
-        buttonDifficile.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        buttonDifficile.setForeground(new java.awt.Color(102, 153, 255));
+        buttonDifficile.setBackground(new java.awt.Color(102, 153, 255));
+        buttonDifficile.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        buttonDifficile.setForeground(new java.awt.Color(255, 255, 255));
         buttonDifficile.setText("Difficile");
-        buttonDifficile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
+        buttonDifficile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         buttonDifficile.setContentAreaFilled(false);
         buttonDifficile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonDifficile.setOpaque(true);
         buttonDifficile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changerDifficultee(evt);
@@ -956,72 +972,107 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
             case "Facile":
                 // On change la partie en facile
                 this.buttonFacile.setEnabled(false);
-                this.buttonFacile.setForeground(Color.LIGHT_GRAY);
-                this.buttonFacile.setBorder(new LineBorder(Color.LIGHT_GRAY,1));
+                this.buttonFacile.setForeground(new Color(102,153,255));
+                this.buttonFacile.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonFacile.setBackground(Color.WHITE);
                 this.buttonNormal.setEnabled(true);
-                this.buttonNormal.setBorder(new LineBorder(new Color(102,153,255),1));
-                this.buttonNormal.setForeground(new Color(102,153,255));
+                this.buttonNormal.setBorder(new LineBorder(Color.WHITE,1));
+                this.buttonNormal.setForeground(Color.WHITE);
+                this.buttonNormal.setBackground(new Color(102,153,255));
                 this.buttonDifficile.setEnabled(true);
-                this.buttonDifficile.setBorder(new LineBorder(new Color(102,153,255),1));
-                this.buttonDifficile.setForeground(new Color(102,153,255));
+                this.buttonDifficile.setBorder(new LineBorder(Color.WHITE,1));
+                this.buttonDifficile.setForeground(Color.WHITE);
+                this.buttonDifficile.setBackground(new Color(102,153,255));
                 break;
                 
             case "Normal":
                 // On change la partie en facile
                 this.buttonFacile.setEnabled(true);
-                this.buttonFacile.setForeground(new Color(102,153,255));
-                this.buttonFacile.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonFacile.setForeground(Color.WHITE);
+                this.buttonFacile.setBorder(new LineBorder(Color.WHITE,1));
+                this.buttonFacile.setBackground(new Color(102,153,255));
                 this.buttonNormal.setEnabled(false);
-                this.buttonNormal.setBorder(new LineBorder(Color.LIGHT_GRAY,1));
-                this.buttonNormal.setForeground(Color.LIGHT_GRAY);
+                this.buttonNormal.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonNormal.setForeground(new Color(102,153,255));
+                this.buttonNormal.setBackground(Color.WHITE);
                 this.buttonDifficile.setEnabled(true);
-                this.buttonDifficile.setBorder(new LineBorder(new Color(102,153,255),1));
-                this.buttonDifficile.setForeground(new Color(102,153,255));
+                this.buttonDifficile.setBorder(new LineBorder(Color.WHITE,1));
+                this.buttonDifficile.setForeground(Color.WHITE);
+                this.buttonDifficile.setBackground(new Color(102,153,255));
                 break;
                 
             case "Difficile":
                 // On change la partie en facile
                 this.buttonFacile.setEnabled(true);
-                this.buttonFacile.setForeground(new Color(102,153,255));
-                this.buttonFacile.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonFacile.setForeground(Color.WHITE);
+                this.buttonFacile.setBorder(new LineBorder(Color.WHITE,1));
+                this.buttonFacile.setBackground(new Color(102,153,255));
                 this.buttonNormal.setEnabled(true);
-                this.buttonNormal.setBorder(new LineBorder(new Color(102,153,255),1));
-                this.buttonNormal.setForeground(new Color(102,153,255));
+                this.buttonNormal.setBorder(new LineBorder(Color.WHITE,1));
+                this.buttonNormal.setForeground(Color.WHITE);
+                this.buttonNormal.setBackground(new Color(102,153,255));
                 this.buttonDifficile.setEnabled(false);
-                this.buttonDifficile.setBorder(new LineBorder(Color.LIGHT_GRAY,1));
-                this.buttonDifficile.setForeground(Color.LIGHT_GRAY);
+                this.buttonDifficile.setBorder(new LineBorder(new Color(102,153,255),1));
+                this.buttonDifficile.setForeground(new Color(102,153,255));
+                this.buttonDifficile.setBackground(Color.WHITE);
                 break;
             
         }
         
     } // updateBoutonsDifficultee(String diff)
     
-    public void miseAJourEtatsBateaux(){
+    
+    /**
+     * Permet de mettre a jour l'affichage du nombre de caseBateau restant au
+     * joueur
+     */
+    public void miseAJourEtatsBateaux() {
+        
         this.etatBateaux.setVisible(manuel || this._partie.isAutomatique());
         this.etatBateaux.removeAll();
         this.bateaux.setVisible(manuel || this._partie.isAutomatique());
         this.bateaux.removeAll();
         Iterator ite = this._partie.getCasesBateaux().keySet().iterator();
         while(ite.hasNext()){
+            
             Case c = this._partie.getCasesBateaux().get((String)ite.next());
             int nbCasesTouche = c.getBateau().getLongueur()-c.getBateau().getNbCasesNonTouchees();
             int nbCasesNonTouche = c.getBateau().getLongueur() - nbCasesTouche;
             JPanel panelEtat = new JPanel();
+            panelEtat.setOpaque(false);
             panelEtat.setLayout(new BoxLayout(panelEtat, BoxLayout.X_AXIS));
-            this.bateaux.add(new JLabel(c.getBateau().getNom()+" : "));
-            for(int i = 0; i < nbCasesNonTouche;i++){
+            
+            // Ajout des nom des bateaux
+            JLabel nomBateau = new JLabel(c.getBateau().getNom());
+            nomBateau.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            nomBateau.setFont(new java.awt.Font("Helvetica Neue", 0, 20));
+            nomBateau.setForeground(Color.WHITE);
+            nomBateau.setOpaque(false);
+            this.bateaux.add(nomBateau);
+            
+            // Image pour une caseBateau non touchee
+            for(int i = 0; i < nbCasesNonTouche;i++) {
+                
                 JLabel nonTouche = new JLabel();
-                nonTouche.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_plein.png")).getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT)));
+                nonTouche.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_plein.png")).getImage().getScaledInstance(24, 24, Image.SCALE_DEFAULT)));
                 panelEtat.add(nonTouche);
+                
             }
-            for(int i = 0; i < nbCasesTouche;i++){
+            
+            // Image pour une caseBateau touchee
+            for(int i = 0; i < nbCasesTouche;i++) {
+                 
                 JLabel touche = new JLabel();
-                touche.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_vide.png")).getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT)));
+                touche.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_vide.png")).getImage().getScaledInstance(24, 24, Image.SCALE_DEFAULT)));
                 panelEtat.add(touche);
+                
             }
             this.etatBateaux.add(panelEtat);
+            
         }
-    }
+        
+    } // miseAJourEtatsBateaux()
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAnnuler;
