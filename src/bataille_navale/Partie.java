@@ -26,7 +26,10 @@ import stockage.DAOFactory;
  */
 public class Partie extends Observable {
 
+    
     ////////////////////////////// VARIABLES //////////////////////////////////
+    
+    
     private String _id;
     private String _date;
     private Parametre _parametre;
@@ -41,11 +44,15 @@ public class Partie extends Observable {
     private String _message;
     private String _messageFinPartie;
 
+    
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
+    
+    
     public Partie() {
 
     } // Partie()
 
+    
     public Partie(Parametre parametre, boolean automatique) {
 
         this._id = "partie" + parametre.hashCode();
@@ -63,10 +70,13 @@ public class Partie extends Observable {
 
     } // Partie(Parametre parametre, boolean automatique)
 
+    
     ////////////////////////////// FONCTIONS //////////////////////////////////
-    /**
-     * ************************ INITIALISATION *****************************
-     */
+    
+    
+    /************************** INITIALISATION ******************************/
+    
+    
     /**
      * Permet de lancer la partie
      */
@@ -77,6 +87,7 @@ public class Partie extends Observable {
 
     } // jouerPartie()
 
+    
     /**
      * Permet d'initialiser la portee des cases
      */
@@ -116,6 +127,7 @@ public class Partie extends Observable {
         }
     } // initialisationPorteeCases()
 
+    
     /**
      * Permet de cloturer la partie
      */
@@ -123,6 +135,7 @@ public class Partie extends Observable {
 
     } // clorePartie()
 
+    
     /**
      * Permet de sauvegarder la partie d'un profil
      *
@@ -133,7 +146,11 @@ public class Partie extends Observable {
         DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(profil);
 
     } // sauvegarderPartie(Profil profil)
+    
+    
+    /********************** POSITIONNEMENT DES BATEAUX **********************/
 
+    
     /**
      * Permet d'autoriser ou non le Drag & Drop sur les cases su joueur
      *
@@ -183,6 +200,7 @@ public class Partie extends Observable {
 
     } // autoriserDragDropJoueur(boolean autorisation)
 
+    
     /**
      * Permet au joueur de faire tourner un de ses bateaux
      */
@@ -279,6 +297,7 @@ public class Partie extends Observable {
 
     } // rotationBateau()
 
+    
     /**
      * Permet au joueur de positionner un de ses bateaux sur la grille
      *
@@ -369,6 +388,7 @@ public class Partie extends Observable {
 
     } // positionnerBateau(int x, int y, Case cArrive)
 
+    
     /**
      * Permet de savoir si le bateau peut etre deplace ou non
      *
@@ -412,6 +432,7 @@ public class Partie extends Observable {
 
     } // testDeplacementBateau(int sens, Case cArrive)
 
+    
     /**
      * Permet d'ajouter l'evenement de souris sur la case pour le Drag & Drop
      *
@@ -459,9 +480,10 @@ public class Partie extends Observable {
 
     } // addMouseEvent(Case c)
 
-    /**
-     * ******************** GESTION DE LA PARTIE ***************************
-     */
+    
+    /********************** GESTION DE LA PARTIE ****************************/
+    
+    
     /**
      * Permet au joueur de tirer sur une case
      *
@@ -519,6 +541,7 @@ public class Partie extends Observable {
 
     } // jouerCase(Joueur joueurCourant, Joueur joueurAdverse, Case c)
 
+    
     /**
      * Permet de recuperer une case a jouer pour l'IA
      *
@@ -531,6 +554,7 @@ public class Partie extends Observable {
 
     } // getCaseForIA(Joueur joueurAdverse)
 
+    
     /**
      * Permet de changer la difficultee en cours de partie
      *
@@ -538,18 +562,18 @@ public class Partie extends Observable {
      * "Difficile"
      */
     public void changerDifficultee(String diff) {
+        
         this.listeCaseATester = this.getIntelligenceArtificielle().getListeCaseATester();
         this.getParametre().setDifficulte(diff);
         this.intelligenceArtificielle = FactoryIA.getInstance().getIntelligenceArtificielle(this._parametre);
         this.intelligenceArtificielle.setListeCaseATester(this.listeCaseATester);
-//        System.out.println(this.intelligenceArtificielle.getClass().getSimpleName());
-//        System.out.println(this.intelligenceArtificielle.getListeCaseATester());
 
     } // changerDifficultee(String diff)
 
-    /**
-     * *********************** TEST DE FIN DE PARTIE ************************
-     */
+    
+    /************************* TEST DE FIN DE PARTIE *************************/
+    
+    
     /**
      * Permet de savoir s'il reste des bateaux au joueur adverse ou non
      *
@@ -571,6 +595,7 @@ public class Partie extends Observable {
 
     } // testVictoire(Joueur joueur)
 
+    
     /**
      * Permet de savoir s'il reste encore des cases a jouer dans la partie
      *
@@ -592,9 +617,10 @@ public class Partie extends Observable {
 
     } // testEgalite()
 
-    /**
-     * ************************** MESSAGE **********************************
-     */
+    
+    /**************************** MESSAGE ***********************************/
+    
+    
     /**
      * Permet d'afficher un message au joueur
      *
@@ -610,6 +636,7 @@ public class Partie extends Observable {
 
     } // afficherMessage(String mess, boolean joueur)
 
+    
     /**
      * Permet d'afficher un message au joueur a la fin de la partie
      *
@@ -623,9 +650,10 @@ public class Partie extends Observable {
 
     } // afficherMessageFinPartie(String mess)
 
-    /**
-     * *** GETTER/SETTER ****
-     */
+    
+    /***** GETTER/SETTER *****/
+    
+    
     public HashMap<String, Case> getCasesBateaux() {
         return casesBateaux;
     }
@@ -714,4 +742,5 @@ public class Partie extends Observable {
         this.intelligenceArtificielle = intelligenceArtificielle;
     }
 
+    
 } // class Partie
