@@ -83,12 +83,12 @@ public class CaseBateau extends Case {
     public void drop(DropTargetDropEvent dtde) {
         
         try {
-            // Recuperation des coordonnees de la case d'origin
+            // Recuperation des coordonnees de la case d'origine
             final String coord = (String) dtde.getTransferable().getTransferData(
                     new DataFlavor("application/x-java-jvm-local-objectref; class=java.lang.String"));
             int x = Integer.parseInt(coord.split("x")[0]);
             int y = Integer.parseInt(coord.split("x")[1]);
-            this._partie.positionnerBateau(x, y, this);       
+            this._partie.positionnerBateau(x, y, this);
         } catch (UnsupportedFlavorException | IOException | ClassNotFoundException ex) {
             Logger.getLogger(CaseVide.class.getName()).log(Level.SEVERE, null, ex);
         }
