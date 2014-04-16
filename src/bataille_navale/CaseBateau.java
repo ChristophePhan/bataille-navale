@@ -1,10 +1,12 @@
 package bataille_navale;
 
+import java.awt.Image;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -81,14 +83,12 @@ public class CaseBateau extends Case {
     public void drop(DropTargetDropEvent dtde) {
         
         try {
-            
             // Recuperation des coordonnees de la case d'origine
             final String coord = (String) dtde.getTransferable().getTransferData(
                     new DataFlavor("application/x-java-jvm-local-objectref; class=java.lang.String"));
             int x = Integer.parseInt(coord.split("x")[0]);
             int y = Integer.parseInt(coord.split("x")[1]);
             this._partie.positionnerBateau(x, y, this);
-            
         } catch (UnsupportedFlavorException | IOException | ClassNotFoundException ex) {
             Logger.getLogger(CaseVide.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -105,7 +105,26 @@ public class CaseBateau extends Case {
 
     public void setImage(String image) {
         this.image = image;
+        String path = "stockage/"+this._partie.getParametre().getEpoque().getNom()+"/";
+        String extension = "";
+        int i = image.lastIndexOf('.');
+        if (i > 0) {
+            extension = "."+image.substring(i+1);
+        }
+        image = image.replace(extension, "");
+        if(this.getBateau().getOrientation() == 1){
+            image = image+"H"+extension;
+            if(new File(path+image).exists()){
+                ImageIcon ii= new ImageIcon(new ImageIcon(path+image).getImage().getScaledInstance(31, 31, Image.SCALE_DEFAULT));
+                this.setIcon(ii);
+            }
+        }else {
+            image = image+"V"+extension;
+            if(new File(path+image).exists()){
+                ImageIcon ii= new ImageIcon(new ImageIcon(path+image).getImage().getScaledInstance(31, 31, Image.SCALE_DEFAULT));
+                this.setIcon(ii);
+            }
+        }
     }
-    
     
 } // class CaseBateau

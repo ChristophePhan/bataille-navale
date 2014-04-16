@@ -326,8 +326,9 @@ public class Partie extends Observable {
                 if (test) {
                     for (int i = cArrive.getAbs(); i < (cArrive.getAbs() + bateau.getLongueur()); i++) {
 
-                        Case b = new CaseBateau(bateau, this);
-                        b = this.addMouseEvent(b, true);
+                        CaseBateau b = new CaseBateau(bateau, this);
+                        b.setImage((String) bateau.getImagesBateau().get(i-cArrive.getAbs()+1));
+                        b = (CaseBateau) this.addMouseEvent(b, true);
                         b.setAbs(i);
                         b.setOrd(cArrive.getOrd());
                         newListe.add(b);
@@ -342,8 +343,9 @@ public class Partie extends Observable {
                 if (test) {
                     for (int i = cArrive.getOrd(); i < (cArrive.getOrd() + bateau.getLongueur()); i++) {
 
-                        Case b = new CaseBateau(bateau, this);
-                        b = this.addMouseEvent(b, true);
+                        CaseBateau b = new CaseBateau(bateau, this);
+                        b.setImage((String) bateau.getImagesBateau().get(i-cArrive.getOrd()+1));
+                        b = (CaseBateau) this.addMouseEvent(b, true);
                         b.setAbs(cArrive.getAbs());
                         b.setOrd(i);
                         newListe.add(b);
