@@ -50,7 +50,6 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
     public JPanel bateaux;
     public boolean manuel;
     
-    
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
 
     
@@ -64,7 +63,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
     public VuePartie(BatailleNavale batailleNavale, Jeu jeu, Profil profil, final Partie partie) {
         
         try {
-            this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("fich_config/"+partie.getParametre().getEpoque().getNom()+".jpg")))));
+            this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("stockage/"+partie.getParametre().getEpoque().getNom()+"/"+partie.getParametre().getEpoque().getImage())))));
         } catch (IOException ex) {
             System.err.println("image de fond pas trouvée");
         }
@@ -532,16 +531,16 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         labelTitreEpoque.setText("Époque:");
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel2.setForeground(new java.awt.Color(102, 153, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Vos bateaux");
 
         labelFlotteJoueur.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        labelFlotteJoueur.setForeground(new java.awt.Color(102, 102, 102));
+        labelFlotteJoueur.setForeground(new java.awt.Color(51, 102, 255));
         labelFlotteJoueur.setText("Votre flotte");
 
         labelFlotteAdverse.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        labelFlotteAdverse.setForeground(new java.awt.Color(102, 102, 102));
+        labelFlotteAdverse.setForeground(new java.awt.Color(51, 102, 255));
         labelFlotteAdverse.setText("Flotte adverse");
 
         flecheFlotteJoueur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stockage/images/Fleche_haut.png"))); // NOI18N
@@ -552,7 +551,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         flecheFlotteAdverse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stockage/images/Fleche_haut.png"))); // NOI18N
 
         labelInstructionsAdversaire.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        labelInstructionsAdversaire.setForeground(new java.awt.Color(102, 102, 102));
+        labelInstructionsAdversaire.setForeground(new java.awt.Color(51, 102, 255));
         labelInstructionsAdversaire.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelInstructionsAdversaire.setText("Instructions adversaire");
 
@@ -605,11 +604,11 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         );
 
         labelTitreTirsReussis.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        labelTitreTirsReussis.setForeground(new java.awt.Color(51, 153, 255));
+        labelTitreTirsReussis.setForeground(new java.awt.Color(102, 153, 255));
         labelTitreTirsReussis.setText("Tirs réussis");
 
         labelTitreTirsRates.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        labelTitreTirsRates.setForeground(new java.awt.Color(51, 153, 255));
+        labelTitreTirsRates.setForeground(new java.awt.Color(102, 153, 255));
         labelTitreTirsRates.setText("Tirs ratés");
 
         labelTirsReussis.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -627,12 +626,12 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setForeground(new java.awt.Color(51, 102, 255));
         jLabel6.setText("Case à portée de tir");
         jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setForeground(new java.awt.Color(51, 102, 255));
         jLabel7.setText("Case hors de portée de tir");
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 

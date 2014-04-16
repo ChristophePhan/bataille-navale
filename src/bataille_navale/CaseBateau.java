@@ -1,8 +1,15 @@
 package bataille_navale;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.Transparency;
 import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import javax.swing.ImageIcon;
 
 /**
@@ -89,7 +96,26 @@ public class CaseBateau extends Case {
 
     public void setImage(String image) {
         this.image = image;
+        String path = "stockage/"+this._partie.getParametre().getEpoque().getNom()+"/";
+        String extension = "";
+        int i = image.lastIndexOf('.');
+        if (i > 0) {
+            extension = "."+image.substring(i+1);
+        }
+        image = image.replace(extension, "");
+        if(this.getBateau().getOrientation() == 1){
+            image = image+"H"+extension;
+            if(new File(path+image).exists()){
+                ImageIcon ii= new ImageIcon(new ImageIcon(path+image).getImage().getScaledInstance(31, 31, Image.SCALE_DEFAULT));
+                this.setIcon(ii);
+            }
+        }else {
+            image = image+"V"+extension;
+            if(new File(path+image).exists()){
+                ImageIcon ii= new ImageIcon(new ImageIcon(path+image).getImage().getScaledInstance(31, 31, Image.SCALE_DEFAULT));
+                this.setIcon(ii);
+            }
+        }
     }
-    
     
 } // class CaseBateau
