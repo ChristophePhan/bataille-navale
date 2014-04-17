@@ -206,6 +206,8 @@ public class DAO_Sauvegarde {
                 parametre.addContent(new Element("nbCaseX").setText(partie.getParametre().getNbCaseX()+""));
                 parametre.addContent(new Element("nbCaseY").setText(partie.getParametre().getNbCaseY()+""));
                 parametre.addContent(new Element("difficulte").setText(partie.getParametre().getDifficulte()+""));
+                String majPortee = partie.getParametre().isMajPortee() ? "1" : "0";
+                parametre.addContent(new Element("majPortee").setText(majPortee));
                 parametre.addContent(new Element("nomEpoque").setText(partie.getParametre().getEpoque().getNom()));
                 p.addContent(parametre);
                 
@@ -381,6 +383,8 @@ public class DAO_Sauvegarde {
                             parametre.setNbCaseX(Integer.parseInt(param.getChildText("nbCaseX")));
                             parametre.setNbCaseY(Integer.parseInt(param.getChildText("nbCaseY")));
                             parametre.setDifficulte(param.getChildText("difficulte"));
+                            boolean majPortee = ("1".equals(partieElt.getChildText("majPortee")));
+                            parametre.setMajPortee(majPortee);
                             Epoque epoque = DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(param.getChildText("nomEpoque"));
                             parametre.setEpoque(epoque);
                             partie.setParametre(parametre);

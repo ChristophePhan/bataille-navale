@@ -55,10 +55,12 @@ public class JouerCaseController implements ActionListener  {
     @Override
     public void actionPerformed(ActionEvent ae) {
      
+        boolean testPourEgalite = true;
         if(this._partie.jouerCase(this._joueurCourant, this._joueurAdverse, this._caseTouche)) {
             
             // Le joueur a gagne
             this._partie.afficherMessageFinPartie("Vous avez gagné la partie !");
+            testPourEgalite = false;
             
         } else {
             
@@ -67,13 +69,14 @@ public class JouerCaseController implements ActionListener  {
                 
                 // Le joueur adverse a gagne
                 this._partie.afficherMessageFinPartie("Oups... Votre flotte est coulée !");
+                testPourEgalite = false;
                 
             }
 
         }
         
         // On test l'egalite
-        if(this._partie.testEgalite()) {
+        if(testPourEgalite && this._partie.testEgalite()) {
             
             // Egalite, fin de la partie
             this._partie.afficherMessageFinPartie("Flotte adverse hors de portée !");

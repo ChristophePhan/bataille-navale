@@ -16,22 +16,27 @@ public class Parametre {
     private int _nbCaseX;
     private int _nbCaseY;
     private String _difficulte;
+    private boolean _majPortee;
     private Epoque _epoque;
     
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    public Parametre(){
-        
-    }
     
-    public Parametre(int nbCaseX, int nbCaseY, String difficulte, Epoque epoque) {
+    
+    public Parametre() {
+        
+    } // Parametre()
+    
+    
+    public Parametre(int nbCaseX, int nbCaseY, String difficulte, boolean majPortee, Epoque epoque) {
         
         this._nbCaseX = nbCaseX;
         this._nbCaseY = nbCaseY;
         this._difficulte = difficulte;
+        this._majPortee = majPortee;
         this._epoque = epoque;
         
-    } // Parametre(int nbCaseX, int nbCaseY, int difficulte, Epoque epoque)
+    } // Parametre(int nbCaseX, int nbCaseY, String difficulte, boolean majPortee, Epoque epoque)
     
     
     ////////////////////////////// FONCTIONS //////////////////////////////////
@@ -88,6 +93,14 @@ public class Parametre {
         this._difficulte = difficulte;
     }
 
+    public boolean isMajPortee() {
+        return _majPortee;
+    }
+
+    public void setMajPortee(boolean _majPortee) {
+        this._majPortee = _majPortee;
+    }
+    
     public Epoque getEpoque() {
         return _epoque;
     }

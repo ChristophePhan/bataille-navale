@@ -13,8 +13,6 @@ import bataille_navale.Profil;
 import controller.JouerCaseController;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -256,6 +254,77 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         this.plateauJoueurCourant.updateUI();
         
     } // initialisation()
+    
+    
+    /**
+     * Permet de mettre a jour la portee des cases lorsqu'un bateau est coule
+     * si l'option est activee
+     */
+    public void updatePortee() {
+        
+        int x = this._partie.getParametre().getNbCaseX();
+        int y = this._partie.getParametre().getNbCaseY();
+        
+        // Si une case n'est plus a portee de tir, on la desactive
+        for(int i=0;i<x;i++) {
+            for(int j=0;j<y;j++) {
+                
+                if (this._partie.getJ1().getCases().get(i + j * x).getBateau() != null 
+                        && this._partie.getJ1().getCases().get(i + j * x).getBateau().testBateauCoule()) {
+
+                    // On parcours les cases autour du bateau pour les desactiver
+                    int portee = this._partie.getJ1().getCases().get(i + j * x).getBateau().getPortee();
+                    for (int W = i - portee; W < (i - portee + 2 * portee) + 1; W++) {
+                        for (int H = j - portee; H < (j - portee + 2 * portee) + 1; H++) {
+
+                            if (W >= 0 && W < x && H >= 0 && H < y && !((Case) (this._partie.getJ2().getCases().get(W + H * x))).isEtat()) {
+
+                                ((Case) (this._partie.getJ2().getCases().get(W + H * x))).setPortee(false);
+                                ((Case) (this._partie.getJ2().getCases().get(W + H * x))).setEnabled(false);
+                                ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Fond_blanc.png"));
+                                    this._partie.getJ2().getCases().get(W + H * x).setDisabledIcon(bateauImage);
+
+                            }
+
+                        }
+                    }
+
+                }
+                
+            }
+        }
+        
+        // On reactive les cases qui ont etes desactivee inutilement
+        for(int i=0;i<x;i++) {
+            for(int j=0;j<y;j++) {
+                
+                if (this._partie.getJ1().getCases().get(i + j * x).getBateau() != null 
+                        && !this._partie.getJ1().getCases().get(i + j * x).getBateau().testBateauCoule()) {
+
+                    // On parcours les cases autour du bateau pour les activer
+                    int portee = this._partie.getJ1().getCases().get(i + j * x).getBateau().getPortee();
+                    for (int W = i - portee; W < (i - portee + 2 * portee) + 1; W++) {
+                        for (int H = j - portee; H < (j - portee + 2 * portee) + 1; H++) {
+
+                            if (W >= 0 && W < x && H >= 0 && H < y && !((Case) (this._partie.getJ2().getCases().get(W + H * x))).isEtat() 
+                                    && !((Case) (this._partie.getJ2().getCases().get(W + H * x))).isAPortee()) {
+
+                                ((Case) (this._partie.getJ2().getCases().get(W + H * x))).setPortee(true);
+                                ((Case) (this._partie.getJ2().getCases().get(W + H * x))).setEnabled(true);
+                                ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Case_a_portee.png"));
+                                    this._partie.getJ2().getCases().get(W + H * x).setIcon(bateauImage);
+
+                            }
+
+                        }
+                    }
+
+                }
+                
+            }
+        }
+        
+    } // updatePortee()
     
 
     /**
@@ -1168,10 +1237,13 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
                
             case "tir":
                 this.miseAJourEtatsBateaux();
-//                this.etatBateaux.updateUI();
-//                this.panelInfosBateauxJoueur.updateUI();
                 this.labelTirsReussis.setText(this._partie.getJ1().getNbTirsGagnant() + "");
                 this.labelTirsRates.setText(this._partie.getJ1().getNbTirsPerdant() + "");
+                // On empeche les eventuels bateaux coules de tirer si l'utilisateur
+                // en a fait le choix
+                if(this._partie.getParametre().isMajPortee()) {
+                    this.updatePortee();
+                }
                 break;
                 
             case "resultat":

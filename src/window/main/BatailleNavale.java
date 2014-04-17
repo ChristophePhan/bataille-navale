@@ -217,6 +217,9 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         jRadioButtonManuel = new javax.swing.JRadioButton();
         jRadioButtonAleatoire = new javax.swing.JRadioButton();
         jButtonJouer = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jRadioButtonOui = new javax.swing.JRadioButton();
+        jRadioButtonNon = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         buttonAjouterProfil = new javax.swing.JButton();
@@ -434,6 +437,18 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setText(" Un bateau coulé ne peut plus tirer ?");
+
+        jRadioButtonOui.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jRadioButtonOui.setForeground(new java.awt.Color(51, 51, 51));
+        jRadioButtonOui.setText("Oui");
+
+        jRadioButtonNon.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jRadioButtonNon.setForeground(new java.awt.Color(51, 51, 51));
+        jRadioButtonNon.setText("Non");
+
         javax.swing.GroupLayout popupParametresLayout = new javax.swing.GroupLayout(popupParametres.getContentPane());
         popupParametres.getContentPane().setLayout(popupParametresLayout);
         popupParametresLayout.setHorizontalGroup(
@@ -444,60 +459,67 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                     .addGroup(popupParametresLayout.createSequentialGroup()
                         .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(popupParametresLayout.createSequentialGroup()
-                                .addGap(177, 177, 177)
-                                .addComponent(jButtonJouer, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(popupParametresLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBoxTailleGrilles, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(popupParametresLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupParametresLayout.createSequentialGroup()
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(15, 15, 15))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupParametresLayout.createSequentialGroup()
-                                        .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)))
                                 .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBoxEpoques, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jComboBoxDifficultees, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxTailleGrilles, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jRadioButtonManuel)
+                                    .addComponent(jRadioButtonAleatoire, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(popupParametresLayout.createSequentialGroup()
+                                .addGap(177, 177, 177)
+                                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButtonJouer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(popupParametresLayout.createSequentialGroup()
-                                        .addComponent(jRadioButtonManuel)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButtonAleatoire, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 46, Short.MAX_VALUE))
+                                        .addComponent(jRadioButtonOui)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jRadioButtonNon)))))
+                        .addGap(0, 142, Short.MAX_VALUE))
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupParametresLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(99, 99, 99))
         );
         popupParametresLayout.setVerticalGroup(
             popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popupParametresLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxTailleGrilles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jComboBoxEpoques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jComboBoxDifficultees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jRadioButtonManuel)
-                    .addComponent(jRadioButtonAleatoire))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                    .addComponent(jRadioButtonManuel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButtonAleatoire)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonNon)
+                    .addComponent(jRadioButtonOui))
+                .addGap(18, 18, 18)
                 .addComponent(jButtonJouer, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(17, 17, 17))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -803,10 +825,16 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         }
         
         // Initialisation du mode de placement
-        ButtonGroup bgroup = new ButtonGroup();
+        ButtonGroup groupPlacement = new ButtonGroup();
         this.jRadioButtonAleatoire.setSelected(true);
-        bgroup.add(this.jRadioButtonAleatoire);
-        bgroup.add(this.jRadioButtonManuel);
+        groupPlacement.add(this.jRadioButtonAleatoire);
+        groupPlacement.add(this.jRadioButtonManuel);
+        
+        // Initialisation du choix concernant la portee
+        ButtonGroup groupPortee = new ButtonGroup();
+        this.jRadioButtonNon.setSelected(true);
+        groupPortee.add(this.jRadioButtonOui);
+        groupPortee.add(this.jRadioButtonNon);
         
         this.popupParametres.setLocationRelativeTo(null);
         this.setEnabled(false);
@@ -857,9 +885,18 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
 
         // Recuperation de la difficultee choisie
         String diff = (String)this.jComboBoxDifficultees.getSelectedItem();
+        
+        // Recuperation du choix concernant la portee
+        boolean testPortee = false;
+        if(this.jRadioButtonOui.isSelected()) {
+            
+            // On souhaite qu'un bateau coule ne puisse plus tirer
+            testPortee = true;
+            
+        }
 
         // Recuperation du mode de placement
-        Parametre parametre = new Parametre(x, y, diff, DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(epoque));
+        Parametre parametre = new Parametre(x, y, diff, testPortee, DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(epoque));
         Partie partie = null;
         if(this.jRadioButtonAleatoire.isSelected()) {
             
@@ -886,7 +923,6 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
             
         }
         
-        //this._jeu.getProfilCourant().ajouterNouvellePartie(partie);
         partie.addObserver(this);
         this._jeu.setPartieCourante(partie);
         DAOFactory.getInstance().getDAO_Sauvegarde().saveProfil(this._jeu.getProfilCourant());
@@ -967,12 +1003,15 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton jRadioButtonAleatoire;
     private javax.swing.JRadioButton jRadioButtonManuel;
+    private javax.swing.JRadioButton jRadioButtonNon;
+    private javax.swing.JRadioButton jRadioButtonOui;
     private javax.swing.JLabel labelAucunProfil;
     private javax.swing.JPanel listeProfils;
     private javax.swing.JLabel nomProfil;

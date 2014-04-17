@@ -66,7 +66,6 @@ public class Partie extends Observable {
         this._parametre = parametre;
         this._automatique = automatique;
         this.intelligenceArtificielle = FactoryIA.getInstance().getIntelligenceArtificielle(this._parametre);
-        this.casesBateaux = new HashMap();
 
     } // Partie(Parametre parametre, boolean automatique)
 
@@ -95,6 +94,7 @@ public class Partie extends Observable {
 
         int x = this._parametre.getNbCaseX();
         int y = this._parametre.getNbCaseY();
+        this.casesBateaux = new HashMap();
 
         // Permet d'afficher les cases a portee de tir
         for (int i = 0; i < x; i++) {
@@ -115,16 +115,15 @@ public class Partie extends Observable {
 
                         }
                     }
+                    
+                    // On memorise la caseBateau pour l'affichage des statistiques
+                    casesBateaux.put(this._j1.getCases().get(i + j * x).getBateau().getNom(),this._j1.getCases().get(i + j * x));
 
                 }
 
             }
         }
-        for(Case c : this._j1.getCases()) {         
-            if(c.getBateau() != null) {
-                casesBateaux.put(c.getBateau().getNom(),c);
-            }
-        }
+        
     } // initialisationPorteeCases()
 
     
@@ -528,6 +527,7 @@ public class Partie extends Observable {
                         }
                     }
                 }
+                
             } else {
 
                 // La machine tire dans le vide

@@ -35,8 +35,6 @@ public class IntelligenceArtificielleFacile extends IntelligenceArtificielle {
         if (caseTouchee.getClass().getSimpleName().equalsIgnoreCase("CaseBateau")) {
             casesATester(joueurAdverse, caseTouchee);
         }
-        System.out.println("Case touchée " + caseTouchee.getClass().getSimpleName() + " : " + caseTouchee.getAbs() + ", " + caseTouchee.getOrd());
-        display("Facile");
         return caseTouchee;
     }
 

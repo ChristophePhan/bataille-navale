@@ -39,8 +39,6 @@ public class IntelligenceArtificielleMoyen extends IntelligenceArtificielle {
         } else {
             caseTouchee = tester(joueurAdverse);
         }
-        System.out.println("Case touchée " + caseTouchee.getClass().getSimpleName() + " : " + caseTouchee.getAbs() + ", " + caseTouchee.getOrd());
-        display("Moyen");
         return caseTouchee;
     }
     
