@@ -355,9 +355,9 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         popupPartiesLayout.setHorizontalGroup(
             popupPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupPartiesLayout.createSequentialGroup()
-                .addGap(0, 179, Short.MAX_VALUE)
+                .addGap(0, 175, Short.MAX_VALUE)
                 .addComponent(buttonAjouterPartie, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
+                .addGap(175, 175, 175))
             .addGroup(popupPartiesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(popupPartiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,11 +439,13 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText(" Un bateau coulé ne peut plus tirer ?");
 
         jRadioButtonOui.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jRadioButtonOui.setForeground(new java.awt.Color(51, 51, 51));
         jRadioButtonOui.setText("Oui");
+        jRadioButtonOui.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         jRadioButtonNon.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jRadioButtonNon.setForeground(new java.awt.Color(51, 51, 51));
@@ -453,40 +455,34 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         popupParametres.getContentPane().setLayout(popupParametresLayout);
         popupParametresLayout.setHorizontalGroup(
             popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(popupParametresLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupParametresLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(popupParametresLayout.createSequentialGroup()
+                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, popupParametresLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(popupParametresLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBoxEpoques, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxDifficultees, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxTailleGrilles, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButtonManuel)
-                                    .addComponent(jRadioButtonAleatoire, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(popupParametresLayout.createSequentialGroup()
-                                .addGap(177, 177, 177)
-                                .addGroup(popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButtonJouer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(popupParametresLayout.createSequentialGroup()
-                                        .addComponent(jRadioButtonOui)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jRadioButtonNon)))))
-                        .addGap(0, 142, Short.MAX_VALUE))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jComboBoxEpoques, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxDifficultees, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxTailleGrilles, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButtonManuel)
+                            .addComponent(jRadioButtonAleatoire, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, popupParametresLayout.createSequentialGroup()
+                        .addComponent(jRadioButtonOui, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jRadioButtonNon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupParametresLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(99, 99, 99))
+                .addComponent(jButtonJouer, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(173, 173, 173))
         );
         popupParametresLayout.setVerticalGroup(
             popupParametresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

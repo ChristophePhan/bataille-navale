@@ -66,6 +66,7 @@ public class Partie extends Observable {
         this._parametre = parametre;
         this._automatique = automatique;
         this.intelligenceArtificielle = FactoryIA.getInstance().getIntelligenceArtificielle(this._parametre);
+        this.casesBateaux = new HashMap();
 
     } // Partie(Parametre parametre, boolean automatique)
 
