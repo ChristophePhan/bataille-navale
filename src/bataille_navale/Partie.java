@@ -248,14 +248,15 @@ public class Partie extends Observable {
                     // On peut faire tourner le bateau
                     if (test) {
 
-                        for (int i = 1; i < cases.size(); i++) {
+                        for (int i = 0; i < cases.size(); i++) {
 
                             this.getJ1().getCases().set(cases.get(i).getAbs() + cases.get(i).getOrd() * this.getParametre().getNbCaseX(), new CaseVide(this));
                             cases.get(i).setAbs(cases.get(0).getAbs());
                             cases.get(i).setOrd(cases.get(0).getOrd() + i);
                             cases.get(i).getBateau().setOrientation(2);
                             this.getJ1().getCases().set(cases.get(0).getAbs() + (cases.get(0).getOrd() + i) * this.getParametre().getNbCaseX(), cases.get(i));
-
+                            CaseBateau cb = (CaseBateau) cases.get(i);
+                            cb.setImage(cb.getBateau().getImagesBateau().get(i+1));
                         }
                         this.autoriserDragDropJoueur(true);
 
@@ -283,14 +284,15 @@ public class Partie extends Observable {
                     // On peut faire tourner le bateau
                     if (test) {
 
-                        for (int i = 1; i < cases.size(); i++) {
+                        for (int i = 0; i < cases.size(); i++) {
 
                             this.getJ1().getCases().set(cases.get(i).getAbs() + cases.get(i).getOrd() * this.getParametre().getNbCaseX(), new CaseVide(this));
                             cases.get(i).setAbs(cases.get(0).getAbs() + i);
                             cases.get(i).setOrd(cases.get(0).getOrd());
                             cases.get(i).getBateau().setOrientation(1);
                             this.getJ1().getCases().set((cases.get(0).getAbs() + i) + cases.get(0).getOrd() * this.getParametre().getNbCaseX(), cases.get(i));
-
+                            CaseBateau cb = (CaseBateau) cases.get(i);
+                            cb.setImage(cb.getBateau().getImagesBateau().get(i+1));
                         }
                         this.autoriserDragDropJoueur(true);
 

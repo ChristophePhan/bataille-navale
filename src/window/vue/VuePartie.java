@@ -1111,7 +1111,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
             JPanel panelEtat = new JPanel();
             panelEtat.setOpaque(false);
             panelEtat.setLayout(new BoxLayout(panelEtat, BoxLayout.X_AXIS));
-            
+
             // Ajout des nom des bateaux
             JLabel nomBateau = new JLabel(c.getBateau().getNom());
             nomBateau.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

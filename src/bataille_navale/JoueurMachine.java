@@ -113,7 +113,9 @@ public class JoueurMachine extends Joueur {
             res = true;
             bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge_gris.png"))
                 .getImage().getScaledInstance(c.getWidth(), c.getHeight(), Image.SCALE_DEFAULT));
-            c.getBateau().setNbCasesNonTouchees(c.getBateau().getNbCasesNonTouchees()-1);
+            if(c.getBateau().getNbCasesNonTouchees() != 0){
+                c.getBateau().setNbCasesNonTouchees(c.getBateau().getNbCasesNonTouchees()-1);
+            }
             
         }
         c.setEtat(true);
