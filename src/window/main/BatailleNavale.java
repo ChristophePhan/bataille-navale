@@ -729,7 +729,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                     
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        
+                        popupParties.setVisible(false);
                         int dialogResult = JOptionPane.showConfirmDialog(null, "Voulez-vous réellement supprimer la partie ?");
                         if(dialogResult == JOptionPane.YES_OPTION){
 
@@ -738,7 +738,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                             afficherPopupParties(profil);
 
                         }
-                        
+                        popupParties.setVisible(true);
                     }
                     
                 });
