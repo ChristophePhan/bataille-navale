@@ -71,7 +71,7 @@ public class Partie extends Observable {
     } // Partie(Parametre parametre, boolean automatique)
 
     
-    ////////////////////////////// FONCTIONS //////////////////////////////////
+    ////////////////////////////// FONCTIONS /////////////////////////////////
     
     
     /************************** INITIALISATION ******************************/
