@@ -146,7 +146,8 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         
         this.panelInfosBateauxJoueur.add(this.bateaux);
         this.panelInfosBateauxJoueur.add(this.etatBateaux);
-        
+        manuel = true;
+        this.miseAJourEtatsBateaux();
         this.popupQuitterPartie.setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
         

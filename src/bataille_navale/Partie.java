@@ -81,7 +81,17 @@ public class Partie extends Observable {
      * Permet de lancer la partie
      */
     public void jouerPartie() {
-
+        int x = this._parametre.getNbCaseX();
+        int y = this._parametre.getNbCaseY();
+        this.casesBateaux = new HashMap();
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                if (this._j1.getCases().get(i + j * x).getBateau() != null) {
+                    // On memorise la caseBateau pour l'affichage des statistiques
+                    casesBateaux.put(this._j1.getCases().get(i + j * x).getBateau().getNom(),this._j1.getCases().get(i + j * x));
+                }
+            }
+        }
         setChanged();
         notifyObservers("start");
 
