@@ -254,6 +254,12 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         this.plateauJoueurAdverse.updateUI();
         this.plateauJoueurCourant.updateUI();
         
+        // On empeche les eventuels bateaux coules de tirer si l'utilisateur
+        // en a fait le choix
+        if(this._partie.getParametre().isMajPortee()) {
+            this.updatePortee();
+        }
+        
     } // initialisation()
     
     

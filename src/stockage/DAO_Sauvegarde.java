@@ -383,7 +383,7 @@ public class DAO_Sauvegarde {
                             parametre.setNbCaseX(Integer.parseInt(param.getChildText("nbCaseX")));
                             parametre.setNbCaseY(Integer.parseInt(param.getChildText("nbCaseY")));
                             parametre.setDifficulte(param.getChildText("difficulte"));
-                            boolean majPortee = ("1".equals(partieElt.getChildText("majPortee")));
+                            boolean majPortee = ("1".equals(param.getChildText("majPortee")));
                             parametre.setMajPortee(majPortee);
                             Epoque epoque = DAOFactory.getInstance().getDAO_Configuration().getAllEpoques().get(param.getChildText("nomEpoque"));
                             parametre.setEpoque(epoque);

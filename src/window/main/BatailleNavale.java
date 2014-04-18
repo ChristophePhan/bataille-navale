@@ -680,7 +680,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
      * @param profil profil dont on souhaite afficher les parties
      */
     public void afficherPopupParties(final Profil profil) {
-        
+
         // Empeche de cliquer sur la fenetre principale
         this.setEnabled(false);
         
@@ -692,6 +692,7 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         this.panelParties.setLayout(fl);
         this.panelParties.setMinimumSize(new Dimension(this.popupParties.getWidth(),this.popupParties.getHeight()/2-50));
         this.panelParties.setMaximumSize(new Dimension(this.popupParties.getWidth(),this.popupParties.getHeight()/2-50));
+        HashMap parties = profil.getParties();
         
         if(profil.getParties() == null || profil.getParties().isEmpty()) {
            
@@ -704,7 +705,6 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         } else {
             
             // On affiche toutes les parties
-            HashMap parties = profil.getParties();
             Iterator iterator = parties.keySet().iterator();
             int num = 1;
             while(iterator.hasNext()) {
@@ -760,21 +760,21 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
                 
             }
          
-            // On limite a 3 le nombre de parties
-            if(parties.size() >= 3) {
-                
-                this.buttonAjouterPartie.setEnabled(false);
-                this.buttonAjouterPartie.setBorder(new LineBorder(Color.LIGHT_GRAY,1));
-                this.buttonAjouterPartie.setForeground(Color.LIGHT_GRAY);
-                
-            } else {
-                
-                this.buttonAjouterPartie.setEnabled(true);
-                this.buttonAjouterPartie.setBorder(new LineBorder(new Color(102,153,255),1));
-                this.buttonAjouterPartie.setForeground(new Color(102,153,255));
-                
-            }
-            
+        }
+        
+        // On limite a 3 le nombre de parties
+        if(parties.size() >= 3) {
+
+            this.buttonAjouterPartie.setEnabled(false);
+            this.buttonAjouterPartie.setBorder(new LineBorder(Color.LIGHT_GRAY,1));
+            this.buttonAjouterPartie.setForeground(Color.LIGHT_GRAY);
+
+        } else {
+
+            this.buttonAjouterPartie.setEnabled(true);
+            this.buttonAjouterPartie.setBorder(new LineBorder(new Color(102,153,255),1));
+            this.buttonAjouterPartie.setForeground(new Color(102,153,255));
+
         }
         
         // Affichage du popup

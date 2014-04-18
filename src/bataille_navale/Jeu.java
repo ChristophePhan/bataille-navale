@@ -38,17 +38,6 @@ public class Jeu extends Observable {
 
     } // saveProfil(Profil profil)
     
-    
-//    /**
-//     * Permet de mettre a jour un profil
-//     * @param profil profil a mettre a jour
-//     */
-//    public void updateProfil(Profil profil) {
-//
-//        DAOFactory.getInstance().getDAO_Sauvegarde().updateProfil(profil);
-//        
-//    } // updateProfil(Profil profil)
-    
 
     /**
      * Permet de supprimer un profil
