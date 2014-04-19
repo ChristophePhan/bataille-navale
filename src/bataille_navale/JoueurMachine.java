@@ -111,7 +111,7 @@ public class JoueurMachine extends Joueur {
             // Batteau touche
             this._nbTirsGagnant++;
             res = true;
-            bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge_gris.png"))
+            bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge.png"))
                 .getImage().getScaledInstance(c.getWidth(), c.getHeight(), Image.SCALE_DEFAULT));
             if(c.getBateau().getNbCasesNonTouchees() != 0){
                 c.getBateau().setNbCasesNonTouchees(c.getBateau().getNbCasesNonTouchees()-1);

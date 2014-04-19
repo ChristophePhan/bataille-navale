@@ -66,7 +66,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         try {
             this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("stockage/"+partie.getParametre().getEpoque().getNom()+"/"+partie.getParametre().getEpoque().getImage())))));
         } catch (IOException ex) {
-            System.err.println("image de fond pas trouvée");
+            System.err.println("Aucune image de fond n'a ete trouvee");
         }
         
         initComponents();
@@ -186,7 +186,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
                 if(this._partie.getJ1().getCases().get(numC).isEtat() && this._partie.getJ1().getCases().get(numC).getBateau() != null) {
                     
                     // Case bateau touche
-                    ImageIcon bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge_gris.png"))
+                    ImageIcon bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge.png"))
                         .getImage().getScaledInstance(this.plateauJoueurCourant.getWidth()/this._partie.getParametre().getNbCaseX()+1
                                 , this.plateauJoueurCourant.getHeight()/this._partie.getParametre().getNbCaseY()+1, Image.SCALE_DEFAULT));
                     this._partie.getJ1().getCases().get(numC).setIcon(bateauImage);

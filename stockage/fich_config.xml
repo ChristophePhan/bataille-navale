@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-exemple de configuration que le fichier xml doit avoir
-l'id des images bateaux doit commencer par 1 et les id suivants des images doivent suivre dans l'ordre croissant 
--->
+<!-- Fichier de configuration (Epoque/Bateaux)
+ L'id des images bateaux doit commencer par 1 et les id suivants des images doivent suivre dans 
+ l'ordre croissant -->
 <epoques>
     <epoque>
         <id>1234</id>
@@ -24,7 +23,6 @@ l'id des images bateaux doit commencer par 1 et les id suivants des images doive
             </bateau>
         </bateaux>
     </epoque>
-    
     <epoque>
         <id>5678</id>
         <nom>Future</nom>
@@ -82,7 +80,65 @@ l'id des images bateaux doit commencer par 1 et les id suivants des images doive
                     <image id="2">b22b.png</image>
                 </images>
             </bateau>
-            
+        </bateaux>
+    </epoque>
+    <epoque>
+        <id>4678</id>
+        <nom>Pocahontas</nom>
+        <siecle>15eme</siecle>
+        <image>Pocahontas.png</image>
+        <bateaux>
+            <bateau>
+                <nom>Santa-Maria</nom>
+                <longueur>5</longueur>
+                <portee>5</portee>
+                <images>
+                    <image id="1">b5a.png</image>
+                    <image id="2">b5b.png</image>
+                    <image id="3">b5c.png</image>
+                    <image id="4">b5d.png</image>
+                    <image id="5">b5e.png</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>Pinta</nom>
+                <longueur>4</longueur>
+                <portee>4</portee>
+                <images>
+                    <image id="1">b4a.png</image>
+                    <image id="2">b4b.png</image>
+                    <image id="3">b4c.png</image>
+                    <image id="4">b4d.png</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>Nina</nom>
+                <longueur>3</longueur>
+                <portee>3</portee>
+                <images>
+                    <image id="1">b3a.png</image>
+                    <image id="2">b3b.png</image>
+                    <image id="3">b3c.png</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>Caraque</nom>
+                <longueur>2</longueur>
+                <portee>2</portee>
+                <images>
+                    <image id="1">b2a.png</image>
+                    <image id="2">b2b.png</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>Caravelle</nom>
+                <longueur>2</longueur>
+                <portee>2</portee>
+                <images>
+                    <image id="1">b22a.png</image>
+                    <image id="2">b22b.png</image>
+                </images>
+            </bateau>
         </bateaux>
     </epoque>
 </epoques>
