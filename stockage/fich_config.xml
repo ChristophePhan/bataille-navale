@@ -4,26 +4,6 @@
  l'ordre croissant -->
 <epoques>
     <epoque>
-        <id>1234</id>
-        <nom>Contemporaine</nom>
-        <siecle>XXIeme</siecle>
-        <image>Contemporaine.png</image>
-        <bateaux>
-            <bateau>
-                <nom>Porte-avions</nom>
-                <longueur>5</longueur>
-                <portee>5</portee>
-                <images>
-                    <image id="1">aaaa.png</image>
-                    <image id="2">bbbb.png</image>
-                    <image id="3">cccc.png</image>
-                    <image id="4">dddd.png</image>
-                    <image id="5">eeee.png</image>
-                </images>
-            </bateau>
-        </bateaux>
-    </epoque>
-    <epoque>
         <id>5678</id>
         <nom>Future</nom>
         <siecle>inconnu</siecle>
@@ -132,6 +112,63 @@
             </bateau>
             <bateau>
                 <nom>Caravelle</nom>
+                <longueur>2</longueur>
+                <portee>2</portee>
+                <images>
+                    <image id="1">b22a.png</image>
+                    <image id="2">b22b.png</image>
+                </images>
+            </bateau>
+        </bateaux>
+    </epoque>
+    <epoque>
+        <id>8678</id>
+        <nom>StarWars</nom>
+        <siecle>Inconnu</siecle>
+        <image>StarWars.png</image>
+        <bateaux>
+            <bateau>
+                <nom>Leviathan</nom>
+                <longueur>4</longueur>
+                <portee>4</portee>
+                <images>
+                    <image id="1">b4a.png</image>
+                    <image id="2">b4b.png</image>
+                    <image id="3">b4c.png</image>
+                    <image id="4">b4d.png</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>Corvette</nom>
+                <longueur>3</longueur>
+                <portee>3</portee>
+                <images>
+                    <image id="1">b33a.png</image>
+                    <image id="2">b33b.png</image>
+                    <image id="3">b33c.png</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>Cimeterre</nom>
+                <longueur>3</longueur>
+                <portee>3</portee>
+                <images>
+                    <image id="1">b3a.png</image>
+                    <image id="2">b3b.png</image>
+                    <image id="3">b3c.png</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>Jedi Starfighter</nom>
+                <longueur>2</longueur>
+                <portee>2</portee>
+                <images>
+                    <image id="1">b2a.png</image>
+                    <image id="2">b2b.png</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>Fighter</nom>
                 <longueur>2</longueur>
                 <portee>2</portee>
                 <images>
