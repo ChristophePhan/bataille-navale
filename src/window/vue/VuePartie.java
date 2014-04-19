@@ -177,7 +177,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         this.plateauJoueurCourant.removeAll();
         this.plateauJoueurAdverse.setLayout(gl);
         this.plateauJoueurCourant.setLayout(gl);
-        
+
         int numC = 0;
         for(int i=0;i<this._partie.getParametre().getNbCaseX();i++) {
             for(int j=0;j<this._partie.getParametre().getNbCaseY();j++) {

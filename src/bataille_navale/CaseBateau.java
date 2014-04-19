@@ -104,6 +104,8 @@ public class CaseBateau extends Case {
     }
 
     public void setImage(String image) {
+        int width = 300/this._partie.getParametre().getNbCaseX();
+        int height = 300/this._partie.getParametre().getNbCaseY();
         this.image = image;
         String path = "stockage/"+this._partie.getParametre().getEpoque().getNom()+"/";
         String extension = "";
@@ -115,13 +117,13 @@ public class CaseBateau extends Case {
         if(this.getBateau().getOrientation() == 1){
             image = image+"H"+extension;
             if(new File(path+image).exists()){
-                ImageIcon ii= new ImageIcon(new ImageIcon(path+image).getImage().getScaledInstance(31, 31, Image.SCALE_DEFAULT));
+                ImageIcon ii= new ImageIcon(new ImageIcon(path+image).getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
                 this.setIcon(ii);
             }
         }else {
             image = image+"V"+extension;
             if(new File(path+image).exists()){
-                ImageIcon ii= new ImageIcon(new ImageIcon(path+image).getImage().getScaledInstance(31, 31, Image.SCALE_DEFAULT));
+                ImageIcon ii= new ImageIcon(new ImageIcon(path+image).getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
                 this.setIcon(ii);
             }
         }
