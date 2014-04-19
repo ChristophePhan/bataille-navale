@@ -116,7 +116,6 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
             
             // Le positionnement est manuel, on laisse le joueur placer ses bateaux
             this.initialisation();
-            //this.panelInfosBateauxJoueur.setLayout(new BoxLayout(this.panelInfosBateauxJoueur, BoxLayout.Y_AXIS));
             this.labelInstructionsJoueur.setText("Vous pouvez déplacer vos bateaux sur la grille de droite.");
             this.labelInstructionsAdversaire.setText("Cliquez sur 'Jouer !' pour commencer la partie.");
             partie.autoriserDragDropJoueur(true);

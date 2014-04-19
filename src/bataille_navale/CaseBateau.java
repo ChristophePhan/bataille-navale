@@ -23,7 +23,7 @@ public class CaseBateau extends Case {
 
 
     private Bateau _bateau;
-    private String image;
+    private String _image;
 
 
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
@@ -38,8 +38,11 @@ public class CaseBateau extends Case {
         super(partie);
         
         this._bateau = bateau;
-        ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Fond_gris.png"));
-        this.setIcon(bateauImage);
+        //ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Fond_gris.png"));
+        if(this._image != null) {
+            ImageIcon bateauImage = new ImageIcon(this._image);
+            this.setIcon(bateauImage);
+        }
         
     } // CaseBateau(Bateau bateau, Partie partie)
     
@@ -83,12 +86,14 @@ public class CaseBateau extends Case {
     public void drop(DropTargetDropEvent dtde) {
         
         try {
+            
             // Recuperation des coordonnees de la case d'origine
             final String coord = (String) dtde.getTransferable().getTransferData(
                     new DataFlavor("application/x-java-jvm-local-objectref; class=java.lang.String"));
             int x = Integer.parseInt(coord.split("x")[0]);
             int y = Integer.parseInt(coord.split("x")[1]);
             this._partie.positionnerBateau(x, y, this);
+            
         } catch (UnsupportedFlavorException | IOException | ClassNotFoundException ex) {
             Logger.getLogger(CaseVide.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -100,13 +105,14 @@ public class CaseBateau extends Case {
 
     
     public String getImage() {
-        return image;
+        return _image;
     }
 
     public void setImage(String image) {
+        
         int width = 300/this._partie.getParametre().getNbCaseX();
         int height = 300/this._partie.getParametre().getNbCaseY();
-        this.image = image;
+        this._image = image;
         String path = "stockage/"+this._partie.getParametre().getEpoque().getNom()+"/";
         String extension = "";
         int i = image.lastIndexOf('.');
@@ -127,6 +133,7 @@ public class CaseBateau extends Case {
                 this.setIcon(ii);
             }
         }
+        
     }
     
 } // class CaseBateau
