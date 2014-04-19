@@ -36,11 +36,11 @@ l'id des images bateaux doit commencer par 1 et les id suivants des images doive
                 <longueur>5</longueur>
                 <portee>5</portee>
                 <images>
-                    <image id="1">a.png</image>
-                    <image id="2">b.png</image>
-                    <image id="3">c.png</image>
-                    <image id="4">d.png</image>
-                    <image id="5">e.png</image>
+                    <image id="1">b5a.png</image>
+                    <image id="2">b5b.png</image>
+                    <image id="3">b5c.png</image>
+                    <image id="4">b5d.png</image>
+                    <image id="5">b5e.png</image>
                 </images>
             </bateau>
             <bateau>
@@ -48,10 +48,10 @@ l'id des images bateaux doit commencer par 1 et les id suivants des images doive
                 <longueur>4</longueur>
                 <portee>4</portee>
                 <images>
-                    <image id="1">a.png</image>
-                    <image id="2">b.png</image>
-                    <image id="3">c.png</image>
-                    <image id="4">d.png</image>
+                    <image id="1">b4a.png</image>
+                    <image id="2">b4b.png</image>
+                    <image id="3">b4c.png</image>
+                    <image id="4">b4d.png</image>
                 </images>
             </bateau>
             <bateau>
@@ -59,9 +59,9 @@ l'id des images bateaux doit commencer par 1 et les id suivants des images doive
                 <longueur>3</longueur>
                 <portee>3</portee>
                 <images>
-                    <image id="1">a.png</image>
-                    <image id="2">b.png</image>
-                    <image id="3">c.png</image>
+                    <image id="1">b3a.png</image>
+                    <image id="2">b3b.png</image>
+                    <image id="3">b3c.png</image>
                 </images>
             </bateau>
             <bateau>
@@ -69,8 +69,17 @@ l'id des images bateaux doit commencer par 1 et les id suivants des images doive
                 <longueur>2</longueur>
                 <portee>2</portee>
                 <images>
-                    <image id="1">a.png</image>
-                    <image id="2">b.png</image>
+                    <image id="1">b2a.png</image>
+                    <image id="2">b2b.png</image>
+                </images>
+            </bateau>
+            <bateau>
+                <nom>Couleuvre</nom>
+                <longueur>2</longueur>
+                <portee>2</portee>
+                <images>
+                    <image id="1">b22a.png</image>
+                    <image id="2">b22b.png</image>
                 </images>
             </bateau>
             
