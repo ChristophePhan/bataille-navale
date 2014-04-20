@@ -202,7 +202,8 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
                 this._partie.getJ1().getCases().get(numC).setCoordonnees(j, i);
                 this.plateauJoueurCourant.add(this._partie.getJ1().getCases().get(numC));
                 // On resinitialise les cases a portee de tir sur la grille du joueur
-                if (this._partie.getJ1().getCases().get(i + j *this._partie.getParametre().getNbCaseX()).getBateau() == null) {
+                if (this._partie.getJ1().getCases().get(i + j *this._partie.getParametre().getNbCaseX()).getBateau() == null 
+                        && !this._partie.getJ1().getCases().get(i + j *this._partie.getParametre().getNbCaseX()).isEtat()) {
 
                     ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Fond_blanc.png"));
                     this._partie.getJ1().getCases().get(i + j *this._partie.getParametre().getNbCaseX()).setEnabled(false);
