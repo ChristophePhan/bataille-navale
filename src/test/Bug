@@ -3,5 +3,8 @@ Bug d'affichage des images :
 et qu'on sauvegarde, à la reprise de la partie, l'image de la case 0 du bateau n'est pas dans le bon sens.
     - A la reprise d'une partie, les croix associées aux tirs de l'IA n'apparaissent plus, mais l'algo fonctionne correctement
     - La portée n'est plus visualisé correctement lorsqu'on reprend une partie qu'on a enregistré avant de cliquer sur jouer
-La suppression d'un profil me parait un peu longue
+
+La suppression d'un profil me parait un peu longue et aléatoire : Qd je crée le profil et que je veux le supprimer juste après, ça ne fonctionne pas.
 Sur windows la fermeture des popups via la croix rouge fait passer la fenetre principale en arrière plan
+
+C'est peut-être du chichi mais si on fait des sauvegardes successifs d'une même partie, l'heure/date de la sauvegarde correspond à l'heure de la toute première ? 
