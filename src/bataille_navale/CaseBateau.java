@@ -110,8 +110,8 @@ public class CaseBateau extends Case {
 
     public void setImage(String image) {
         
-        int width = 300/this._partie.getParametre().getNbCaseX();
-        int height = 300/this._partie.getParametre().getNbCaseY();
+        int width = (300+this._partie.getParametre().getNbCaseX()+1)/this._partie.getParametre().getNbCaseX();
+        int height = (300+this._partie.getParametre().getNbCaseY()+1)/this._partie.getParametre().getNbCaseY();
         this._image = image;
         String path = "stockage/"+this._partie.getParametre().getEpoque().getNom()+"/";
         String extension = "";

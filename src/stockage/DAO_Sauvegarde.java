@@ -411,9 +411,9 @@ public class DAO_Sauvegarde {
                                 } else {
 
                                     c = new CaseBateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))),partie);
-                                    ((CaseBateau)c).setImage(caseElt.getChildText("imageBateau"));
                                     c.getBateau().setOrientation(Integer.parseInt(caseElt.getChildText("orientation")));
                                     c.getBateau().setNbCasesNonTouchees(Integer.parseInt(caseElt.getChildText("nbCasesNonTouchees")));
+                                    ((CaseBateau)c).setImage(caseElt.getChildText("imageBateau"));
                                     
                                 }
                                 boolean etat = ("1".equals(caseElt.getChildText("etat")));
