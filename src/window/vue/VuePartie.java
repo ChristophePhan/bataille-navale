@@ -265,8 +265,10 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         // On empeche les eventuels bateaux coules de tirer si l'utilisateur
         // en a fait le choix
         if(this._partie.getParametre().isMajPortee() && !this.buttonJouer.isEnabled()) {
+            
             this.updatePortee();
-        }
+            
+        } 
         
     } // initialisation()
     
@@ -968,6 +970,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         this.setEnabled(false);
+        
         // On limite le nombre de parties a 3
         if(this._profil.getParties().size() >= 3) {
             
@@ -982,6 +985,22 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
             this.buttonNouvellePartie.setBorder(new LineBorder(Color.DARK_GRAY,1));
             
         }
+        
+        // Si la partie n'a pas commencee, on ne peut pas l'enregistrer
+        if(this.buttonJouer.isEnabled()) {
+            
+            this.buttonEnregistrer.setEnabled(false);
+            this.buttonEnregistrer.setForeground(Color.LIGHT_GRAY);
+            this.buttonEnregistrer.setBorder(new LineBorder(Color.LIGHT_GRAY,1));
+            
+        } else {
+            
+            this.buttonEnregistrer.setEnabled(true);
+            this.buttonEnregistrer.setForeground(Color.DARK_GRAY);
+            this.buttonEnregistrer.setBorder(new LineBorder(Color.DARK_GRAY,1));
+            
+        }
+        
         this.popupQuitterPartie.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
