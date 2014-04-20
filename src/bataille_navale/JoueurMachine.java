@@ -97,6 +97,8 @@ public class JoueurMachine extends Joueur {
     @Override
     public boolean jouerCase(Case c) {
         
+        int width = (300+this._partie.getParametre().getNbCaseX()+1)/this._partie.getParametre().getNbCaseX();
+        int height = (300+this._partie.getParametre().getNbCaseY()+1)/this._partie.getParametre().getNbCaseY();
         ImageIcon bateauImage = null;
         boolean res = false;
         if(c.getBateau() == null) {
@@ -104,7 +106,7 @@ public class JoueurMachine extends Joueur {
             // Tir dans le vide
             this._nbTirsPerdant++;
             bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Croix.png"))
-                .getImage().getScaledInstance(c.getWidth(), c.getHeight(), Image.SCALE_DEFAULT));
+                .getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
             
         } else {
             
@@ -112,7 +114,7 @@ public class JoueurMachine extends Joueur {
             this._nbTirsGagnant++;
             res = true;
             bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge.png"))
-                .getImage().getScaledInstance(c.getWidth(), c.getHeight(), Image.SCALE_DEFAULT));
+                .getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
             if(c.getBateau().getNbCasesNonTouchees() != 0){
                 c.getBateau().setNbCasesNonTouchees(c.getBateau().getNbCasesNonTouchees()-1);
             }
