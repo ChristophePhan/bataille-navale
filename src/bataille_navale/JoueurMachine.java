@@ -101,6 +101,7 @@ public class JoueurMachine extends Joueur {
         int height = (300+this._partie.getParametre().getNbCaseY()+1)/this._partie.getParametre().getNbCaseY();
         ImageIcon bateauImage = null;
         boolean res = false;
+
         if(c.getBateau() == null) {
             
             // Tir dans le vide
@@ -115,7 +116,7 @@ public class JoueurMachine extends Joueur {
             res = true;
             bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge.png"))
                 .getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
-            if(c.getBateau().getNbCasesNonTouchees() != 0){
+            if(c.getBateau().getNbCasesNonTouchees() > 0){
                 c.getBateau().setNbCasesNonTouchees(c.getBateau().getNbCasesNonTouchees()-1);
             }
             

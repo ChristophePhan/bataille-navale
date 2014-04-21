@@ -114,7 +114,7 @@ public class JoueurHumain extends Joueur {
             res = true;
             bateauImage = new ImageIcon(new ImageIcon(getClass().getResource("/stockage/images/Rond_rouge.png"))
                 .getImage().getScaledInstance(c.getWidth(), c.getHeight(), Image.SCALE_DEFAULT));
-            if(c.getBateau().getNbCasesNonTouchees() != 0){
+            if(c.getBateau().getNbCasesNonTouchees() > 0){
                 c.getBateau().setNbCasesNonTouchees(c.getBateau().getNbCasesNonTouchees()-1);
             }
 

@@ -54,7 +54,7 @@ public class JouerCaseController implements ActionListener  {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-     
+       
         boolean testPourEgalite = true;
         if(this._partie.jouerCase(this._joueurCourant, this._joueurAdverse, this._caseTouche)) {
             

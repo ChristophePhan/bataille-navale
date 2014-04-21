@@ -95,7 +95,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
         boolean test = false;
         while(num < partie.getJ2().getCases().size() && !test) {
             
-            if(partie.getJ2().getCases().get(num).isEtat()) {
+            if(partie.getJ2().getCases().get(num).isAPortee()) {
                 test = true;
             }
             num++;
@@ -1198,7 +1198,7 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
             
             Case c = this._partie.getCasesBateaux().get((String)ite.next());
             int nbCasesTouche = c.getBateau().getLongueur()-c.getBateau().getNbCasesNonTouchees();
-            int nbCasesNonTouche = c.getBateau().getLongueur() - nbCasesTouche;
+            int nbCasesNonTouche = c.getBateau().getNbCasesNonTouchees();
             JPanel panelEtat = new JPanel();
             panelEtat.setOpaque(false);
             panelEtat.setLayout(new BoxLayout(panelEtat, BoxLayout.X_AXIS));

@@ -238,9 +238,9 @@ public class DAO_Sauvegarde {
                         
                         // Case bateau
                         caseJ.addContent(new Element("bateau").setText(c.getBateau().getNom()));
+                        caseJ.addContent(new Element("orientation").setText(c.getBateau().getOrientation()+""));
                         caseJ.addContent(new Element("imageBateau").setText(((CaseBateau)c).getImage()));
                         caseJ.addContent(new Element("nbCasesNonTouchees").setText(c.getBateau().getNbCasesNonTouchees()+""));
-                        caseJ.addContent(new Element("orientation").setText(c.getBateau().getOrientation()+""));
                         
                     }
                     joueur1.addContent(caseJ);
@@ -257,7 +257,7 @@ public class DAO_Sauvegarde {
                 joueur2.addContent(new Element("difficulte").setText(((JoueurMachine)partie.getJ2()).getDifficulte()));
                 for(Case c : partie.getJ2().getCases()) {
                     
-                    Element caseJ = new Element("case");
+                    /*Element caseJ = new Element("case");
                     String etat = c.isEtat() ? "1" : "0";
                     caseJ.addContent(new Element("etat").setText(etat));
                     String aPortee = c.isAPortee() ? "1" : "0";
@@ -267,6 +267,31 @@ public class DAO_Sauvegarde {
                     caseJ.addContent(new Element("idPartie").setText(c.getPartie().getId()));
                     String bateau = (c.getBateau() == null) ? "null" : c.getBateau().getNom();
                     caseJ.addContent(new Element("bateau").setText(bateau));
+                    joueur2.addContent(caseJ);*/
+                    Element caseJ = new Element("case");
+                    String etat = c.isEtat() ? "1" : "0";
+                    caseJ.addContent(new Element("etat").setText(etat));
+                    String aPortee = c.isAPortee() ? "1" : "0";
+                    caseJ.addContent(new Element("aPortee").setText(aPortee));
+                    caseJ.addContent(new Element("abs").setText(c.getAbs()+""));
+                    caseJ.addContent(new Element("ord").setText(c.getOrd()+""));
+                    caseJ.addContent(new Element("idPartie").setText(c.getPartie().getId()));
+                    if(c.getBateau() == null) {
+                        
+                        // Case vide
+                        caseJ.addContent(new Element("bateau").setText("null"));
+                        caseJ.addContent(new Element("nbCasesNonTouchees").setText("0"));
+                        caseJ.addContent(new Element("orientation").setText("0"));
+                    
+                    } else {
+                        
+                        // Case bateau
+                        caseJ.addContent(new Element("bateau").setText(c.getBateau().getNom()));
+                        caseJ.addContent(new Element("orientation").setText(c.getBateau().getOrientation()+""));
+                        caseJ.addContent(new Element("imageBateau").setText(((CaseBateau)c).getImage()));
+                        caseJ.addContent(new Element("nbCasesNonTouchees").setText(c.getBateau().getNbCasesNonTouchees()+""));
+                        
+                    }
                     joueur2.addContent(caseJ);
                     
                 }
@@ -288,7 +313,7 @@ public class DAO_Sauvegarde {
               System.out.println(io.getMessage());
         }
       
-    } // createProfil(Profil profil)
+    } // saveProfil(Profil profil)
     
     
     /**
@@ -399,6 +424,7 @@ public class DAO_Sauvegarde {
                             joueur1.setNbTirsPerdant(Integer.parseInt(j1.getChildText("nbTirsPerdant")));
                             List listCasesXML = j1.getChildren("case");
                             ArrayList<Case> cases = new ArrayList<>();
+                            HashMap<String,Bateau> bateauxJ1 = new HashMap();
                             for (int k = 0; k < listCasesXML.size(); k++) {
 
                                 Element caseElt = (Element) listCasesXML.get(k);
@@ -410,7 +436,15 @@ public class DAO_Sauvegarde {
 
                                 } else {
 
-                                    c = new CaseBateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))),partie);
+                                    if(bateauxJ1.containsKey(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))).getNom())) {
+                                        c = new CaseBateau(bateauxJ1.get(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))).getNom()),partie);
+                                    } else {
+                                        Bateau bateau = new Bateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))));
+                                        bateauxJ1.put(bateau.getNom(),bateau);
+                                        c = new CaseBateau(bateau,partie);
+                                        
+                                    }
+                                    //c = new CaseBateau(new Bateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau")))),partie);
                                     c.getBateau().setOrientation(Integer.parseInt(caseElt.getChildText("orientation")));
                                     c.getBateau().setNbCasesNonTouchees(Integer.parseInt(caseElt.getChildText("nbCasesNonTouchees")));
                                     ((CaseBateau)c).setImage(caseElt.getChildText("imageBateau"));
@@ -458,6 +492,7 @@ public class DAO_Sauvegarde {
                             ((JoueurMachine)joueur2).setDifficulte(j2.getChildText("difficulte"));
                             List listCasesBisXML = j2.getChildren("case");
                             ArrayList<Case> casesBis = new ArrayList<>();
+                            HashMap<String,Bateau> bateauxJ2 = new HashMap();
                             for (int k = 0; k < listCasesBisXML.size(); k++) {
 
                                 Element caseElt = (Element) listCasesBisXML.get(k);
@@ -469,8 +504,18 @@ public class DAO_Sauvegarde {
 
                                 } else {
 
-                                    c = new CaseBateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))),partie);
-
+                                    if(bateauxJ2.containsKey(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))).getNom())) {
+                                        c = new CaseBateau(bateauxJ2.get(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))).getNom()),partie);
+                                    } else {
+                                        Bateau bateau = new Bateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))));
+                                        bateauxJ2.put(bateau.getNom(),bateau);
+                                        c = new CaseBateau(bateau,partie);
+                                        
+                                    }
+                                    c.getBateau().setOrientation(Integer.parseInt(caseElt.getChildText("orientation")));
+                                    c.getBateau().setNbCasesNonTouchees(Integer.parseInt(caseElt.getChildText("nbCasesNonTouchees")));
+                                    ((CaseBateau)c).setImage(caseElt.getChildText("imageBateau"));
+                                    
                                 }
                                 boolean etat = ("1".equals(caseElt.getChildText("etat")));
                                 c.setEtat(etat);

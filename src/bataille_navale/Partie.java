@@ -81,6 +81,7 @@ public class Partie extends Observable {
      * Permet de lancer la partie
      */
     public void jouerPartie() {
+        
         int x = this._parametre.getNbCaseX();
         int y = this._parametre.getNbCaseY();
         this.casesBateaux = new HashMap();
