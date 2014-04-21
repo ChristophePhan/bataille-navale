@@ -1,0 +1,10 @@
+Choix de programmation : 
+    - La restriction de la portée une fois un bateau coulé ne nous paraissait pas intéressante mais nous l'avons tout de même implémentée.
+Cependant, comme c'est un choix personnel du joueurHumaine, elle ne s'applique qu'à lui, l'IA ne subit pas désavantage.
+
+Nous avons remarqué des différences suivant les OS :
+    - Mac : Tout se passe bien, aucun soucis
+    - Windows : La fermeture des popups (via la croix) fait passer la fenêtre principale en arrière plan.
+                Il se peut que la suppression d'un profil ne se fasse pas instantanément
+    - Linux : La croix de fermeture n'apparaît pas -> impossibilité de fermer le popup
+              L'interface du jeu est mal dimensionnée. En effet, la grille de droite qui permet la visualisation de nos bateaux est coupée.  
