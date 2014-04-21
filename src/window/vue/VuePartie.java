@@ -21,6 +21,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
@@ -1042,6 +1045,11 @@ public class VuePartie extends javax.swing.JFrame implements Observer, KeyListen
      */
     private void buttonEnregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEnregistrerActionPerformed
 
+        // Mise a jour de la date de la partie
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+        Calendar cal = Calendar.getInstance();
+        this._partie.setDate(dateFormat.format(cal.getTime()));
+        
         this._jeu.getProfilCourant().ajouterNouvellePartie(this._partie);
         this._partie.sauvegarderPartie(this._profil);
         this._batailleNavale.setVisible(true);

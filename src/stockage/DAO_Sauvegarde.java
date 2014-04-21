@@ -41,13 +41,6 @@ import org.jdom2.output.XMLOutputter;
 public class DAO_Sauvegarde {
 
     
-    ////////////////////////////// VARIABLES //////////////////////////////////
-    
-    
-    //private final String path = "fich_sauv.xml";
-    private XMLEncoder encoder;
-    private XMLDecoder decoder;
-
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
     
@@ -60,6 +53,7 @@ public class DAO_Sauvegarde {
         
     } // DAO_Sauvegarde()
 
+    
     ////////////////////////////// FONCTIONS //////////////////////////////////
     
     
@@ -70,26 +64,6 @@ public class DAO_Sauvegarde {
      */
     public HashMap getAllProfils() {
 
-        /*HashMap<String, Profil> liste = new HashMap<>();
-        File folder = new File("users");
-        File[] listOfFiles = folder.listFiles();
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                try {
-                    String s = "users"+File.separator+listOfFiles[i].getName();
-                    decoder = new XMLDecoder(new FileInputStream(s));
-                    Profil p = (Profil) decoder.readObject();
-                    liste.put(p.getNom(), p);
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(DAO_Sauvegarde.class.getName()).log(Level.SEVERE, null, ex);
-                } finally {
-                    // fermeture du decodeur
-                    decoder.close();
-                }
-            }
-        }
-        return liste;*/
-        
         HashMap<String, Profil> liste = new HashMap<>();
         File folder = new File("users");
         File[] listOfFiles = folder.listFiles();
@@ -147,19 +121,7 @@ public class DAO_Sauvegarde {
      * @param profil nouveau profil a enregistrer
      */
     public void saveProfil(Profil profil) {
-        /*try {
-            String file = "users" + File.separator + profil.getNom() + ".xml";
-            encoder = new XMLEncoder(new FileOutputStream(file));
-            // serialisation de l'objet
-            encoder.writeObject(profil);
-            encoder.flush();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DAO_Sauvegarde.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            // fermeture de l'encodeur
-            encoder.close();
-        }*/
-        
+
         try {
  
             // Profil
@@ -257,17 +219,6 @@ public class DAO_Sauvegarde {
                 joueur2.addContent(new Element("difficulte").setText(((JoueurMachine)partie.getJ2()).getDifficulte()));
                 for(Case c : partie.getJ2().getCases()) {
                     
-                    /*Element caseJ = new Element("case");
-                    String etat = c.isEtat() ? "1" : "0";
-                    caseJ.addContent(new Element("etat").setText(etat));
-                    String aPortee = c.isAPortee() ? "1" : "0";
-                    caseJ.addContent(new Element("aPortee").setText(aPortee));
-                    caseJ.addContent(new Element("abs").setText(c.getAbs()+""));
-                    caseJ.addContent(new Element("ord").setText(c.getOrd()+""));
-                    caseJ.addContent(new Element("idPartie").setText(c.getPartie().getId()));
-                    String bateau = (c.getBateau() == null) ? "null" : c.getBateau().getNom();
-                    caseJ.addContent(new Element("bateau").setText(bateau));
-                    joueur2.addContent(caseJ);*/
                     Element caseJ = new Element("case");
                     String etat = c.isEtat() ? "1" : "0";
                     caseJ.addContent(new Element("etat").setText(etat));
@@ -321,9 +272,11 @@ public class DAO_Sauvegarde {
      * @param profil profil a supprimer
      */
     public void removeProfil(Profil profil) {
-        String s = "users"+File.separator+profil.getNom()+".xml";
+        
+        String s = "users" + File.separator+profil.getNom() + ".xml";
         File f = new File(s);
         f.delete();
+        
     } // removeProfil(int id)
 
     
@@ -350,28 +303,8 @@ public class DAO_Sauvegarde {
 
     } // isExistingProfil(String nom)
 
-    
-//    /**
-//     * Permet de mettre a jour un profil
-//     * @param profil profil a mettre a jour
-//     */
-//    public void updateProfil(Profil profil) {
-//    } // updateProfil(Profil profil)
-    
-    
-//    /**************************** PARTIE ***********************************/
-//
-//    /**
-//     * Permet de recuperer la liste de toutes les parties disponibles pour
-//     * un profil donne
-//     * @param profil profil a partir duquel on souhaite recuperer les parties
-//     * @return la liste des parties du profil donne
-//     */
-//    public List getParties(Profil profil) {
-//        
-//        return null;
-//        
-//    } // getParties(Profil profil)
+   
+    /**************************** PARTIE ***********************************/
     
     
     public Partie getPartie(String id, Profil profil) {
@@ -437,14 +370,15 @@ public class DAO_Sauvegarde {
                                 } else {
 
                                     if(bateauxJ1.containsKey(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))).getNom())) {
+                                        // On a deja memorise le bateau, alors on cree une CaseBateau a partir de ce dernier
                                         c = new CaseBateau(bateauxJ1.get(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))).getNom()),partie);
                                     } else {
+                                        // Le bateau n'a pas encore ete memorise, on l'ajoute a la liste
                                         Bateau bateau = new Bateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))));
                                         bateauxJ1.put(bateau.getNom(),bateau);
                                         c = new CaseBateau(bateau,partie);
                                         
                                     }
-                                    //c = new CaseBateau(new Bateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau")))),partie);
                                     c.getBateau().setOrientation(Integer.parseInt(caseElt.getChildText("orientation")));
                                     c.getBateau().setNbCasesNonTouchees(Integer.parseInt(caseElt.getChildText("nbCasesNonTouchees")));
                                     ((CaseBateau)c).setImage(caseElt.getChildText("imageBateau"));
@@ -505,8 +439,10 @@ public class DAO_Sauvegarde {
                                 } else {
 
                                     if(bateauxJ2.containsKey(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))).getNom())) {
+                                        // On a deja memorise le bateau, alors on cree une CaseBateau a partir de ce dernier
                                         c = new CaseBateau(bateauxJ2.get(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))).getNom()),partie);
                                     } else {
+                                        // Le bateau n'a pas encore ete memorise, on l'ajoute a la liste
                                         Bateau bateau = new Bateau(((Bateau)DAOFactory.getInstance().getDAO_Configuration().getAllBateaux(epoque).get(caseElt.getChildText("bateau"))));
                                         bateauxJ2.put(bateau.getNom(),bateau);
                                         c = new CaseBateau(bateau,partie);
@@ -544,34 +480,6 @@ public class DAO_Sauvegarde {
         return partie;
         
     } // getPartie(String id, Profil profil)
-    
-    
-//    /**
-//     * Permet de d'ajouter une partie a un profil
-//     * @param profil profil auquel on souhaite ajouter la partie
-//     * @param partie partie a ajouter au profil
-//     */
-//    public void createPartie(Profil profil, Partie partie) {
-//
-//    } // createPartie(Profil profil, Partie partie) 
-//
-//    
-//    /**
-//     * Permet de mettre a jour une partie
-//     * @param partie partie a mettre a jour
-//     */
-//    public void updatePartie(Partie partie) {
-//
-//    } // updatePartie(Partie partie)
-//
-//    
-//    /**
-//     * Permet de supprimer une partie 
-//     * @param id identifiant de la partie a supprimer
-//     */
-//    public void removePartie(int id) {
-//
-//    } // removePartie(int id)
     
     
 } // class DAO_Sauvegarde
