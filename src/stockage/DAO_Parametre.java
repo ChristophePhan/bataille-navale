@@ -6,14 +6,10 @@
 package stockage;
 
 import bataille_navale.TailleGrille;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -30,17 +26,12 @@ import org.jdom2.input.SAXBuilder;
  */
 public class DAO_Parametre {
 
-    
     ////////////////////////////// VARIABLES //////////////////////////////////
-    
-    
     private final String path = "stockage/fich_param.xml";
     private Document document;
     private final Element racine;
 
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    
-    
     public DAO_Parametre() {
         SAXBuilder sxb = new SAXBuilder();
         try {
@@ -48,10 +39,10 @@ public class DAO_Parametre {
             //Le parsing est terminé ;)
             File f = new File(path);
             File dossier = new File("stockage");
-            if(!dossier.exists()){
+            if (!dossier.exists()) {
                 dossier.mkdir();
             }
-            if(!f.exists()){
+            if (!f.exists()) {
                 this.ecrireFichParam();
             }
             document = sxb.build(f);
@@ -61,9 +52,9 @@ public class DAO_Parametre {
         racine = document.getRootElement();
     }
 
-    
     /**
      * Permet de recuperer les tailles de grille disponible
+     *
      * @return une liste des tailles de grille disonible
      */
     public List getTaillesGrille() {
@@ -77,8 +68,7 @@ public class DAO_Parametre {
         }
         return listeGrilles;
     }
-    
-    
+
     public List getDifficultees() {
         Element difficulteXML = racine.getChild("difficulte");
         List modeXML = difficulteXML.getChildren("mode");
@@ -91,26 +81,40 @@ public class DAO_Parametre {
         }
         return listeDifficulte;
     }
-    
-    private void ecrireFichParam(){
+
+    private void ecrireFichParam() {
+        String s = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                + "<!--\n"
+                + "Fichier XML contenant les parametres disponibles pour une partie\n"
+                + "-->\n"
+                + "<parametres>\n"
+                + "    <grille>\n"
+                + "        <x>10</x>\n"
+                + "        <y>10</y>\n"
+                + "    </grille>\n"
+                + "    \n"
+                + "    <grille>\n"
+                + "        <x>15</x>\n"
+                + "        <y>15</y>\n"
+                + "    </grille>\n"
+                + "    <difficulte>\n"
+                + "        <mode>Facile</mode>\n"
+                + "        <mode>Normal</mode>\n"
+                + "        <mode>Difficile</mode>\n"
+                + "    </difficulte>\n"
+                + "</parametres>";
         try {
-            URL s = getClass().getClassLoader().getResource("stockage/fich_param.xml");
-            System.out.println(s);
-            File f = new File(s.toURI());
-            BufferedReader br = new BufferedReader(new FileReader(f));
-            BufferedWriter bw = new BufferedWriter(new FileWriter(new File(path)));
-            String line;
-            while(( line = br.readLine()) != null){
-                bw.append(line);
-                bw.newLine();
-            }
+            File f = new File("stockage/fich_param.xml");
+            BufferedWriter bw = new BufferedWriter(new FileWriter(f));
+            
+            bw.write(s);
+            bw.newLine();
+
             bw.flush();
             bw.close();
         } catch (IOException ex) {
             Logger.getLogger(DAO_Parametre.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(DAO_Configuration.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

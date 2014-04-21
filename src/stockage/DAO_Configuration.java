@@ -2,14 +2,10 @@ package stockage;
 
 import bataille_navale.Bateau;
 import bataille_navale.Epoque;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -28,26 +24,22 @@ import org.jdom2.input.SAXBuilder;
 public class DAO_Configuration {
 
     ////////////////////////////// VARIABLES //////////////////////////////////
-    
-    
     private final String path = "stockage/fich_config.xml";
     private Document document;
     private final Element racine;
 
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    
-    
     public DAO_Configuration() {
         SAXBuilder sxb = new SAXBuilder();
         try {
             //On crée un nouveau document JDOM avec en argument le fichier XML
             //Le parsing est terminé ;)
-            File f = new File(path);  
+            File f = new File(path);
             File dossier = new File("stockage");
-            if(!dossier.exists()){
+            if (!dossier.exists()) {
                 dossier.mkdir();
             }
-            if(!f.exists()){
+            if (!f.exists()) {
                 this.ecrireFichConfig();
             }
             document = sxb.build(f);
@@ -57,10 +49,7 @@ public class DAO_Configuration {
         racine = document.getRootElement();
     } // DAO_Configuration()
 
-    
     ////////////////////////////// FONCTIONS //////////////////////////////////
-    
-    
     /**
      * Permet de recuperer la liste des epoques disponibles dans le fichier de
      * configuration
@@ -114,25 +103,198 @@ public class DAO_Configuration {
         return epoque.getListBateaux();
 
     } // getAllBateaux(Epoque epoque)
-    
-    private void ecrireFichConfig(){
+
+    private void ecrireFichConfig() {
+        String s = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                + "<!-- Fichier de configuration (Epoque/Bateaux)\n"
+                + " L'id des images bateaux doit commencer par 1 et les id suivants des images doivent suivre dans \n"
+                + " l'ordre croissant -->\n"
+                + "<epoques>\n"
+                + "    <epoque>\n"
+                + "        <id>5678</id>\n"
+                + "        <nom>Future</nom>\n"
+                + "        <siecle>inconnu</siecle>\n"
+                + "        <image>Future.jpg</image>\n"
+                + "        <bateaux>\n"
+                + "            <bateau>\n"
+                + "                <nom>Prometheus</nom>\n"
+                + "                <longueur>5</longueur>\n"
+                + "                <portee>5</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b5a.png</image>\n"
+                + "                    <image id=\"2\">b5b.png</image>\n"
+                + "                    <image id=\"3\">b5c.png</image>\n"
+                + "                    <image id=\"4\">b5d.png</image>\n"
+                + "                    <image id=\"5\">b5e.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>BattlestarGalactica</nom>\n"
+                + "                <longueur>4</longueur>\n"
+                + "                <portee>4</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b4a.png</image>\n"
+                + "                    <image id=\"2\">b4b.png</image>\n"
+                + "                    <image id=\"3\">b4c.png</image>\n"
+                + "                    <image id=\"4\">b4d.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>Raptor</nom>\n"
+                + "                <longueur>3</longueur>\n"
+                + "                <portee>3</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b3a.png</image>\n"
+                + "                    <image id=\"2\">b3b.png</image>\n"
+                + "                    <image id=\"3\">b3c.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>Viper</nom>\n"
+                + "                <longueur>2</longueur>\n"
+                + "                <portee>2</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b2a.png</image>\n"
+                + "                    <image id=\"2\">b2b.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>Couleuvre</nom>\n"
+                + "                <longueur>2</longueur>\n"
+                + "                <portee>2</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b22a.png</image>\n"
+                + "                    <image id=\"2\">b22b.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "        </bateaux>\n"
+                + "    </epoque>\n"
+                + "    <epoque>\n"
+                + "        <id>4678</id>\n"
+                + "        <nom>Pocahontas</nom>\n"
+                + "        <siecle>15eme</siecle>\n"
+                + "        <image>Pocahontas.png</image>\n"
+                + "        <bateaux>\n"
+                + "            <bateau>\n"
+                + "                <nom>Santa-Maria</nom>\n"
+                + "                <longueur>5</longueur>\n"
+                + "                <portee>5</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b5a.png</image>\n"
+                + "                    <image id=\"2\">b5b.png</image>\n"
+                + "                    <image id=\"3\">b5c.png</image>\n"
+                + "                    <image id=\"4\">b5d.png</image>\n"
+                + "                    <image id=\"5\">b5e.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>Pinta</nom>\n"
+                + "                <longueur>4</longueur>\n"
+                + "                <portee>4</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b4a.png</image>\n"
+                + "                    <image id=\"2\">b4b.png</image>\n"
+                + "                    <image id=\"3\">b4c.png</image>\n"
+                + "                    <image id=\"4\">b4d.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>Nina</nom>\n"
+                + "                <longueur>3</longueur>\n"
+                + "                <portee>3</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b3a.png</image>\n"
+                + "                    <image id=\"2\">b3b.png</image>\n"
+                + "                    <image id=\"3\">b3c.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>Caraque</nom>\n"
+                + "                <longueur>2</longueur>\n"
+                + "                <portee>2</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b2a.png</image>\n"
+                + "                    <image id=\"2\">b2b.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>Caravelle</nom>\n"
+                + "                <longueur>2</longueur>\n"
+                + "                <portee>2</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b22a.png</image>\n"
+                + "                    <image id=\"2\">b22b.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "        </bateaux>\n"
+                + "    </epoque>\n"
+                + "    <epoque>\n"
+                + "        <id>8678</id>\n"
+                + "        <nom>StarWars</nom>\n"
+                + "        <siecle>Inconnu</siecle>\n"
+                + "        <image>StarWars.png</image>\n"
+                + "        <bateaux>\n"
+                + "            <bateau>\n"
+                + "                <nom>Leviathan</nom>\n"
+                + "                <longueur>4</longueur>\n"
+                + "                <portee>4</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b4a.png</image>\n"
+                + "                    <image id=\"2\">b4b.png</image>\n"
+                + "                    <image id=\"3\">b4c.png</image>\n"
+                + "                    <image id=\"4\">b4d.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>Corvette</nom>\n"
+                + "                <longueur>3</longueur>\n"
+                + "                <portee>3</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b33a.png</image>\n"
+                + "                    <image id=\"2\">b33b.png</image>\n"
+                + "                    <image id=\"3\">b33c.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>Cimeterre</nom>\n"
+                + "                <longueur>3</longueur>\n"
+                + "                <portee>3</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b3a.png</image>\n"
+                + "                    <image id=\"2\">b3b.png</image>\n"
+                + "                    <image id=\"3\">b3c.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>Jedi Starfighter</nom>\n"
+                + "                <longueur>2</longueur>\n"
+                + "                <portee>2</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b2a.png</image>\n"
+                + "                    <image id=\"2\">b2b.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "            <bateau>\n"
+                + "                <nom>Fighter</nom>\n"
+                + "                <longueur>2</longueur>\n"
+                + "                <portee>2</portee>\n"
+                + "                <images>\n"
+                + "                    <image id=\"1\">b22a.png</image>\n"
+                + "                    <image id=\"2\">b22b.png</image>\n"
+                + "                </images>\n"
+                + "            </bateau>\n"
+                + "        </bateaux>\n"
+                + "    </epoque>\n"
+                + "</epoques>";
         try {
-            URL s = getClass().getClassLoader().getResource("stockage/fich_config.xml");
-            System.out.println(s);
-            File f = new File(s.toURI());
-            BufferedReader br = new BufferedReader(new FileReader(f));
-            BufferedWriter bw = new BufferedWriter(new FileWriter(new File(path)));
-            String line;
-            while(( line = br.readLine()) != null){
-                bw.append(line);
-                bw.newLine();
-            }
+            File f = new File("stockage/fich_config.xml");
+            BufferedWriter bw = new BufferedWriter(new FileWriter(f));
+            bw.write(s);
+            bw.newLine();
             bw.flush();
             bw.close();
         } catch (IOException ex) {
             Logger.getLogger(DAO_Parametre.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(DAO_Configuration.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
