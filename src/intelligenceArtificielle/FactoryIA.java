@@ -8,8 +8,8 @@ package intelligenceArtificielle;
 import bataille_navale.Parametre;
 
 /**
- *
- * @author Samy
+ * FactoryIA
+ * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class FactoryIA {
     /////////////////////////// VARIABLES //////////////////////////////////

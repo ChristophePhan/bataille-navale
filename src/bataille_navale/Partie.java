@@ -21,7 +21,6 @@ import stockage.DAOFactory;
 
 /**
  * Partie
- *
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class Partie extends Observable {
@@ -667,9 +666,11 @@ public class Partie extends Observable {
     } // afficherMessageFinPartie(String mess)
 
     
-    /***** GETTER/SETTER *****/
-    
-    
+    /**
+     * *** GETTER/SETTER ****
+     * @return 
+     */
+       
     public HashMap<String, Case> getCasesBateaux() {
         return casesBateaux;
     }

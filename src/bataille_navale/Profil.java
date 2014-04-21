@@ -36,6 +36,7 @@ public class Profil {
     
     /**
      * Permet de creer une nouvelle partie
+     * @param p
      */
     public void ajouterNouvellePartie(Partie p) {
         
@@ -64,9 +65,11 @@ public class Profil {
     } // supprimerPartie(String id)
     
 
-    /***** GETTER/SETTER *****/
-    
-    
+    /**
+     * *** GETTER/SETTER ****
+     * @return 
+     */
+      
     public String getId() {
         return _id;
     }

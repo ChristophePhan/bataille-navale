@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 /**
  * AfficherPartiesController
- * @author Tristan
+ * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class AfficherPartiesController implements ActionListener  {
     
@@ -21,8 +21,8 @@ public class AfficherPartiesController implements ActionListener  {
     ////////////////////////////// VARIABLES /////////////////////////////////
 
 
-    private Jeu _jeu;
-    private Profil _profil;
+    private final Jeu _jeu;
+    private final Profil _profil;
 
 
     //////////////////////////// CONSTRUCTEURS ///////////////////////////////

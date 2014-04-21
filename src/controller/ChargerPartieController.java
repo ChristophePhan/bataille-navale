@@ -10,11 +10,10 @@ import bataille_navale.Partie;
 import bataille_navale.Profil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import stockage.DAOFactory;
 
 /**
  * ChargerPartieController
- * @author Christophe
+ * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class ChargerPartieController implements ActionListener {
     
@@ -22,9 +21,9 @@ public class ChargerPartieController implements ActionListener {
     ////////////////////////////// VARIABLES /////////////////////////////////
 
     
-    private Partie p;
-    private Jeu j;
-    private Profil pr;
+    private final Partie p;
+    private final Jeu j;
+    private final Profil pr;
     
     
     //////////////////////////// CONSTRUCTEURS ///////////////////////////////

@@ -139,9 +139,11 @@ public abstract class Joueur {
     public abstract boolean jouerCase(Case c);
 
     
-    /***** GETTER/SETTER *****/
-    
-    
+    /**
+     * *** GETTER/SETTER ****
+     * @return 
+     */
+     
     public String getNom() {
         return _nom;
     }

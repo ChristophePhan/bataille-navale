@@ -12,7 +12,6 @@ import java.util.Random;
 
 /**
  * IntelligenceArtificielleMoyen
- *
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class IntelligenceArtificielleMoyen extends IntelligenceArtificielle {
@@ -41,5 +40,5 @@ public class IntelligenceArtificielleMoyen extends IntelligenceArtificielle {
         }
         return caseTouchee;
     }
-    
+
 }

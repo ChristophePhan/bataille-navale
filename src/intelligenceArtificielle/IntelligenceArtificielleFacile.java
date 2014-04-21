@@ -12,7 +12,6 @@ import java.util.Random;
 
 /**
  * IntelligenceArtificielleFacile
- *
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class IntelligenceArtificielleFacile extends IntelligenceArtificielle {

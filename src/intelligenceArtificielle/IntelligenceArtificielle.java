@@ -14,7 +14,6 @@ import java.util.Random;
 
 /**
  * IntelligenceArtificielle
- *
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public abstract class IntelligenceArtificielle {
@@ -67,8 +66,10 @@ public abstract class IntelligenceArtificielle {
     }
 
     
-    /***** GETTER/SETTER *****/
-    
+    /**
+     * *** GETTER/SETTER ****
+     * @return 
+     */   
     
     public List<Case> getListeCaseATester() {
         return listeCaseATester;

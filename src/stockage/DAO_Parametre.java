@@ -21,8 +21,8 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
 /**
- *
- * @author Christophe
+ * DAO_Parametre
+ * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class DAO_Parametre {
 

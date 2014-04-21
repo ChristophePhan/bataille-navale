@@ -43,9 +43,9 @@ import window.vue.VuePartie;
 
 /**
  * BatailleNavale
- * @author Tristan
+ * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
-public class BatailleNavale extends javax.swing.JFrame implements Observer {
+public final class BatailleNavale extends javax.swing.JFrame implements Observer {
     
     
     /////////////////////////////// VARIABLES /////////////////////////////////
@@ -55,7 +55,6 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
     public static int w = 800;
     public static int h = 600;
     private final ArrayList<TailleGrille> TailleGrilles = (ArrayList<TailleGrille>) DAOFactory.getInstance().getDAO_Parametre().getTaillesGrille();
-    
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
     
@@ -305,7 +304,6 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
         popupParties.setSize(new java.awt.Dimension(500, 350));
         popupParties.setAlwaysOnTop(true);
         popupParties.setFocusTraversalPolicyProvider(true);
-        popupParties.setMaximumSize(new java.awt.Dimension(500, 350));
         popupParties.setMinimumSize(new java.awt.Dimension(500, 350));
         popupParties.setResizable(false);
         popupParties.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -382,7 +380,6 @@ public class BatailleNavale extends javax.swing.JFrame implements Observer {
 
         popupParametres.setSize(new java.awt.Dimension(500, 350));
         popupParametres.setAlwaysOnTop(true);
-        popupParametres.setMaximumSize(new java.awt.Dimension(500, 350));
         popupParametres.setMinimumSize(new java.awt.Dimension(500, 350));
         popupParametres.setResizable(false);
         popupParametres.addWindowListener(new java.awt.event.WindowAdapter() {

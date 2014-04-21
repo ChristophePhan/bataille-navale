@@ -7,8 +7,8 @@
 package bataille_navale;
 
 /**
- *
- * @author Christophe
+ * TailleGrille
+ * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class TailleGrille {
     private int x;

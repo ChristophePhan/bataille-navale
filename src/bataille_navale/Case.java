@@ -7,7 +7,6 @@ import javax.swing.JButton;
 
 /**
  * Case
- *
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public abstract class Case extends JButton implements DropTargetListener {
@@ -61,6 +60,7 @@ public abstract class Case extends JButton implements DropTargetListener {
 
     /**
      * *** GETTER/SETTER ****
+     * @return 
      */
     public boolean isEtat() {
         return _etat;

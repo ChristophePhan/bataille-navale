@@ -18,7 +18,6 @@ import org.jdom2.input.SAXBuilder;
 
 /**
  * DAO_Configuration
- *
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class DAO_Configuration {

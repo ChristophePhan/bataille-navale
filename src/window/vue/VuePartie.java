@@ -37,9 +37,9 @@ import window.main.BatailleNavale;
 
 /**
  * VuePartie
- * @author Tristan
+ * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
-public class VuePartie extends javax.swing.JFrame implements Observer, KeyListener {
+public final class VuePartie extends javax.swing.JFrame implements Observer, KeyListener {
     
     
     /////////////////////////////// VARIABLES /////////////////////////////////

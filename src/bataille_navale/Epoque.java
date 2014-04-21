@@ -30,8 +30,10 @@ public class Epoque {
     ////////////////////////////// FONCTIONS //////////////////////////////////
     
     
-    /***** GETTER/SETTER *****/
-    
+    /**
+     * *** GETTER/SETTER ****
+     * @return 
+     */ 
     
     public String getId() {
         return id;

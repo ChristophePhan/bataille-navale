@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 
 /**
  * JouerCaseController
- * @author Tristan
+ * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class JouerCaseController implements ActionListener  {
     
@@ -22,10 +22,10 @@ public class JouerCaseController implements ActionListener  {
     ////////////////////////////// VARIABLES /////////////////////////////////
 
     
-    private Partie _partie;
-    private Case _caseTouche;
-    private Joueur _joueurCourant;
-    private Joueur _joueurAdverse;
+    private final Partie _partie;
+    private final Case _caseTouche;
+    private final Joueur _joueurCourant;
+    private final Joueur _joueurAdverse;
 
     
     //////////////////////////// CONSTRUCTEURS ///////////////////////////////

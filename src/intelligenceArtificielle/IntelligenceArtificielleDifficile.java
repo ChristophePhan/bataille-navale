@@ -12,7 +12,6 @@ import java.util.Random;
 
 /**
  * IntelligenceArtificielleDifficile
- *
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class IntelligenceArtificielleDifficile extends IntelligenceArtificielle {
@@ -20,8 +19,8 @@ public class IntelligenceArtificielleDifficile extends IntelligenceArtificielle 
     public IntelligenceArtificielleDifficile(Parametre parametre) {
         super(parametre);
     }
-    
-     @Override
+
+    @Override
     public Case getCaseForIA(Joueur joueurAdverse) {
         Random rand = new Random();
         Case caseTouchee = null;

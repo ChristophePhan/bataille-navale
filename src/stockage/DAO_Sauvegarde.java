@@ -13,8 +13,6 @@ import bataille_navale.Partie;
 import bataille_navale.Profil;
 import intelligenceArtificielle.FactoryIA;
 import intelligenceArtificielle.IntelligenceArtificielle;
-import java.beans.XMLDecoder;
-import java.beans.XMLEncoder;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -35,7 +33,6 @@ import org.jdom2.output.XMLOutputter;
 
 /**
  * DAO_Sauvegarde
- *
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class DAO_Sauvegarde {
