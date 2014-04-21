@@ -130,16 +130,13 @@ public class JoueurMachine extends Joueur {
     } // jouerCase(Case c)
     
     
-    /**
-     * *** GETTER/SETTER ****
-     * @return 
-     */
+    //**** GETTER/SETTER *****//
+    
 
     public String getDifficulte() {
         return difficulte;
     }
 
-    
     public void setDifficulte(String difficulte) {
         this.difficulte = difficulte;
     }

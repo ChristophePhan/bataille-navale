@@ -11,10 +11,11 @@ package bataille_navale;
  * @author Chayem Samy, Neret Tristan, Phan Christophe
  */
 public class TailleGrille {
+    
     private int x;
     private int y;
     
-    public TailleGrille(int x, int y){
+    public TailleGrille(int x, int y) {
         this.x = x;
         this.y = y;
     }

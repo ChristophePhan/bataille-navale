@@ -66,10 +66,8 @@ public class Parametre {
     } // getBateaux(Epoque epoque)
 
     
-    /**
-     * *** GETTER/SETTER ****
-     * @return 
-     */
+    //**** GETTER/SETTER *****//
+    
        
     public int getNbCaseX() {
         return _nbCaseX;

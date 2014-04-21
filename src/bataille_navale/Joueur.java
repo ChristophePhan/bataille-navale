@@ -49,27 +49,6 @@ public abstract class Joueur {
     
     ////////////////////////////// FONCTIONS //////////////////////////////////
     
-    
-    /**
-     * Permet de tourner un bateau
-     * @param bateau bateau a faire tourner
-     */
-    public void rotationBateau(Bateau bateau) {
-
-    } // rotationBateau(Bateau bateau)
-
-    
-    /**
-     * Permet de placer un bateau sur la grille
-     * @param bateau bateau a placer
-     * @param c case sur laquelle on place le bateau
-     */
-    public void positionnerBateau(Bateau bateau, Case c) {
-        
-        
-
-    } //positionnerBateau(Bateau bateau, Case c)
-    
 
     /**
      * Permet de positionner aleatoirement les bateaux du joueur 
@@ -139,10 +118,8 @@ public abstract class Joueur {
     public abstract boolean jouerCase(Case c);
 
     
-    /**
-     * *** GETTER/SETTER ****
-     * @return 
-     */
+    //**** GETTER/SETTER *****//
+    
      
     public String getNom() {
         return _nom;

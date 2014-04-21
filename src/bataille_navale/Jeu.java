@@ -63,10 +63,8 @@ public class Jeu extends Observable {
     } // afficherParties(Profil profil)
 
     
-    /**
-     * *** GETTER/SETTER ****
-     * @return 
-     */
+    //**** GETTER/SETTER *****//
+    
         
     public Profil getProfilCourant() {
         return _profilCourant;

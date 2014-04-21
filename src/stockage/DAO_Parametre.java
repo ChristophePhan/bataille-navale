@@ -26,17 +26,24 @@ import org.jdom2.input.SAXBuilder;
  */
 public class DAO_Parametre {
 
+    
     ////////////////////////////// VARIABLES //////////////////////////////////
+    
+    
     private final String path = "stockage/fich_param.xml";
     private Document document;
     private final Element racine;
 
+    
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
+    
+    
     public DAO_Parametre() {
+        
         SAXBuilder sxb = new SAXBuilder();
         try {
+            
             //On crée un nouveau document JDOM avec en argument le fichier XML
-            //Le parsing est terminé ;)
             File f = new File(path);
             File dossier = new File("stockage");
             if (!dossier.exists()) {
@@ -46,43 +53,67 @@ public class DAO_Parametre {
                 this.ecrireFichParam();
             }
             document = sxb.build(f);
+            
         } catch (JDOMException | IOException e) {
             e.printStackTrace();
         }
         racine = document.getRootElement();
-    }
+        
+    } // DAO_Parametre()
+    
 
     /**
      * Permet de recuperer les tailles de grille disponible
-     *
      * @return une liste des tailles de grille disonible
      */
     public List getTaillesGrille() {
+        
         List grillesXML = racine.getChildren("grille");
         ArrayList<TailleGrille> listeGrilles = new ArrayList<>();
         Iterator i = grillesXML.iterator();
+        
         while (i.hasNext()) {
+            
             Element courant = (Element) i.next();
             TailleGrille tg = new TailleGrille(Integer.parseInt(courant.getChildText("x")), Integer.parseInt(courant.getChildText("y")));
             listeGrilles.add(tg);
+            
         }
+        
         return listeGrilles;
-    }
+        
+    } // getTaillesGrille()
+    
 
+    /**
+     * Permet de recuperer les difficultees disponibles
+     * @return la liste de toutes les difficultees disponibles
+     */
     public List getDifficultees() {
+        
         Element difficulteXML = racine.getChild("difficulte");
         List modeXML = difficulteXML.getChildren("mode");
         ArrayList<String> listeDifficulte = new ArrayList<>();
         Iterator i = modeXML.iterator();
+        
         while (i.hasNext()) {
+            
             Element courant = (Element) i.next();
             String diff = courant.getText();
             listeDifficulte.add(diff);
+            
         }
+        
         return listeDifficulte;
-    }
+        
+    } // getDifficultees()
 
+    
+    /**
+     * Permet d'ecrire le fichier parametre si celui-ci st intoruvable
+     */
     private void ecrireFichParam() {
+        
         String s = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                 + "<!--\n"
                 + "Fichier XML contenant les parametres disponibles pour une partie\n"
@@ -103,7 +134,9 @@ public class DAO_Parametre {
                 + "        <mode>Difficile</mode>\n"
                 + "    </difficulte>\n"
                 + "</parametres>";
+        
         try {
+            
             File f = new File("stockage/fich_param.xml");
             BufferedWriter bw = new BufferedWriter(new FileWriter(f));
             
@@ -112,9 +145,12 @@ public class DAO_Parametre {
 
             bw.flush();
             bw.close();
+            
         } catch (IOException ex) {
             Logger.getLogger(DAO_Parametre.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+        
+    } // ecrireFichParam()
 
-}
+    
+} // class DAO_Parametre

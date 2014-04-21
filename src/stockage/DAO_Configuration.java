@@ -22,17 +22,24 @@ import org.jdom2.input.SAXBuilder;
  */
 public class DAO_Configuration {
 
+    
     ////////////////////////////// VARIABLES //////////////////////////////////
+    
+    
     private final String path = "stockage/fich_config.xml";
     private Document document;
     private final Element racine;
 
+    
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
+    
+    
     public DAO_Configuration() {
+        
         SAXBuilder sxb = new SAXBuilder();
         try {
+            
             //On crée un nouveau document JDOM avec en argument le fichier XML
-            //Le parsing est terminé ;)
             File f = new File(path);
             File dossier = new File("stockage");
             if (!dossier.exists()) {
@@ -42,24 +49,30 @@ public class DAO_Configuration {
                 this.ecrireFichConfig();
             }
             document = sxb.build(f);
+            
         } catch (JDOMException | IOException e) {
             e.printStackTrace();
         }
         racine = document.getRootElement();
+        
     } // DAO_Configuration()
 
+    
     ////////////////////////////// FONCTIONS //////////////////////////////////
+    
+    
     /**
      * Permet de recuperer la liste des epoques disponibles dans le fichier de
      * configuration
-     *
      * @return la liste des epoques disponible
      */
     public HashMap<String, Epoque> getAllEpoques() {
+        
         List listeEpoquesXML = racine.getChildren("epoque");
         HashMap<String, Epoque> listeEpoques = new HashMap();
         Iterator i = listeEpoquesXML.iterator();
         while (i.hasNext()) {
+            
             Epoque ep = new Epoque();
             Element courant = (Element) i.next();
             ep.setEpoque(courant.getChildText("siecle"));
@@ -69,7 +82,9 @@ public class DAO_Configuration {
             Element bateaux = courant.getChild("bateaux");
             Iterator i2 = bateaux.getChildren().iterator();
             HashMap<String, Bateau> bateauxHM = new HashMap<>();
+            
             while (i2.hasNext()) {
+                
                 Bateau b = new Bateau();
                 Element courant2 = (Element) i2.next();
                 b.setNom(courant2.getChildText("nom"));
@@ -78,32 +93,45 @@ public class DAO_Configuration {
                 Element images = courant2.getChild("images");
                 Iterator i3 = images.getChildren("image").iterator();
                 HashMap<Integer, String> imagesL = new HashMap<>();
+                
                 while (i3.hasNext()) {
                     Element courant3 = (Element) i3.next();
                     imagesL.put(Integer.parseInt(courant3.getAttributeValue("id")), courant3.getText());
                 }
+                
                 b.setImagesBateau(imagesL);
                 bateauxHM.put(courant2.getChildText("nom"), b);
+                
             }
+            
             ep.setListBateaux(bateauxHM);
             listeEpoques.put(courant.getChildText("nom"), ep);
+            
         }
+        
         return listeEpoques;
+        
     } // getAllEpoques()
 
+    
     /**
      * Permet de recuperer la liste des bateaux disponibles pour une epoque
      * donnee dans le fichier de configuration
-     *
      * @param epoque epoque dont on souhaite recuperer les bateaux
      * @return la liste des bateaux disponibles pour l'epoque donnee
      */
     public HashMap getAllBateaux(Epoque epoque) {
+        
         return epoque.getListBateaux();
 
     } // getAllBateaux(Epoque epoque)
 
+    
+    /**
+     * Permet d'ecrire le fichier de config s'il est introuvabel
+     */
     private void ecrireFichConfig() {
+        
         String s = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                 + "<!-- Fichier de configuration (Epoque/Bateaux)\n"
                 + " L'id des images bateaux doit commencer par 1 et les id suivants des images doivent suivre dans \n"
@@ -285,16 +313,20 @@ public class DAO_Configuration {
                 + "        </bateaux>\n"
                 + "    </epoque>\n"
                 + "</epoques>";
+        
         try {
+            
             File f = new File("stockage/fich_config.xml");
             BufferedWriter bw = new BufferedWriter(new FileWriter(f));
             bw.write(s);
             bw.newLine();
             bw.flush();
             bw.close();
+            
         } catch (IOException ex) {
             Logger.getLogger(DAO_Parametre.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+        
+    } // ecrireFichConfig()
 
 } // class DAO_Configuration

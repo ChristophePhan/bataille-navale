@@ -101,10 +101,8 @@ public class CaseBateau extends Case {
     } // drop(DropTargetDropEvent dtde)
     
     
-     /**
-     * *** GETTER/SETTER ****
-     * @return 
-     */
+    //**** GETTER/SETTER *****//
+    
 
     public String getImage() {
         return _image;

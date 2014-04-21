@@ -18,9 +18,12 @@ public class Profil {
     
     
     ///////////////////////////// CONSTRUCTEUR ////////////////////////////////
-    public Profil(){
+    
+    
+    public Profil() {
         
-    }
+    } // Profil()
+    
     
     public Profil(String nom) {
         
@@ -65,10 +68,8 @@ public class Profil {
     } // supprimerPartie(String id)
     
 
-    /**
-     * *** GETTER/SETTER ****
-     * @return 
-     */
+    //**** GETTER/SETTER *****//
+    
       
     public String getId() {
         return _id;

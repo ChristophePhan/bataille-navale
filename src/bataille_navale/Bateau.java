@@ -64,10 +64,8 @@ public class Bateau {
     } // testBateauCoule()
 
     
-    /**
-     * *** GETTER/SETTER ****
-     * @return 
-     */
+    //**** GETTER/SETTER *****//
+     
     
     public String getNom() {
         return _nom;

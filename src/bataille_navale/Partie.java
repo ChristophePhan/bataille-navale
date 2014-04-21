@@ -312,7 +312,6 @@ public class Partie extends Observable {
     
     /**
      * Permet au joueur de positionner un de ses bateaux sur la grille
-     *
      * @param abs coordonnees en abscisse de la case de depart
      * @param ord coordonnees en ordonnee de la case de depart
      * @param cArrive case d'arrivee
@@ -405,7 +404,6 @@ public class Partie extends Observable {
     
     /**
      * Permet de savoir si le bateau peut etre deplace ou non
-     *
      * @param sens orientation du bateau 1 - Horizontal 2 - Vertical
      * @param taille longueur du bateau a placer
      * @param cArrive premiere case de la nouvelle position du bateau
@@ -449,7 +447,6 @@ public class Partie extends Observable {
     
     /**
      * Permet d'ajouter l'evenement de souris sur la case pour le Drag & Drop
-     *
      * @param c case sur laquelle on souhaite autoriser l'evenement de souris
      * @param typeCase si CaseBateau on ajoute un evenement au clic
      * @return la case avec l'evenement de souris autorise
@@ -559,7 +556,6 @@ public class Partie extends Observable {
     
     /**
      * Permet de recuperer une case a jouer pour l'IA
-     *
      * @param joueurAdverse joueur physique
      * @return la case a jouer pour l'IA
      */
@@ -572,7 +568,6 @@ public class Partie extends Observable {
     
     /**
      * Permet de changer la difficultee en cours de partie
-     *
      * @param diff nouvelle difficultee pour la partie - "Facile" - "Normal" -
      * "Difficile"
      */
@@ -591,7 +586,6 @@ public class Partie extends Observable {
     
     /**
      * Permet de savoir s'il reste des bateaux au joueur adverse ou non
-     *
      * @param joueur joueur sur lequel on test son nombre de bateaux restants
      * @return TRUE si le joueur ne possede plus de cases, FALSE sinon
      */
@@ -613,7 +607,6 @@ public class Partie extends Observable {
     
     /**
      * Permet de savoir s'il reste encore des cases a jouer dans la partie
-     *
      * @return TRUE s'il n'y a plus de cases a jouer, FALSE sinon
      */
     public boolean testEgalite() {
@@ -638,7 +631,6 @@ public class Partie extends Observable {
     
     /**
      * Permet d'afficher un message au joueur
-     *
      * @param mess message a afficher
      * @param joueur si TRUE joueur courant, si FALSE joueur adverse
      */
@@ -654,7 +646,6 @@ public class Partie extends Observable {
     
     /**
      * Permet d'afficher un message au joueur a la fin de la partie
-     *
      * @param mess message a afficher
      */
     public void afficherMessageFinPartie(String mess) {
@@ -666,10 +657,8 @@ public class Partie extends Observable {
     } // afficherMessageFinPartie(String mess)
 
     
-    /**
-     * *** GETTER/SETTER ****
-     * @return 
-     */
+    //**** GETTER/SETTER *****//
+    
        
     public HashMap<String, Case> getCasesBateaux() {
         return casesBateaux;

@@ -357,21 +357,6 @@ public final class VuePartie extends javax.swing.JFrame implements Observer, Key
         int x = this._partie.getParametre().getNbCaseX();
         int y = this._partie.getParametre().getNbCaseY();
         
-        // Si une case n'est plus a portee de tir, on la desactive
-        /*for(int i=0;i<x;i++) {
-            for(int j=0;j<y;j++) {
-                
-                if (this._partie.getJ1().getCases().get(i + j * x).getBateau() == null) {
-
-                    ImageIcon bateauImage = new ImageIcon(getClass().getResource("/stockage/images/Fond_blanc.png"));
-                    this._partie.getJ1().getCases().get(i + j * x).setEnabled(false);
-                    this._partie.getJ1().getCases().get(i + j * x).setDisabledIcon(bateauImage);
-
-                }
-                
-            }
-        }*/
-        
         // On reactive les cases qui ont etes desactivee inutilement
         for(int i=0;i<x;i++) {
             for(int j=0;j<y;j++) {

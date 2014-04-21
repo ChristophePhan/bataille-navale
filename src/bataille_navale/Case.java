@@ -11,14 +11,20 @@ import javax.swing.JButton;
  */
 public abstract class Case extends JButton implements DropTargetListener {
 
+    
     /////////////////////////////// VARIABLES /////////////////////////////////
+    
+    
     protected boolean _etat;
     protected boolean _aPortee;
     protected int _abs;
     protected int _ord;
     protected Partie _partie;
+    
 
     ////////////////////////////// CONSTRUCTEUR ///////////////////////////////
+    
+    
     public Case() {
 
         this._etat = false;
@@ -27,6 +33,7 @@ public abstract class Case extends JButton implements DropTargetListener {
 
     } // Case()
 
+    
     public Case(Partie partie) {
 
         this._partie = partie;
@@ -36,15 +43,18 @@ public abstract class Case extends JButton implements DropTargetListener {
 
     } // Case(Partie partie)
 
+    
     /////////////////////////////// FONCTIONS /////////////////////////////////
+    
+    
     /**
      * Permet de retourner le bateau associe a la case pour une case Bateau
-     *
      * @return le Bateau associe a la case pour une case Bateau, null sinon
      */
     public abstract Bateau getBateau();
     public abstract void setBateau(Bateau b);
 
+    
     /**
      * Met a jour les coordonnees de la case dans la grille de jeu
      *
@@ -58,19 +68,16 @@ public abstract class Case extends JButton implements DropTargetListener {
 
     } // setCoordonnees(int abs, int ord)
 
-    /**
-     * *** GETTER/SETTER ****
-     * @return 
-     */
+    
+    //**** GETTER/SETTER *****//
+    
+    
     public boolean isEtat() {
         return _etat;
     }
 
     public void setEtat(boolean etat) {
         this._etat = etat;
-//        if(this.isEtat()){
-//            this.setIcon(new ImageIcon(getClass().getResource("/stockage/images/Croix.png")));
-//        } 
     }
 
     public boolean isAPortee() {
@@ -110,4 +117,5 @@ public abstract class Case extends JButton implements DropTargetListener {
         return "Case : " + _abs + ", " + _ord;
     }
 
+    
 } // abstract class Case 
